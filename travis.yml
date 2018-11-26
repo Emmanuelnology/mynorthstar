@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - "8"
+dist: trusty
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+
+script:
+  - npm run lint
+  - npm run build
+
+notifications:
+  slack: nology-uk:je0I2B8Zeu6UZTn3HwEGXNjd
+  webhooks:
+    urls:
+      - https://us-central1-build-monitor-c2cac.cloudfunctions.net/buildMessage
+    on_success: always # default: always
+    on_failure: always # default: always
+    on_start: always   # default: always
+    on_cancel: always # default: always
+    on_error: always # default: always
