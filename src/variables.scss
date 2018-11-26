@@ -1,0 +1,18 @@
+$primary-color: red;
+
+$s-0: 0;
+$s-1: 10px;
+$s-2: 20px;
+$s-3: 40px;
+$s-4: 70px;
+
+@mixin bg-image($imageUrl) {
+  background-image: url($imageUrl);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin bg-mountain() {
+  @include bg-image('/assets/backgrounds/mountain.jpg'); 
+}
