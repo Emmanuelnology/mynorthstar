@@ -8,6 +8,7 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 
 const routes: Routes = [
   { path: 'questionnaire', component: QuestionnaireComponent },
+
 ];
 
 @NgModule({
