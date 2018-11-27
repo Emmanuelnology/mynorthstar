@@ -7,7 +7,7 @@ export interface IQuestion {
   number: number;
   content: string;
   score: number;
-  weighting: number;
+  weight: number;
   category: string;
 }
 
@@ -18,21 +18,13 @@ export interface IQuestion {
 })
 
 export class QuestionnaireComponent implements OnInit {
-<<<<<<< HEAD
-  questions = exampleQuestions;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-=======
   questions = [
     {
     title: 'Question 1',
     number: 1,
     content: 'I do not feel particularly pleased with the way I am',
     score: undefined,
-    weighting: 2,
+    weight: 2,
     category: 'Happiness'
     },
     {
@@ -40,7 +32,7 @@ export class QuestionnaireComponent implements OnInit {
     number: 2,
     content: 'I feel that life is very rewarding',
     score: undefined,
-    weighting: 5,
+    weight: 5,
     category: 'Happiness'
     },
     {
@@ -48,7 +40,7 @@ export class QuestionnaireComponent implements OnInit {
     number: 3,
     content: 'I rarely wake up feeling rested',
     score: undefined,
-    weighting: 5,
+    weight: 5,
     category: 'Happiness'
     },
     {
@@ -56,7 +48,7 @@ export class QuestionnaireComponent implements OnInit {
     number: 4,
     content: 'I laugh a lot',
     score: undefined,
-    weighting: 2,
+    weight: 2,
     category: 'Happiness'
     }
     ];
@@ -64,7 +56,6 @@ export class QuestionnaireComponent implements OnInit {
   constructor() {
   }
    ngOnInit() {
->>>>>>> 5ea8c67ace15f3abd233fd85b0f147ef39dc0142
   }
 
 }
