@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { ResultsComponent } from './results/results.component';
 import { StarComponent } from './star/star.component';
+import { TaskManagerComponent } from './task-manager/task-manager.component';
 
 const routes: Routes = [
   { path: 'questionnaire', component: QuestionnaireComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     QuestionnaireComponent,
     ResultsComponent,
     StarComponent,
+    TaskManagerComponent
   ],
   imports: [
     BrowserModule,
