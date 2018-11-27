@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { iterateListLike } from '@angular/core/src/change_detection/change_detection_util';
 import { IQuestion } from '../questionnaire/questionnaire.component';
 
 export interface ICategory {
