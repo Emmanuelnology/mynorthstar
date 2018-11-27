@@ -8,9 +8,9 @@ import { IResult, QuestionnaireService, exampleQuestions } from '../services/que
 })
 export class ResultsComponent implements OnInit {
   questions = exampleQuestions;
-  results:IResult[];
+  results: IResult[];
 
-  constructor(private questionnaireService:QuestionnaireService) {
+  constructor(private questionnaireService: QuestionnaireService) {
     this.results = this.questionnaireService.getResults(this.questions);
   }
 

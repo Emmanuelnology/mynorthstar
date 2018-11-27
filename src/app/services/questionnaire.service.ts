@@ -1,49 +1,50 @@
 import { Injectable } from '@angular/core';
 import { iterateListLike } from '@angular/core/src/change_detection/change_detection_util';
-// import { IQuestion } from '../questionnaire/questionnaire.component';
+import { IQuestion } from '../questionnaire/questionnaire.component';
 
 export interface ICategory {
-  score:number;
-  weight:number;
+  score: number;
+  weight: number;
 }
 
 export interface IResult {
-  category:string;
-  categoryAverage:number;
+  category: string;
+  categoryAverage: number;
 }
 
-export interface IQuestion {
-  text:string,
-  score:number;
-  weight:number;
-  category:'friends'|'finance';
-}
-
-export let exampleQuestions:IQuestion[] = [
+export let exampleQuestions: IQuestion[] = [
   {
-    text:'how many cats do you have',
-    score: 5,
+    title: 'Question 1',
+    number: 1,
+    content: 'I do not feel particularly pleased with the way I am',
+    score: 3,
     weight: 2,
-    category: 'friends'
-  },
-  {
-    text: 'how much money do you have',
-    score: 1,
-    weight: 4,
-    category: 'finance'
-  },
-  {
-    text: 'how many friends',
-    score: 5,
+    category: 'Happiness'
+    },
+    {
+    title: 'Question 2',
+    number: 2,
+    content: 'I feel that life is very rewarding',
+    score: 6,
     weight: 5,
-    category: 'friends'
-  },
-  {
-    text: 'how much debt',
-    score: 9,
+    category: 'Happiness'
+    },
+    {
+    title: 'Question 3',
+    number: 3,
+    content: 'I rarely wake up feeling rested',
+    score: 4,
+    weight: 5,
+    category: 'Friends'
+    },
+    {
+    title: 'Question 4',
+    number: 4,
+    content: 'I laugh a lot',
+    score: 1,
     weight: 2,
-    category: 'finance'
-  }
+    category: 'Friends'
+    }
 ];
 
 @Injectable({
@@ -51,51 +52,51 @@ export let exampleQuestions:IQuestion[] = [
 })
 
 export class QuestionnaireService {
-  
   constructor() { }
-  
-  calculateWeightedAverage(array:ICategory[]):number {
+  calculateWeightedAverage(array: ICategory[]): number {
     let weightTimesScoreSum = 0;
     let weightSum = 0;
-    for (let index in array) {
-      weightTimesScoreSum += array[index].score*array[index].weight;
+    for (const index in array) {
+      weightTimesScoreSum += array[index].score * array[index].weight;
       weightSum += array[index].weight;
     }
-    let averageScore = weightTimesScoreSum/weightSum;
+    const averageScore = weightTimesScoreSum / weightSum;
     return averageScore;
   }
-  
-  createCatOb(question:IQuestion):ICategory {
-    let catOb:ICategory = {score:0, weight:0};
+
+  createCatOb(question: IQuestion): ICategory {
+    const catOb: ICategory = {score: 0, weight: 0};
     catOb.score = question.score;
     catOb.weight = question.weight;
     return catOb;
   }
-  
-  getCategories(initialResults:IQuestion[]):string[] {
-    let foundCategories:string[] = [];
-    for (let index in initialResults) {
-      let currentCategory = initialResults[index].category;
-      if (foundCategories.indexOf(currentCategory) < 0) foundCategories.push(currentCategory);
+
+  getCategories(initialResults: IQuestion[]): string[] {
+    const foundCategories: string[] = [];
+    for (const index in initialResults) {
+      const currentCategory = initialResults[index].category;
+      if (foundCategories.indexOf(currentCategory) < 0) {
+        foundCategories.push(currentCategory);
+      }
     }
     return foundCategories;
   }
-  
-  getResults(initialResults:IQuestion[]):IResult[] {
-    let foundCategories = this.getCategories(initialResults);
-    let results:IResult[] = [];    
-    for (let categoryIndex of foundCategories) {
-      let array:ICategory[] = [];
-      for (let questionIndex in initialResults) {
-        if (initialResults[questionIndex].category == categoryIndex) {
-          let catOb = this.createCatOb(initialResults[questionIndex])
+
+  getResults(initialResults: IQuestion[]): IResult[] {
+    const foundCategories = this.getCategories(initialResults);
+    let results: IResult[] = [];
+    for (const categoryIndex of foundCategories) {
+      const array: ICategory[] = [];
+      for (const questionIndex in initialResults) {
+        if (initialResults[questionIndex].category === categoryIndex) {
+          const catOb = this.createCatOb(initialResults[questionIndex]);
           array.push(catOb);
         }
       }
-      let average = {
-        category: categoryIndex, 
+      const average = {
+        category: categoryIndex,
         categoryAverage: this.calculateWeightedAverage(array)
-      }
+      };
       results = results.concat(average);
     }
     return results;
