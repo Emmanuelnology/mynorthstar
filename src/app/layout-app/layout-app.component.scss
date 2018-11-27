@@ -1,17 +1,17 @@
+@import "../../variables.scss";
+
 .parent {
     display: flex;
-    display: row;
 }
-
-$s-0: 0;
-$s-1:15px;
 
 nav{
     flex: 1;
-    color: white;
-    background-color: black;
+    color:#0d4863;
+    background-color: #101f34;
     height: 100vh;
     padding: $s-1;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: white;
 }
 
 main {
@@ -33,19 +33,20 @@ li{
 .right-container{
     display: flex;
     flex-direction: column;
+    background-image: url("../../assets/backgrounds/background2.jpg");
 }
 
 .top{
     flex-wrap:wrap;
     padding: $s-1;
-    background-color: darkblue;
     color: white;
+    padding-top:25px
 }
 
 .bottom {
     flex-wrap: wrap;
-    background-color: lightblue;
-    padding: 50px 20px;
+    padding: 20px;
+    color: white;
 }
 
 .circle{
@@ -60,6 +61,6 @@ img{
 }
 
 .content{
-    border: 1px solid black;
+    border: 1px solid #0d4863;
     border-radius: 5px;
 }
