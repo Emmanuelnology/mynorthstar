@@ -13,11 +13,13 @@ import { StarComponent } from './star/star.component';
 import { TaskManagerComponent } from './task-manager/task-manager.component';
 import { LayoutAppComponent } from './layout-app/layout-app.component';
 
+
 const routes: Routes = [
   { path: 'questionnaire', component: QuestionnaireComponent },
   { path: 'results', component: ResultsComponent},
   { path: 'forgot-password', component: FPasswordComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'layout-app', component: LayoutAppComponent},
 ];
 
 @NgModule({
