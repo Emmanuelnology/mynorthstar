@@ -148,14 +148,14 @@ export class QuestionnaireService {
   }
 
   roundNumber(number: number, decimals: number): number {
-    let powerOfTen = Math.pow(10, decimals)
-    let bigNumber = Math.floor(number * powerOfTen);
+    const powerOfTen = Math.pow(10, decimals);
+    const bigNumber = Math.floor(number * powerOfTen);
     return bigNumber / powerOfTen;
   }
 
   decimalPadding(number: number, decimals: number): number {
     if (number === Math.floor(number)) {
-      //let decimalisation =  number + "." + ('1').repeat(decimals);
+      // let decimalisation =  number + "." + ('1').repeat(decimals);
       // return number.toFixed(decimals);
       return number;
     }
@@ -184,10 +184,12 @@ export class QuestionnaireService {
 
   overallAverage(results: IResult[]): number {
     let sumOfResults = 0;
-    for (let resultIndex in results) {
-      sumOfResults += results[resultIndex].categoryAverage;
+    for (const resultIndex in results) {
+      if (results.hasOwnProperty(resultIndex)) {
+        sumOfResults += results[resultIndex].categoryAverage;
+      }
     }
-    let average = sumOfResults / results.length;
+    const average = sumOfResults / results.length;
     return this.roundNumber(average, this.decimalPlaces);
   }
 }
