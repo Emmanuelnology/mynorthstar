@@ -22,7 +22,7 @@ export class QuestionnaireComponent implements OnInit {
     {
     title: 'Question 1',
     number: 1,
-    content: 'I do not feel particularly pleased with the way I am',
+    content: '1. I do not feel particularly pleased with the way I am',
     score: undefined,
     weight: 2,
     category: 'Happiness'
@@ -30,7 +30,7 @@ export class QuestionnaireComponent implements OnInit {
     {
     title: 'Question 2',
     number: 2,
-    content: 'I feel that life is very rewarding',
+    content: '2. I feel that life is very rewarding',
     score: undefined,
     weight: 5,
     category: 'Happiness'
@@ -38,7 +38,7 @@ export class QuestionnaireComponent implements OnInit {
     {
     title: 'Question 3',
     number: 3,
-    content: 'I rarely wake up feeling rested',
+    content: '3. I rarely wake up feeling rested',
     score: undefined,
     weight: 5,
     category: 'Happiness'
@@ -46,7 +46,7 @@ export class QuestionnaireComponent implements OnInit {
     {
     title: 'Question 4',
     number: 4,
-    content: 'I laugh a lot',
+    content: '4. I laugh a lot',
     score: undefined,
     weight: 2,
     category: 'Happiness'
