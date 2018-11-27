@@ -8,7 +8,7 @@ body {
 
 /* Text color, width and position */
 main > form {
-    height: 200px;
+    max-height: 100%;
     width: 400px;
     position: fixed;
     top: 30%;
@@ -16,6 +16,7 @@ main > form {
     margin-top: -100px;
     margin-left: -200px;
     font-size: 0.7em;
+    border: solid 1px;
 }
 
 main > form, h1 {
@@ -39,7 +40,7 @@ footer {
 }
 
 /* Links to profile style */
-.to-profile {
+.to-profile-home {
     float: right;
 }
 
@@ -51,27 +52,27 @@ button {
 
 /* Buttons style and position */
 .button {
-    background-color: rgb(7, 7, 112);
+    background-color: rgb(7, 7, 94);
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 0.8em;
-    margin: 4px 2px;
+    font-size: 1.2em;
+    margin-top: 0.8em;
     cursor: pointer;
 }
 
 .restart {
-    background-color: rgb(5, 5, 51);
+    background-color: rgb(35, 35, 73);
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 0.8em;
+    font-size: 1.2em;
     margin: 4px 2px;
     cursor: pointer;    
 }
