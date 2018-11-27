@@ -1,0 +1,39 @@
+div {
+    display: flex;
+}
+
+$s-0: 0;
+$s-1:15px;
+
+nav{
+    flex: 1;
+    color: red;
+    background-color: black;
+    height: 100vh;
+    padding: $s-1;
+    
+    
+}
+
+main {
+    flex: 8;
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    margin: $s-1, $s-0;
+    text-align: center;
+}
+
+.right-container{
+    display: flex;
+}
+
+.top{
+    flex:row;
+    flex-wrap: wrap;
+}
