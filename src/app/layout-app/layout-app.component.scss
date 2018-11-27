@@ -1,5 +1,6 @@
-div {
+.parent {
     display: flex;
+    display: row;
 }
 
 $s-0: 0;
@@ -7,12 +8,10 @@ $s-1:15px;
 
 nav{
     flex: 1;
-    color: red;
+    color: white;
     background-color: black;
     height: 100vh;
     padding: $s-1;
-    
-    
 }
 
 main {
@@ -27,20 +26,40 @@ ul{
 li{
     margin: $s-1, $s-0;
     text-align: center;
+    padding: 10px;
+    font-size: 1.5em;
 }
 
 .right-container{
     display: flex;
+    flex-direction: column;
 }
 
 .top{
-    flex:col;
-    flex-wrap: wrap;
-    background-color: lightblue;
+    flex-wrap:wrap;
+    padding: $s-1;
+    background-color: darkblue;
+    color: white;
 }
 
 .bottom {
-    flex:col;
     flex-wrap: wrap;
-    background-color: darkblue;
+    background-color: lightblue;
+    padding: 50px 20px;
+}
+
+.circle{
+    float: right;
+    padding-right: 5px;
+}
+
+
+img{
+    height:30px;
+    float:left;
+}
+
+.content{
+    border: 1px solid black;
+    border-radius: 5px;
 }
