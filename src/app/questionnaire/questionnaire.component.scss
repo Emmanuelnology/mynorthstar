@@ -1,12 +1,19 @@
 body {
     background-image: url('star.jpg');
     background-size: cover;
+    font-family: 'Nunito Sans';
+    height: 100vh;
 }
 
-form {
+main > form, h1 {
     color: white;
     justify-content: center;
     text-align: center;
+}
+
+footer {
+    color: white;
+    bottom: 0;
 }
 
 .button {
