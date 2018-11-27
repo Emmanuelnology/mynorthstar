@@ -33,30 +33,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-<<<<<<< HEAD
-  declarations: [
-    AppComponent,
-    LayoutAuthComponent,
-    RegisterComponent,
-    FPasswordComponent,
-    QuestionnaireComponent,
-    ResultsComponent,
-    StarComponent,
-    TaskManagerComponent,
-    LayoutAppComponent,
-    CreateTaskComponent,
-    TaskListComponent
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(
-      routes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-=======
  declarations: [
    AppComponent,
    LayoutAuthComponent,
@@ -82,6 +58,5 @@ const routes: Routes = [
  ],
  providers: [],
  bootstrap: [AppComponent]
->>>>>>> 93d0cd6be19b163578dbbd3ccfba1bbfbade92d2
 })
 export class AppModule { }
