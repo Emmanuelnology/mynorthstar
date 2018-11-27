@@ -1,3 +1,10 @@
+/* Limit shrinking (Caitlin problem) */
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    overflow: scroll;
+}
+
 /* Body background image, font-family and height */
 body {
     background-image: url("../../assets/backgrounds/background2.jpg");
@@ -23,7 +30,6 @@ main > form, h1 {
     color: white;
     justify-content: center;
     text-align: center;
-    font-size: auto;
 }
 
 div > label {
@@ -75,4 +81,23 @@ button {
     font-size: 1.2em;
     margin: 4px 2px;
     cursor: pointer;    
+}
+
+@media only screen and (max-width: 800px) {
+    main > form {
+        font-size: 0.6em;
+    }
+    main > h1 {
+        font-size: 1em
+    }
+    .button {
+        font-size: 0.8em;
+    }
+    
+    .restart {
+        font-size: 0.75em;
+    }
+    footer {
+        font-size: 0.60em;
+    }
 }
