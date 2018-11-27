@@ -4,7 +4,6 @@ body {
     background-size: cover;
     font-family: 'Nunito Sans';
     height: 100vh;
-    font-size: auto;
 }
 
 /* Text color, width and position */
@@ -16,23 +15,22 @@ main > form {
     left: 50%;
     margin-top: -100px;
     margin-left: -200px;
+    font-size: 0.7em;
 }
 
 main > form, h1 {
     color: white;
     justify-content: center;
     text-align: center;
+    font-size: auto;
 }
 
-div > * {
+div > label {
     padding-bottom: 9px;
 }
 
-label {
-    width: 120vh;
-}
-
 footer {
+    font-size: 0.65em;
     color: white;
     position: absolute;
     top: 100%;
@@ -60,7 +58,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 0.8em;
     margin: 4px 2px;
     cursor: pointer;
 }
@@ -73,7 +71,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 0.8em;
     margin: 4px 2px;
     cursor: pointer;    
 }

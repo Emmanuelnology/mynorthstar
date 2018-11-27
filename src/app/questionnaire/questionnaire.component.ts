@@ -50,6 +50,30 @@ export class QuestionnaireComponent implements OnInit {
     score: undefined,
     weight: 2,
     category: 'Happiness'
+    },
+    {
+      title: 'Question 5',
+      number: 5,
+      content: '5. I could handle a major unexpected expense',
+      score: undefined,
+      weight: 5,
+      category: 'Finances'
+    },
+    {
+      title: 'Question 6',
+      number: 6,
+      content: '6. I can enjoy life because of the way I’m managing my money',
+      score: undefined,
+      weight: 2,
+      category: 'Finances'
+    },
+    {
+      title: 'Question 7',
+      number: 7,
+      content: '7. During your conversations, do you find yourself often defending your actions',
+      score: undefined,
+      weight: 6,
+      category: 'Relationships'
     }
     ];
 
