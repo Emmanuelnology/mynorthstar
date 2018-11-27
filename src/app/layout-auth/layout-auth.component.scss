@@ -1,17 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    background-color: #26325c;
+    height: 100%;
+    width: 100%;
+}
+
+#container {
     width: 25vw;
     height: 25vh;
     text-align: center;
-    border: solid black 2px;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 25vh;
     left: 0;
     right: 0;
     margin: auto;
     box-sizing: border-box;
 }
 
+#container * {      
+   margin: 0.25em;     
+}
+
 #logo {
-    border: solid black 2px;
+    // border: solid black 2px;
 }

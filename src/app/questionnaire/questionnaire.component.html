@@ -1,3 +1,28 @@
-<p>
-  questionnaire works!
-</p>
+<header>
+  <title>
+    Questionnaire
+  </title>
+</header>
+<main>
+  <body>
+    <fieldset>
+      <form action="https://webhook.site/c90a11cc-b41f-44ee-8db8-8d6cac44ffc6" method="POST">
+        <div *ngFor="let question of questions">
+          <label for="questions">
+            <h2>{{question.content}}</h2>
+          </label>
+          <input
+          type="number"
+          value ="{{question.score}}" 
+          name="question-{{question.number}}" 
+          min="0" max="10"
+          required
+          >
+        </div>
+        <input type="reset"/>
+          <button type="reset" value="Restart"></button>
+        <input type="submit" value="Send">    
+      </form>
+    </fieldset>
+  </body>
+</main>
