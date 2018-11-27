@@ -42,7 +42,9 @@ const routes: Routes = [
    ResultsComponent,
    StarComponent,
    TaskManagerComponent,
-   LayoutAppComponent
+   LayoutAppComponent,
+   CreateTaskComponent,
+   TaskListComponent
  ],
  imports: [
    BrowserModule,
