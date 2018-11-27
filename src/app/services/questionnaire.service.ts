@@ -16,7 +16,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 1',
     number: 1,
-    content: 'I do not feel particularly pleased with the way I am',
+    content: 'I do not feel particularly pleased with the nology help system',
     score: 3,
     weight: 2,
     category: 'Happiness'
@@ -24,16 +24,17 @@ export let exampleQuestions: IQuestion[] = [
     {
     title: 'Question 2',
     number: 2,
-    content: 'I feel that life is very rewarding',
+    content: 'I feel that Craig is ignoring us',
     score: 6,
     weight: 5,
-    category: 'Personal growth'
+    category: 'Personal growth',
+    positive: false
     },
     {
     title: 'Question 3',
     number: 3,
     content: 'I rarely wake up feeling rested',
-    score: 4,
+    score: 10,
     weight: 5,
     category: 'Friends and family'
     },
@@ -123,7 +124,7 @@ export class QuestionnaireService {
       }
     }
     const averageScore = weightTimesScoreSum / weightSum;
-    const roundedAverage =  this.roundNumber(averageScore, this.decimalPlaces);
+    let roundedAverage =  this.roundNumber(averageScore, this.decimalPlaces);
     return this.decimalPadding(roundedAverage, this.decimalPlaces);
   }
 
@@ -134,11 +135,11 @@ export class QuestionnaireService {
     return catOb;
   }
 
-  getCategories(initialResults: IQuestion[]): string[] {
+  getCategories(questionArray: IQuestion[]): string[] {
     const foundCategories: string[] = [];
-    for (const questionIndex in initialResults) {
-      if (initialResults.hasOwnProperty(questionIndex)) {
-        const currentCategory = initialResults[questionIndex].category;
+    for (const questionIndex in questionArray) {
+      if (questionArray.hasOwnProperty(questionIndex)) {
+        const currentCategory = questionArray[questionIndex].category;
         if (foundCategories.indexOf(currentCategory) < 0) {
           foundCategories.push(currentCategory);
         }
@@ -162,14 +163,25 @@ export class QuestionnaireService {
     return number;
   }
 
+  makePositive(questionArray: IQuestion[]): IQuestion[] {
+    for (let questionIndex in questionArray) {
+      const currentQuestion = questionArray[questionIndex];
+      if (currentQuestion.hasOwnProperty('positive')) {
+        currentQuestion.score = 10 - currentQuestion.score;
+      }
+    }
+    return questionArray;
+  }
+
   getResults(initialResults: IQuestion[]): IResult[] {
-    const foundCategories = this.getCategories(initialResults);
+    let positiveResults = this.makePositive(initialResults);
+    const foundCategories = this.getCategories(positiveResults);
     let results: IResult[] = [];
     for (const categoryIndex of foundCategories) {
       const array: ICategory[] = [];
-      for (const questionIndex in initialResults) {
-        if (initialResults[questionIndex].category === categoryIndex) {
-          const catOb = this.createCatOb(initialResults[questionIndex]);
+      for (const questionIndex in positiveResults) {
+        if (positiveResults[questionIndex].category === categoryIndex) {
+          const catOb = this.createCatOb(positiveResults[questionIndex]);
           array.push(catOb);
         }
       }

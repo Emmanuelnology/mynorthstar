@@ -9,6 +9,7 @@ export interface IQuestion {
   score: number;
   weight: number;
   category: string;
+  positive?: boolean;
 }
 
 @Component({
@@ -18,14 +19,15 @@ export interface IQuestion {
 })
 
 export class QuestionnaireComponent implements OnInit {
-  questions = [
+  questions: IQuestion[] = [
     {
     title: 'Question 1',
     number: 1,
     content: '1. I do not feel particularly pleased with the way I am',
     score: undefined,
     weight: 2,
-    category: 'Happiness'
+    category: 'Happiness',
+    positive: false
     },
     {
     title: 'Question 2',
