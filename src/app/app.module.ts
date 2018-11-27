@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Components
 import { AppComponent } from './app.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { TaskManagerComponent } from './task-manager/task-manager.component';
 
 const routes: Routes = [
   { path: 'questionnaire', component: QuestionnaireComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    QuestionnaireComponent
+    QuestionnaireComponent,
+    TaskManagerComponent
   ],
   imports: [
     BrowserModule,
