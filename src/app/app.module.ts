@@ -13,7 +13,7 @@ import { StarComponent } from './star/star.component';
 import { TaskManagerComponent } from './task-manager/task-manager.component';
 import { LayoutAppComponent } from './layout-app/layout-app.component';
 
-// Firebase imports
+// Firebase imports!
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
