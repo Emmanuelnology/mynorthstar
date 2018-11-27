@@ -21,6 +21,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,7 @@ const routes: Routes = [
  { path: 'register', component: RegisterComponent},
  { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
-
+ { path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
@@ -45,7 +46,8 @@ const routes: Routes = [
    TaskManagerComponent,
    LayoutAppComponent,
    CreateTaskComponent,
-   TaskListComponent
+   TaskListComponent,
+   DashboardComponent
  ],
  imports: [
    BrowserModule,
