@@ -57,8 +57,10 @@ export class QuestionnaireService {
     let weightTimesScoreSum = 0;
     let weightSum = 0;
     for (const index in array) {
-      weightTimesScoreSum += array[index].score * array[index].weight;
-      weightSum += array[index].weight;
+      if (array.hasOwnProperty(index)) {
+        weightTimesScoreSum += array[index].score * array[index].weight;
+        weightSum += array[index].weight;
+      }
     }
     const averageScore = weightTimesScoreSum / weightSum;
     return averageScore;
@@ -74,9 +76,11 @@ export class QuestionnaireService {
   getCategories(initialResults: IQuestion[]): string[] {
     const foundCategories: string[] = [];
     for (const index in initialResults) {
-      const currentCategory = initialResults[index].category;
-      if (foundCategories.indexOf(currentCategory) < 0) {
-        foundCategories.push(currentCategory);
+      if (initialResults.hasOwnProperty(index)) {
+        const currentCategory = initialResults[index].category;
+        if (foundCategories.indexOf(currentCategory) < 0) {
+          foundCategories.push(currentCategory);
+        }
       }
     }
     return foundCategories;
