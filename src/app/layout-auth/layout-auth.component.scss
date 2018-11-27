@@ -1,4 +1,4 @@
-main {
+body {
     background-color: #26325c;
     height: 100%;
     width: 100%;
@@ -8,7 +8,6 @@ main {
     width: 25vw;
     height: 25vh;
     text-align: center;
-    border: solid black 2px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -19,5 +18,5 @@ main {
 }
 
 #logo {
-    border: solid black 2px;
+    // border: solid black 2px;
 }
