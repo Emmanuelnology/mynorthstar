@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IQuestion } from '../questionnaire/questionnaire.component';
+import { summaryForJitName } from '@angular/compiler/src/aot/util';
 
 export interface ICategory {
   score: number;
@@ -107,12 +108,14 @@ export let exampleQuestions: IQuestion[] = [
 })
 
 export class QuestionnaireService {
+
+  protected decimalPlaces = 2;
+
   constructor() { }
 
   calculateWeightedAverage(array: ICategory[]): number {
     let weightTimesScoreSum = 0;
     let weightSum = 0;
-    let decimalPlaces = 2;
     for (const categoryIndex in array) {
       if (array.hasOwnProperty(categoryIndex)) {
         weightTimesScoreSum += array[categoryIndex].score * array[categoryIndex].weight;
@@ -120,8 +123,8 @@ export class QuestionnaireService {
       }
     }
     const averageScore = weightTimesScoreSum / weightSum;
-    const roundedAverage =  this.roundNumber(averageScore, decimalPlaces);
-    return this.decimalPadding(roundedAverage, decimalPlaces);
+    const roundedAverage =  this.roundNumber(averageScore, this.decimalPlaces);
+    return this.decimalPadding(roundedAverage, this.decimalPlaces);
   }
 
   createCatOb(question: IQuestion): ICategory {
@@ -180,10 +183,11 @@ export class QuestionnaireService {
   }
 
   overallAverage(results: IResult[]): number {
-    let average = 0;
+    let sumOfResults = 0;
     for (let resultIndex in results) {
-      average += results[resultIndex].categoryAverage;
+      sumOfResults += results[resultIndex].categoryAverage;
     }
-    return average / results.length;
+    let average = sumOfResults / results.length;
+    return this.roundNumber(average, this.decimalPlaces);
   }
 }
