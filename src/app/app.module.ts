@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 
+// Components
+import { AppComponent } from './app.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+
 const routes: Routes = [
-  { path: 'dashbaord', component: DashboardComponent },
+  { path: 'questionnaire', component: QuestionnaireComponent },
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuestionnaireComponent
   ],
   imports: [
     BrowserModule,
