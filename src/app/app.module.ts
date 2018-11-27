@@ -29,8 +29,7 @@ const routes: Routes = [
  { path: 'forgot-password', component: FPasswordComponent},
  { path: 'register', component: RegisterComponent},
  { path: 'layout-app', component: LayoutAppComponent},
- { path: 'task-manager', component: TaskManagerComponent},
-
+ { path: 'task-manager', component: TaskManagerComponent}
 ];
 
 @NgModule({
