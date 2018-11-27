@@ -2,6 +2,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Firebase imports
+// If you have errors, check slack chat, I've posted a solution - George.
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
 // Components
 import { AppComponent } from './app.component';
 import { LayoutAuthComponent } from './layout-auth/layout-auth.component';
@@ -14,14 +21,8 @@ import { TaskManagerComponent } from './task-manager/task-manager.component';
 import { LayoutAppComponent } from './layout-app/layout-app.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskListComponent } from './task-list/task-list.component';
-
-// Firebase imports
-// If you have errors, check slack chat, I've posted a solution - George.
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from '../environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FireBaseTestDisplayComponent } from './fire-base-test-display/fire-base-test-display.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
  { path: 'register', component: RegisterComponent},
  { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
+ { path: 'fbtd', component: FireBaseTestDisplayComponent},
  { path: 'dashboard', component: DashboardComponent}
 ];
 
@@ -47,7 +49,8 @@ const routes: Routes = [
    LayoutAppComponent,
    CreateTaskComponent,
    TaskListComponent,
-   DashboardComponent
+   DashboardComponent,
+   FireBaseTestDisplayComponent
  ],
  imports: [
    BrowserModule,

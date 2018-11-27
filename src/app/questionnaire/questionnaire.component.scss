@@ -6,20 +6,47 @@ body {
     height: 100vh;
 }
 
-/* Text color and position */
+/* Text color, width and position */
+main > form {
+    height: 200px;
+    width: 400px;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    font-size: 0.7em;
+}
+
 main > form, h1 {
     color: white;
     justify-content: center;
     text-align: center;
+    font-size: auto;
 }
 
-main {
-    padding-top: 50%;
+div > label {
+    padding-bottom: 9px;
 }
 
 footer {
+    font-size: 0.65em;
     color: white;
-    padding-top: 50%;
+    position: absolute;
+    top: 100%;
+    margin-top: -100px;
+    padding-top: 70px;
+}
+
+/* Links to profile style */
+.to-profile {
+    float: right;
+}
+
+button {
+    color: white;
+    background-color: rgb(7, 7, 112);
+    opacity: 0.7;
 }
 
 /* Buttons style and position */
@@ -31,7 +58,7 @@ footer {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 0.8em;
     margin: 4px 2px;
     cursor: pointer;
 }
@@ -44,7 +71,7 @@ footer {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 0.8em;
     margin: 4px 2px;
     cursor: pointer;    
 }

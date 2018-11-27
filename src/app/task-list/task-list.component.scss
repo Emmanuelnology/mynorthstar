@@ -1,0 +1,17 @@
+.tasklist {
+    padding: 5%;
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+}
+
+.list-wrapper {
+    flex-direction: row;
+    flex-grow: 3;
+}
+
+.checkbox {
+    flex-direction: row;
+}
