@@ -11,31 +11,23 @@ h1 {
 
 .star {
     border: 2px solid black;
-    height: 50vh;
-    width: 50vh;    
+    height: 250px;
+    width: 100%;    
 }
 
 .total-score {
     border: 2px solid black;
-    height: 30vh;
-    width: 50vh;
+    height: 200px;
+    width: 100%;
     margin-top: 50px;
     padding: 100px;
 }
 
 .tasks {
     border: 2px solid black;
-    height: 30vh;
-    width: 50vh;
+    height: 300px;
+    width: 100%;
     margin-top: 50px;
     padding: 100px;
 }
 
-// @media only screen and (min-width: 375px) {
-//     .star {
-//         width: 80vh;
-//         height: 80vh;
-//     }
-
-
-// }

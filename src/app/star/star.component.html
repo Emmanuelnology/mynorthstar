@@ -1,7 +1,10 @@
 <div class="star">
-        <div class="results" *ngFor ="let index of categories">
-                <p>{{index.category}} {{index.score}}</p>
-           
-        </div>     
+<p class="results" *ngFor="let result of results">
+        {{result.category}} = {{result.categoryAverage}}
+</p>
+
 </div>
+
+
+
 

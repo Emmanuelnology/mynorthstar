@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { exampleQuestions } from '../services/questionnaire.service';
+
 
 export interface IQuestion {
   title: string;
   number: number;
   content: string;
   score: number;
-  weighting: number;
+  weight: number;
   category: string;
 }
 
@@ -14,6 +16,7 @@ export interface IQuestion {
   templateUrl: './questionnaire.component.html',
   styleUrls: ['./questionnaire.component.scss']
 })
+
 export class QuestionnaireComponent implements OnInit {
   questions = [
     {
@@ -21,7 +24,7 @@ export class QuestionnaireComponent implements OnInit {
     number: 1,
     content: 'I do not feel particularly pleased with the way I am',
     score: undefined,
-    weighting: 2,
+    weight: 2,
     category: 'Happiness'
     },
     {
@@ -29,7 +32,7 @@ export class QuestionnaireComponent implements OnInit {
     number: 2,
     content: 'I feel that life is very rewarding',
     score: undefined,
-    weighting: 5,
+    weight: 5,
     category: 'Happiness'
     },
     {
@@ -37,7 +40,7 @@ export class QuestionnaireComponent implements OnInit {
     number: 3,
     content: 'I rarely wake up feeling rested',
     score: undefined,
-    weighting: 5,
+    weight: 5,
     category: 'Happiness'
     },
     {
@@ -45,7 +48,7 @@ export class QuestionnaireComponent implements OnInit {
     number: 4,
     content: 'I laugh a lot',
     score: undefined,
-    weighting: 2,
+    weight: 2,
     category: 'Happiness'
     }
     ];
