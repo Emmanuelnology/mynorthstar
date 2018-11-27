@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { exampleQuestions } from '../services/questionnaire.service';
-
 
 export interface IQuestion {
   title: string;
@@ -21,6 +19,7 @@ export interface IQuestion {
 export class QuestionnaireComponent implements OnInit {
   questions: IQuestion[] = [
     {
+<<<<<<< HEAD
     title: 'Question 1',
     number: 1,
     content: '1. I do not feel particularly pleased with the way I am',
@@ -28,30 +27,40 @@ export class QuestionnaireComponent implements OnInit {
     weight: 2,
     category: 'Happiness',
     positive: false
+=======
+      title: 'Question 1',
+      number: 1,
+      content: '1. I do not feel particularly pleased with the way I am',
+      score: undefined,
+      weight: 2,
+      category: 'Happiness',
+      positive: false
+>>>>>>> 463946aa1f3fc9bb84d3c513f756564a5e8af06b
     },
     {
-    title: 'Question 2',
-    number: 2,
-    content: '2. I feel that life is very rewarding',
-    score: undefined,
-    weight: 5,
-    category: 'Happiness'
+      title: 'Question 2',
+      number: 2,
+      content: '2. I feel that life is very rewarding',
+      score: undefined,
+      weight: 5,
+      category: 'Happiness',
     },
     {
-    title: 'Question 3',
-    number: 3,
-    content: '3. I rarely wake up feeling rested',
-    score: undefined,
-    weight: 5,
-    category: 'Happiness'
+      title: 'Question 3',
+      number: 3,
+      content: '3. I rarely wake up feeling rested',
+      score: undefined,
+      weight: 5,
+      category: 'Happiness',
+      positive: false
     },
     {
-    title: 'Question 4',
-    number: 4,
-    content: '4. I laugh a lot',
-    score: undefined,
-    weight: 2,
-    category: 'Happiness'
+      title: 'Question 4',
+      number: 4,
+      content: '4. I laugh a lot',
+      score: undefined,
+      weight: 2,
+      category: 'Happiness'
     },
     {
       title: 'Question 5',
@@ -75,7 +84,8 @@ export class QuestionnaireComponent implements OnInit {
       content: '7. During your conversations, do you find yourself often defending your actions',
       score: undefined,
       weight: 6,
-      category: 'Relationships'
+      category: 'Relationships',
+      positive: false
     }
     ];
 
