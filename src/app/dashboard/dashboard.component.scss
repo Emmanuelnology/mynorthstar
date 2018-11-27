@@ -1,0 +1,37 @@
+#dashboard-header {
+    background-color: red;
+}
+
+#dashboard-container {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    background-color: white;
+
+    *{
+        flex-basis: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+@media only screen and (min-width: 426px) {
+#dashboard-container {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    background-color: red;
+
+    *{
+        flex-basis: 50%;
+        box-sizing: border-box;
+    }
+    img {
+        display: flex;
+        width: 15vw;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+}
