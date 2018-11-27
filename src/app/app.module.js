@@ -9,6 +9,7 @@ exports.__esModule = true;
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var app_component_1 = require("./app.component");
+var router_1 = require("@angular/router");
 var routes = [
     { path: 'dashbaord', component: DashboardComponent },
 ];
@@ -21,7 +22,9 @@ var AppModule = /** @class */ (function () {
                 app_component_1.AppComponent
             ],
             imports: [
-                platform_browser_1.BrowserModule
+                platform_browser_1.BrowserModule,
+                router_1.RouterModule.forRoot(routes, { enableTracing: true } // <-- debugging purposes only
+                )
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
