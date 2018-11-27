@@ -32,7 +32,7 @@ const routes: Routes = [
  { path: 'register', component: RegisterComponent},
  { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
- { path: 'fbtd', component: FireBaseTestDisplayComponent}
+ { path: 'fbtd', component: FireBaseTestDisplayComponent},
  { path: 'dashboard', component: DashboardComponent}
 ];
 
