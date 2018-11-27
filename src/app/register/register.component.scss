@@ -3,7 +3,7 @@ form {
 }
 
 fieldset {
-    
+    border: none;
     input {
         display: block;
         margin: 0.5em;
@@ -14,4 +14,5 @@ fieldset {
 
 a {
     font-size: 1.25em;
+    text-decoration: none;
 }
