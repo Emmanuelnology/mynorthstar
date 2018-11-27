@@ -19,15 +19,6 @@ export interface IQuestion {
 export class QuestionnaireComponent implements OnInit {
   questions: IQuestion[] = [
     {
-<<<<<<< HEAD
-    title: 'Question 1',
-    number: 1,
-    content: '1. I do not feel particularly pleased with the way I am',
-    score: undefined,
-    weight: 2,
-    category: 'Happiness',
-    positive: false
-=======
       title: 'Question 1',
       number: 1,
       content: '1. I do not feel particularly pleased with the way I am',
@@ -35,7 +26,6 @@ export class QuestionnaireComponent implements OnInit {
       weight: 2,
       category: 'Happiness',
       positive: false
->>>>>>> 463946aa1f3fc9bb84d3c513f756564a5e8af06b
     },
     {
       title: 'Question 2',
