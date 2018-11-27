@@ -13,7 +13,7 @@ import { StarComponent } from './star/star.component';
 import { TaskManagerComponent } from './task-manager/task-manager.component';
 import { LayoutAppComponent } from './layout-app/layout-app.component';
 
-//Firebase imports
+// Firebase imports
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -49,7 +49,7 @@ const routes: Routes = [
      { enableTracing: true } // <-- debugging purposes only
    ),
 
-   //Firebase imports
+   // Firebase imports
     AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
