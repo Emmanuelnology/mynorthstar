@@ -4,7 +4,16 @@
     background-image: url('/assets/star/star.png');
     background-size: contain;
     position: relative;
+    background-repeat: no-repeat;
 }
 .results {
     color:white;    
 }
+
+// @media only screen and (min-width: 375px) {
+//     .star {
+//         width: 100vh;
+//     }
+
+
+// }

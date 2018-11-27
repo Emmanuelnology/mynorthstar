@@ -8,23 +8,23 @@ import { Component, OnInit } from '@angular/core';
 export class StarComponent implements OnInit {
   categories = [
     {
-      category: "Happy",
+      category: 'Happy',
       score: 5,
     },
     {
-      category: "Finances",
-      score: 8,  
+      category: 'Finances',
+      score: 8,
     },
     {
-      category: "Fun & Recreation",
-      score: 3,  
+      category: 'Fun & Recreation',
+      score: 3,
     },
     {
-      category: "Relationships",
-      score: 4  
+      category: 'Relationships',
+      score: 4
     }
 
-  ]
+  ];
 
 
   constructor() { }
