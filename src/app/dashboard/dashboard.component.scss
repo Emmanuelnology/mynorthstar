@@ -1,5 +1,6 @@
 #dashboard-header {
-    background-color: red;
+    background-color: navy;
+    color: white;
 }
 
 #dashboard-container {
@@ -15,6 +16,24 @@
 
 }
 
+    #img-container {
+        margin: 0 auto;
+        text-align: center;
+
+img {
+        width: 150px;
+        height: 150px;
+    }
+
+    }
+
+
+
+
+#dash-tasks {
+    border: 1px solid black;
+}
+
 @media only screen and (min-width: 426px) {
 #dashboard-container {
     display: flex;
@@ -28,7 +47,7 @@
     }
     img {
         display: flex;
-        width: 15vw;
+        width: 150px;
         height: auto;
         margin: 0 auto;
     }
