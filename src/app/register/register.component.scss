@@ -1,14 +1,17 @@
 form {
     text-align: center;
+    margin-top: 1.5em;
 }
 
 fieldset {
     border: none;
+    
     input {
         display: block;
-        margin: 0.5em;
+        margin: 0.5em auto;
         padding: 0.5em;
         height: 2.5em;
+        justify-items: center;
     }
 }
 
