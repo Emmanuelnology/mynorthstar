@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 export interface IQuestion {
-  title:string,
-  number:number,
-  content:string,
-  score:number,
-  weighting:number,
-  category:string
+  title: string;
+  number: number;
+  content: string;
+  score: number;
+  weighting: number;
+  category: string;
 }
 
 @Component({
@@ -15,7 +15,7 @@ export interface IQuestion {
   styleUrls: ['./questionnaire.component.scss']
 })
 export class QuestionnaireComponent implements OnInit {
-  questions = [ 
+  questions = [
     {
     title: 'Question 1',
     number: 1,
@@ -48,13 +48,11 @@ export class QuestionnaireComponent implements OnInit {
     weighting: 2,
     category: 'Happiness'
     }
-    ]
+    ];
 
   constructor() {
-   }  
-
+  }
    ngOnInit() {
-  
   }
 
 }
