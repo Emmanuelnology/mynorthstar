@@ -6,13 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./progress-arc.component.scss']
 })
 export class ProgressArcComponent implements OnInit {
-    progress:number;
-    barColor:string='red';
+    score:number;
   constructor() { }
 
   ngOnInit() {
-            this.progress=50;
-
+            this.score=7.6;
   }
 
 }
