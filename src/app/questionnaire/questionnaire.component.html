@@ -1,28 +1,33 @@
-<header>
-  <title>
-    Questionnaire
-  </title>
-</header>
-<main>
-  <body>
-    <fieldset>
-      <form action="https://webhook.site/c90a11cc-b41f-44ee-8db8-8d6cac44ffc6" method="POST">
-        <div *ngFor="let question of questions">
-          <label for="questions">
-            <h2>{{question.content}}</h2>
-          </label>
-          <input
-          type="number"
-          value ="{{question.score}}" 
-          name="question-{{question.number}}" 
-          min="0" max="10"
-          required
-          >
-        </div>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
+</head>
+<body>
+  <main>
+    <h1>
+      Questionnaire
+    </h1>
+    <form action="https://webhook.site/c90a11cc-b41f-44ee-8db8-8d6cac44ffc6" method="POST">
+      <div *ngFor="let question of questions">
+        <label for="questions">
+          <h2>{{question.content}}</h2>
+        </label>
+        <input
+        type="number"
+        value ="{{question.score}}" 
+        name="question-{{question.number}}" 
+        min="0" max="10"
+        required
+        >
+      </div>
+      <div>
         <input type="submit" value="Send" class="button">
-        <input type="reset"/>
-          <button type="reset" value="Restart" class="restart"></button>
-      </form>
-    </fieldset>
-  </body>
-</main>
+      </div>
+      <div>
+        <input type="reset" value="Restart" class="restart">
+      </div>
+    </form>
+  </main>
+  <footer>
+    <p>Copyright © 2018 NORTHSTAR INNOVATION GROUP LTD. All rights reserved.</p>
+  </footer>
+</body>
