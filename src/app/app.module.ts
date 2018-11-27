@@ -33,6 +33,7 @@ const routes: Routes = [
  { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
  { path: 'fbtd', component: FireBaseTestDisplayComponent}
+ { path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
