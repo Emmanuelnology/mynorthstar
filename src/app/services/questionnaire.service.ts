@@ -20,8 +20,8 @@ export let exampleQuestions: IQuestion[] = [
     score: 3,
     weight: 2,
     category: 'Happiness'
-    },
-    {
+  },
+  {
     title: 'Question 2',
     number: 2,
     content: 'I feel that Craig is ignoring us',
@@ -29,79 +29,79 @@ export let exampleQuestions: IQuestion[] = [
     weight: 5,
     category: 'Personal growth',
     positive: false
-    },
-    {
+  },
+  {
     title: 'Question 3',
     number: 3,
     content: 'I rarely wake up feeling rested',
     score: 10,
     weight: 5,
     category: 'Friends and family'
-    },
-    {
+  },
+  {
     title: 'Question 4',
     number: 4,
     content: 'I laugh a lot',
     score: 1,
     weight: 2,
     category: 'Friends and family'
-    },
-    {
+  },
+  {
     title: 'Question 5',
     number: 5,
     content: 'I DO NOT laugh a lot',
     score: 3,
     weight: 5,
     category: 'Spirituality'
-    },
-    {
+  },
+  {
     title: 'Question 6',
     number: 6,
     content: 'I am getting paid to go to nology',
     score: 1,
     weight: 6,
     category: 'Money'
-    },
-    {
+  },
+  {
     title: 'Question 7',
     number: 7,
     content: 'I work at nationwide',
     score: 9,
     weight: 1,
     category: 'Career'
-    },
-    {
+  },
+  {
     title: 'Question 8',
     number: 8,
     content: 'I have a partner',
     score: 8,
     weight: 7,
     category: 'Romance and relationships'
-    },
-    {
+  },
+  {
     title: 'Question 9',
     number: 9,
     content: 'I laugh a lot',
     score: 1,
     weight: 4,
     category: 'Happiness'
-    },
-    {
+  },
+  {
     title: 'Question 10',
     number: 10,
     content: 'I dont have netflix',
     score: 3,
     weight: 2,
     category: 'Home and environment'
-    },
-    {
+  },
+  {
     title: 'Question 11',
     number: 11,
     content: 'I dont eat out everyday',
     score: 8,
     weight: 2,
     category: 'Health and wellbeing'
-    },
+  },
 ];
 
 @Injectable({
@@ -124,7 +124,7 @@ export class QuestionnaireService {
       }
     }
     const averageScore = weightTimesScoreSum / weightSum;
-    let roundedAverage =  this.roundNumber(averageScore, this.decimalPlaces);
+    const roundedAverage =  this.roundNumber(averageScore, this.decimalPlaces);
     return this.decimalPadding(roundedAverage, this.decimalPlaces);
   }
 
@@ -164,17 +164,19 @@ export class QuestionnaireService {
   }
 
   makePositive(questionArray: IQuestion[]): IQuestion[] {
-    for (let questionIndex in questionArray) {
-      const currentQuestion = questionArray[questionIndex];
-      if (currentQuestion.hasOwnProperty('positive')) {
-        currentQuestion.score = 10 - currentQuestion.score;
+    for (const questionIndex in questionArray) {
+      if (questionArray.hasOwnProperty(questionIndex)) {
+        const currentQuestion = questionArray[questionIndex];
+        if (currentQuestion.hasOwnProperty('positive')) {
+          currentQuestion.score = 10 - currentQuestion.score;
+        }
       }
     }
     return questionArray;
   }
 
   getResults(initialResults: IQuestion[]): IResult[] {
-    let positiveResults = this.makePositive(initialResults);
+    const positiveResults = this.makePositive(initialResults);
     const foundCategories = this.getCategories(positiveResults);
     let results: IResult[] = [];
     for (const categoryIndex of foundCategories) {
