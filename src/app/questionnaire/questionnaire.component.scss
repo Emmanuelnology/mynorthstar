@@ -1,3 +1,4 @@
+/* Body background image, font-family and height */
 body {
     background-image: url('star.jpg');
     background-size: cover;
@@ -5,17 +6,23 @@ body {
     height: 100vh;
 }
 
+/* Text color and position */
 main > form, h1 {
     color: white;
     justify-content: center;
     text-align: center;
 }
 
-footer {
-    color: white;
-    bottom: 0;
+main {
+    padding-top: 50%;
 }
 
+footer {
+    color: white;
+    padding-top: 50%;
+}
+
+/* Buttons style and position */
 .button {
     background-color: rgb(7, 7, 112);
     border: none;
