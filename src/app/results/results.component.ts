@@ -9,9 +9,11 @@ import { IResult, QuestionnaireService, exampleQuestions } from '../services/que
 export class ResultsComponent implements OnInit {
   questions = exampleQuestions;
   results: IResult[];
+  overallResult: number;
 
   constructor(private questionnaireService: QuestionnaireService) {
     this.results = this.questionnaireService.getResults(this.questions);
+    this.overallResult = this.questionnaireService.overallAverage(this.results);
   }
 
   ngOnInit() {
