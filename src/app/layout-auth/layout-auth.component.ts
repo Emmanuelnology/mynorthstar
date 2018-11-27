@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'layout-auth',
+  selector: 'app-layout-auth',
   templateUrl: './layout-auth.component.html',
   styleUrls: ['./layout-auth.component.scss']
 })
