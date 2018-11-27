@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { exampleQuestions } from '../services/questionnaire.service';
+
 
 export interface IQuestion {
   title: string;
@@ -14,7 +16,16 @@ export interface IQuestion {
   templateUrl: './questionnaire.component.html',
   styleUrls: ['./questionnaire.component.scss']
 })
+
 export class QuestionnaireComponent implements OnInit {
+<<<<<<< HEAD
+  questions = exampleQuestions;
+
+  constructor() {
+  }
+
+  ngOnInit() {
+=======
   questions = [
     {
     title: 'Question 1',
@@ -53,6 +64,7 @@ export class QuestionnaireComponent implements OnInit {
   constructor() {
   }
    ngOnInit() {
+>>>>>>> 5ea8c67ace15f3abd233fd85b0f147ef39dc0142
   }
 
 }

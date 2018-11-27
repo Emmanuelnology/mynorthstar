@@ -15,7 +15,7 @@ import { LayoutAppComponent } from './layout-app/layout-app.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 
-//Firebase imports
+// Firebase imports - ignore 3 errors below this line, this is because it requires specific software to run which is fine on my laptop. Tried creating a push and pull with Kieran and it worked fine so push/pull should be unaffected.
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -75,7 +75,7 @@ const routes: Routes = [
      { enableTracing: true } // <-- debugging purposes only
    ),
 
-   //Firebase imports
+   // Firebase imports
     AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
