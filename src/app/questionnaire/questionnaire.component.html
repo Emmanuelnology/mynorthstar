@@ -5,24 +5,25 @@
 </header>
 <main>
   <body>
-    <fieldset>
-      <form action="https://webhook.site/c90a11cc-b41f-44ee-8db8-8d6cac44ffc6" method="POST">
-        <div *ngFor="let question of questions">
-          <label for="questions">
-            <h2>{{question.content}}</h2>
-          </label>
-          <input
-          type="number"
-          value ="{{question.score}}" 
-          name="question-{{question.number}}" 
-          min="0" max="10"
-          required
-          >
-        </div>
+    <form action="https://webhook.site/c90a11cc-b41f-44ee-8db8-8d6cac44ffc6" method="POST">
+      <div *ngFor="let question of questions">
+        <label for="questions">
+          <h2>{{question.content}}</h2>
+        </label>
+        <input
+        type="number"
+        value ="{{question.score}}" 
+        name="question-{{question.number}}" 
+        min="0" max="10"
+        required
+        >
+      </div>
+      <div>
         <input type="submit" value="Send" class="button">
-        <input type="reset"/>
-          <button type="reset" value="Restart" class="restart"></button>
-      </form>
-    </fieldset>
+      </div>
+      <div>
+        <input type="reset" value="Restart" class="restart">
+      </div>
+    </form>
   </body>
 </main>
