@@ -21,6 +21,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -29,8 +30,7 @@ const routes: Routes = [
  { path: 'forgot-password', component: FPasswordComponent},
  { path: 'register', component: RegisterComponent},
  { path: 'layout-app', component: LayoutAppComponent},
- { path: 'task-manager', component: TaskManagerComponent},
-
+ { path: 'task-manager', component: TaskManagerComponent}
 ];
 
 @NgModule({
@@ -45,7 +45,8 @@ const routes: Routes = [
    TaskManagerComponent,
    LayoutAppComponent,
    CreateTaskComponent,
-   TaskListComponent
+   TaskListComponent,
+   DashboardComponent
  ],
  imports: [
    BrowserModule,

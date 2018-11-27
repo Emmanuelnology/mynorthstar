@@ -13,11 +13,9 @@ describe('QuestionnaireService', () => {
 
 // describe('getResults', () => {
 //   beforeEach(() => TestBed.configureTestingModule({}));
-
 //   it('should equal x when passed y', () => {
 //     const service: QuestionnaireService = TestBed.get(QuestionnaireService);
 //     expect(service.getResults(exampleQuestions)).toBe({
-      
 //     });
 //   });
 // });

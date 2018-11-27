@@ -8,15 +8,10 @@ import { IResult, QuestionnaireService, exampleQuestions } from '../services/que
 })
 export class ResultsComponent implements OnInit {
   questions = exampleQuestions;
-  results:IResult[] = [
-    {
-      category: 'A category',
-      categoryAverage: 4
-    }
-];
-  
-  constructor(public service:QuestionnaireService) {
-    //this.results = this.service.getResults(this.questions);
+  results: IResult[];
+
+  constructor(private questionnaireService: QuestionnaireService) {
+    this.results = this.questionnaireService.getResults(this.questions);
   }
 
   ngOnInit() {
