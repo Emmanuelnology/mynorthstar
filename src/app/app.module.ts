@@ -2,7 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ChartsModule } from 'ng2-charts';
 
 // Imported Components
 import { Ng2ArcProgressModule } from 'angular2-arc-progress';
@@ -70,7 +69,6 @@ const routes: Routes = [
  imports: [
    BrowserModule,
    Ng2ArcProgressModule,
-   ChartsModule,
    RouterModule.forRoot(
      routes,
      { enableTracing: true } // <-- debugging purposes only
