@@ -30,7 +30,13 @@ export class FireBaseTestDisplayComponent {
     this.afAuth.auth.signOut();
   }
 
-  register() {
+  register(email, password) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ...
+    });
 
   }
 
