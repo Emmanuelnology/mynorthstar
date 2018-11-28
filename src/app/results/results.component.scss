@@ -2,7 +2,7 @@
 main {
     background-color: $navy;
     height: 100vh;
-    padding: $s-3;
+    padding: $s-sm;
     padding-top: 0;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@ p {
 
 h1 {
     font-size: 40px;
-    padding: $s-3;
+    padding: $s-sm;
     text-align: center;
     color: $navy;
     letter-spacing: 5px;
