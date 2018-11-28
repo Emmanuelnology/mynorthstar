@@ -54,7 +54,7 @@ export class MyStarComponent implements OnInit {
     const data: number[] = [];
     for (const result of results) {
       categories.push(result.category);
-      data.push(result.categoryAverage);
+      data.push(Math.round(result.categoryAverage * 100) / 100);
     }
     return {
       datasets: [
