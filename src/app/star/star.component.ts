@@ -6,7 +6,7 @@ interface ICanvas extends HTMLElement {
   getContext(context: string);
 }
 
-interface IRadarChartOptions {
+export interface IRadarChartOptions {
   legend: {
     display: boolean
   };
@@ -56,28 +56,43 @@ export interface IData {
 export class StarComponent implements AfterViewInit {
   @Input() data: IData;
   chart = [];
+  canvasID;
+  constructor(private cd: ChangeDetectorRef) {
+    this.canvasID = this.getID();
+  }
 
-  constructor(private cd: ChangeDetectorRef) {}
+  guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
+
+  getID() {
+    return 'canvas' + this.guid();
+  }
 
   createChart() {
-      const canvas: ICanvas = (document.getElementById('canvas') as ICanvas);
-      const ctx = canvas.getContext('2d');
-      this.chart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: this.data.labels,
-          datasets: this.data.datasets,
-        },
-        options: this.data.options,
-      });
-
-    }
-
-    ngAfterViewInit() {
-      this.createChart();
-      this.cd.detectChanges();
-    }
+    const canvas: ICanvas = (document.getElementById(this.canvasID) as ICanvas);
+    const ctx = canvas.getContext('2d');
+    this.chart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: this.data.labels,
+        datasets: this.data.datasets,
+      },
+      options: this.data.options,
+    });
 
   }
+
+  ngAfterViewInit() {
+    this.createChart();
+    this.cd.detectChanges();
+  }
+
+}
 
 
