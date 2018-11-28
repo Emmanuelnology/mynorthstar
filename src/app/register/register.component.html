@@ -1,4 +1,5 @@
 <app-layout-auth>
+    <p *ngIf="showForgotPassword">To change password please call Northstar on: (01833) 845967</p>
   <div id="form-container">
     <form method="POST">
       <fieldset>
@@ -14,7 +15,7 @@
           title="Must contain at least one uppercase letter, one lower case letter and a number" required>
         <button class="btn btn-flat btn-navy" type="submit" id="submit">Register</button>
       </fieldset>
-      <a href="#" class="pointer">Forgot your password?</a>
+      <a (click)="showForgotPassword=true" class="pointer">Forgot your password?</a>
     </form>
   </div>
 </app-layout-auth>
