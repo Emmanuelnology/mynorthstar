@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout-app.component.scss']
 })
 export class LayoutAppComponent implements OnInit {
-
+  menuIsVisible=true;
   constructor() { }
 
   ngOnInit() {
