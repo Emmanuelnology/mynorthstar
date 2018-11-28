@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IResult, QuestionnaireService, exampleQuestions } from '../services/questionnaire.service';
-import { IData } from '../star/star.component';
+import { IData,IRadarChartOptions } from '../star/star.component';
 
 @Component({
   selector: 'app-my-star',
@@ -11,41 +11,78 @@ export class MyStarComponent implements OnInit {
   questions = exampleQuestions;
   results: IResult;
   overallResult: number;
-  starData: IData = {
+  bigStarData: IData = {
     datasets: [],
     labels: [],
-    options: {
-      legend: {
-        display: false
+    options: {} as IRadarChartOptions
+  };
+  littleStarData: IData = {
+    datasets: [],
+    labels: [],
+    options: {} as IRadarChartOptions
+  };
+
+  bigStarOptions = {
+    legend: {
+      display: false
+    },
+    scale: {
+      pointLabels: {
+        display: true,
+        fontColor: 'white',
+        fontSize: 14
       },
-      scale: {
-        pointLabels: {
-          display: true,
-          fontColor: 'white',
-          fontSize: 14
-        },
-        angleLines: {
-          color: '#b02062'
-        },
-        ticks: {
-          display: false,
-          min: 0,
-          max: 10,
-        },
-        gridLines: {
-          color: '#777'
-        }
+      angleLines: {
+        color: '#b02062'
+      },
+      ticks: {
+        display: false,
+        min: 0,
+        max: 10,
+      },
+      gridLines: {
+        color: '#777'
       }
     }
   };
+
+  littleStarOptions = {
+    legend: {
+      display: false
+    },
+    scale: {
+      pointLabels: {
+        display: false,
+        fontColor: 'white',
+        fontSize: 14
+      },
+      angleLines: {
+        color: '#b02062'
+      },
+      ticks: {
+        display: false,
+        min: 0,
+        max: 10,
+      },
+      gridLines: {
+        color: '#777'
+      }
+    }
+  };
+
 
   constructor(private questionnaireService: QuestionnaireService) {
     this.results = this.questionnaireService.getResults(this.questions);
     this.overallResult = this.results.overallResult;
 
     const restructuredData = this.restructureData(this.results.categoryResults);
-    this.starData.datasets = restructuredData.datasets;
-    this.starData.labels = restructuredData.labels;
+    this.bigStarData.datasets = restructuredData.datasets;
+    this.bigStarData.labels = restructuredData.labels;
+    this.bigStarData.options = this.bigStarOptions;
+
+    this.littleStarData.datasets = restructuredData.datasets;
+    this.littleStarData.labels = restructuredData.labels;
+    this.littleStarData.options = this.littleStarOptions;
   }
 
   restructureData(results) {
