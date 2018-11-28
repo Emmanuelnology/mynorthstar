@@ -1,13 +1,11 @@
 @import '../../variables.scss';
 @import '../../styles.scss';
 /* Body background image, font-family and height */
-body {
-    background-image: url("../../assets/backgrounds/background2.jpg");
-    background-size: cover;    
-    height: 100vh;
-    display: block;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
+body { 
+    // max-height: 100%;
+    // display: block;
+    // overflow-y: scroll;
+    // scroll-behavior: smooth;
     text-align: center;
     width: 100%;
 }
@@ -59,11 +57,11 @@ main > form, h1 {
     }
 }
 
-progress[value] {
-    /* Reset the default appearance */
-    -webkit-appearance: none;
-     appearance: none;
+// progress[value] {
+//     /* Reset the default appearance */
+//     -webkit-appearance: none;
+//      appearance: none;
   
-    width: 250px;
-    height: 20px;
-}
+//     width: 250px;
+//     height: 20px;
+// }

@@ -224,17 +224,39 @@ export class QuestionnaireComponent implements OnInit {
       score: undefined,
       weight: 6,
       category: 'Romance and relationships',
-      positive: false
     },
     {
       title: 'Question 27',
       number: 27,
-      question: 'I like meeting new people',
+      question: 'I feel confident in my body',
       score: undefined,
-      weight: 6,
+      weight: 7,
       category: 'Fun and recreation',
-      positive: false
     },
+    {
+      title: 'Question 28',
+      number: 28,
+      question: 'I take work failure well',
+      score: undefined,
+      weight: 4,
+      category: 'Career',
+    },
+    {
+      title: 'Question 29',
+      number: 29,
+      question: 'I feel physically healthy',
+      score: undefined,
+      weight: 2,
+      category: 'Health and wellbeing',
+    },
+    {
+      title: 'Question 30',
+      number: 30,
+      question: 'I love my job',
+      score: undefined,
+      weight: 2,
+      category: 'Career',
+    }
     ];
 
   constructor(private rand: Randomise) {
