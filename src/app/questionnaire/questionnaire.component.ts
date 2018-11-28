@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IQuestion } from '../services/questionnaire.service';
+import { IQuestion, Randomise } from '../services/questionnaire.service';
 
 @Component({
   selector: 'app-questionnaire',
@@ -237,8 +237,10 @@ export class QuestionnaireComponent implements OnInit {
     },
     ];
 
-  constructor() {
+  constructor(private rand: Randomise) {
+    this.questions = this.rand.randomiseOrder(this.questions);
   }
+
    ngOnInit() {
   }
 

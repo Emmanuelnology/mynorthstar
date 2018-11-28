@@ -1,49 +1,49 @@
+@import '../../variables.scss';
+
 * {
     margin: 0;
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #26325c;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-image: url('../../assets/backgrounds/background2.jpg');
     background-size: cover;
-    border: solid black 2px;
+    background-attachment: fixed;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        // overflow: scroll;
 }
 
 main {
     text-align: center;
-    margin: auto;
     box-sizing: border-box;
-    position: absolute;
-    top: 20%;
-    bottom: 20%;
-    left: 0;
-    right: 0;
-    width: 320px;
+        // overflow: scroll;
+
 }
 
 #logo > img {
-    margin-bottom: 1.25em;
-    margin-bottom: 30px;
+    margin-bottom: $s-sm;
     max-width: 85px;
     max-height: 75px;
 }
 
 h1 {
-    font-size: 0.95em;
+    font-size: $f-sm;
     letter-spacing: 9px;
 }
 
 h2 {
+    font-weight: normal;
     font-size: 0.75em;
     letter-spacing: 4px;
-}
-
-h2 {
-    font-weight: normal;
-    font-size: 0.65em;
-    margin-bottom: 3em;
+    margin: $s-xs 0 $s-sm 0;
 }

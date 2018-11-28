@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IResult, QuestionnaireService, exampleQuestions, Randomise } from '../services/questionnaire.service';
+import { IResult, QuestionnaireService, exampleQuestions } from '../services/questionnaire.service';
 import { IData } from '../star/star.component';
 
 @Component({
@@ -20,6 +20,7 @@ export class MyStarComponent implements OnInit {
       },
       scale: {
         pointLabels: {
+          display: true,
           fontColor: 'white',
           fontSize: 14
         },
@@ -38,8 +39,7 @@ export class MyStarComponent implements OnInit {
     }
   };
 
-  constructor(private questionnaireService: QuestionnaireService, private rand: Randomise) {
-    this.questions = this.rand.randomiseOrder(this.questions); // move to questionnaire component (here for demo/testing purposes)
+  constructor(private questionnaireService: QuestionnaireService) {
     this.results = this.questionnaireService.getResults(this.questions);
     this.overallResult = this.results.overallResult;
 
@@ -53,7 +53,7 @@ export class MyStarComponent implements OnInit {
     const data: number[] = [];
     for (const result of results) {
       categories.push(result.category);
-      data.push(result.categoryAverage);
+      data.push(Math.round(result.categoryAverage * 100) / 100);
     }
     return {
       datasets: [
