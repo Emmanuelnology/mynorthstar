@@ -17,6 +17,7 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.overallResult= 7;
   }
 
 }

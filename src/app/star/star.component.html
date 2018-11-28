@@ -1,6 +1,6 @@
 <div class="star">
 <p class="results" *ngFor="let result of results">
-        {{result.category}} = {{result.categoryAverage}}
+        {{result.category}} = {{result.categoryAverage | number: '1.2-2'}}
 </p>
 
 </div>
