@@ -6,23 +6,35 @@
 
 .tasklist {
     padding-left: $s-sm;
-    // display: flex;
-    // flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-
-.item-wrapper {
-    // flex-grow: 2;
     ul {
-        // flex: 2;
+        flex-grow: 1;
+    
     }
+        
+    li {
+        font-size: $f-md;
+        list-style-type: none;
+        vertical-align: top;
+    }
+
+    // .box {
+    //     flex-grow: 1;
+    // }
+
     input[type="checkbox"] {
-        opacity: 0;
+        opacity: 10;
 
     }
+
     label {
         position: relative;
 
     }
+
     label::before {
         display: inline-block;
         height: 50px;
@@ -30,6 +42,7 @@
         top: 3px;
         border: 5px solid red;
     }
+
     label::after {
         content: "";
         // display: inline-block;
@@ -41,26 +54,24 @@
         // top: 13px;
         // transform: rotate(-45deg);
     }
+
     input[type="checkbox"] + label::after {
         content: none;
     }
+
     input[type="checkbox"]:checked + label::after {
         content: "\2611";
         position: absolute;
         color: green;
         font-size: 30px;
     }
+
     input[type="checkbox"]:checked + label::before {
         border: 5px solid green;
     }
-    li {
-        font-size: $f-md;
-        list-style-type: none;
-        vertical-align: top;
-    }
 
     .box {
-        display: inline-block;
+float: right;
     }
 
     .box.unchecked:after {
@@ -72,4 +83,3 @@
         content: "\2611";
         color:green;
     }
-}
