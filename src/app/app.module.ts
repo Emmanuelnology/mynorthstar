@@ -19,7 +19,6 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { LayoutAuthComponent } from './layout-auth/layout-auth.component';
 import { RegisterComponent } from './register/register.component';
-import { FPasswordComponent } from './f-password/f-password.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { MyStarComponent } from './my-star/my-star.component';
 import { StarComponent } from './star/star.component';
@@ -32,11 +31,12 @@ import { FireBaseTestDisplayComponent } from './fire-base-test-display/fire-base
 import { ProgressArcComponent } from './progress-arc/progress-arc.component';
 
 import { StyleGuideComponent } from './style-guide/style-guide.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
  { path: 'questionnaire', component: QuestionnaireComponent },
- { path: 'forgot-password', component: FPasswordComponent},
+ { path: 'login', component: LoginComponent},
  { path: 'register', component: RegisterComponent},
  { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
@@ -52,7 +52,6 @@ const routes: Routes = [
    AppComponent,
    LayoutAuthComponent,
    RegisterComponent,
-   FPasswordComponent,
    QuestionnaireComponent,
    MyStarComponent,
    StarComponent,
@@ -63,7 +62,8 @@ const routes: Routes = [
    DashboardComponent,
    FireBaseTestDisplayComponent,
    ProgressArcComponent,
-   StyleGuideComponent
+   StyleGuideComponent,
+   LoginComponent
  ],
  imports: [
    BrowserModule,
