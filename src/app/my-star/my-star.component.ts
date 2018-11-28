@@ -20,6 +20,7 @@ export class MyStarComponent implements OnInit {
       },
       scale: {
         pointLabels: {
+          display: true,
           fontColor: 'white',
           fontSize: 14
         },
