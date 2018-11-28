@@ -58,36 +58,37 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I laugh a lot',
     score: 1,
     weight: 2,
-    category: 'Friends and family'
+    category: 'Happiness'
   },
   {
     title: 'Question 5',
     number: 5,
-    question: 'I DO NOT laugh a lot',
-    score: 3,
-    weight: 5,
+    question: 'I do yoga',
+    score: 0,
+    weight: 1,
     category: 'Spirituality'
   },
   {
     title: 'Question 6',
     number: 6,
-    question: 'I am getting paid to go to nology',
+    question: 'I worry about my financial situation',
     score: 1,
-    weight: 6,
-    category: 'Money'
+    weight: 3,
+    category: 'Money',
+    positive: false
   },
   {
     title: 'Question 7',
     number: 7,
-    question: 'I work at nationwide',
+    question: 'I have a job which is relevant to my skill level',
     score: 9,
-    weight: 1,
+    weight: 4,
     category: 'Career'
   },
   {
     title: 'Question 8',
     number: 8,
-    question: 'I have a partner',
+    question: 'I have a partner/ stable relationship',
     score: 8,
     weight: 7,
     category: 'Romance and relationships'
@@ -95,27 +96,70 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 9',
     number: 9,
-    question: 'I laugh a lot',
-    score: 1,
+    question: 'I enjoy my job',
+    score: 8,
     weight: 4,
     category: 'Happiness'
   },
   {
     title: 'Question 10',
     number: 10,
-    question: 'I dont have netflix',
-    score: 3,
+    question: 'I watch Netflix often',
+    score: 5,
     weight: 2,
-    category: 'Home and environment'
+    category: 'Home and environment',
+    positive: false
   },
   {
     title: 'Question 11',
     number: 11,
-    question: 'I dont eat out everyday',
-    score: 9,
-    weight: 2,
+    question: 'I regularly eat my five a day',
+    score: 4,
+    weight: 4,
     category: 'Health and wellbeing'
   },
+  {
+    title: 'Question 12',
+    number: 12,
+    question: 'I regularly exercise',
+    score: 7,
+    weight: 4,
+    category: 'Health and wellbeing'
+  },
+  {
+    title: 'Question 13',
+    number: 13,
+    question: 'My house is untidy',
+    score: 4,
+    weight: 4,
+    category: 'Home and environment',
+    positive: false
+  },
+  {
+    title: 'Question 14',
+    number: 14,
+    question: 'I only see my friends at the travelodge',
+    score: 4,
+    weight: 2,
+    category: 'Romance and relationships',
+    positive: false
+  },
+  {
+    title: 'Question 15',
+    number: 15,
+    question: 'I have savings',
+    score: 4,
+    weight: 5,
+    category: 'Money'
+  },
+  {
+    title: 'Question 16',
+    number: 16,
+    question: 'I am good at networking',
+    score: 4,
+    weight: 2,
+    category: 'Career'
+  }
 ];
 
 @Injectable({
