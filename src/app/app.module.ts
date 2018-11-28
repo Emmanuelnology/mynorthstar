@@ -2,12 +2,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
+// Imported Components
+import { Ng2ArcProgressModule } from 'angular2-arc-progress';
+
 // Firebase imports
 // If you have errors, check slack chat, I've posted a solution - George.
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+
 
 // Components
 import { AppComponent } from './app.component';
@@ -23,6 +28,9 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FireBaseTestDisplayComponent } from './fire-base-test-display/fire-base-test-display.component';
+import { ProgressArcComponent } from './progress-arc/progress-arc.component';
+
+import { StyleGuideComponent } from './style-guide/style-guide.component';
 
 
 const routes: Routes = [
@@ -33,7 +41,8 @@ const routes: Routes = [
  { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
  { path: 'fbtd', component: FireBaseTestDisplayComponent},
- { path: 'dashboard', component: DashboardComponent}
+ { path: 'dashboard', component: DashboardComponent},
+ { path: 'styles', component: StyleGuideComponent}
 ];
 
 @NgModule({
@@ -50,10 +59,13 @@ const routes: Routes = [
    CreateTaskComponent,
    TaskListComponent,
    DashboardComponent,
-   FireBaseTestDisplayComponent
+   FireBaseTestDisplayComponent,
+   ProgressArcComponent,
+   StyleGuideComponent
  ],
  imports: [
    BrowserModule,
+   Ng2ArcProgressModule,
    RouterModule.forRoot(
      routes,
      { enableTracing: true } // <-- debugging purposes only

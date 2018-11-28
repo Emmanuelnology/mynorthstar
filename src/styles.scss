@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import './variables.scss';
+:root {
+    font-size: 14px;
+    font-family: "nunito", sans-serif;
+}
 
 * {
   margin:0;
   padding:0;
   box-sizing: border-box;
-  font-family: "nunito", sans-serif;
 }
 
 .btn {
@@ -94,4 +97,39 @@
 
 .btn-open:hover {
     background-color: rgba(158,158,158,.2);
+}
+
+h1 {
+    font-size:$f-xl;
+}
+
+h2 {
+    font-size:$f-lg;
+    margin-top: $s-sm;
+}
+
+h3 {
+    font-size:$f-md;
+    margin-top: $s-sm;
+}
+
+h4 {
+    font-size:$f-sm;
+    margin-top: $s-sm;
+}
+
+h5 {
+    font-size:$f-sm;
+    margin-top: $s-sm;
+}
+
+h6 {
+    font-size:$f-sm;
+    margin-top: $s-sm;
+}
+
+p {
+    font-size: $f-xs;
+    margin: $s-xs 0;
+    text-align: justify;
 }

@@ -1,0 +1,26 @@
+
+@import '../../variables.scss';
+.f-xs {
+    font-size: $f-xs;
+}
+
+.f-sm {
+    font-size: $f-sm;
+}
+
+.f-md {
+    font-size: $f-md;
+}
+
+.f-lg {
+    font-size: $f-lg;
+}
+
+
+.f-xl {
+    font-size: $f-xl;
+}
+
+button {
+    margin-right: $s-sm;
+}

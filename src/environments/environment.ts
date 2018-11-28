@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  // Requirements to connect with firebase.
   firebase: {
     apiKey: 'AIzaSyCVCABsn3G0zPqvbm9tfj9O9tH78rP5ObM',
     authDomain: 'my-northstar.firebaseapp.com',

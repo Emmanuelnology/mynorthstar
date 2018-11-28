@@ -1,36 +1,45 @@
+@import '../../variables.scss' ;
 main {
-    // background-image: url('/assets/backgrounds/background2.jpg');
+    background-color: $navy;
     height: 100%;
     padding: 40px;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
+}
+
+p {
+    color:white;
 }
 
 h1 {
+    font-size: 50px;
     padding-bottom: 10px;
+    text-align: center;
+    color: $navy;
+    letter-spacing: 5px;
+    color: white;
 }
 
 .star {
-    border: 2px solid black;
     height: 250px;
     width: 100%;    
 }
 
 .total-score {
-    border: 2px solid black;
     height: 200px;
     width: 100%;
     margin-top: 50px;
-    padding: 100px;
 }
 
 .tasks {
-    border: 2px solid black;
+    border: 2px solid white;
     height: 300px;
     width: 100%;
     margin-top: 50px;
     padding: 100px;
 }
+
 
 @media only screen and (min-width: 768px) {
     .star {
@@ -54,7 +63,7 @@ h1 {
     }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1147px) {
     .star-flex {
         display: flex;
         flex-direction: row;
@@ -65,18 +74,17 @@ h1 {
     .star {
         height: 500px;
         width: 70%;
-    
-
     }
 
     .results-score {
        display: flex;
        flex-direction: column;
+       
     }
 
     .total-score {
         margin-top: 0;
-        width: 100%;
+       width: 100%;
         
     }
 
@@ -86,5 +94,13 @@ h1 {
         height: 270px;   
     }
 
+
+}
+
+@media only screen and (min-width: 1639px) {
+    .results-score {
+       width: 25%;
+     }
+    
 
 }
