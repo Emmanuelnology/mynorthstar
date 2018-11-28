@@ -41,6 +41,11 @@
     <input #passwordRegister type='password' name='password'>
     <br><br>
     <button value='Submit' (click)='registerUser(emailRegister.value, passwordRegister.value)'>Submit</button>
+    <p id="errorMessageRegister"></p>
+
+    
+
+
 
     <h2>Log in with email</h2>
     <br><br>
@@ -51,6 +56,7 @@
     <input #passwordSignIn type='password' name='password'>
     <br><br>
     <button value='Submit' (click)='logInEmail(emailSignIn.value, passwordSignIn.value)'>Submit</button>
+    <p id="errorMessageLogInEmail"></p>
 
 
   </div>
