@@ -12,6 +12,7 @@ interface IRadarChartOptions {
   };
   scale: {
     pointLabels: { // Labels around the chart
+      display: boolean,
       fontColor: string,
       fontSize: number
     },
