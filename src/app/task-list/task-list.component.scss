@@ -1,5 +1,25 @@
 @import "../../variables.scss";
 
+button{ 
+    width: 50px;
+    height: 50px;
+
+
+}
+.test::before{
+    content: "no";
+}
+
+.test::after {
+    content:"";
+}
+
+.test:active::after {
+    content: "yea";
+    line-height: initial;
+    
+}
+
 .task-container {
     padding: $s-sm;
 }
@@ -59,20 +79,20 @@
         content: none;
     }
 
-    input[type="checkbox"]:checked + label::after {
-        content: "\2611";
-        position: absolute;
-        color: green;
-        font-size: 30px;
-    }
+    // input[type="checkbox"]:checked + label::after {
+    //     content: "\2611";
+    //     position: absolute;
+    //     color: green;
+    //     font-size: 30px;
+    // }
 
-    input[type="checkbox"]:checked + label::before {
-        border: 5px solid green;
-    }
+    // input[type="checkbox"]:checked + label::before {
+    //     border: 5px solid green;
+    // }
 
-    .box {
-float: right;
-    }
+    // .box {
+    //     float: right;
+    // }
 
     .box.unchecked:after {
         content: "\2610";
