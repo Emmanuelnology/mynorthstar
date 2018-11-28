@@ -169,10 +169,10 @@ export class QuestionnaireComponent implements OnInit {
     }
     ];
 
-  constructor(private rand: Randomise) {    
-    this.questions = this.rand.randomiseOrder(this.questions); 
+  constructor(private rand: Randomise) {
+    this.questions = this.rand.randomiseOrder(this.questions);
   }
-  
+
    ngOnInit() {
   }
 
