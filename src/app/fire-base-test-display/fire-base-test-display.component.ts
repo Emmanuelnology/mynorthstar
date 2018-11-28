@@ -52,7 +52,7 @@ export class FireBaseTestDisplayComponent {
 
   resetPassword(email: string) {
     this.afAuth.auth.sendPasswordResetEmail(email)
-      .then(() => console.log("email sent"))
-      .catch((error) => console.log(error))
+      .then(() => console.log('email sent'))
+      .catch((error) => console.log(error));
   }
 }

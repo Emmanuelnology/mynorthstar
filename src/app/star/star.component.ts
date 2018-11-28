@@ -6,9 +6,13 @@ interface ICanvas extends HTMLElement {
   getContext(context: string);
 }
 
+
 export interface IRadarChartOptions {
   legend: {
-    display: boolean
+    display: boolean,
+    labels?: {
+      fontColor?: string
+    }
   };
   scale: {
     pointLabels: { // Labels around the chart
@@ -30,10 +34,11 @@ export interface IRadarChartOptions {
   };
 }
 
-interface IChartDataSet {
+export interface IChartDataSet {
   data: number[];
   label: string;
   fill: boolean;
+  backgroundColor?: string;
   lineTension: number;
   borderColor: string;
   pointBorderColor: string;
@@ -47,6 +52,10 @@ export interface IData {
   options: IRadarChartOptions;
 }
 
+interface IChart {
+  update();
+}
+
 @Component({
   selector: 'app-star',
   templateUrl: './star.component.html',
@@ -55,10 +64,14 @@ export interface IData {
 
 export class StarComponent implements AfterViewInit {
   @Input() data: IData;
-  chart = [];
+  chart: IChart[] = [];
   canvasID;
   constructor(private cd: ChangeDetectorRef) {
     this.canvasID = this.getID();
+  }
+
+  redraw() {
+    this.chart[0].update();
   }
 
   guid() {
@@ -92,7 +105,4 @@ export class StarComponent implements AfterViewInit {
     this.createChart();
     this.cd.detectChanges();
   }
-
 }
-
-
