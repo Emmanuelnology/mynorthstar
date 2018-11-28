@@ -1,13 +1,15 @@
 .tasklist {
     padding: 5%;
     display: flex;
+    flex-direction: row;
 }
 
 .item-wrapper {
-    flex: row;
+    // flex-grow: 2;
     ul {
         flex-grow: 2;
     }
+    #checkbox
     input[type="checkbox"] {
         opacity: 0;
     }
