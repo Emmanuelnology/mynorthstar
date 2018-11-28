@@ -1,29 +1,38 @@
+#form-container {
+    position: absolute;
+    left: 35%;
+    right: 35%;
+}
+
 form {
-    text-align: center;
+    text-align: left;
     margin-top: 1.5em;
 }
 
 fieldset {
     border: none;
-    
+
     input {
         display: block;
-        margin: 0.75em auto;
-        padding: 0.25em;
-        width: 50%;
-        font-size: 0.75em;
+        margin: 0;
+        margin-bottom: 0.75em;
+        padding: 0.5em;
+        width: 100%;
+        font-size: 1.25em;
     }
 
     button {
-        width:50%;
+        width: 100%;
+        font-size: 1.05em;
+        padding: 1em;
     }
 
 }
 
 a {
     font-size: 0.75em;
-    text-decoration: none;
     color: #93ecfc;
+    text-align: left
 }
 
 a:hover {
@@ -34,11 +43,28 @@ a:hover {
     cursor: pointer;
 }
 
-@media only screen and (min-width: 550px) {
-    fieldset {
-        input {
-            padding: 0.5em;
-            font-size: 1.25em;
-        }
-    }
-}
+// @media only screen and (min-width: 550px) {
+//     fieldset {
+//         input {
+//             padding: 0.25em;
+//             font-size: 1.25em;
+//         }
+//         button {
+//             width: 50%;
+//             font-size: 0.75em;
+//         }
+//     }
+// }
+
+// @media only screen and (min-width: 1050px) {
+//     fieldset {
+//         input {
+//             padding: 0.25em;
+//             font-size: 1.25em;
+//         }
+//         button {
+//             width: 50%;
+//             font-size: 0.75em;
+//         }
+//     }
+// }
