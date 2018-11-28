@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { IResult, QuestionnaireService, exampleQuestions } from '../services/questionnaire.service';
 
 @Component({
-  selector: 'app-results',
-  templateUrl: './results.component.html',
-  styleUrls: ['./results.component.scss']
+  selector: 'app-my-star',
+  templateUrl: './my-star.component.html',
+  styleUrls: ['./my-star.component.scss']
 })
-export class ResultsComponent implements OnInit {
+export class MyStarComponent implements OnInit {
   questions = exampleQuestions;
   results: IResult[];
   overallResult: number;
@@ -17,6 +17,7 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.overallResult = 7;
   }
 
 }

@@ -6,34 +6,30 @@
 </head>
 <body class="scrolling-box">
   <main>
-    <h1>
+    <h1 class="f-xl">
       QUESTIONNAIRE
     </h1>
-    <div class="to-profile-home">
-      <button type="button">Home</button>
-      <button type="button">Profile</button>
-      <button type="button">Log out</button>
-    </div>
-    <form action="../star/star.component.html" method="POST">
+    
+    <form action="../my-star/my-star.component.html" method="POST">
       <div *ngFor="let question of questions">
-        <label for="questions">
-          <h2>{{question.content}}</h2>
-        </label>
-        <input
-        type="number"
-        value ="{{question.score}}" 
-        name="question-{{question.number}}" 
-        min="0" max="10"
-        class="scoring"
-        required
-        >
+        <div  class="container">
+          <label for="questions">
+            <h4>{{question.number}}. {{question.content}}</h4>
+          </label>
+          <input
+          type="number"
+          value ="{{question.score}}" 
+          name="question-{{question.number}}" 
+          min="0" max="10"
+          required
+          >
+        </div>
       </div>
       <div>
-        <input type="submit" value="SEND" class="button">
+        <input type="submit" value="SEND" class="btn btn-open btn-turquoise">
       </div>
     </form>
+    <progress max="100" value="10"></progress>
   </main>
-  <footer>
-    <p>Copyright © 2018 NORTHSTAR INNOVATION GROUP LTD. All rights reserved.</p>
-  </footer>
 </body>
+

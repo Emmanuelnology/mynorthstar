@@ -4,8 +4,9 @@
     <img class="dots" (click)="menuIsVisible=!menuIsVisible" src="../../assets/logo/nav-round.png">
   </div>
   <div class="flex-logo">
-    <img src="../../assets/logo/northstar-logo.png">
-    
+    <img *ngIf="!icon" src="../../assets/logo/northstar-logo.png">
+    <h1>    <i *ngIf="icon" class="fa fa-taxi"></i>
+      {{title}}</h1>
   </div>
   <div class="flex-avatar">
     <span>Hi Jeff <i class="fas fa-user"></i></span>
