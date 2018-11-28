@@ -1,11 +1,9 @@
-<main>
-    <h1> MY STAR</h1>
+<app-layout-default icon="fa-taxi" title="My star">
 
   <div class="star-flex">
     
       <div class="star">
-          
-        <app-star [results]="results"> </app-star>
+        <app-star [data]="starData"> </app-star>
       </div>
     
       <div class="results-score">
@@ -19,8 +17,9 @@
       
         <div class="tasks">
             <p> Task manager</p>
+            <p *ngFor="let question of questions">{{question.number}}. {{question.question}}</p> <!-- here only for demo -->
           </div>
       </div>
     
   </div >
-</main>
+</app-layout-default>

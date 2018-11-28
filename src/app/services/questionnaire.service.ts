@@ -1,107 +1,165 @@
 import { Injectable } from '@angular/core';
-import { IQuestion } from '../questionnaire/questionnaire.component';
 import { summaryForJitName } from '@angular/compiler/src/aot/util';
+
+export interface IQuestion {
+  title: string;
+  number: number;
+  question: string;
+  score: number;
+  weight: number;
+  category: string;
+  positive?: boolean;
+}
 
 export interface ICategory {
   score: number;
   weight: number;
 }
 
-export interface IResult {
+export interface ICategoryResult {
   category: string;
   categoryAverage: number;
+}
+
+export interface IResult {
+  categoryResults: ICategoryResult[];
+  overallResult: number;
 }
 
 export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 1',
-    number: 1,
-    content: 'I do not feel particularly pleased with the nology help system',
-    score: 3,
-    weight: 2,
-    category: 'Happiness'
-  },
-  {
-    title: 'Question 2',
-    number: 2,
-    content: 'I feel that Craig is ignoring us',
-    score: 6,
-    weight: 5,
-    category: 'Personal growth',
+    number: null,
+    question: 'I do not feel particularly pleased with the way I am',
+    score: 2,
+    weight: 4,
+    category: 'Happiness',
     positive: false
   },
   {
-    title: 'Question 3',
-    number: 3,
-    content: 'I rarely wake up feeling rested',
-    score: 10,
+    title: 'Question 2',
+    number: null,
+    question: 'I am classed as tall',
+    score: 5,
     weight: 5,
+    category: 'Personal growth'
+  },
+  {
+    title: 'Question 3',
+    number: null,
+    question: 'I see my friends/family more than once a week',
+    score: 10,
+    weight: 3,
     category: 'Friends and family'
   },
   {
     title: 'Question 4',
-    number: 4,
-    content: 'I laugh a lot',
+    number: null,
+    question: 'I laugh a lot',
     score: 1,
     weight: 2,
-    category: 'Friends and family'
+    category: 'Happiness'
   },
   {
     title: 'Question 5',
-    number: 5,
-    content: 'I DO NOT laugh a lot',
-    score: 3,
-    weight: 5,
+    number: null,
+    question: 'I do yoga',
+    score: 0,
+    weight: 1,
     category: 'Spirituality'
   },
   {
     title: 'Question 6',
-    number: 6,
-    content: 'I am getting paid to go to nology',
+    number: null,
+    question: 'I worry about my financial situation',
     score: 1,
-    weight: 6,
-    category: 'Money'
+    weight: 3,
+    category: 'Money',
+    positive: false
   },
   {
     title: 'Question 7',
-    number: 7,
-    content: 'I work at nationwide',
+    number: null,
+    question: 'I have a job which is relevant to my skill level',
     score: 9,
-    weight: 1,
+    weight: 4,
     category: 'Career'
   },
   {
     title: 'Question 8',
-    number: 8,
-    content: 'I have a partner',
+    number: null,
+    question: 'I have a partner/ stable relationship',
     score: 8,
     weight: 7,
     category: 'Romance and relationships'
   },
   {
     title: 'Question 9',
-    number: 9,
-    content: 'I laugh a lot',
-    score: 1,
+    number: null,
+    question: 'I enjoy my job',
+    score: 8,
     weight: 4,
     category: 'Happiness'
   },
   {
     title: 'Question 10',
-    number: 10,
-    content: 'I dont have netflix',
-    score: 3,
+    number: null,
+    question: 'I watch Netflix often',
+    score: 5,
     weight: 2,
-    category: 'Home and environment'
+    category: 'Home and environment',
+    positive: false
   },
   {
     title: 'Question 11',
-    number: 11,
-    content: 'I dont eat out everyday',
-    score: 8,
-    weight: 2,
+    number: null,
+    question: 'I regularly eat my five a day',
+    score: 4,
+    weight: 4,
     category: 'Health and wellbeing'
   },
+  {
+    title: 'Question 12',
+    number: null,
+    question: 'I regularly exercise',
+    score: 7,
+    weight: 4,
+    category: 'Health and wellbeing'
+  },
+  {
+    title: 'Question 13',
+    number: null,
+    question: 'My house is untidy',
+    score: 4,
+    weight: 4,
+    category: 'Home and environment',
+    positive: false
+  },
+  {
+    title: 'Question 14',
+    number: null,
+    question: 'I only see my friends at the travelodge',
+    score: 4,
+    weight: 2,
+    category: 'Romance and relationships',
+    positive: false
+  },
+  {
+    title: 'Question 15',
+    number: null,
+    question: 'I have savings',
+    score: 4,
+    weight: 5,
+    category: 'Money'
+  },
+  {
+    title: 'Question 16',
+    number: null,
+    question: 'I am good at networking',
+    score: 4,
+    weight: 2,
+    category: 'Career'
+  }
 ];
 
 @Injectable({
@@ -110,29 +168,44 @@ export let exampleQuestions: IQuestion[] = [
 
 export class QuestionnaireService {
 
-  protected decimalPlaces = 2;
-
   constructor() { }
 
-  calculateWeightedAverage(array: ICategory[]): number {
-    let weightTimesScoreSum = 0;
-    let weightSum = 0;
-    for (const categoryIndex in array) {
-      if (array.hasOwnProperty(categoryIndex)) {
-        weightTimesScoreSum += array[categoryIndex].score * array[categoryIndex].weight;
-        weightSum += array[categoryIndex].weight;
-      }
-    }
-    const averageScore = weightTimesScoreSum / weightSum;
-    const roundedAverage =  this.roundNumber(averageScore, this.decimalPlaces);
-    return this.decimalPadding(roundedAverage, this.decimalPlaces);
+  getResults(initialResults: IQuestion[]): IResult {
+    const categoryAverages = this.getCategoryAverages(initialResults);
+    const overallAverage = this.getOverallAverage(categoryAverages);
+    const output: IResult = {
+      categoryResults: categoryAverages,
+      overallResult: overallAverage
+    };
+    return output;
   }
 
-  createCatOb(question: IQuestion): ICategory {
-    const catOb: ICategory = {score: 0, weight: 0};
-    catOb.score = question.score;
-    catOb.weight = question.weight;
-    return catOb;
+  getCategoryAverages(initialResults: IQuestion[]): ICategoryResult[] {
+    const positiveResults = this.makePositive(initialResults);
+    const foundCategories = this.getCategories(positiveResults);
+    let averages: ICategoryResult[] = [];
+    for (const categoryIndex of foundCategories) {
+      let array: ICategory[] = [];
+      array = this.createCategoryObjects(positiveResults, categoryIndex, array);
+      const average = {
+        category: categoryIndex,
+        categoryAverage: this.calculateWeightedAverage(array)
+      };
+      averages = averages.concat(average);
+    }
+    return averages;
+  }
+
+  makePositive(questionArray: IQuestion[]): IQuestion[] {
+    for (const questionIndex in questionArray) {
+      if (questionArray.hasOwnProperty(questionIndex)) {
+        const currentQuestion = questionArray[questionIndex];
+        if (currentQuestion.hasOwnProperty('positive')) {
+          currentQuestion.score = 10 - currentQuestion.score;
+        }
+      }
+    }
+    return questionArray;
   }
 
   getCategories(questionArray: IQuestion[]): string[] {
@@ -148,55 +221,37 @@ export class QuestionnaireService {
     return foundCategories.sort();
   }
 
-  roundNumber(number: number, decimals: number): number {
-    const powerOfTen = Math.pow(10, decimals);
-    const bigNumber = Math.floor(number * powerOfTen);
-    return bigNumber / powerOfTen;
-  }
-
-  decimalPadding(number: number, decimals: number): number {
-    if (number === Math.floor(number)) {
-      // let decimalisation =  number + "." + ('1').repeat(decimals);
-      // return number.toFixed(decimals);
-      return number;
-    }
-    return number;
-  }
-
-  makePositive(questionArray: IQuestion[]): IQuestion[] {
-    for (const questionIndex in questionArray) {
-      if (questionArray.hasOwnProperty(questionIndex)) {
-        const currentQuestion = questionArray[questionIndex];
-        if (currentQuestion.hasOwnProperty('positive')) {
-          currentQuestion.score = 10 - currentQuestion.score;
-        }
+  createCategoryObjects(positiveResults: IQuestion[], categoryIndex: string, array: ICategory[]): ICategory[] {
+    for (const questionIndex in positiveResults) {
+      if (positiveResults[questionIndex].category === categoryIndex) {
+        const catOb = this.createCatOb(positiveResults[questionIndex]);
+        array.push(catOb);
       }
     }
-    return questionArray;
+    return array;
   }
 
-  getResults(initialResults: IQuestion[]): IResult[] {
-    const positiveResults = this.makePositive(initialResults);
-    const foundCategories = this.getCategories(positiveResults);
-    let results: IResult[] = [];
-    for (const categoryIndex of foundCategories) {
-      const array: ICategory[] = [];
-      for (const questionIndex in positiveResults) {
-        if (positiveResults[questionIndex].category === categoryIndex) {
-          const catOb = this.createCatOb(positiveResults[questionIndex]);
-          array.push(catOb);
-        }
+  createCatOb(question: IQuestion): ICategory {
+    const catOb: ICategory = {score: 0, weight: 0};
+    catOb.score = question.score;
+    catOb.weight = question.weight;
+    return catOb;
+  }
+
+  calculateWeightedAverage(array: ICategory[]): number {
+    let weightTimesScoreSum = 0;
+    let weightSum = 0;
+    for (const categoryIndex in array) {
+      if (array.hasOwnProperty(categoryIndex)) {
+        weightTimesScoreSum += array[categoryIndex].score * array[categoryIndex].weight;
+        weightSum += array[categoryIndex].weight;
       }
-      const average = {
-        category: categoryIndex,
-        categoryAverage: this.calculateWeightedAverage(array)
-      };
-      results = results.concat(average);
     }
-    return results;
+    const averageScore = weightTimesScoreSum / weightSum;
+    return averageScore;
   }
 
-  overallAverage(results: IResult[]): number {
+  getOverallAverage(results: ICategoryResult[]): number {
     let sumOfResults = 0;
     for (const resultIndex in results) {
       if (results.hasOwnProperty(resultIndex)) {
@@ -204,6 +259,46 @@ export class QuestionnaireService {
       }
     }
     const average = sumOfResults / results.length;
-    return this.roundNumber(average, this.decimalPlaces);
+    return average;
   }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class Randomise {
+
+  constructor() { }
+
+  randomiseOrder(questionArray: IQuestion[]) {
+    const randomNumberArray = this.createUnorderedArray(questionArray);
+    const unsortedQuestionArray = this.assignQuestionRandomNumbers(questionArray, randomNumberArray);
+    const sortedQuestionArray = unsortedQuestionArray.sort(function(obj1, obj2) {
+      return obj1.number - obj2.number;
+    });
+    return sortedQuestionArray;
+  }
+
+  createUnorderedArray(questionArray: IQuestion[]): number[] {
+    const randomNumberArray = [];
+    for (const index in questionArray) {
+      if (questionArray.hasOwnProperty(index)) {
+        randomNumberArray.push(index);
+      }
+    }
+    randomNumberArray.sort( () => Math.random() - 0.5);
+    return randomNumberArray;
+  }
+
+  assignQuestionRandomNumbers(questionArray: IQuestion[], randomNumberArray: number[]): IQuestion[] {
+    for (const index in questionArray) {
+      if (questionArray.hasOwnProperty(index)) {
+        questionArray[index].number = randomNumberArray[index];
+        questionArray[index].number ++;
+      }
+    }
+    return questionArray;
+  }
+
 }

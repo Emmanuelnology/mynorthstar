@@ -6,6 +6,11 @@
     align-items:center;
     justify-content:center;
 }
+
+.progress-component {
+    transform:rotate(180deg);
+}
+
 .progress-amount {
     z-index:1;
     position:absolute;
