@@ -17,7 +17,7 @@ export class MyStarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.overallResult= 7;
+    this.overallResult = 7;
   }
 
 }

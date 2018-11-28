@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LayoutAppComponent implements OnInit {
   menuIsVisible = true;
-  @Input() icon:string;
-  @Input() title:string;
+  @Input() icon: string;
+  @Input() title: string;
   constructor() { }
 
   ngOnInit() {

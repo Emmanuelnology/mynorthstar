@@ -5,43 +5,43 @@ import {ViewChild, ElementRef} from '@angular/core';
 
 
 interface ICanvas extends HTMLElement {
-  getContext(context:string)
+  getContext(context: string);
 }
 
 interface IRadarChartOptions {
   legend: {
     display: boolean
-  },
+  };
   scale: {
     pointLabels: { // Labels around the chart
       fontColor: string,
       fontSize: number
     },
-    angleLines:{ //Radiating lines leading to the labels
-      color:string
+    angleLines: { // Radiating lines leading to the labels
+      color: string
     },
     ticks: {
       display: boolean,
-      min: number, 
+      min: number,
       max: number,
     },
     gridLines: {
       color: string
     }
-  }
+  };
 }
 
 interface IChartDataSetOptions {
-  
-  data: number[], 
-  label: string,
-  fill:boolean,
-  lineTension:number,
-  borderColor: string,
-  pointBorderColor: string,
-  pointRadius: number,
-  pointBackgroundColor: string | string[]
-  
+
+  data: number[];
+  label: string;
+  fill: boolean;
+  lineTension: number;
+  borderColor: string;
+  pointBorderColor: string;
+  pointRadius: number;
+  pointBackgroundColor: string | string[];
+
 }
 
 @Component({
@@ -49,14 +49,14 @@ interface IChartDataSetOptions {
   templateUrl: './star.component.html',
   styleUrls: ['./star.component.scss']
 })
-export class StarComponent implements AfterViewInit{
+export class StarComponent implements AfterViewInit {
   @Input() results: IResult[];
 
   @ViewChild('radarChart') canvas: ElementRef;
-  chart = []; 
-  
-  public radarChartLabels:string[] = [];
-  public radarChartOptions:IRadarChartOptions = {
+  chart = [];
+
+  public radarChartLabels: string[] = [];
+  public radarChartOptions: IRadarChartOptions = {
     legend: {
       display: false
     },
@@ -65,8 +65,8 @@ export class StarComponent implements AfterViewInit{
         fontColor: 'white',
         fontSize: 14
       },
-      angleLines:{
-        color:'#b02062'
+      angleLines: {
+        color: '#b02062'
       },
       ticks: {
         display: false,
@@ -74,21 +74,21 @@ export class StarComponent implements AfterViewInit{
         max: 10,
       },
       gridLines: {
-        color:'#777'
+        color: '#777'
       }
-      
+
     },  };
-    public radarChartData:IChartDataSetOptions[] = [];
-    
-    
+    public radarChartData: IChartDataSetOptions[] = [];
+
+
     constructor() {
-      
+
     }
 
-    
+
     createChart() {
-      let canvas:ICanvas = (document.getElementById('canvas') as ICanvas);
-      let ctx = canvas.getContext('2d');
+      const canvas: ICanvas = (document.getElementById('canvas') as ICanvas);
+      const ctx = canvas.getContext('2d');
       this.chart = new Chart(ctx, {
         type: 'radar',
         data: {
@@ -97,37 +97,37 @@ export class StarComponent implements AfterViewInit{
         },
         options: this.radarChartOptions
       });
-      
+
     }
-    
-    restructureData(){
-      let categories:string[]=[];
-      let data:number[]=[];
-      for (let result of this.results){
+
+    restructureData() {
+      const categories: string[] = [];
+      const data: number[] = [];
+      for (const result of this.results) {
         categories.push(result.category);
         data.push(result.categoryAverage);
       }
-      this.radarChartData=[
+      this.radarChartData = [
         {
-          data: data, 
+          data: data,
           label: '',
-          fill:false,
-          lineTension:0.3,
-          borderColor: "white",
-          pointBorderColor: "#6ecbd3",
+          fill: false,
+          lineTension: 0.3,
+          borderColor: 'white',
+          pointBorderColor: '#6ecbd3',
           pointRadius: 5,
-          pointBackgroundColor: "#37234f"
+          pointBackgroundColor: '#37234f'
         }
       ];
-      this.radarChartLabels=categories;
+      this.radarChartLabels = categories;
     }
-    
-    
+
+
     ngAfterViewInit() {
       this.restructureData();
       this.createChart();
     }
-    
+
   }
-  
-  
+
+
