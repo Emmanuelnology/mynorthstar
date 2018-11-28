@@ -1,33 +1,106 @@
+@import '../../variables.scss' ;
 main {
+    background-color: $navy;
     height: 100%;
     padding: 40px;
     display: flex;
     flex-direction: column;
+    overflow: scroll;
+}
+
+p {
+    color:white;
 }
 
 h1 {
+    font-size: 50px;
     padding-bottom: 10px;
+    text-align: center;
+    color: $navy;
+    letter-spacing: 5px;
+    color: white;
 }
 
 .star {
-    border: 2px solid black;
     height: 250px;
     width: 100%;    
 }
 
 .total-score {
-    border: 2px solid black;
     height: 200px;
     width: 100%;
     margin-top: 50px;
-    padding: 100px;
 }
 
 .tasks {
-    border: 2px solid black;
+    border: 2px solid white;
     height: 300px;
     width: 100%;
     margin-top: 50px;
     padding: 100px;
 }
 
+
+@media only screen and (min-width: 768px) {
+    .star {
+        height: 500px;
+    }
+
+    .total-score {
+        width: 48%;
+        height: 200px;
+
+    }
+
+    .tasks {
+        width: 48%;
+    }
+
+    .results-score {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 1147px) {
+    .star-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+    .star {
+        height: 500px;
+        width: 70%;
+    }
+
+    .results-score {
+       display: flex;
+       flex-direction: column;
+       
+    }
+
+    .total-score {
+        margin-top: 0;
+       width: 100%;
+        
+    }
+
+    .tasks {
+        margin-top: 20px;
+        width: 100%;    
+        height: 270px;   
+    }
+
+
+}
+
+@media only screen and (min-width: 1639px) {
+    .results-score {
+       width: 25%;
+     }
+    
+
+}

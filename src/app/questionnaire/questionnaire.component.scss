@@ -1,50 +1,114 @@
 /* Body background image, font-family and height */
 body {
-    background-image: url('star.jpg');
+    background-image: url("../../assets/backgrounds/background2.jpg");
     background-size: cover;
     font-family: 'Nunito Sans';
     height: 100vh;
 }
 
-/* Text color and position */
+/* Text color, width and position, input size */
+main > form {
+    max-height: 100%;
+    width: 400px;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    font-size: 0.7em;
+    border: solid 1px;
+}
+
 main > form, h1 {
     color: white;
     justify-content: center;
     text-align: center;
 }
 
-main {
-    padding-top: 50%;
+div > label {
+    padding-bottom: 9px;
+}
+
+.scoring {
+    width: 15%;
 }
 
 footer {
+    font-size: 0.65em;
     color: white;
-    padding-top: 50%;
+    position: absolute;
+    top: 100%;
+    margin-top: -100px;
+    padding-top: 70px;
+}
+
+/* Links to profile style */
+.to-profile-home {
+    float: right;
+}
+
+button {
+    color: white;
+    background-color: rgb(7, 7, 112);
+    opacity: 0.7;
 }
 
 /* Buttons style and position */
 .button {
-    background-color: rgb(7, 7, 112);
+    background-color: rgb(7, 7, 94);
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 1.2em;
+    margin-top: 0.8em;
     cursor: pointer;
 }
 
 .restart {
-    background-color: rgb(5, 5, 51);
+    background-color: rgb(35, 35, 73);
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1.2em;
     margin: 4px 2px;
     cursor: pointer;    
 }
+
+@media only screen and (max-width: 800px) {
+    main > form {
+        font-size: 0.6em;
+    }
+    main > h1 {
+        font-size: 1em
+    }
+    .scoring {
+        width: 8%;
+    }
+    .button {
+        font-size: 0.8em;
+    }
+    
+    .restart {
+        font-size: 0.75em;
+    }
+    footer {
+        font-size: 0.60em;
+    }
+}
+
+@media only screen and (max-width: 150px) {
+    * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        overflow: scroll;
+    }
+    .scoring {
+        width: 4%;
+    }
+}    
