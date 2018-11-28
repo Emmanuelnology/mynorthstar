@@ -16,7 +16,6 @@
 // @mixin bg-mountain() {
 //   @include bg-image('/assets/backgrounds/mountain.jpg'); 
 // }
-
 //palette
 $purple: #37234f;
 $blue: #003864;
@@ -24,7 +23,6 @@ $pink: #b02062;
 $lilac: #65449b;
 $turquoise: #6ecbd3;
 $navy: #1b2949;
-
 //font variables
 $primary-font: "nunito", sans-serif;
 
@@ -36,7 +34,16 @@ $border-color: #0d4863;
 
 //spacing variables
 $s-0: 0;
-$s-1: 15px;
-$s-2: 25px;
-$s-3: 40px;
-$s-4: 70px;
+$s-xs: 5px;
+$s-sm: 15px;
+$s-md: 40px;
+$s-lg: 70px;
+$s-xl: 70px;
+
+$s-1 : $s-xs;
+
+$f-xs: 1rem;
+$f-sm: 1.2rem;
+$f-md: 1.5rem;
+$f-lg: 2rem;
+$f-xl: 3rem;
