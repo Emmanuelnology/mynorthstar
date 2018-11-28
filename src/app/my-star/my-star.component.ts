@@ -102,7 +102,7 @@ export class MyStarComponent implements OnInit {
           lineTension: 0.3,
           borderColor: 'white',
           pointBorderColor: 'white',
-          pointRadius: 5,
+          pointRadius: 6,
           pointBackgroundColor: ['#37234f', '#003864', '#b02062', '#65449b',
            '#6ecbd3', '#1b2949', '#37234f', '#003864', '#b02062']
         }
