@@ -32,7 +32,6 @@ fieldset {
 
     button {
         width: 100%;
-        max-width: 320px;
         font-size: $f-xs;
         padding: 0.75em;
     }
@@ -48,8 +47,5 @@ a {
 
 a:hover {
     color: white;
-}
-
-.pointer:hover {
     cursor: pointer;
 }
