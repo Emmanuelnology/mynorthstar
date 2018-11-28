@@ -29,7 +29,7 @@ export interface IResult {
 export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 1',
-    number: 1,
+    number: null,
     question: 'I do not feel particularly pleased with the way I am',
     score: 2,
     weight: 4,
@@ -38,7 +38,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 2',
-    number: 2,
+    number: null,
     question: 'I am classed as tall',
     score: 5,
     weight: 5,
@@ -46,7 +46,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 3',
-    number: 3,
+    number: null,
     question: 'I see my friends/family more than once a week',
     score: 10,
     weight: 3,
@@ -54,7 +54,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 4',
-    number: 4,
+    number: null,
     question: 'I laugh a lot',
     score: 1,
     weight: 2,
@@ -62,7 +62,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 5',
-    number: 5,
+    number: null,
     question: 'I do yoga',
     score: 0,
     weight: 1,
@@ -70,7 +70,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 6',
-    number: 6,
+    number: null,
     question: 'I worry about my financial situation',
     score: 1,
     weight: 3,
@@ -79,7 +79,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 7',
-    number: 7,
+    number: null,
     question: 'I have a job which is relevant to my skill level',
     score: 9,
     weight: 4,
@@ -87,7 +87,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 8',
-    number: 8,
+    number: null,
     question: 'I have a partner/ stable relationship',
     score: 8,
     weight: 7,
@@ -95,7 +95,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 9',
-    number: 9,
+    number: null,
     question: 'I enjoy my job',
     score: 8,
     weight: 4,
@@ -103,7 +103,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 10',
-    number: 10,
+    number: null,
     question: 'I watch Netflix often',
     score: 5,
     weight: 2,
@@ -112,7 +112,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 11',
-    number: 11,
+    number: null,
     question: 'I regularly eat my five a day',
     score: 4,
     weight: 4,
@@ -120,7 +120,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 12',
-    number: 12,
+    number: null,
     question: 'I regularly exercise',
     score: 7,
     weight: 4,
@@ -128,7 +128,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 13',
-    number: 13,
+    number: null,
     question: 'My house is untidy',
     score: 4,
     weight: 4,
@@ -137,7 +137,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 14',
-    number: 14,
+    number: null,
     question: 'I only see my friends at the travelodge',
     score: 4,
     weight: 2,
@@ -146,7 +146,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 15',
-    number: 15,
+    number: null,
     question: 'I have savings',
     score: 4,
     weight: 5,
@@ -154,7 +154,7 @@ export let exampleQuestions: IQuestion[] = [
   },
   {
     title: 'Question 16',
-    number: 16,
+    number: null,
     question: 'I am good at networking',
     score: 4,
     weight: 2,
