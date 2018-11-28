@@ -1,6 +1,26 @@
 <main>
-  <h1> My star </h1>
-  <div class="star">
-    <app-star></app-star>
-  </div>
+    <h1> MY STAR</h1>
+
+  <div class="star-flex">
+    
+      <div class="star">
+          
+        <app-star [results]="results"> </app-star>
+      </div>
+    
+      <div class="results-score">
+        <div class="total-score">
+          <app-progress-arc 
+          [score]="overallResult" 
+          color="turquoise" 
+          ></app-progress-arc>
+          
+        </div>
+      
+        <div class="tasks">
+            <p> Task manager</p>
+          </div>
+      </div>
+    
+  </div >
 </main>

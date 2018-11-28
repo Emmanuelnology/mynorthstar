@@ -1,0 +1,33 @@
+<app-layout-auth>
+  <form method="POST">
+    <fieldset>
+      <input type="text" 
+        placeholder="Name" 
+        name="Name" 
+        required>
+      <input type="text" 
+        placeholder="Email address" 
+        name="Email" 
+        id="email" 
+        required>
+      <input type="password" 
+        placeholder="Password" 
+        minlength="6" 
+        name="Password"
+        id="pasword" 
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+        title="Must contain at least one uppercase letter, one lower case letter and a number" 
+        required>
+      <input type="password" 
+        placeholder="Confirm password" 
+        minlength="6" 
+        name="confirmPassword" 
+        id="confirm-password" 
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+        title="Must contain at least one uppercase letter, one lower case letter and a number" 
+        required>
+        <button class="btn btn-flat btn-navy" type="submit" id="submit">Register</button>
+    </fieldset>
+    <a href="#" class="pointer">Forgot password?</a>
+  </form>
+</app-layout-auth> 

@@ -1,7 +1,97 @@
 /* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
 
 * {
   margin:0;
   padding:0;
   box-sizing: border-box;
+  font-family: "nunito", sans-serif;
+}
+
+.btn {
+    margin-top:6px; 
+    padding: 10px 8px;
+}
+
+.btn:hover {
+    cursor:pointer;
+}
+
+
+.btn-purple {
+    background-color: $purple;
+}
+
+.btn-blue {
+    background-color: $blue;
+}
+
+.btn-pink {
+    background-color: $pink;
+}
+
+.btn-lilac {
+    background-color: $lilac;
+}
+
+.btn-turquoise {
+    background-color: $turquoise;
+}
+
+.btn-navy {
+    background-color: $navy;
+}
+
+.btn-flat {
+    text-transform: uppercase;
+    border:none;
+    color:white;
+}
+
+.btn-open {
+    border-radius: 17px;
+    padding: 4px 16px;
+    line-height: 1.4;
+    font-size:16px;
+    text-transform: none;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+}
+
+
+
+
+.btn-open.btn-purple {
+    border-color: $purple;
+    color:$purple;
+}
+
+.btn-open.btn-blue {
+    border-color: $blue;
+    color:$blue;
+}
+
+.btn-open.btn-pink {
+    border-color: $pink;
+    color:$pink;
+}
+
+.btn-open.btn-lilac {
+    border-color: $lilac;
+    color:$lilac;
+}
+
+.btn-open.btn-turquoise {
+    border-color: $turquoise;
+    color:$turquoise;
+}
+
+.btn-open.btn-navy {
+    border-color: $navy;
+    color:$navy;
+}
+
+.btn-open:hover {
+    background-color: rgba(158,158,158,.2);
 }

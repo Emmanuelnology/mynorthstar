@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {  IResult } from '../services/questionnaire.service';
 
 @Component({
   selector: 'app-star',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./star.component.scss']
 })
 export class StarComponent implements OnInit {
+  @Input() results: IResult[];
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }

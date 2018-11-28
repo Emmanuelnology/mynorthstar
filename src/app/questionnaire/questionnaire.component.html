@@ -1,3 +1,42 @@
-<p>
-  questionnaire works!
-</p>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
+    <title class="firstitle">Questionnaire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+</head>
+<body>
+  <main>
+    <h1>
+      Questionnaire
+    </h1>
+    <div class="to-profile-home">
+      <button type="button">Home</button>
+      <button type="button">Profile</button>
+      <button type="button">Log out</button>
+    </div>
+    <form action="https://webhook.site/c90a11cc-b41f-44ee-8db8-8d6cac44ffc6" method="POST">
+      <div *ngFor="let question of questions">
+        <label for="questions">
+          <h2>{{question.content}}</h2>
+        </label>
+        <input
+        type="number"
+        value ="{{question.score}}" 
+        name="question-{{question.number}}" 
+        min="0" max="10"
+        class="scoring"
+        required
+        >
+      </div>
+      <div>
+        <input type="submit" value="SEND" class="button">
+      </div>
+      <div>
+        <input type="reset" value="RESTART" class="restart">
+      </div>
+    </form>
+  </main>
+  <footer>
+    <p>Copyright © 2018 NORTHSTAR INNOVATION GROUP LTD. All rights reserved.</p>
+  </footer>
+</body>
