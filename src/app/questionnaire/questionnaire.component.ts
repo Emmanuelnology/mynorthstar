@@ -76,6 +76,23 @@ export class QuestionnaireComponent implements OnInit {
       weight: 6,
       category: 'Relationships',
       positive: false
+    },
+    {
+      title: 'Question 8',
+      number: 8,
+      content: '8. In general, I am satisfied with my friendships',
+      score: undefined,
+      weight: 2,
+      category: 'Relationships',
+    },
+    {
+      title: 'Question 9',
+      number: 9,
+      content: '9. I wonder whether my friends really care about me',
+      score: undefined,
+      weight: 7,
+      category: 'Relationships',
+      positive: false
     }
     ];
 
