@@ -125,6 +125,15 @@ h6 {
     margin-top: $s-sm;
 }
 
+.input-box {
+    font-family: $primary-font;
+    border: 2px solid $lilac;
+    border-radius: 17px;
+    padding: 4px 16px;
+    line-height: 1.7;
+    margin-top:$s-sm; 
+}
+
 span, p {
     font-size: $f-xs;
     margin: $s-xs 0;
