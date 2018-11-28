@@ -168,8 +168,6 @@ export let exampleQuestions: IQuestion[] = [
 
 export class QuestionnaireService {
 
-  protected decimalPlaces = 2;
-
   constructor() { }
 
   getResults(initialResults: IQuestion[]): IResult {
@@ -263,4 +261,44 @@ export class QuestionnaireService {
     const average = sumOfResults / results.length;
     return average;
   }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class Randomise {
+
+  constructor() { }
+
+  randomiseOrder(questionArray: IQuestion[]) {
+    let randomNumberArray = this.createUnorderedArray(questionArray);
+    let unsortedQuestionArray = this.assignObjectRandomNumbers(questionArray, randomNumberArray);
+    unsortedQuestionArray.sort(function(obj1, obj2) {
+      return obj1.number - obj2.number;
+    });
+    return unsortedQuestionArray;
+  }
+
+  createUnorderedArray(questionArray: IQuestion[]): number[] {
+    let randomNumberArray = [];
+    for (const index in questionArray) {
+      if (questionArray.hasOwnProperty(index)) {
+        randomNumberArray.push(index);
+      }
+    }
+    randomNumberArray.sort( () => Math.random() -0.5);
+    return randomNumberArray;
+  }
+
+  assignObjectRandomNumbers(questionArray: IQuestion[], randomNumberArray: number[]): IQuestion[] {
+    for (const index in questionArray) {
+      if (questionArray.hasOwnProperty(index)) {
+        questionArray[index].number = randomNumberArray[index];
+        questionArray[index].number ++;
+      }
+    }
+    return questionArray;
+  }
+
 }
