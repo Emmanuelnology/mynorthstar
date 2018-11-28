@@ -1,13 +1,18 @@
+@import "../../variables.scss";
+
 .createtask {
-    padding: 5%;
-}
-#new-task {
-    width: 60%;
-    margin-right: 10px;
+    padding: $s-sm;
 }
 
-#submit {
-    background-color: green;
-    color: white
-    ;
+.input-box {
+    margin-right: $s-md;
+}
+
+.input-box {
+    font-family: $primary-font;
+    // padding: $s-xs $s-sm;
+    border: 2px solid $lilac;
+    border-radius: 17px;
+    padding: 4px 16px;
+    line-height: 1.7;
 }
