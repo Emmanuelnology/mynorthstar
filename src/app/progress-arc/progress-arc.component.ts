@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-progress-arc',
@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./progress-arc.component.scss']
 })
 export class ProgressArcComponent implements OnInit {
-    score: number;
+    @Input() score: number;
+    @Input() color: string;
     constructor() { }
 
     ngOnInit() {
-        this.score = 7.6;
+        // this.score = 7.6;
     }
 
 }

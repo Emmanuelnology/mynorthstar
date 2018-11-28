@@ -10,7 +10,11 @@
     
       <div class="results-score">
         <div class="total-score">
-          <p> Total score = {{overallResult}} </p>
+          <app-progress-arc 
+          [score]="overallResult" 
+          color="turquoise" 
+          ></app-progress-arc>
+          
         </div>
       
         <div class="tasks">

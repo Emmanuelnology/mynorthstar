@@ -1,11 +1,11 @@
-<div class="progress-arc turquoise">
-    <span class="progress-amount">{{score}}</span>
+<div class="progress-arc {{color}}">
+    <span class="progress-amount">{{score | number: '1.2-2'}}</span>
     <ng2-arc-progress
         size='200'
         progress={{score*10}}
         gap=0
         backgroundColor='white'
-        strokeWidth='10px'
+        strokeWidth='15px'
         >
     </ng2-arc-progress>
 </div>
