@@ -40,7 +40,7 @@
     Password:<br>
     <input #passwordRegister type='password' name='password'>
     <br><br>
-    <button value='Submit' (click)='registerUser(emailRegister.value, passwordRegister.value)'>Submit</button>
+    <button value='Submit' (click)='registerUser(emailRegister.value, passwordRegister.value)'>Register account</button>
     <p id="errorMessageRegister"></p>
 
     
@@ -55,8 +55,16 @@
     Password:<br>
     <input #passwordSignIn type='password' name='password'>
     <br><br>
-    <button value='Submit' (click)='logInEmail(emailSignIn.value, passwordSignIn.value)'>Submit</button>
+    <button value='Submit' (click)='logInEmail(emailSignIn.value, passwordSignIn.value)'>Log in with email</button>
     <p id="errorMessageLogInEmail"></p>
+
+    <h2>Reset password</h2>
+    <br><br>
+    Email address:<br>
+    <input #emailResetPassword type='text' name='emailAddress'>
+    <br><br>
+    <button value='Submit' (click)='resetPassword(emailResetPassword.value)'>Reset password</button>
+    <p id="errorMessageResetPassword"></p>
 
 
   </div>
