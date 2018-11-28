@@ -23,10 +23,10 @@ export class FireBaseTestDisplayComponent {
   }
 
   logInEmail(email, password) {
-    console.log("Sign in \nEmail: " +  email + " Password: " + password);
+    console.log('Sign in \nEmail: ' +  email + ' Password: ' + password);
     this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
+      const errorCode = error.code;
+      const errorMessage = error.message;
     });
   }
 
@@ -35,18 +35,13 @@ export class FireBaseTestDisplayComponent {
   }
 
   registerUser(email, password) {
-    console.log("Register User \nEmail: " +  email + " Password: " + password);
+    console.log('Register User \nEmail: ' +  email + ' Password: ' + password);
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
+      console.log('LETS LOG AN ERROR: \nCode: ' + errorCode + ' \nMessage:' + errorMessage);
       // ...
     });
-
-  }
-  
-  message(){
-    alert("hi there");
-    console.log("hi there");
   }
 }
