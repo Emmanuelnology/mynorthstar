@@ -1,13 +1,3 @@
-<div class="star">
-<p class="results" *ngFor="let result of results.categoryResults">
-        {{result.category}} = {{result.categoryAverage}}
-
-        
-</p>
-
-
+<div *ngIf="chart">
+  <canvas id="canvas"></canvas>
 </div>
-
-
-
-
