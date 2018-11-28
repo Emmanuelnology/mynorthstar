@@ -58,7 +58,7 @@ export class QuestionnaireComponent implements OnInit {
       content: '5. I could handle a major unexpected expense',
       score: undefined,
       weight: 5,
-      category: 'Finances'
+      category: 'Money'
     },
     {
       title: 'Question 6',
@@ -66,7 +66,7 @@ export class QuestionnaireComponent implements OnInit {
       content: '6. I can enjoy life because of the way I’m managing my money',
       score: undefined,
       weight: 2,
-      category: 'Finances'
+      category: 'Money'
     },
     {
       title: 'Question 7',
@@ -74,7 +74,7 @@ export class QuestionnaireComponent implements OnInit {
       content: '7. During your conversations, do you find yourself often defending your actions',
       score: undefined,
       weight: 6,
-      category: 'Relationships',
+      category: 'Romance and relationships',
       positive: false
     },
     {
@@ -83,7 +83,7 @@ export class QuestionnaireComponent implements OnInit {
       content: '8. In general, I am satisfied with my friendships',
       score: undefined,
       weight: 2,
-      category: 'Relationships',
+      category: 'Romance and relationships',
     },
     {
       title: 'Question 9',
@@ -91,7 +91,7 @@ export class QuestionnaireComponent implements OnInit {
       content: '9. I wonder whether my friends really care about me',
       score: undefined,
       weight: 7,
-      category: 'Relationships',
+      category: 'Romance and relationships',
       positive: false
     },
     {
