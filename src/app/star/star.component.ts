@@ -58,7 +58,7 @@ export class StarComponent implements AfterViewInit {
   chart = [];
 canvasID;
   constructor(private cd: ChangeDetectorRef) {
-    this.canvasID=this.getID();
+    this.canvasID = this.getID();
   }
 
   guid() {
@@ -70,8 +70,8 @@ canvasID;
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
   }
 
-  getID(){
-    return 'canvas'+this.guid();
+  getID() {
+    return 'canvas' + this.guid();
   }
 
   createChart() {

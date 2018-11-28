@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IResult, QuestionnaireService, exampleQuestions } from '../services/questionnaire.service';
-import { IData,IRadarChartOptions } from '../star/star.component';
+import { IData, IRadarChartOptions } from '../star/star.component';
 
 @Component({
   selector: 'app-my-star',
