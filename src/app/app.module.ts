@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ChartsModule } from 'ng2-charts';
 
 // Imported Components
 import { Ng2ArcProgressModule } from 'angular2-arc-progress';
@@ -20,7 +21,7 @@ import { LayoutAuthComponent } from './layout-auth/layout-auth.component';
 import { RegisterComponent } from './register/register.component';
 import { FPasswordComponent } from './f-password/f-password.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
-import { ResultsComponent } from './results/results.component';
+import { MyStarComponent } from './my-star/my-star.component';
 import { StarComponent } from './star/star.component';
 import { TaskManagerComponent } from './task-manager/task-manager.component';
 import { LayoutAppComponent } from './layout-app/layout-app.component';
@@ -35,15 +36,16 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 
 const routes: Routes = [
  { path: 'questionnaire', component: QuestionnaireComponent },
- { path: 'results', component: ResultsComponent},
  { path: 'forgot-password', component: FPasswordComponent},
  { path: 'register', component: RegisterComponent},
  { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
  { path: 'fbtd', component: FireBaseTestDisplayComponent},
  { path: 'dashboard', component: DashboardComponent},
- { path: 'styles', component: StyleGuideComponent}
+ { path: 'styles', component: StyleGuideComponent},
+ { path: '', component: MyStarComponent},
 ];
+
 
 @NgModule({
  declarations: [
@@ -52,7 +54,7 @@ const routes: Routes = [
    RegisterComponent,
    FPasswordComponent,
    QuestionnaireComponent,
-   ResultsComponent,
+   MyStarComponent,
    StarComponent,
    TaskManagerComponent,
    LayoutAppComponent,
@@ -66,6 +68,7 @@ const routes: Routes = [
  imports: [
    BrowserModule,
    Ng2ArcProgressModule,
+   ChartsModule,
    RouterModule.forRoot(
      routes,
      { enableTracing: true } // <-- debugging purposes only

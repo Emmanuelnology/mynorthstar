@@ -9,24 +9,28 @@
     <h1 class="f-xl">
       QUESTIONNAIRE
     </h1>
-    <form action="../star/star.component.html" method="POST">
+    
+    <form action="../my-star/my-star.component.html" method="POST">
       <div *ngFor="let question of questions">
-        <label for="questions">
-          <h3>{{question.content}}</h3>
-        </label>
-        <input
-        type="number"
-        value ="{{question.score}}" 
-        name="question-{{question.number}}" 
-        min="0" max="10"
-        class="scoring"
-        required
-        >
+        <div  class="container">
+          <label for="questions">
+            <h4>{{question.number}}. {{question.question}}</h4>
+          </label>
+          <input
+          class="scoring"
+          type="number"
+          value ="{{question.score}}" 
+          name="question-{{question.number}}" 
+          min="0" max="10"
+          required
+          >
+        </div>
       </div>
       <div>
-        <input type="submit" value="SEND" class="btn btn-open btn-turquoise">
+        <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
       </div>
     </form>
     <progress max="100" value="10"></progress>
   </main>
 </body>
+

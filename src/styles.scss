@@ -12,14 +12,13 @@
 }
 
 .btn {
-    margin-top:6px; 
-    padding: 10px 8px;
+    margin-top:$s-sm; 
+    padding: $s-sm;
 }
 
 .btn:hover {
     cursor:pointer;
 }
-
 
 .btn-purple {
     background-color: $purple;
@@ -62,9 +61,6 @@
     border-style: solid;
 }
 
-
-
-
 .btn-open.btn-purple {
     border-color: $purple;
     color:$purple;
@@ -101,6 +97,7 @@
 
 h1 {
     font-size:$f-xl;
+    margin-top: $s-sm;
 }
 
 h2 {
@@ -128,9 +125,50 @@ h6 {
     margin-top: $s-sm;
 }
 
-p {
+span, p {
     font-size: $f-xs;
     margin: $s-xs 0;
     text-align: justify;
+}
+
+
+@media only screen and (min-width:750px){
+
+    h1 {
+        font-size:$f-xl;
+    }
+    
+    h2 {
+        font-size:$f-xl;
+        margin-top: $s-sm;
+    }
+    
+    h3 {
+        font-size:$f-lg;
+        margin-top: $s-sm;
+    }
+    
+    h4 {
+        font-size:$f-md;
+        margin-top: $s-sm;
+    }
+    
+    h5 {
+        font-size:$f-md;
+        margin-top: $s-sm;
+    }
+    
+    h6 {
+        font-size:$f-sm;
+        margin-top: $s-sm;
+    }
+    
+    p {
+        font-size: $f-sm;
+        margin: $s-xs 0;
+        text-align: justify;
+    }
+    
+
 }
 
