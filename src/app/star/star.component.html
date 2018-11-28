@@ -1,10 +1,9 @@
-<div class="star">
-<p class="results" *ngFor="let result of results">
-        {{result.category}} = {{result.categoryAverage | number: '1.2-2'}}
-</p>
-
-</div>
-
-
-
-
+<div style="display: block">
+                <canvas baseChart
+                        [datasets]="radarChartData"
+                        [labels]="radarChartLabels"
+                        [options]="radarChartOptions"
+                        [chartType]="radarChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+              </div>
