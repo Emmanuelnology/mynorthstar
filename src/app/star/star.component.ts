@@ -7,7 +7,7 @@ import {  IResult } from '../services/questionnaire.service';
   styleUrls: ['./star.component.scss']
 })
 export class StarComponent implements OnInit {
-  @Input() results: IResult[];
+  @Input() results: IResult;
 
   constructor() {
    }

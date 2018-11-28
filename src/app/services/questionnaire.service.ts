@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { summaryForJitName } from '@angular/compiler/src/aot/util';
 
-export interface ICategory {
-  score: number;
-  weight: number;
-}
-
 export interface IQuestion {
   title: string;
   number: number;
@@ -16,9 +11,19 @@ export interface IQuestion {
   positive?: boolean;
 }
 
-export interface IResult {
+export interface ICategory {
+  score: number;
+  weight: number;
+}
+
+export interface ICategoryResult {
   category: string;
   categoryAverage: number;
+}
+
+export interface IResult {
+  categoryResults: ICategoryResult[];
+  overallResult: number;
 }
 
 export let exampleQuestions: IQuestion[] = [
@@ -26,7 +31,7 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 1',
     number: 1,
     question: 'I do not feel particularly pleased with the nology help system',
-    score: 3,
+    score: 5,
     weight: 2,
     category: 'Happiness'
   },
@@ -123,24 +128,42 @@ export class QuestionnaireService {
 
   constructor() { }
 
-  calculateWeightedAverage(array: ICategory[]): number {
-    let weightTimesScoreSum = 0;
-    let weightSum = 0;
-    for (const categoryIndex in array) {
-      if (array.hasOwnProperty(categoryIndex)) {
-        weightTimesScoreSum += array[categoryIndex].score * array[categoryIndex].weight;
-        weightSum += array[categoryIndex].weight;
-      }
-    }
-    const averageScore = weightTimesScoreSum / weightSum;
-    return averageScore;
+  getResults(initialResults: IQuestion[]): IResult {
+    const categoryAverages = this.getCategoryAverages(initialResults);
+    const overallAverage = this.getOverallAverage(categoryAverages);
+    const output: IResult = {
+      categoryResults: categoryAverages,
+      overallResult: overallAverage
+    };
+    return output;
   }
 
-  createCatOb(question: IQuestion): ICategory {
-    const catOb: ICategory = {score: 0, weight: 0};
-    catOb.score = question.score;
-    catOb.weight = question.weight;
-    return catOb;
+  getCategoryAverages(initialResults: IQuestion[]): ICategoryResult[] {
+    const positiveResults = this.makePositive(initialResults);
+    const foundCategories = this.getCategories(positiveResults);
+    let averages: ICategoryResult[] = [];
+    for (const categoryIndex of foundCategories) {
+      let array: ICategory[] = [];
+      array = this.createCategoryObjects(positiveResults, categoryIndex, array);
+      const average = {
+        category: categoryIndex,
+        categoryAverage: this.calculateWeightedAverage(array)
+      };
+      averages = averages.concat(average);
+    }
+    return averages;
+  }
+
+  makePositive(questionArray: IQuestion[]): IQuestion[] {
+    for (const questionIndex in questionArray) {
+      if (questionArray.hasOwnProperty(questionIndex)) {
+        const currentQuestion = questionArray[questionIndex];
+        if (currentQuestion.hasOwnProperty('positive')) {
+          currentQuestion.score = 10 - currentQuestion.score;
+        }
+      }
+    }
+    return questionArray;
   }
 
   getCategories(questionArray: IQuestion[]): string[] {
@@ -156,40 +179,37 @@ export class QuestionnaireService {
     return foundCategories.sort();
   }
 
-  makePositive(questionArray: IQuestion[]): IQuestion[] {
-    for (const questionIndex in questionArray) {
-      if (questionArray.hasOwnProperty(questionIndex)) {
-        const currentQuestion = questionArray[questionIndex];
-        if (currentQuestion.hasOwnProperty('positive')) {
-          currentQuestion.score = 10 - currentQuestion.score;
-        }
+  createCategoryObjects(positiveResults: IQuestion[], categoryIndex: string, array: ICategory[]): ICategory[] {
+    for (const questionIndex in positiveResults) {
+      if (positiveResults[questionIndex].category === categoryIndex) {
+        const catOb = this.createCatOb(positiveResults[questionIndex]);
+        array.push(catOb);
       }
     }
-    return questionArray;
+    return array;
   }
 
-  getResults(initialResults: IQuestion[]): IResult[] {
-    const positiveResults = this.makePositive(initialResults);
-    const foundCategories = this.getCategories(positiveResults);
-    let results: IResult[] = [];
-    for (const categoryIndex of foundCategories) {
-      const array: ICategory[] = [];
-      for (const questionIndex in positiveResults) {
-        if (positiveResults[questionIndex].category === categoryIndex) {
-          const catOb = this.createCatOb(positiveResults[questionIndex]);
-          array.push(catOb);
-        }
+  createCatOb(question: IQuestion): ICategory {
+    const catOb: ICategory = {score: 0, weight: 0};
+    catOb.score = question.score;
+    catOb.weight = question.weight;
+    return catOb;
+  }
+
+  calculateWeightedAverage(array: ICategory[]): number {
+    let weightTimesScoreSum = 0;
+    let weightSum = 0;
+    for (const categoryIndex in array) {
+      if (array.hasOwnProperty(categoryIndex)) {
+        weightTimesScoreSum += array[categoryIndex].score * array[categoryIndex].weight;
+        weightSum += array[categoryIndex].weight;
       }
-      const average = {
-        category: categoryIndex,
-        categoryAverage: this.calculateWeightedAverage(array)
-      };
-      results = results.concat(average);
     }
-    return results;
+    const averageScore = weightTimesScoreSum / weightSum;
+    return averageScore;
   }
 
-  overallAverage(results: IResult[]): number {
+  getOverallAverage(results: ICategoryResult[]): number {
     let sumOfResults = 0;
     for (const resultIndex in results) {
       if (results.hasOwnProperty(resultIndex)) {
