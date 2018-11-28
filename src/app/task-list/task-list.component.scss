@@ -3,15 +3,50 @@
     display: flex;
 }
 
-li {
-    list-style-type: none;
-}
-
-.list-wrapper {
-    flex-direction: row;
-    flex-grow: 3;
-}
-
-.checkbox {
-    flex-direction: row;
+.item-wrapper {
+    flex: row;
+    ul {
+        flex-grow: 2;
+    }
+    input[type="checkbox"] {
+        opacity: 0;
+    }
+    label {
+        position: relative;
+    }
+    label::before {
+        content:"";
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        top: 3px;
+        border: 5px solid red;
+    }
+    label::after {
+        content: "";
+        display: inline-block;
+        height: 20px;
+        width: 35px;
+        border-left: 5px solid green;
+        border-bottom: 5px solid green;
+        left: 9px;
+        top: 13px;
+        transform: rotate(-45deg);
+    }
+    label::before,
+    label::after {
+        position: absolute;
+    }
+    input[type="checkbox"] + label::after {
+        content: none;
+    }
+    input[type="checkbox"]:checked + label::after {
+        content: "";
+    }
+    input[type="checkbox"]:checked + label::before {
+        border: 5px solid green;
+    }
+    li {
+        list-style-type: none;
+    }
 }

@@ -1,5 +1,5 @@
 <main>
-    <h1> My Star</h1>
+    <h1> MY STAR</h1>
 
   <div class="star-flex">
     
@@ -10,7 +10,11 @@
     
       <div class="results-score">
         <div class="total-score">
-          <p> Total score</p>
+          <app-progress-arc 
+          [score]="overallResult" 
+          color="turquoise" 
+          ></app-progress-arc>
+          
         </div>
       
         <div class="tasks">
