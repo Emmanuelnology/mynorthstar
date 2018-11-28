@@ -93,6 +93,30 @@ export class QuestionnaireComponent implements OnInit {
       weight: 7,
       category: 'Relationships',
       positive: false
+    },
+    {
+      title: 'Question 10',
+      number: 10,
+      content: '10. I regularly meet friends for social activities',
+      score: undefined,
+      weight: 7,
+      category: 'Fun and Recreation',
+    },
+    {
+      title: 'Question 11',
+      number: 11,
+      content: '11. I often do activities which leave me feeling happy',
+      score: undefined,
+      weight: 4,
+      category: 'Fun and Recreation',
+    },
+    {
+      title: 'Question 12',
+      number: 12,
+      content: '12. I play sport or do exercise regularly',
+      score: undefined,
+      weight: 1,
+      category: 'Fun and Recreation',
     }
     ];
 
