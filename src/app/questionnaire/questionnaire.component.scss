@@ -1,96 +1,37 @@
+@import '../../variables.scss';
+@import '../../styles.scss';
 /* Body background image, font-family and height */
 body {
     background-image: url("../../assets/backgrounds/background2.jpg");
-    background-size: cover;
-    font-family: 'Nunito Sans';
+    background-size: cover;    
     height: 100vh;
-}
-
-.scrolling-box {
     display: block;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    text-align: center;
     width: 100%;
-  }
+}
 
 /* Text color, width and position, input size */
-main > form {
-    max-height: 100%;
-    width: 400px;
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: -200px;
-    font-size: 0.7em;
-    border: solid 1px;
-}
-
 main > form, h1 {
-    color: white;
-    justify-content: center;
-    text-align: center;
-}
-
-div > label {
-    padding-bottom: 9px;
+    color: white;    
 }
 
 .scoring {
-    width: 15%;
+    width: 6%;
     background-color:rgba(250, 250, 250, 0.3);
     color: white;
 }
 
-footer {
-    font-size: 0.65em;
-    color: white;
-    position: absolute;
-    top: 100%;
-    margin-top: -100px;
-    padding-top: 70px;
-}
-
-/* Links to profile style */
-.to-profile-home {
-    float: right;
-}
-
-button {
-    color: white;
-    background-color: rgb(7, 7, 112);
-    opacity: 0.7;
-}
-
-/* Buttons style and position */
-.button {
-    background-color: rgb(35, 35, 73);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.2em;
-    margin-top: 0.8em;
-    cursor: pointer;
-}
-
 @media only screen and (max-width: 800px) {
-    main > form {
-        font-size: 0.6em;
-    }
+    // main > form {
+    //     font-size: 0.6em;
+    // }
     main > h1 {
-        font-size: 1em
-    }
-    .scoring {
-        width: 8%;
+        font-size: 2em
     }
     .button {
         font-size: 0.8em;
-    }
-    footer {
-        font-size: 0.60em;
     }
 }
 
@@ -103,4 +44,34 @@ button {
     .scoring {
         width: 4%;
     }
-}    
+}
+
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+     appearance: none;
+  
+    width: 250px;
+    height: 20px;
+}
+
+progress[value]::-webkit-progress-value {
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(top, 
+                                 rgba(255, 255, 255, .25), 
+                                 rgba(0, 0, 0, .25)),
+         -webkit-linear-gradient(left, #09c, #f44);
+  
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+progress[value]::-webkit-progress-value::before {
+    content: '10%';
+    position: absolute;
+    right: 0;
+    top: -125%;
+}  

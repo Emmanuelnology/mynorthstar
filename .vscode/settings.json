@@ -1,3 +1,5 @@
 {
-  "vscode.tsc.compiler.alertTSConfigChanges": "never"
+    "files.exclude": {
+        "\"**/*.js\": { \"when\": \"$(basename).ts\"}": true
+    }
 }

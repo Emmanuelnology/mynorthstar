@@ -58,7 +58,7 @@ export class QuestionnaireComponent implements OnInit {
       content: '5. I could handle a major unexpected expense',
       score: undefined,
       weight: 5,
-      category: 'Finances'
+      category: 'Money'
     },
     {
       title: 'Question 6',
@@ -66,7 +66,7 @@ export class QuestionnaireComponent implements OnInit {
       content: '6. I can enjoy life because of the way I’m managing my money',
       score: undefined,
       weight: 2,
-      category: 'Finances'
+      category: 'Money'
     },
     {
       title: 'Question 7',
@@ -74,8 +74,75 @@ export class QuestionnaireComponent implements OnInit {
       content: '7. During your conversations, do you find yourself often defending your actions',
       score: undefined,
       weight: 6,
-      category: 'Relationships',
+      category: 'Romance and relationships',
       positive: false
+    },
+    {
+      title: 'Question 8',
+      number: 8,
+      content: '8. In general, I am satisfied with my friendships',
+      score: undefined,
+      weight: 2,
+      category: 'Romance and relationships',
+    },
+    {
+      title: 'Question 9',
+      number: 9,
+      content: '9. I wonder whether my friends really care about me',
+      score: undefined,
+      weight: 7,
+      category: 'Romance and relationships',
+      positive: false
+    },
+    {
+      title: 'Question 10',
+      number: 10,
+      content: '10. I regularly meet friends for social activities',
+      score: undefined,
+      weight: 7,
+      category: 'Fun and Recreation',
+    },
+    {
+      title: 'Question 11',
+      number: 11,
+      content: '11. I often do activities which leave me feeling happy',
+      score: undefined,
+      weight: 4,
+      category: 'Fun and Recreation',
+    },
+    {
+      title: 'Question 12',
+      number: 12,
+      content: '12. I play sport or do exercise regularly',
+      score: undefined,
+      weight: 1,
+      category: 'Fun and Recreation',
+    },
+    {
+      title: 'Question 13',
+      number: 13,
+      content: '13. I do not eat out everyday',
+      score: undefined,
+      weight: 2,
+      category: 'Health and wellbeing',
+      positive: false
+    },
+    {
+      title: 'Question 14',
+      number: 14,
+      content: '14. I do not believe in God',
+      score: undefined,
+      weight: 5,
+      category: 'Spirituality',
+      positive: false
+    },
+    {
+      title: 'Question 15',
+      number: 15,
+      content: '15. I am meeting my personal targets',
+      score: undefined,
+      weight: 3,
+      category: 'Personal Growth',
     }
     ];
 
