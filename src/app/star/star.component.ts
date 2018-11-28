@@ -9,7 +9,10 @@ interface ICanvas extends HTMLElement {
 
 export interface IRadarChartOptions {
   legend: {
-    display: boolean
+    display: boolean,
+    labels?: {
+      fontColor?: string
+    }
   };
   scale: {
     pointLabels: { // Labels around the chart
@@ -31,10 +34,11 @@ export interface IRadarChartOptions {
   };
 }
 
-interface IChartDataSet {
+export interface IChartDataSet {
   data: number[];
   label: string;
   fill: boolean;
+  backgroundColor?: string;
   lineTension: number;
   borderColor: string;
   pointBorderColor: string;
@@ -48,6 +52,10 @@ export interface IData {
   options: IRadarChartOptions;
 }
 
+interface IChart {
+  update();
+}
+
 @Component({
   selector: 'app-star',
   templateUrl: './star.component.html',
@@ -56,12 +64,16 @@ export interface IData {
 
 export class StarComponent implements AfterViewInit {
   @Input() data: IData;
-  chart = [];
+  chart: IChart[] = [];
   canvasID;
   constructor(private cd: ChangeDetectorRef) {
     this.canvasID = this.getID();
   }
-  
+
+  redraw() {
+    this.chart[0].update();
+  }
+
   guid() {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
@@ -70,11 +82,11 @@ export class StarComponent implements AfterViewInit {
     }
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
   }
-  
+
   getID() {
     return 'canvas' + this.guid();
   }
-  
+
   createChart() {
     const canvas: ICanvas = (document.getElementById(this.canvasID) as ICanvas);
     const ctx = canvas.getContext('2d');
@@ -86,14 +98,11 @@ export class StarComponent implements AfterViewInit {
       },
       options: this.data.options,
     });
-    
+
   }
-  
+
   ngAfterViewInit() {
     this.createChart();
     this.cd.detectChanges();
   }
-  
 }
-
-

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IData} from '../star/star.component';
+import {IData, IChartDataSet} from '../star/star.component';
 
 @Component({
   selector: 'app-compare-star',
@@ -8,46 +8,67 @@ import {IData} from '../star/star.component';
 })
 
 export class CompareStarComponent implements OnInit {
-  data:IData={
-    datasets:  [{
-      data: [1,2,3],
-    label: "Current",
-    fill: false,
-    lineTension: 0.3,
-    borderColor: 'white',
-    pointBorderColor: '#6ecbd3',
-    pointRadius: 5,
-    pointBackgroundColor: '#37234f',
-  }],
-  labels: ['A', 'B', 'C'],
-  options: {
-    legend: {
-      display: true
-    },
-    scale: {
-      pointLabels: { // Labels around the chart
+  datasets: IChartDataSet[] = [];
+  data: IData = {
+    datasets: [],
+    labels: ['A', 'B', 'C'],
+    options: {
+      legend: {
         display: true,
-        fontColor: 'white',
-        fontSize: 14
+        labels: {
+          fontColor: 'white'
+        }
       },
-      angleLines: { // Radiating lines leading to the labels
-        color: '#b02062'
+      scale: {
+        pointLabels: { // Labels around the chart
+          display: true,
+          fontColor: 'white',
+          fontSize: 14
+        },
+        angleLines: { // Radiating lines leading to the labels
+          color: '#b02062'
+        },
+        ticks: {
+          display: false,
+          min: 0,
+          max: 10,
+        },
+        gridLines: {
+          color: '#777'
+        }
       },
-      ticks: {
-        display: false,
-        min: 0,
-        max: 10,
-      },
-      gridLines: {
-        color: '#777'
+    }
+  };
+  constructor() {
+    this.data.datasets.push(
+      {
+        data: [1, 2, 3],
+        label: 'Current',
+        fill: true,
+        lineTension: 0.3,
+        borderColor: 'white',
+        pointBorderColor: '#6ecbd3',
+        pointRadius: 5,
+        pointBackgroundColor: '#37234f',
       }
-    },
-  }
+      );
+    }
 
-}
-  constructor() { }
+    ngOnInit() {
+    }
 
-  ngOnInit() {
-  }
-
-}
+    addData() {
+      this.data.datasets.push(
+        {
+          data: [4, 5, 6],
+          label: 'old',
+          fill: false,
+          lineTension: 0.3,
+          borderColor: 'pink',
+          pointBorderColor: '#6ecbd3',
+          pointRadius: 5,
+          pointBackgroundColor: '#37234f'
+        }
+        );
+      }
+    }

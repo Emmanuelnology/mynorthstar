@@ -53,8 +53,13 @@ color:white;
 
 @media only screen and (min-width: 768px) {
     .littleStar {
-        display: none.
+        display: none;
     }
+
+    .bigStar {
+        display: block;
+    }
+    
     .star {
         height: 500px;
     }
