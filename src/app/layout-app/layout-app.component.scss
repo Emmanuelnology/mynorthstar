@@ -50,6 +50,9 @@ main {
     height:20px;
     margin-top: $s-xs; 
 }
+.dots:hover {
+    cursor: pointer;
+}
 
 .flex-logo {
     margin-bottom: 0;
