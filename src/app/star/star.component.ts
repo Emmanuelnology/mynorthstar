@@ -50,7 +50,7 @@ interface IChartDataSetOptions {
   styleUrls: ['./star.component.scss']
 })
 export class StarComponent implements AfterViewInit {
-  @Input() results: IResult[];
+  @Input() results: IResult;
 
   @ViewChild('radarChart') canvas: ElementRef;
   chart = [];
@@ -103,7 +103,7 @@ export class StarComponent implements AfterViewInit {
     restructureData() {
       const categories: string[] = [];
       const data: number[] = [];
-      for (const result of this.results) {
+      for (const result of this.results.categoryResults) {
         categories.push(result.category);
         data.push(result.categoryAverage);
       }
