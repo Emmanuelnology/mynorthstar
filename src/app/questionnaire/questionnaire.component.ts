@@ -17,7 +17,7 @@ export interface IQuestion {
 })
 
 export class QuestionnaireComponent implements OnInit {
-  questions = [
+  questions: IQuestion[] = [
     {
       title: 'Question 1',
       number: 1,
