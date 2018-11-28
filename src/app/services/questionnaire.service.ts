@@ -30,26 +30,26 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 1',
     number: 1,
-    question: 'I do not feel particularly pleased with the nology help system',
-    score: 5,
-    weight: 2,
-    category: 'Happiness'
+    question: 'I do not feel particularly pleased with the way I am',
+    score: 2,
+    weight: 4,
+    category: 'Happiness',
+    positive: false
   },
   {
     title: 'Question 2',
     number: 2,
-    question: 'I feel that Craig is ignoring us',
-    score: 6,
+    question: 'I am classed as tall',
+    score: 5,
     weight: 5,
-    category: 'Personal growth',
-    positive: false
+    category: 'Personal growth'
   },
   {
     title: 'Question 3',
     number: 3,
-    question: 'I rarely wake up feeling rested',
+    question: 'I see my friends/family more than once a week',
     score: 10,
-    weight: 5,
+    weight: 3,
     category: 'Friends and family'
   },
   {
