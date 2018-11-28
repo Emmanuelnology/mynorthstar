@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -47,5 +47,12 @@ export class FireBaseTestDisplayComponent {
       d1.insertAdjacentHTML('afterend', '<h2 style="color: red"> Error message: </h2>' +
       '<p style = "text-align: center; color: red">' + errorMessage + '</p>');
     });
+  }
+
+
+  resetPassword(email: string) {
+    this.afAuth.auth.sendPasswordResetEmail(email)
+      .then(() => console.log("email sent"))
+      .catch((error) => console.log(error))
   }
 }
