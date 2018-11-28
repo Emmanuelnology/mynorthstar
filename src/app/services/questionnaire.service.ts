@@ -272,26 +272,26 @@ export class Randomise {
   constructor() { }
 
   randomiseOrder(questionArray: IQuestion[]) {
-    let randomNumberArray = this.createUnorderedArray(questionArray);
-    let unsortedQuestionArray = this.assignObjectRandomNumbers(questionArray, randomNumberArray);
-    unsortedQuestionArray.sort(function(obj1, obj2) {
+    const randomNumberArray = this.createUnorderedArray(questionArray);
+    const unsortedQuestionArray = this.assignQuestionRandomNumbers(questionArray, randomNumberArray);
+    const sortedQuestionArray = unsortedQuestionArray.sort(function(obj1, obj2) {
       return obj1.number - obj2.number;
     });
-    return unsortedQuestionArray;
+    return sortedQuestionArray;
   }
 
   createUnorderedArray(questionArray: IQuestion[]): number[] {
-    let randomNumberArray = [];
+    const randomNumberArray = [];
     for (const index in questionArray) {
       if (questionArray.hasOwnProperty(index)) {
         randomNumberArray.push(index);
       }
     }
-    randomNumberArray.sort( () => Math.random() -0.5);
+    randomNumberArray.sort( () => Math.random() - 0.5);
     return randomNumberArray;
   }
 
-  assignObjectRandomNumbers(questionArray: IQuestion[], randomNumberArray: number[]): IQuestion[] {
+  assignQuestionRandomNumbers(questionArray: IQuestion[], randomNumberArray: number[]): IQuestion[] {
     for (const index in questionArray) {
       if (questionArray.hasOwnProperty(index)) {
         questionArray[index].number = randomNumberArray[index];
