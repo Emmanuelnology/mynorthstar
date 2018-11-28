@@ -48,10 +48,12 @@ main {
 
 .dots {
     height:20px;
+    margin-top: $s-xs; 
 }
 
 .flex-logo {
     margin-bottom: 0;
+    padding-left: $s-md;
     padding-bottom: 0;
 }
 
