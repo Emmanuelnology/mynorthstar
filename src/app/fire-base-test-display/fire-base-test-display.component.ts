@@ -1,15 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
+
 
 @Component({
   selector: 'app-fire-base-test-display',
   templateUrl: './fire-base-test-display.component.html',
   styleUrls: ['./fire-base-test-display.component.scss']
 })
-export class FireBaseTestDisplayComponent implements OnInit {
 
-  constructor() { }
+export class FireBaseTestDisplayComponent {
 
-  ngOnInit() {
+  items: Observable<any[]>;
+  constructor(db: AngularFirestore, public afAuth: AngularFireAuth) {
+    this.items = db.collection('items').valueChanges();
+  }
+
+  logIn() {
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+
+  logInEmail() {
+    this.afAuth.auth.signInWithPopup(new auth.EmailAuthProvider());
+  }
+
+  logOut() {
+    this.afAuth.auth.signOut();
+  }
+
+  register(email, password) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ...
+    });
+
   }
 
 }

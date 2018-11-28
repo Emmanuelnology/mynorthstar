@@ -30,6 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FireBaseTestDisplayComponent } from './fire-base-test-display/fire-base-test-display.component';
 import { ProgressArcComponent } from './progress-arc/progress-arc.component';
 
+import { StyleGuideComponent } from './style-guide/style-guide.component';
+
 
 const routes: Routes = [
  { path: 'questionnaire', component: QuestionnaireComponent },
@@ -39,7 +41,8 @@ const routes: Routes = [
  { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
  { path: 'fbtd', component: FireBaseTestDisplayComponent},
- { path: 'dashboard', component: DashboardComponent}
+ { path: 'dashboard', component: DashboardComponent},
+ { path: 'styles', component: StyleGuideComponent}
 ];
 
 @NgModule({
@@ -57,7 +60,8 @@ const routes: Routes = [
    TaskListComponent,
    DashboardComponent,
    FireBaseTestDisplayComponent,
-   ProgressArcComponent
+   ProgressArcComponent,
+   StyleGuideComponent
  ],
  imports: [
    BrowserModule,

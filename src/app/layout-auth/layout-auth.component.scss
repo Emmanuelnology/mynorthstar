@@ -11,6 +11,7 @@ body {
     background-size: cover;
     border: solid black 2px;
     color: white;
+    overflow: scroll;
 }
 
 main {
@@ -24,19 +25,19 @@ main {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 0.95em;
+    letter-spacing: 9px;
 }
 
 h2 {
-    font-size: 1em;
+    font-size: 0.75em;
+    letter-spacing: 5px;
+}
+h2 {
+    font-weight: normal;
 }
 
-#logo {
-    font-size: 1.25em;
-}
-
-@media only screen and (min-width: 550px) {
-    body {
-        
-    }
+#logo > img {
+    height: 7.5vh;
+    margin-bottom: 0.75em;
 }
