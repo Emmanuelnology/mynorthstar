@@ -6,7 +6,7 @@ body {
     height: 100vh;
 }
 
-/* Text color, width and position */
+/* Text color, width and position, input size */
 main > form {
     max-height: 100%;
     width: 400px;
@@ -23,11 +23,14 @@ main > form, h1 {
     color: white;
     justify-content: center;
     text-align: center;
-    font-size: auto;
 }
 
 div > label {
     padding-bottom: 9px;
+}
+
+.scoring {
+    width: 15%;
 }
 
 footer {
@@ -76,3 +79,36 @@ button {
     margin: 4px 2px;
     cursor: pointer;    
 }
+
+@media only screen and (max-width: 800px) {
+    main > form {
+        font-size: 0.6em;
+    }
+    main > h1 {
+        font-size: 1em
+    }
+    .scoring {
+        width: 8%;
+    }
+    .button {
+        font-size: 0.8em;
+    }
+    
+    .restart {
+        font-size: 0.75em;
+    }
+    footer {
+        font-size: 0.60em;
+    }
+}
+
+@media only screen and (max-width: 150px) {
+    * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        overflow: scroll;
+    }
+    .scoring {
+        width: 4%;
+    }
+}    
