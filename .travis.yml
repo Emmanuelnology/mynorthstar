@@ -10,7 +10,7 @@ cache:
 
 script:
   - npm run lint
-  - npm run build
+  - npm run build --prod
 
 notifications:
   slack: nology-uk:je0I2B8Zeu6UZTn3HwEGXNjd
