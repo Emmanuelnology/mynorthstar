@@ -64,7 +64,7 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 5',
     number: null,
     question: 'I do yoga',
-    score: 0,
+    score: 1,
     weight: 1,
     category: 'Spirituality'
   },
