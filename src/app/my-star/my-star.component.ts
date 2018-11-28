@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IResult, QuestionnaireService, exampleQuestions } from '../services/questionnaire.service';
+import { IResult, QuestionnaireService, exampleQuestions, Randomise } from '../services/questionnaire.service';
 import { IData } from '../star/star.component';
 
 @Component({
@@ -9,7 +9,7 @@ import { IData } from '../star/star.component';
 })
 export class MyStarComponent implements OnInit {
   questions = exampleQuestions;
-  results: IResult[] = [];
+  results: IResult;
   overallResult: number;
   starData: IData = {
     datasets: [],
@@ -38,13 +38,14 @@ export class MyStarComponent implements OnInit {
     }
   };
 
-  constructor(private questionnaireService: QuestionnaireService) {
+  constructor(private questionnaireService: QuestionnaireService, private rand: Randomise) {
+    this.questions = this.rand.randomiseOrder(this.questions); // move to questionnaire component (here for demo/testing purposes)
     this.results = this.questionnaireService.getResults(this.questions);
-    this.overallResult = this.questionnaireService.overallAverage(this.results);
+    this.overallResult = this.results.overallResult;
 
-    const restructuredData = this.restructureData(this.results);
-    this.starData .datasets = restructuredData.datasets;
-    this.starData .labels = restructuredData.labels;
+    const restructuredData = this.restructureData(this.results.categoryResults);
+    this.starData.datasets = restructuredData.datasets;
+    this.starData.labels = restructuredData.labels;
   }
 
   restructureData(results) {
