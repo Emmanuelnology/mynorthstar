@@ -56,7 +56,7 @@ export class StarComponent implements AfterViewInit {
   @Input() data: IData;
   chart = [];
 
-  constructor(private cd: ChangeDetectorRef){}
+  constructor(private cd: ChangeDetectorRef) {}
 
   createChart() {
       const canvas: ICanvas = (document.getElementById('canvas') as ICanvas);
