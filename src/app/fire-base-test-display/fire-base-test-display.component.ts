@@ -22,16 +22,21 @@ export class FireBaseTestDisplayComponent {
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
-  logInEmail() {
-    this.afAuth.auth.signInWithPopup(new auth.EmailAuthProvider());
+  logInEmail(email, password) {
+    console.log("Sign in \nEmail: " +  email + " Password: " + password);
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
   }
 
   logOut() {
     this.afAuth.auth.signOut();
   }
 
-  register(email, password) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+  registerUser(email, password) {
+    console.log("Register User \nEmail: " +  email + " Password: " + password);
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -39,5 +44,9 @@ export class FireBaseTestDisplayComponent {
     });
 
   }
-
+  
+  message(){
+    alert("hi there");
+    console.log("hi there");
+  }
 }

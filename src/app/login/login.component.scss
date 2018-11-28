@@ -1,0 +1,55 @@
+@import '../../variables.scss';
+
+#form-container {
+    text-align: center;
+    display: inline-block;
+    width: 320px;
+    padding: $s-xs;
+}
+
+form {
+    width: 100%;
+    text-align: left;
+    margin-top: $s-sm;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+
+    label {
+        font-size: $f-xs;
+    }
+    input {
+        flex-shrink: 1;
+        margin: 0;
+        margin-bottom: $s-sm;
+        padding: $s-xs;
+        width: 100%;
+        max-width: 320px;
+        font-size: $f-sm;
+    }
+
+    button {
+        width: 100%;
+        max-width: 320px;
+        font-size: $f-xs;
+        padding: 0.75em;
+    }
+
+}
+
+a {
+    font-size: $f-xs;
+    font-size: 0.75em;
+    color: #93ecfc;
+    text-align: left
+}
+
+a:hover {
+    color: white;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
