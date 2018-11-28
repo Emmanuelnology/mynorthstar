@@ -91,7 +91,7 @@ export class QuestionnaireComponent implements OnInit {
       question: 'I regularly meet friends for social activities',
       score: undefined,
       weight: 7,
-      category: 'Fun and Recreation',
+      category: 'Fun and recreation',
     },
     {
       title: 'Question 11',
@@ -99,7 +99,7 @@ export class QuestionnaireComponent implements OnInit {
       question: 'I often do activities which leave me feeling happy',
       score: undefined,
       weight: 4,
-      category: 'Fun and Recreation',
+      category: 'Fun and recreation',
     },
     {
       title: 'Question 12',
@@ -107,7 +107,7 @@ export class QuestionnaireComponent implements OnInit {
       question: 'I play sport or do exercise regularly',
       score: undefined,
       weight: 1,
-      category: 'Fun and Recreation',
+      category: 'Fun and recreation',
     },
     {
       title: 'Question 13',
@@ -166,7 +166,75 @@ export class QuestionnaireComponent implements OnInit {
       score: undefined,
       weight: 3,
       category: 'Personal Growth',
-    }
+    },
+    {
+      title: 'Question 20',
+      number: 20,
+      question: 'I frequently meet up with friends and family',
+      score: undefined,
+      weight: 6,
+      category: 'Friends and family',
+    },
+    {
+      title: 'Question 21',
+      number: 21,
+      question: 'I have a best friend',
+      score: undefined,
+      weight: 5,
+      category: 'Friends and family',
+    },
+    {
+      title: 'Question 22',
+      number: 22,
+      question: 'I feel just as important as the rest of my family',
+      score: undefined,
+      weight: 5,
+      category: 'Friends and family',
+    },
+    {
+      title: 'Question 23',
+      number: 23,
+      question: 'I do not use Netflix',
+      score: undefined,
+      weight: 6,
+      category: 'Home and Environment',
+      positive: false
+    },
+    {
+      title: 'Question 24',
+      number: 24,
+      question: 'I sometimes feel lonely',
+      score: undefined,
+      weight: 3,
+      category: 'Home and Environment',
+      positive: false
+    },
+    {
+      title: 'Question 25',
+      number: 25,
+      question: 'I am responsible with my money',
+      score: undefined,
+      weight: 4,
+      category: 'Money'
+    },
+    {
+      title: 'Question 26',
+      number: 26,
+      question: 'I like meeting new people',
+      score: undefined,
+      weight: 6,
+      category: 'Romance and relationships',
+      positive: false
+    },
+    {
+      title: 'Question 27',
+      number: 27,
+      question: 'I like meeting new people',
+      score: undefined,
+      weight: 6,
+      category: 'Fun and recreation',
+      positive: false
+    },
     ];
 
   constructor(private rand: Randomise) {
