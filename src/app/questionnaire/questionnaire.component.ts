@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface IQuestion {
-  title: string;
-  number: number;
-  content: string;
-  score: number;
-  weight: number;
-  category: string;
-  positive?: boolean;
-}
+import { IQuestion } from '../services/questionnaire.service';
 
 @Component({
   selector: 'app-questionnaire',
@@ -21,7 +12,7 @@ export class QuestionnaireComponent implements OnInit {
     {
       title: 'Question 1',
       number: 1,
-      content: '1. I do not feel particularly pleased with the way I am',
+      question: '1. I do not feel particularly pleased with the way I am',
       score: undefined,
       weight: 2,
       category: 'Happiness',
@@ -30,7 +21,7 @@ export class QuestionnaireComponent implements OnInit {
     {
       title: 'Question 2',
       number: 2,
-      content: '2. I feel that life is very rewarding',
+      question: '2. I feel that life is very rewarding',
       score: undefined,
       weight: 5,
       category: 'Happiness',
@@ -38,7 +29,7 @@ export class QuestionnaireComponent implements OnInit {
     {
       title: 'Question 3',
       number: 3,
-      content: '3. I rarely wake up feeling rested',
+      question: '3. I rarely wake up feeling rested',
       score: undefined,
       weight: 5,
       category: 'Happiness',
@@ -47,7 +38,7 @@ export class QuestionnaireComponent implements OnInit {
     {
       title: 'Question 4',
       number: 4,
-      content: '4. I laugh a lot',
+      question: '4. I laugh a lot',
       score: undefined,
       weight: 2,
       category: 'Happiness'
@@ -55,7 +46,7 @@ export class QuestionnaireComponent implements OnInit {
     {
       title: 'Question 5',
       number: 5,
-      content: '5. I could handle a major unexpected expense',
+      question: '5. I could handle a major unexpected expense',
       score: undefined,
       weight: 5,
       category: 'Finances'
@@ -63,7 +54,7 @@ export class QuestionnaireComponent implements OnInit {
     {
       title: 'Question 6',
       number: 6,
-      content: '6. I can enjoy life because of the way I’m managing my money',
+      question: '6. I can enjoy life because of the way I’m managing my money',
       score: undefined,
       weight: 2,
       category: 'Finances'
@@ -71,7 +62,7 @@ export class QuestionnaireComponent implements OnInit {
     {
       title: 'Question 7',
       number: 7,
-      content: '7. During your conversations, do you find yourself often defending your actions',
+      question: '7. During your conversations, do you find yourself often defending your actions',
       score: undefined,
       weight: 6,
       category: 'Relationships',

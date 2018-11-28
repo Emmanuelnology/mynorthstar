@@ -1,10 +1,19 @@
 import { Injectable } from '@angular/core';
-import { IQuestion } from '../questionnaire/questionnaire.component';
 import { summaryForJitName } from '@angular/compiler/src/aot/util';
 
 export interface ICategory {
   score: number;
   weight: number;
+}
+
+export interface IQuestion {
+  title: string;
+  number: number;
+  question: string;
+  score: number;
+  weight: number;
+  category: string;
+  positive?: boolean;
 }
 
 export interface IResult {
@@ -16,7 +25,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 1',
     number: 1,
-    content: 'I do not feel particularly pleased with the nology help system',
+    question: 'I do not feel particularly pleased with the nology help system',
     score: 3,
     weight: 2,
     category: 'Happiness'
@@ -24,7 +33,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 2',
     number: 2,
-    content: 'I feel that Craig is ignoring us',
+    question: 'I feel that Craig is ignoring us',
     score: 6,
     weight: 5,
     category: 'Personal growth',
@@ -33,7 +42,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 3',
     number: 3,
-    content: 'I rarely wake up feeling rested',
+    question: 'I rarely wake up feeling rested',
     score: 10,
     weight: 5,
     category: 'Friends and family'
@@ -41,7 +50,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 4',
     number: 4,
-    content: 'I laugh a lot',
+    question: 'I laugh a lot',
     score: 1,
     weight: 2,
     category: 'Friends and family'
@@ -49,7 +58,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 5',
     number: 5,
-    content: 'I DO NOT laugh a lot',
+    question: 'I DO NOT laugh a lot',
     score: 3,
     weight: 5,
     category: 'Spirituality'
@@ -57,7 +66,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 6',
     number: 6,
-    content: 'I am getting paid to go to nology',
+    question: 'I am getting paid to go to nology',
     score: 1,
     weight: 6,
     category: 'Money'
@@ -65,7 +74,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 7',
     number: 7,
-    content: 'I work at nationwide',
+    question: 'I work at nationwide',
     score: 9,
     weight: 1,
     category: 'Career'
@@ -73,7 +82,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 8',
     number: 8,
-    content: 'I have a partner',
+    question: 'I have a partner',
     score: 8,
     weight: 7,
     category: 'Romance and relationships'
@@ -81,7 +90,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 9',
     number: 9,
-    content: 'I laugh a lot',
+    question: 'I laugh a lot',
     score: 1,
     weight: 4,
     category: 'Happiness'
@@ -89,7 +98,7 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 10',
     number: 10,
-    content: 'I dont have netflix',
+    question: 'I dont have netflix',
     score: 3,
     weight: 2,
     category: 'Home and environment'
@@ -97,8 +106,8 @@ export let exampleQuestions: IQuestion[] = [
   {
     title: 'Question 11',
     number: 11,
-    content: 'I dont eat out everyday',
-    score: 8,
+    question: 'I dont eat out everyday',
+    score: 9,
     weight: 2,
     category: 'Health and wellbeing'
   },
@@ -124,8 +133,7 @@ export class QuestionnaireService {
       }
     }
     const averageScore = weightTimesScoreSum / weightSum;
-    const roundedAverage =  this.roundNumber(averageScore, this.decimalPlaces);
-    return this.decimalPadding(roundedAverage, this.decimalPlaces);
+    return averageScore;
   }
 
   createCatOb(question: IQuestion): ICategory {
@@ -146,21 +154,6 @@ export class QuestionnaireService {
       }
     }
     return foundCategories.sort();
-  }
-
-  roundNumber(number: number, decimals: number): number {
-    const powerOfTen = Math.pow(10, decimals);
-    const bigNumber = Math.floor(number * powerOfTen);
-    return bigNumber / powerOfTen;
-  }
-
-  decimalPadding(number: number, decimals: number): number {
-    if (number === Math.floor(number)) {
-      // let decimalisation =  number + "." + ('1').repeat(decimals);
-      // return number.toFixed(decimals);
-      return number;
-    }
-    return number;
   }
 
   makePositive(questionArray: IQuestion[]): IQuestion[] {
@@ -204,6 +197,6 @@ export class QuestionnaireService {
       }
     }
     const average = sumOfResults / results.length;
-    return this.roundNumber(average, this.decimalPlaces);
+    return average;
   }
 }
