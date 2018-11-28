@@ -1,7 +1,8 @@
-import { Component, Input, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import {  IResult } from '../services/questionnaire.service';
 import { Chart } from 'chart.js';
 import {ViewChild, ElementRef} from '@angular/core';
+
 
 interface ICanvas extends HTMLElement {
   getContext(context:string)
@@ -50,6 +51,7 @@ interface IChartDataSetOptions {
 })
 export class StarComponent implements AfterViewInit{
   @Input() results: IResult[];
+
   @ViewChild('radarChart') canvas: ElementRef;
   chart = []; 
   
@@ -59,7 +61,6 @@ export class StarComponent implements AfterViewInit{
       display: false
     },
     scale: {
-      
       pointLabels: {
         fontColor: 'white',
         fontSize: 14
@@ -80,10 +81,10 @@ export class StarComponent implements AfterViewInit{
     public radarChartData:IChartDataSetOptions[] = [];
     
     
-    constructor(private cd: ChangeDetectorRef) {
-      
+    constructor() {
       
     }
+
     
     createChart() {
       let canvas:ICanvas = (document.getElementById('canvas') as ICanvas);
@@ -125,7 +126,6 @@ export class StarComponent implements AfterViewInit{
     ngAfterViewInit() {
       this.restructureData();
       this.createChart();
-      this.cd.detectChanges();
     }
     
   }
