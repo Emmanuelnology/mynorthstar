@@ -22,22 +22,30 @@ export class FireBaseTestDisplayComponent {
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
-  logInEmail() {
-    this.afAuth.auth.signInWithPopup(new auth.EmailAuthProvider());
+  logInEmail(email, password) {
+    console.log('Sign in \nEmail: ' +  email + ' Password: ' + password);
+    document.getElementById('errorMessageRegister').innerHTML = ('Sign in \nEmail: ' +  email + ' Password: ' + password);
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const d1 = document.getElementById('errorMessageLogInEmail');
+      d1.insertAdjacentHTML('afterend', '<h2 style="color: red"> Error message: </h2>' +
+      '<p style = "text-align: center; color: red">' + errorMessage + '</p>');
+    });
   }
 
   logOut() {
     this.afAuth.auth.signOut();
   }
 
-  register(email, password) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
+  registerUser(email, password) {
+    console.log('Register User \nEmail: ' +  email + ' Password: ' + password);
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // ...
+      const d1 = document.getElementById('errorMessageRegister');
+      d1.insertAdjacentHTML('afterend', '<h2 style="color: red"> Error message: </h2>' +
+      '<p style = "text-align: center; color: red">' + errorMessage + '</p>');
     });
-
   }
-
 }
