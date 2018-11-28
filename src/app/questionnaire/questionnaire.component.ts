@@ -117,6 +117,32 @@ export class QuestionnaireComponent implements OnInit {
       score: undefined,
       weight: 1,
       category: 'Fun and Recreation',
+    },
+    {
+      title: 'Question 13',
+      number: 13,
+      content: '13. I do not eat out everyday',
+      score: undefined,
+      weight: 2,
+      category: 'Health and wellbeing',
+      positive: false
+    },
+    {
+      title: 'Question 14',
+      number: 14,
+      content: '14. I do not believe in God',
+      score: undefined,
+      weight: 5,
+      category: 'Spirituality',
+      positive: false
+    },
+    {
+      title: 'Question 15',
+      number: 15,
+      content: '15. I am meeting my personal targets',
+      score: undefined,
+      weight: 3,
+      category: 'Personal Growth',
     }
     ];
 
