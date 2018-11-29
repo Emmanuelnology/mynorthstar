@@ -31,6 +31,7 @@ import { ProgressArcComponent } from './progress-arc/progress-arc.component';
 
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { LoginComponent } from './login/login.component';
+import { TinyStarComponent } from './tiny-star/tiny-star.component';
 import { CompareStarComponent } from './compare-star/compare-star.component';
 
 
@@ -38,7 +39,6 @@ const routes: Routes = [
  { path: 'questionnaire', component: QuestionnaireComponent },
  { path: 'login', component: LoginComponent},
  { path: 'register', component: RegisterComponent},
- { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
  { path: 'fbtd', component: FireBaseTestDisplayComponent},
  { path: 'dashboard', component: DashboardComponent},
@@ -64,6 +64,7 @@ const routes: Routes = [
    ProgressArcComponent,
    StyleGuideComponent,
    LoginComponent,
+   TinyStarComponent,
    CompareStarComponent
  ],
  imports: [

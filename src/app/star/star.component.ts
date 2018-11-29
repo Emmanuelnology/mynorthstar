@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, AfterViewInit, ChangeDetectorRef, HostListener, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 
 
@@ -24,6 +24,7 @@ export interface IRadarChartOptions {
       color: string
     },
     ticks: {
+      maxTicksLimit?: number,
       display: boolean,
       min: number,
       max: number,
@@ -62,16 +63,18 @@ interface IChart {
   styleUrls: ['./star.component.scss']
 })
 
-export class StarComponent implements AfterViewInit {
+export class StarComponent implements AfterViewInit, OnInit {
   @Input() data: IData;
-  chart: IChart[] = [];
-  canvasID;
+  @Input() size = '100%';
+
+  chart: Chart = {} as Chart;
+  canvasID: string;
+
   constructor(private cd: ChangeDetectorRef) {
-    this.canvasID = this.getID();
   }
 
-  redraw() {
-    this.chart[0].update();
+  makeStarUnique() {
+    this.canvasID = this.getID();
   }
 
   guid() {
@@ -101,8 +104,23 @@ export class StarComponent implements AfterViewInit {
 
   }
 
+  redraw() {
+    this.chart.update();
+    console.log('Chart was updated');
+  }
+
   ngAfterViewInit() {
     this.createChart();
     this.cd.detectChanges();
   }
+
+  ngOnInit () {
+    this.makeStarUnique();
+  }
+
+  @HostListener('window:resize', ['$event'])
+    onResize(event) {
+      this.redraw();
+    }
+
 }

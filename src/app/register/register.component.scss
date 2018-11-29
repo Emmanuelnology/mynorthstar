@@ -3,7 +3,7 @@
 #form-container {
     text-align: center;
     display: inline-block;
-    width: 320px;
+    max-width: 320px;
     padding: $s-xs;
 }
 
@@ -15,18 +15,15 @@ form {
 
 fieldset {
     border: none;
-    display: flex;
 
     label {
         font-size: $f-xs;
     }
     input {
-        flex-shrink: 1;
         margin: 0;
         margin-bottom: $s-sm;
         padding: $s-xs;
         width: 100%;
-        max-width: 320px;
         font-size: $f-sm;
     }
 

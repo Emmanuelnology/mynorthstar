@@ -201,7 +201,10 @@ export class QuestionnaireService {
       if (questionArray.hasOwnProperty(questionIndex)) {
         const currentQuestion = questionArray[questionIndex];
         if (currentQuestion.hasOwnProperty('positive')) {
-          currentQuestion.score = 10 - currentQuestion.score;
+          if (currentQuestion.positive === false) {
+            currentQuestion.score = 10 - currentQuestion.score;
+            currentQuestion.positive = true;
+          }
         }
       }
     }

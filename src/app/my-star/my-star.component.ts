@@ -11,6 +11,7 @@ export class MyStarComponent implements OnInit {
   questions = exampleQuestions;
   results: IResult;
   overallResult: number;
+
   bigStarData: IData = {
     datasets: [],
     labels: [],
@@ -36,6 +37,7 @@ export class MyStarComponent implements OnInit {
         color: '#b02062'
       },
       ticks: {
+        maxTicksLimit: 5,
         display: false,
         min: 0,
         max: 10,
@@ -61,6 +63,7 @@ export class MyStarComponent implements OnInit {
         color: '#b02062'
       },
       ticks: {
+        maxTicksLimit: 5,
         display: false,
         min: 0,
         max: 10,
@@ -77,6 +80,7 @@ export class MyStarComponent implements OnInit {
     this.overallResult = this.results.overallResult;
 
     const restructuredData = this.restructureData(this.results.categoryResults);
+
     this.bigStarData.datasets = restructuredData.datasets;
     this.bigStarData.labels = restructuredData.labels;
     this.bigStarData.options = this.bigStarOptions;
