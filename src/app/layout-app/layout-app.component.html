@@ -20,13 +20,13 @@
   </div>
 </div>
 <div class="flex-container {{ (menuIsVisible) ? 'showMenu':''}}">
-  <nav class="menu ">
-      <ul >    
-          <li routerLink="/questionnaire"><a ><i class="fas fa-list-ol"></i></a></li>
-          <li routerLink="/profile"><a ><i class="fas fa-user"></i></a></li>
-        <li routerLink="/"><a ><i class="fas fa-star"></i></a></li>
-        <li routerLink="/styles"><a ><i class="fab fa-css3-alt"></i></a></li>
-        <li><a (click)="logout()"><i class="fas fa-times"></i></a></li>
+  <nav class="menu tooltip">
+      <ul>    
+      <span class="tooltiptext">GUMMO</span><li routerLink="/questionnaire"><a ><i class="fas fa-list-ol"></i></a></li>
+      <span class="tooltiptext">FEFE</span><li routerLink="/profile" title="profile"><a ><i class="fas fa-user"></i></a></li>
+      <span class="tooltiptext">WAKA</span> <li routerLink="/"><a ><i class="fas fa-star"></i></a></li>
+      <span class="tooltiptext">STOOPID</span> <li routerLink="/styles"><a ><i class="fab fa-css3-alt"></i></a></li>
+      <span class="tooltiptext">BILLY</span> <li><a (click)="logout()"><i class="fas fa-times"></i></a></li>
       </ul>
   </nav>
   <main>

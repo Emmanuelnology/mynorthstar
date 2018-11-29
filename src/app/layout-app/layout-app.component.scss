@@ -140,8 +140,47 @@ span {
   font-size: $f-sm;
 }
 
+.tooltiptext {
+  visibility: hidden;
+}
+
 @media only screen and (min-width:750px){
   $menuWidth: 70px;
+
+  /* ToolTip classses */ 
+.tooltip {
+  display: inline-block;    
+  }
+  .menu .tooltip .tooltiptext {
+      margin-left:9px;
+      width : 320px;
+      visibility: hidden;
+      background-color: #FFF;
+      border-radius:4px;
+      border: 1px solid #aeaeae;
+      position: absolute;
+      z-index: 1;
+      padding: 5px;
+      margin-top : -15px; /* according to application */ 
+     opacity: 0;
+      transition: opacity 1s;
+  }
+  .tooltip .tooltiptext::after {
+      content: " ";
+      position: absolute;
+      top: 5%;
+      right: 100%; /* To the left of the tooltip */
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent #aeaeae transparent transparent;
+  }
+  
+  
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+  }
 
   .logo-wrapper {
     padding: $s-sm;
@@ -173,6 +212,9 @@ span {
     padding-left: 0;
   }
   
+  .menu {
+    overflow: visible;
+  }
   
   
   
