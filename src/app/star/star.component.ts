@@ -7,7 +7,6 @@ interface ICanvas extends HTMLElement {
 }
 
 export interface IRadarChartOptions {
-  animation: boolean;
   legend: {
     display: boolean,
     labels?: {
