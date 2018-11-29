@@ -1,31 +1,37 @@
-<body>
+<div class="wrapper">
 <div class="flex-banner">
-  <div class="flex-menu">
-    <img class="dots" (click)="menuIsVisible=!menuIsVisible" src="../../assets/logo/nav-round.png">
+  <div class="flex-menu" (click)="menuIsVisible=!menuIsVisible" >
+    <img class="dots" src="../../assets/logo/nav-round.png">
   </div>
   <div class="flex-logo">
-    <img *ngIf="!icon" src="../../assets/logo/northstar-logo.png">
-    <h1>    <i *ngIf="icon" class="fa fa-taxi"></i>
-      {{title}}</h1>
+    <div class="logo-wrapper">
+        <a routerLink="/">
+      <img src="../../assets/logo/northstar-logo.png">
+      </a>
+    </div>
+    <h1>
+        <app-tiny-star *ngIf="starData" [data]="starData" size="1em"></app-tiny-star>
+        <i *ngIf="icon" class="fa fa-taxi"></i>
+      {{title}}
+    </h1>
   </div>
   <div class="flex-avatar">
     <span>Hi Jeff <i class="fas fa-user"></i></span>
   </div>
 </div>
-<div class="flex-container">
-  <nav>
-      <ul [hidden]="menuIsVisible">    
-        <li><i class="fas fa-user"></i></li>
-        <li><i class="fas fa-star"></i></li>
-        <li><i class="fas fa-cog"></i></li>
-        <li><i class="fas fa-times"></i></li>
+<div class="flex-container {{ (menuIsVisible) ? 'showMenu':''}}">
+  <nav class="menu ">
+      <ul >    
+        <li><a routerLink="/profile"><i class="fas fa-user"></i></a></li>
+        <li><a routerLink="/"><i class="fas fa-star"></i></a></li>
+        <li><a routerLink="/styles"><i class="fab fa-css3-alt"></i></a></li>
+        <li><a (click)="logout()"><i class="fas fa-times"></i></a></li>
       </ul>
   </nav>
   <main>
     <div class="content">
       <ng-content></ng-content>
-
     </div>
   </main>
 </div>
-</body>
+</div>

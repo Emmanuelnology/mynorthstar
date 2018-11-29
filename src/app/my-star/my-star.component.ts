@@ -36,6 +36,7 @@ export class MyStarComponent implements OnInit {
         color: '#b02062'
       },
       ticks: {
+        maxTicksLimit: 5,
         display: false,
         min: 0,
         max: 10,
@@ -48,6 +49,7 @@ export class MyStarComponent implements OnInit {
 
   littleStarOptions = {
     legend: {
+
       display: false
     },
     scale: {
@@ -60,6 +62,7 @@ export class MyStarComponent implements OnInit {
         color: '#b02062'
       },
       ticks: {
+        maxTicksLimit: 5,
         display: false,
         min: 0,
         max: 10,
@@ -100,9 +103,10 @@ export class MyStarComponent implements OnInit {
           fill: false,
           lineTension: 0.3,
           borderColor: 'white',
-          pointBorderColor: '#6ecbd3',
-          pointRadius: 5,
-          pointBackgroundColor: '#37234f'
+          pointBorderColor: 'white',
+          pointRadius: 6,
+          pointBackgroundColor: ['#37234f', '#003864', '#b02062', '#65449b',
+           '#6ecbd3', '#1b2949', '#37234f', '#003864', '#b02062']
         }
       ],
       labels: categories
