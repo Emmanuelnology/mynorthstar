@@ -4,6 +4,7 @@ body {
     background-image: url('../../assets/backgrounds/background2.jpg');
     background-size: cover;
     color: white;
+    min-height: 100vh;
 }
 
 .flex-container {
@@ -17,14 +18,8 @@ nav {
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: white;
     text-align: center;
-}
-
-nav:click {
-    width:300px;
-}
-
-ul {
-    width:30.9px;
+    min-height: 100vh;
+    border-top: 1px solid white;
 }
 
 main {
@@ -42,8 +37,9 @@ main {
     color:white;
     padding: 5px;
     background-color: rgb(17, 96, 243);
-    flex:0, 0, 35px;
+    width:35px;
     padding-top: 15px;
+    cursor: pointer;
 }
 
 .dots {
@@ -56,12 +52,12 @@ main {
 
 .flex-logo {
     margin-bottom: 0;
-    padding-left: $s-md;
+    padding-left: $s-xs;
     padding-bottom: 0;
 }
 
 .flex-logo > img {
-    height: 40px;
+    height: 50px;
     margin-left: $s-sm;
     margin-right: $s-sm;
     margin-top: $s-sm;
@@ -80,7 +76,12 @@ main {
 li {
     color:$nav-icons-color;
     font-size: 1.5em;
-    padding-top: 15px;
+    padding-top: $s-sm;
+    padding-bottom: $s-sm;
+}
+
+li:hover {
+    background-color:rgb(17, 96, 243); 
 }
 
 main {
@@ -91,5 +92,54 @@ main {
     border:1px solid $border-color;
     border-radius: 5px;
     padding: 10px;
+    overflow:hidden;
 }
 
+$menuWidth: 35px;
+$animationDuration: 0.5s;
+
+.menu {
+    overflow:hidden;
+    width:0;
+    transition:$animationDuration;
+    min-width:0;
+
+}
+
+.menu.showMenu {
+    transition:$animationDuration;
+    width:$menuWidth;
+    min-width:$menuWidth;
+}
+
+span {
+    font-size: $f-sm;
+}
+
+@media only screen and (min-width:750px){
+    
+    nav {
+        flex: 0, 0, 70px;
+    }
+
+    
+$menuWidth: 70px;
+
+    .menu.showMenu {
+        transition:$animationDuration;
+        width:$menuWidth;
+        min-width:$menuWidth;
+    }
+
+    .flex-menu {
+        display: none;
+    }
+
+    .flex-logo {
+        padding-left: 0;
+    }
+
+
+
+
+}
