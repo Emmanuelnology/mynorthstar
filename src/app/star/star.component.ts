@@ -8,6 +8,9 @@ interface ICanvas extends HTMLElement {
 
 
 export interface IRadarChartOptions {
+  tooltips?: {
+    backgroundColor: number | number []
+  },
   legend: {
     display: boolean,
     labels?: {
