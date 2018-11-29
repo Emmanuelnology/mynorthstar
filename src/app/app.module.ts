@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 // Imported Components
@@ -70,6 +71,7 @@ const routes: Routes = [
  imports: [
    BrowserModule,
    Ng2ArcProgressModule,
+   FormsModule,
    RouterModule.forRoot(
      routes,
      { enableTracing: true } // <-- debugging purposes only
