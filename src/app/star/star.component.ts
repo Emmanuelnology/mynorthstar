@@ -6,9 +6,13 @@ interface ICanvas extends HTMLElement {
   getContext(context: string);
 }
 
+
 export interface IRadarChartOptions {
   legend: {
-    display: boolean
+    display: boolean,
+    labels?: {
+      fontColor?: string
+    }
   };
   scale: {
     pointLabels: { // Labels around the chart
@@ -30,10 +34,11 @@ export interface IRadarChartOptions {
   };
 }
 
-interface IChartDataSet {
+export interface IChartDataSet {
   data: number[];
   label: string;
   fill: boolean;
+  backgroundColor?: string;
   lineTension: number;
   borderColor: string;
   pointBorderColor: string;
@@ -45,6 +50,10 @@ export interface IData {
   datasets: IChartDataSet[];
   labels: string[];
   options: IRadarChartOptions;
+}
+
+interface IChart {
+  update();
 }
 
 @Component({
@@ -111,5 +120,3 @@ export class StarComponent implements AfterViewInit {
     }
 
 }
-
-

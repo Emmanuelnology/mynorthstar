@@ -32,6 +32,7 @@ import { ProgressArcComponent } from './progress-arc/progress-arc.component';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { LoginComponent } from './login/login.component';
 import { TinyStarComponent } from './tiny-star/tiny-star.component';
+import { CompareStarComponent } from './compare-star/compare-star.component';
 
 
 const routes: Routes = [
@@ -44,8 +45,8 @@ const routes: Routes = [
  { path: 'dashboard', component: DashboardComponent},
  { path: 'styles', component: StyleGuideComponent},
  { path: '', component: MyStarComponent},
+ { path: 'compare', component: CompareStarComponent},
 ];
-
 
 @NgModule({
  declarations: [
@@ -64,7 +65,8 @@ const routes: Routes = [
    ProgressArcComponent,
    StyleGuideComponent,
    LoginComponent,
-   TinyStarComponent
+   TinyStarComponent,
+   CompareStarComponent
  ],
  imports: [
    BrowserModule,
