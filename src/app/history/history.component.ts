@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
-  
+
   public pastData = [
     {date: 'Nov 18',
     score: '6.35'},
@@ -16,11 +16,10 @@ export class HistoryComponent implements OnInit {
     score: '4.21'},
     {date: 'Aug 18',
     score: '4.00'}
-  ]
+  ];
   constructor() { }
 
   ngOnInit() {
   }
 
 }
-  
