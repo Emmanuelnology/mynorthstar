@@ -203,7 +203,7 @@ export class QuestionnaireService {
         if (currentQuestion.hasOwnProperty('positive')) {
           if (currentQuestion.positive === false) {
             currentQuestion.score = 10 - currentQuestion.score;
-            currentQuestion.positive = true;  
+            currentQuestion.positive = true;
           }
         }
       }
