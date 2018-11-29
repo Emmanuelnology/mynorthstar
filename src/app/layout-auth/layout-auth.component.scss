@@ -20,18 +20,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-        // overflow: scroll;
 }
 
 main {
     text-align: center;
     box-sizing: border-box;
-        // overflow: scroll;
+}
 
+body * {
+    overflow:hidden;
 }
 
 #logo > img {
-    margin-bottom: $s-sm;
+    margin: $s-sm 0;
+    // margin-bottom: $s-sm;
     max-width: 85px;
     max-height: 75px;
 }
