@@ -55,9 +55,15 @@ export interface IData {
 
 export class StarComponent implements AfterViewInit {
   @Input() data: IData;
+  @Input() size = '100%';
+
   chart = [];
   canvasID;
   constructor(private cd: ChangeDetectorRef) {
+    this.makeStarUnique();
+  }
+
+  makeStarUnique() {
     this.canvasID = this.getID();
   }
 
