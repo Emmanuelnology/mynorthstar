@@ -1,29 +1,22 @@
 @import '../../variables.scss' ;
-main {
-    background-color: $navy;
-    height: 100%;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
+
+h3 {
+    text-align: center;
 }
 
 p {
-    color:white;
+color:white;
+
 }
 
-h1 {
-    font-size: 50px;
-    padding-bottom: 10px;
-    text-align: center;
-    color: $navy;
-    letter-spacing: 5px;
-    color: white;
+.bigStar { 
+    display: none;
 }
 
-.star {
-    height: 250px;
-    width: 100%;    
+.littleStar {
+    width: 100%; 
+    min-width: 100px; 
+    display: block;  
 }
 
 .total-score {
@@ -33,15 +26,22 @@ h1 {
 }
 
 .tasks {
-    border: 2px solid white;
-    height: 300px;
+    height: 400px;
     width: 100%;
     margin-top: 50px;
-    padding: 100px;
+   
 }
 
 
 @media only screen and (min-width: 768px) {
+    .littleStar {
+        display: none;
+    }
+
+    .bigStar {
+        display: block;
+    }
+
     .star {
         height: 500px;
     }
@@ -68,10 +68,10 @@ h1 {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
     }
 
-    .star {
+    .bigStar {
+        margin-top: 20px;
         height: 500px;
         width: 70%;
     }
@@ -83,24 +83,29 @@ h1 {
     }
 
     .total-score {
-        margin-top: 0;
+       margin-top: 0;
        width: 100%;
+       height: 250px;
         
     }
 
     .tasks {
         margin-top: 20px;
         width: 100%;    
-        height: 270px;   
+        height: 300px;   
     }
 
+    @media only screen and (min-width: 1440px) {
+        .bigStar {
+            margin-top: 150px;
+        }
 
+        .results-score {
+            width: 400px;
+            margin-right: 60px;
+            margin-top: 60px;
+        }
 }
-
-@media only screen and (min-width: 1639px) {
-    .results-score {
-       width: 25%;
-     }
-    
+   
 
 }

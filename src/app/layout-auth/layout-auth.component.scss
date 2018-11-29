@@ -1,43 +1,49 @@
+@import '../../variables.scss';
+
 * {
     margin: 0;
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #26325c;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     background-image: url('../../assets/backgrounds/background2.jpg');
     background-size: cover;
-    border: solid black 2px;
+    background-attachment: fixed;
     color: white;
-    overflow: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        // overflow: scroll;
 }
 
 main {
     text-align: center;
-    margin: auto;
     box-sizing: border-box;
-    position: absolute;
-    top: 7.5%;
-    left: 0;
-    right: 0;
+        // overflow: scroll;
+
+}
+
+#logo > img {
+    margin-bottom: $s-sm;
+    max-width: 85px;
+    max-height: 75px;
 }
 
 h1 {
-    font-size: 0.95em;
+    font-size: $f-sm;
     letter-spacing: 9px;
 }
 
 h2 {
-    font-size: 0.75em;
-    letter-spacing: 5px;
-}
-h2 {
     font-weight: normal;
-}
-
-#logo > img {
-    height: 7.5vh;
-    margin-bottom: 0.75em;
+    font-size: 0.75em;
+    letter-spacing: 4px;
+    margin: $s-xs 0 $s-sm 0;
 }

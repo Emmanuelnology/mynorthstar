@@ -1,39 +1,37 @@
-<head>
-    <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
-    <title class="firstitle">Questionnaire</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-</head>
-<body class="scrolling-box">
-  <main>
-    <h1>
-      QUESTIONNAIRE
-    </h1>
-    <div class="to-profile-home">
-      <button type="button">Home</button>
-      <button type="button">Profile</button>
-      <button type="button">Log out</button>
-    </div>
-    <form action="../star/star.component.html" method="POST">
-      <div *ngFor="let question of questions">
-        <label for="questions">
-          <h2>{{question.content}}</h2>
-        </label>
-        <input
-        type="number"
-        value ="{{question.score}}" 
-        name="question-{{question.number}}" 
-        min="0" max="10"
-        class="scoring"
-        required
-        >
-      </div>
-      <div>
-        <input type="submit" value="SEND" class="button">
-      </div>
-    </form>
-  </main>
-  <footer>
-    <p>Copyright © 2018 NORTHSTAR INNOVATION GROUP LTD. All rights reserved.</p>
-  </footer>
-</body>
+<app-layout-default icon="fa-taxi" title="QUESTIONNAIRE">
+  <head>
+      <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
+      <!-- <title class="firstitle">Questionnaire</title> -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="UTF-8">
+  </head>
+  <body>
+    <main>
+      <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
+        where 0 is strongly disagree and 10 strongly agree
+      </p>      
+      <form action="../my-star/my-star.component.html" method="POST">
+        <div *ngFor="let question of questions">
+          <div  class="container">
+            <label for="questions">
+              <h4>{{question.number}}. {{question.question}}</h4>
+            </label>
+            <input
+            class="scoring"
+            type="number"
+            value ="{{question.score}}" 
+            name="question-{{question.number}}" 
+            min="0" max="10"
+            required
+            >
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
+        </div>
+      </form>
+      <!-- <progress max="100" value="20"></progress> -->
+    </main>
+  </body>
+</app-layout-default>
+

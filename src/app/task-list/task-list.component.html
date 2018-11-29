@@ -2,9 +2,11 @@
 <div class="tasklist">
   <div class="item-wrapper">
     <ul>
-      <li>Lorem ipsum</li>
+      <li *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">{{ task.task }}
+        <button id="remove-task" class="test" (click)="onDelete(task)">Remove Task</button>
+      </li>
     </ul>
-    <input id="checkboxInput" type="checkbox">
-    <label for="checkboxInput"></label>
+    <!-- <input id="checkboxInput" type="checkbox" (click)="([checked=task.isChecked = true])"> -->
+    <!-- <label for="checkboxInput"></label> -->
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-layout-default',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutAppComponent implements OnInit {
   menuIsVisible = true;
+  @Input() icon: string;
+  @Input() title: string;
+  @Input() starData: number[];
+
   constructor() { }
 
   ngOnInit() {
   }
-
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.menuIsVisible = true;
+  }
 }
+
