@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 // Imported Components
@@ -33,6 +34,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { LoginComponent } from './login/login.component';
 import { TinyStarComponent } from './tiny-star/tiny-star.component';
 import { CompareStarComponent } from './compare-star/compare-star.component';
+import { HistoryComponent } from './history/history.component';
 import { NavComponent } from './nav/nav.component';
 
 
@@ -67,11 +69,13 @@ const routes: Routes = [
    LoginComponent,
    TinyStarComponent,
    CompareStarComponent,
+   HistoryComponent,
    NavComponent
  ],
  imports: [
    BrowserModule,
    Ng2ArcProgressModule,
+   FormsModule,
    RouterModule.forRoot(
      routes,
      { enableTracing: true } // <-- debugging purposes only
