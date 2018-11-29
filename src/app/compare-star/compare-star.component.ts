@@ -29,6 +29,7 @@ export class CompareStarComponent implements OnInit {
           color: '#b02062'
         },
         ticks: {
+          maxTicksLimit: 5,
           display: false,
           min: 0,
           max: 10,

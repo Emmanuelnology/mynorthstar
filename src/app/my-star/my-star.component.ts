@@ -36,6 +36,7 @@ export class MyStarComponent implements OnInit {
         color: '#b02062'
       },
       ticks: {
+        maxTicksLimit: 5,
         display: false,
         min: 0,
         max: 10,
@@ -61,6 +62,7 @@ export class MyStarComponent implements OnInit {
         color: '#b02062'
       },
       ticks: {
+        maxTicksLimit: 5,
         display: false,
         min: 0,
         max: 10,
