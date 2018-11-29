@@ -1,18 +1,32 @@
 <app-layout-auth>
-  <p *ngIf="showPassword">
-    To change your password please call Northstar on (01833) 845967
-  </p>
+
   <div id="form-container">
+<!-- login inputs -->
+    <div>
     <form method="POST">
       <fieldset>
         <label for="Email">Email</label>
-        <input type="email" name="Email" id="email" required >
+        <input type="email" name="Email" id="email" required>
         <label for="Password">Password</label>
         <input type="password" minlength="6" name="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          title="Must contain at least one uppercase letter, one lower case letter, a number minimum length is 6 characters" required>
+          title="Must contain at least one uppercase letter, one lower case letter, a number minimum length is 6 characters"
+          required>
         <button class="btn btn-flat btn-navy " type="submit" id="submit">Login</button>
       </fieldset>
       <a (click)="showPassword=true">Forgot your password?</a>
     </form>
   </div>
+<!-- forgot passsword inputs -->
+  <div id="fpassword">
+      <form action="POST">
+        <fieldset *ngIf="showPassword">
+          <label for="forgotpassword">Please enter your email</label>
+          <input type="email" name="Email" id="email">
+          <button class="btn btn-flat btn-navy" type="submit" id="submit">Reset password</button>
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+
 </app-layout-auth>
