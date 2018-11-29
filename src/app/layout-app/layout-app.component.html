@@ -11,20 +11,23 @@
     </div>
     <h1>
         <app-tiny-star *ngIf="starData" [data]="starData" size="1em"></app-tiny-star>
-        <i *ngIf="icon" class="fa fa-taxi"></i>
+        <i *ngIf="icon" class="{{icon}}"></i>
       {{title}}
     </h1>
   </div>
   <div class="flex-avatar">
-    <span>Hi Jeff <i class="fas fa-user"></i></span>
+      <!-- <span class="greeting">Hi, Jeff</span> -->
+    <div class="circle-border">
+    </div>
   </div>
 </div>
 <div class="flex-container {{ (menuIsVisible) ? 'showMenu':''}}">
   <nav class="menu ">
       <ul >    
-        <li><a routerLink="/profile"><i class="fas fa-user"></i></a></li>
-        <li><a routerLink="/"><i class="fas fa-star"></i></a></li>
-        <li><a routerLink="/styles"><i class="fab fa-css3-alt"></i></a></li>
+          <li routerLink="/questionnaire"><a ><i class="fas fa-list-ol"></i></a></li>
+          <li routerLink="/profile"><a ><i class="fas fa-user"></i></a></li>
+        <li routerLink="/"><a ><i class="fas fa-star"></i></a></li>
+        <li routerLink="/styles"><a ><i class="fab fa-css3-alt"></i></a></li>
         <li><a (click)="logout()"><i class="fas fa-times"></i></a></li>
       </ul>
   </nav>
