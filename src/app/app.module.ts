@@ -34,6 +34,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { LoginComponent } from './login/login.component';
 import { TinyStarComponent } from './tiny-star/tiny-star.component';
 import { CompareStarComponent } from './compare-star/compare-star.component';
+import { NavComponent } from './nav/nav.component';
 
 
 const routes: Routes = [
@@ -66,7 +67,8 @@ const routes: Routes = [
    StyleGuideComponent,
    LoginComponent,
    TinyStarComponent,
-   CompareStarComponent
+   CompareStarComponent,
+   NavComponent
  ],
  imports: [
    BrowserModule,
