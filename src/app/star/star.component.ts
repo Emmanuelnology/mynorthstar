@@ -1,11 +1,10 @@
-import { Component, Input, AfterViewInit, ChangeDetectorRef, HostListener, OnInit } from '@angular/core';
+import { Component, Input, AfterViewInit, ChangeDetectorRef, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 
 
 interface ICanvas extends HTMLElement {
   getContext(context: string);
 }
-
 
 export interface IRadarChartOptions {
   tooltips?: {
@@ -54,10 +53,6 @@ export interface IData {
   datasets: IChartDataSet[];
   labels: string[];
   options: IRadarChartOptions;
-}
-
-interface IChart {
-  update();
 }
 
 @Component({
@@ -114,16 +109,11 @@ export class StarComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     this.createChart();
-    this.cd.detectChanges();
   }
 
   ngOnInit () {
     this.makeStarUnique();
   }
 
-  @HostListener('window:resize', ['$event'])
-    onResize(event) {
-      this.redraw();
-    }
 
 }

@@ -1,7 +1,4 @@
 @import "../../variables.scss";
-$menuWidth: 35px;
-$animationDuration: 0.5s;
-$navHeight: 80px;
 
 .wrapper {
   background-image: url('../../assets/backgrounds/background2.jpg');
@@ -13,22 +10,6 @@ $navHeight: 80px;
 .flex-container {
   display: flex;
   flex-direction: row;
-}
-
-nav {
-  flex: 0, 0, 35px;
-  background-color: $nav-color;
-  text-align: center;
-  border-top: 1px solid white;
-  position:absolute;
-  top:$navHeight;
-  left:0;
-  bottom:0;
-}
-
-nav a {
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: white;
 }
 
 main {
@@ -45,20 +26,22 @@ main {
 
 .flex-menu {
   color:white;
-  padding: 5px;
   background-color: rgb(17, 96, 243);
-  width:35px;
-  padding-top: 15px;
+  width:$smallMenuWidth;
   cursor: pointer;
+  height:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
+
+
 
 .dots {
   height:20px;
   margin-top: $s-xs; 
 }
-nav li:hover {
-  cursor: pointer;
-}
+
 
 .flex-logo {
   margin-bottom: 0;
@@ -80,19 +63,9 @@ nav li:hover {
   flex: 1;
   text-align: right;
   display: inline-block;
-  padding-right: $s-sm;
-}
-
-li {
-  color:$nav-icons-color;
-  font-size: 1.5em;
   padding-top: $s-sm;
-  padding-bottom: $s-sm;
 }
 
-li:hover {
-  background-color:rgb(17, 96, 243); 
-}
 
 main {
   padding: 10px;
@@ -109,26 +82,13 @@ main {
   bottom:0;
   overflow-y:scroll;
   overflow-x:hidden;
-  transition:$animationDuration;
+  transition: $animationDuration;
 
 }
 
-.menu {
-  overflow:hidden;
-  width:0;
-  transition:$animationDuration;
-  min-width:0;
-}
-
-.showMenu .menu{
-  width:$menuWidth;
-  min-width:$menuWidth;
-}
 
 .showMenu .content {
-  left:$menuWidth;
-  transition:$animationDuration;
-
+  left:$smallMenuWidth;
 }
 
 span {
@@ -167,7 +127,7 @@ h1 > i {
 
   .logo-wrapper {
     padding: $s-sm;
-    width: $menuWidth;
+    width: $largeMenuWidth;
   }
 
   h1 > i {
@@ -178,17 +138,13 @@ h1 > i {
     display: inline-block;
   }
 
-  nav {
-    flex: 0, 0, 70px;
-  }
-  
   .showMenu .content {
-    left:$menuWidth;
+    left:$largeMenuWidth;
   }
 
   .showMenu .menu {
-    width:$menuWidth;
-    min-width:$menuWidth;
+    width:$largeMenuWidth;
+    min-width:$largeMenuWidth;
   }
   
   .flex-menu {
