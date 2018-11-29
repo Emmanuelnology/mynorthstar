@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {IData, IChartDataSet} from '../star/star.component';
+import {IData, IChartDataSet, StarComponent} from '../star/star.component';
+import { renderDetachView } from '@angular/core/src/view/view_attach';
 
 @Component({
   selector: 'app-compare-star',
   templateUrl: './compare-star.component.html',
   styleUrls: ['./compare-star.component.scss']
 })
+
 
 export class CompareStarComponent implements OnInit {
   datasets: IChartDataSet[] = [];
@@ -29,7 +31,7 @@ export class CompareStarComponent implements OnInit {
           color: '#b02062'
         },
         ticks: {
-          maxTicksLimit: 5,
+          // maxTicksLimit: 5,
           display: false,
           min: 0,
           max: 10,
