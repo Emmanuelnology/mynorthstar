@@ -24,6 +24,7 @@ export interface IRadarChartOptions {
       color: string
     },
     ticks: {
+      maxTicksLimit: number,
       display: boolean,
       min: number,
       max: number,
