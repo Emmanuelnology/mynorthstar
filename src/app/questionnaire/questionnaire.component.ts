@@ -1,21 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { IQuestion, Randomise } from '../services/questionnaire.service';
 
-
-
-
 @Component({
     selector: 'app-questionnaire',
     templateUrl: './questionnaire.component.html',
     styleUrls: ['./questionnaire.component.scss']
 })
 
-export class QuestionnaireComponent implements OnInit {    
-    sliderChange = (val) => {
-        document.getElementById("#'mark-'+i").innerHTML = val;
-        
-        }
-
+export class QuestionnaireComponent implements OnInit {
     questions: IQuestion[] = [
         {
             title: 'Question 1',
@@ -266,18 +258,9 @@ export class QuestionnaireComponent implements OnInit {
             category: 'Career',
         }
     ];
-    
     constructor(private rand: Randomise) {
         this.questions = this.rand.randomiseOrder(this.questions);
-        
     }
-    
     ngOnInit() {
-        
     }
-
-
-    
 }
-
-    

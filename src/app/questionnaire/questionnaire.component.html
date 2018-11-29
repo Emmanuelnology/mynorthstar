@@ -1,18 +1,15 @@
 <app-layout-default icon="fa-taxi" title="QUESTIONNAIRE">
-
       <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
         where 0 is strongly disagree and 10 strongly agree
       </p>      
       <form action="../my-star/my-star.component.html" method="POST">
-        <div *ngFor="let question of questions; let i = index">
+        <div *ngFor="let question of questions">
           <div  class="container">
             <label for="questions">
               <h4>{{question.number}}. {{question.question}}</h4>
             </label>
             <input
-            
             class="scoring"
-            id="{{'question-' + i}}"
             type="range"
             value="{{questions.score}}"
             name="question-{{questions.number}}" 
@@ -21,14 +18,12 @@
             (mousemove)="sliderChange(questions.value)"
             required
             >
-            <p id="{{'mark-'+i}}">{{questions.value}}
-            </p>
+            <p>{{questions.value}}</p>
           </div>
         </div>
         <div>
           <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
         </div>
       </form>
-
 </app-layout-default>
 
