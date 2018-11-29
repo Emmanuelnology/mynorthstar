@@ -9,7 +9,7 @@ import * as firebase from 'firebase';
 
 
 
-//https://stackoverflow.com/questions/38559457/firebase-v3-updateprofile-method
+// https://stackoverflow.com/questions/38559457/firebase-v3-updateprofile-method
 
 
 
@@ -19,18 +19,18 @@ import * as firebase from 'firebase';
   styleUrls: ['./fire-base-test-display.component.scss']
 })
 
-export class FireBaseTestDisplayComponent implements AfterContentInit{
+export class FireBaseTestDisplayComponent implements AfterContentInit {
   user;
   items: Observable<any[]>;
   constructor(public db: AngularFirestore, public afAuth: AngularFireAuth) {
-    
+
   }
 
   // ngOnInit(): any {
   //   this.items = this._firebaseService.getResources()
   // }
 
-  ngAfterContentInit(){
+  ngAfterContentInit() {
     this.items = this.db.collection('items').valueChanges();
     this.user = this.afAuth.user;
     // FIRESE INITALISE HERE? PREFERENCE TO BE INSIDE ngOnInit()? firebase.init;
@@ -47,7 +47,7 @@ export class FireBaseTestDisplayComponent implements AfterContentInit{
 
 
   logInEmail(email, password) {
-    let user= null;
+    let user = null;
     console.log('Sign in \nEmail: ' +  email + ' \nPassword: ' + password);
     this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
       const errorCode = error.code;
@@ -57,9 +57,9 @@ export class FireBaseTestDisplayComponent implements AfterContentInit{
       '<p style = "text-align: center; color: red">' + errorMessage + '</p>');
     });
 
-    //Using firebase.auth().currentUser creates error "Firebase: no firebase app has been created".
+    // Using firebase.auth().currentUser creates error "Firebase: no firebase app has been created".
     user = this.afAuth.auth.currentUser;
-    console.log("user is: " + user);
+    console.log('user is: ' + user);
     console.log(user);
   }
 
@@ -83,17 +83,6 @@ export class FireBaseTestDisplayComponent implements AfterContentInit{
     //     user.sendEmailVerification();
     //     console.log('The user object is: ' + user);
     //   }
-    
-  
-      
-      
-      
-      
-      
-      
-      //no problem
-      //updateProfile shananagans
-      //.then redirect to home page
 
 
 
@@ -101,7 +90,18 @@ export class FireBaseTestDisplayComponent implements AfterContentInit{
 
 
 
-    
+
+      // no problem
+      // updateProfile shananagans
+      // .then redirect to home page
+
+
+
+
+
+
+
+
     .catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -111,7 +111,7 @@ export class FireBaseTestDisplayComponent implements AfterContentInit{
     });
 
     user = this.afAuth.auth.currentUser;
-    console.log("user is: " + user);
+    console.log('user is: ' + user);
     // user.sendEmailVerification();
   }
 
