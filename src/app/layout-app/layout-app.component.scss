@@ -70,7 +70,6 @@ main {
     text-align: right;
     display: block;
     padding-top: $s-sm;
-    
 }
 
 li {
@@ -82,6 +81,7 @@ li {
 
 li:hover {
     background-color:rgb(17, 96, 243); 
+    color:white;
 }
 
 main {
@@ -103,7 +103,6 @@ $animationDuration: 0.5s;
     width:0;
     transition:$animationDuration;
     min-width:0;
-
 }
 
 .menu.showMenu {
@@ -122,8 +121,7 @@ span {
         flex: 0, 0, 70px;
     }
 
-    
-$menuWidth: 70px;
+    $menuWidth: 70px;
 
     .menu.showMenu {
         transition:$animationDuration;
@@ -138,8 +136,4 @@ $menuWidth: 70px;
     .flex-logo {
         padding-left: 0;
     }
-
-
-
-
 }
