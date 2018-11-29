@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {IData, IChartDataSet, StarComponent} from '../star/star.component';
 import { renderDetachView } from '@angular/core/src/view/view_attach';
 
@@ -9,11 +9,14 @@ import { renderDetachView } from '@angular/core/src/view/view_attach';
 })
 
 
-export class CompareStarComponent implements OnInit {
+export class CompareStarComponent implements OnInit,  AfterViewInit {
+
+  @ViewChild(StarComponent) starViewChild: StarComponent;
+
   datasets: IChartDataSet[] = [];
   data: IData = {
     datasets: [],
-    labels: ['A', 'B', 'C'],
+    labels: ['Happiness', 'Money', 'Romance and relationships', 'D', 'E', 'F', 'G', 'H'],
     options: {
       legend: {
         display: true,
@@ -45,7 +48,7 @@ export class CompareStarComponent implements OnInit {
   constructor() {
     this.data.datasets.push(
       {
-        data: [1, 2, 3],
+        data: [1, 6, 2, 6, 1, 5, 2, 7],
         label: 'Current',
         fill: true,
         lineTension: 0.3,
@@ -60,10 +63,14 @@ export class CompareStarComponent implements OnInit {
     ngOnInit() {
     }
 
+    ngAfterViewInit() {
+    }
+
     addData() {
+      this.data.datasets.splice(1);
       this.data.datasets.push(
         {
-          data: [4, 5, 6],
+          data: [9, 2, 8, 3, 9, 2, 8, 4],
           label: 'old',
           fill: false,
           lineTension: 0.3,
@@ -72,6 +79,8 @@ export class CompareStarComponent implements OnInit {
           pointRadius: 5,
           pointBackgroundColor: '#37234f'
         }
-        );
-      }
+      );
+      this.starViewChild.data.datasets = this.data.datasets;
+      this.starViewChild.redraw();
     }
+}
