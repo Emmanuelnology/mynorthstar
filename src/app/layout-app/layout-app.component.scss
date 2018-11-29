@@ -1,145 +1,162 @@
 @import "../../variables.scss";
+$menuWidth: 35px;
+$animationDuration: 0.5s;
+$navHeight: 80px;
 
 .wrapper {
-    background-image: url('../../assets/backgrounds/background2.jpg');
-    background-size: cover;
-    color: white;
-    min-height: 100vh;
+  background-image: url('../../assets/backgrounds/background2.jpg');
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
 }
 
 .flex-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 nav {
-    flex: 0, 0, 35px;
-    background-color: $nav-color;
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: white;
-    text-align: center;
-    min-height: 100vh;
-    border-top: 1px solid white;
+  flex: 0, 0, 35px;
+  background-color: $nav-color;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
+  text-align: center;
+  border-top: 1px solid white;
+  position:absolute;
+  top:$navHeight;
+  left:0;
+  bottom:0;
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
 .flex-banner {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flex-menu {
-    font-size: 1.5em;
-    color:white;
-    padding: 5px;
-    background-color: rgb(17, 96, 243);
-    width:35px;
-    padding-top: 15px;
-    cursor: pointer;
+  font-size: 1.5em;
+  color:white;
+  padding: 5px;
+  background-color: rgb(17, 96, 243);
+  width:35px;
+  padding-top: 15px;
+  cursor: pointer;
 }
 
 .dots {
-    height:20px;
-    margin-top: $s-xs; 
+  height:20px;
+  margin-top: $s-xs; 
 }
 .dots:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .flex-logo {
-    margin-bottom: 0;
-    padding-left: $s-xs;
-    padding-bottom: 0;
+  margin-bottom: 0;
+  padding-left: $s-xs;
+  padding-bottom: 0;
 }
 
 .flex-logo > img {
-    height: 50px;
-    margin-left: $s-sm;
-    margin-right: $s-sm;
-    margin-top: $s-sm;
-    display: block;
+  height: 50px;
+  margin-left: $s-sm;
+  margin-right: $s-sm;
+  margin-top: $s-sm;
+  display: block;
 }
 
 .flex-avatar {
-    margin-right: $s-sm;
-    flex: 1;
-    text-align: right;
-    display: block;
-    padding-top: $s-sm;
-    
+  margin-right: $s-sm;
+  flex: 1;
+  text-align: right;
+  display: block;
+  padding-top: $s-sm;
+  
 }
 
 li {
-    color:$nav-icons-color;
-    font-size: 1.5em;
-    padding-top: $s-sm;
-    padding-bottom: $s-sm;
+  color:$nav-icons-color;
+  font-size: 1.5em;
+  padding-top: $s-sm;
+  padding-bottom: $s-sm;
 }
 
 li:hover {
-    background-color:rgb(17, 96, 243); 
+  background-color:rgb(17, 96, 243); 
 }
 
 main {
-    padding: 10px;
+  padding: 10px;
 }
 
 .content {
-    border:1px solid $border-color;
-    border-radius: 5px;
-    padding: 10px;
-    overflow:hidden;
-}
+  border:1px solid $border-color;
+  border-radius: 5px;
+  padding: 10px;
+  position:absolute;
+  left:0;
+  right:0;
+  top:$navHeight;
+  bottom:0;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  transition:$animationDuration;
 
-$menuWidth: 35px;
-$animationDuration: 0.5s;
+}
 
 .menu {
-    overflow:hidden;
-    width:0;
-    transition:$animationDuration;
-    min-width:0;
-
+  overflow:hidden;
+  width:0;
+  transition:$animationDuration;
+  min-width:0;
 }
 
-.menu.showMenu {
-    transition:$animationDuration;
-    width:$menuWidth;
-    min-width:$menuWidth;
+.showMenu .menu{
+  transition:$animationDuration;
+  width:$menuWidth;
+  min-width:$menuWidth;
+}
+
+.showMenu .content {
+  left:$menuWidth;
+  transition:$animationDuration;
+
 }
 
 span {
-    font-size: $f-sm;
+  font-size: $f-sm;
 }
 
 @media only screen and (min-width:750px){
-    
-    nav {
-        flex: 0, 0, 70px;
-    }
+  $menuWidth: 70px;
 
-    
-$menuWidth: 70px;
+  nav {
+    flex: 0, 0, 70px;
+  }
+  
+  .showMenu .content {
+    left:$menuWidth;
+  }
 
-    .menu.showMenu {
-        transition:$animationDuration;
-        width:$menuWidth;
-        min-width:$menuWidth;
-    }
-
-    .flex-menu {
-        display: none;
-    }
-
-    .flex-logo {
-        padding-left: 0;
-    }
-
-
-
-
+  .showMenu .menu {
+    width:$menuWidth;
+    min-width:$menuWidth;
+  }
+  
+  .flex-menu {
+    display: none;
+  }
+  
+  .flex-logo {
+    padding-left: 0;
+  }
+  
+  
+  
+  
 }
