@@ -1,125 +1,111 @@
 @import '../../variables.scss' ;
-// main { // Don't think is needed, could be causing chaos
-//     background-color: $navy;
-//     // height: 100vh; 
-//     padding: $s-sm;
-//     padding-top: 0;
-//     display: flex;
-//     flex-direction: column;
-//     overflow: scroll; 
-// }
-
-// h1 { // Don't think is needed, could be causing chaos
-//      font-size: 40px; 
-//     padding: $s-sm;
-//     text-align: center;
-//     color: $navy;
-//     letter-spacing: 5px;
-//     color: white;
-// }
 
 h3 {
-    text-align: center;
+  text-align: center;
 }
 
 p {
-color:white;
-
+  color:white;
+  
 }
 
 .bigStar { 
-    display: none;
+  display: none;
 }
 
 .littleStar {
-    width: 100%; 
-    min-width: 100px; 
-    display:block;  
+  width: 100%; 
+  min-width: 100px; 
+  display: block;  
 }
 
 .total-score {
-    height: 200px;
-    width: 100%;
-    margin-top: 50px;
+  height: 200px;
+  width: 100%;
+  margin-top: 50px;
 }
 
 .tasks {
-    height: 400px;
-    width: 100%;
-    margin-top: 50px;
-   
+  height: 400px;
+  width: 100%;
+  margin-top: 50px;
+  
 }
 
 
 @media only screen and (min-width: 768px) {
-    .littleStar {
-        display: none;
-    }
-
-    .bigStar {
-        display: block;
-    }
-
-    .star {
-        height: 500px;
-    }
-
-    .total-score {
-        width: 48%;
-        height: 200px;
-
-    }
-
-    .tasks {
-        width: 48%;
-    }
-
-    .results-score {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+  .littleStar {
+    display: none;
+  }
+  
+  .bigStar {
+    display: block;
+  }
+  
+  .star {
+    height: 500px;
+  }
+  
+  .total-score {
+    width: 48%;
+    height: 200px;
+    
+  }
+  
+  .tasks {
+    width: 48%;
+  }
+  
+  .results-score {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 @media only screen and (min-width: 1147px) {
-    .star-flex {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .star {
-        margin-top: 60px;
-        height: 500px;
-        width: 70%;
-    }
-
-    .results-score {
-       display: flex;
-       flex-direction: column;
-       
-    }
-
-    .total-score {
-       margin-top: 0;
-       width: 100%;
-       height: 250px;
-        
-    }
-
-    .tasks {
-        margin-top: 20px;
-        width: 100%;    
-        height: 300px;   
-    }
-   
-
-}
-
-@media only screen and (min-width: 1639px) {
-    .results-score {
-       width: 25%;
-     }
+  .star-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .bigStar {
+    margin-top: 20px;
+    height: 500px;
+    width: 70%;
+  }
+  
+  .results-score {
+    display: flex;
+    flex-direction: column;
     
-
+  }
+  
+  .total-score {
+    margin-top: 0;
+    width: 100%;
+    height: 250px;
+    
+  }
+  
+  .tasks {
+    margin-top: 20px;
+    width: 100%;    
+    height: 300px;   
+  }
+  
+  @media only screen and (min-width: 1440px) {
+    .bigStar {
+      margin-top: 150px;
+    }
+    
+    .results-score {
+      width: 400px;
+      margin-right: 60px;
+      margin-top: 60px;
+    }
+  }
+  
+  
 }
