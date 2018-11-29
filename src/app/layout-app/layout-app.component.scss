@@ -26,12 +26,16 @@ main {
 
 .flex-menu {
   color:white;
-  padding: 5px;
   background-color: rgb(17, 96, 243);
-  width:35px;
-  padding-top: 15px;
+  width:$smallMenuWidth;
   cursor: pointer;
+  height:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
+
+
 
 .dots {
   height:20px;
@@ -78,6 +82,8 @@ main {
   bottom:0;
   overflow-y:scroll;
   overflow-x:hidden;
+  transition: $animationDuration;
+
 }
 
 

@@ -2,6 +2,8 @@
 <div class="flex-banner">
   <div class="flex-menu" (click)="menuIsVisible=!menuIsVisible" >
     <img class="dots" src="../../assets/logo/nav-round.png">
+            <!-- <app-tiny-star *ngIf="starData" [data]="starData" size="1em"></app-tiny-star> -->
+
   </div>
   <div class="flex-logo">
     <div class="logo-wrapper">
@@ -10,7 +12,6 @@
       </a>
     </div>
     <h1>
-        <app-tiny-star *ngIf="starData" [data]="starData" size="1em"></app-tiny-star>
         <i *ngIf="icon" class="{{icon}}"></i>
       {{title}}
     </h1>
