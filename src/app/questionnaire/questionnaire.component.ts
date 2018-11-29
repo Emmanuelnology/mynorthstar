@@ -8,14 +8,6 @@ import { IQuestion, Randomise, QuestionnaireService } from '../services/question
 })
 
 export class QuestionnaireComponent implements OnInit {
-    thingy:number;
-    
-    
-    silderChange(d) {
-        this.thingy=d;
-        
-    }
-    
     questions: IQuestion[] = [
         {
             title: 'Question 1',
@@ -271,7 +263,6 @@ export class QuestionnaireComponent implements OnInit {
     }
     ngOnInit() {
     }
-    
     onSubmit() {
         // // check if any field is undefined
         // this.questionnaireService.saveResults(this.questions)
@@ -281,20 +272,17 @@ export class QuestionnaireComponent implements OnInit {
         //     .catch( (error)=>{
         //         // display an error message
         //     });
-
-        // 
-        
+        //
         // console.log(this.questions);
-        
         // questionnaireService.saveResults(this.questions);
-        
+
         // let resultObject= {
         //     questionnaire = this.questions,
         //     results = this.resultService.getResults(this.questions)
         // }
-        
-        
-        //save to firebase
+
+
+        // save to firebase
     }
 
 }
