@@ -18,14 +18,18 @@ $navHeight: 80px;
 nav {
   flex: 0, 0, 35px;
   background-color: $nav-color;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: white;
+  
   text-align: center;
   border-top: 1px solid white;
   position:absolute;
   top:$navHeight;
   left:0;
   bottom:0;
+}
+
+nav a {
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
 }
 
 main {
@@ -36,6 +40,8 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items:center;
+  height:$navHeight;
 }
 
 .flex-menu {
@@ -60,14 +66,17 @@ main {
   margin-bottom: 0;
   padding-left: $s-xs;
   padding-bottom: 0;
+  display:flex;
+  align-items: center;
 }
 
-.flex-logo > img {
-  height: 50px;
-  margin-left: $s-sm;
-  margin-right: $s-sm;
-  margin-top: $s-sm;
-  display: block;
+.logo-wrapper {
+  width: 50px;
+  display:none;;
+}
+
+.flex-logo img {
+  width:100%;
 }
 
 .flex-avatar {
@@ -135,6 +144,11 @@ span {
 @media only screen and (min-width:750px){
   $menuWidth: 70px;
 
+  .logo-wrapper {
+    padding: $s-sm;
+    width: $menuWidth;
+  }
+
   nav {
     flex: 0, 0, 70px;
   }
@@ -150,6 +164,10 @@ span {
   
   .flex-menu {
     display: none;
+  }
+
+  .logo-wrapper {
+    display:inline-block;
   }
   
   .flex-logo {

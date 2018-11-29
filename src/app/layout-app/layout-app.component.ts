@@ -9,6 +9,8 @@ export class LayoutAppComponent implements OnInit {
   menuIsVisible = true;
   @Input() icon: string;
   @Input() title: string;
+  @Input() starData: number[];
+
   constructor() { }
 
   ngOnInit() {
