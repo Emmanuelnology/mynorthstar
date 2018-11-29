@@ -34,6 +34,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { LoginComponent } from './login/login.component';
 import { TinyStarComponent } from './tiny-star/tiny-star.component';
 import { CompareStarComponent } from './compare-star/compare-star.component';
+import { HistoryComponent } from './history/history.component';
 import { NavComponent } from './nav/nav.component';
 
 
@@ -68,6 +69,7 @@ const routes: Routes = [
    LoginComponent,
    TinyStarComponent,
    CompareStarComponent,
+   HistoryComponent,
    NavComponent
  ],
  imports: [
