@@ -44,7 +44,6 @@ main {
 }
 
 .flex-menu {
-  font-size: 1.5em;
   color:white;
   padding: 5px;
   background-color: rgb(17, 96, 243);
@@ -63,10 +62,11 @@ main {
 
 .flex-logo {
   margin-bottom: 0;
-  padding-left: $s-xs;
   padding-bottom: 0;
   display:flex;
   align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 9px;
 }
 
 .logo-wrapper {
@@ -140,6 +140,10 @@ span {
   font-size: $f-sm;
 }
 
+h1 {
+  font-size: $f-md;
+}
+
 @media only screen and (min-width:750px){
   $menuWidth: 70px;
 
@@ -170,10 +174,11 @@ span {
   }
   
   .flex-logo {
-    padding-left: 0;
+    text-transform: uppercase;
+    letter-spacing: 9px;
   }
-  
-  
-  
-  
+
+  h1 {
+    font-size: $f-lg;
+  }
 }
