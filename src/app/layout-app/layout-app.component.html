@@ -1,7 +1,7 @@
 <body>
 <div class="flex-banner">
-  <div class="flex-menu">
-    <img class="dots" (click)="menuIsVisible=!menuIsVisible" src="../../assets/logo/nav-round.png">
+  <div class="flex-menu" (click)="menuIsVisible=!menuIsVisible" >
+    <img class="dots" src="../../assets/logo/nav-round.png">
   </div>
   <div class="flex-logo">
     <img *ngIf="!icon" src="../../assets/logo/northstar-logo.png">
@@ -12,9 +12,9 @@
     <span>Hi Jeff <i class="fas fa-user"></i></span>
   </div>
 </div>
-<div class="flex-container">
-  <nav>
-      <ul [hidden]="menuIsVisible">    
+<div class="flex-container ">
+  <nav class="menu {{ (menuIsVisible) ? 'showMenu':''}}">
+      <ul >    
         <li><i class="fas fa-user"></i></li>
         <li><i class="fas fa-star"></i></li>
         <li><i class="fas fa-cog"></i></li>
