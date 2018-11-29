@@ -23,19 +23,7 @@
   </div>
 </div>
 <div class="flex-container {{ (menuIsVisible) ? 'showMenu':''}}">
-<<<<<<< HEAD
-  <nav class="menu tooltip">
-      <ul>    
-      <span class="tooltiptext">GUMMO</span><li routerLink="/questionnaire"><a ><i class="fas fa-list-ol"></i></a></li>
-      <span class="tooltiptext">FEFE</span><li routerLink="/profile" title="profile"><a ><i class="fas fa-user"></i></a></li>
-      <span class="tooltiptext">WAKA</span> <li routerLink="/"><a ><i class="fas fa-star"></i></a></li>
-      <span class="tooltiptext">STOOPID</span> <li routerLink="/styles"><a ><i class="fab fa-css3-alt"></i></a></li>
-      <span class="tooltiptext">BILLY</span> <li><a (click)="logout()"><i class="fas fa-times"></i></a></li>
-      </ul>
-  </nav>
-=======
     <app-nav [menuIsVisible]="menuIsVisible"></app-nav>
->>>>>>> 635ad36c59623fc9ff43809f12d1dc9be3007f75
   <main>
     <div class="content">
       <ng-content></ng-content>

@@ -110,13 +110,6 @@ h1 > i {
   display: none;
 }
 
-<<<<<<< HEAD
-.tooltiptext {
-  visibility: hidden;
-}
-
-@media only screen and (min-width:750px){
-=======
 .circle-border {
   border-radius: 50%;
   border: 1px solid white;
@@ -130,7 +123,6 @@ h1 > i {
 
 
 @media only screen and (min-width:500px){
->>>>>>> 635ad36c59623fc9ff43809f12d1dc9be3007f75
   $menuWidth: 70px;
 
   /* ToolTip classses */ 
@@ -222,14 +214,4 @@ h1 > i {
     width: 70px;
     height: 70px;
   }
-<<<<<<< HEAD
-  
-  .menu {
-    overflow: visible;
-  }
-  
-  
-  
-=======
->>>>>>> 635ad36c59623fc9ff43809f12d1dc9be3007f75
 }
