@@ -265,6 +265,7 @@ export class QuestionnaireComponent implements OnInit {
     }
     onSubmit() {
         // // check if any field is undefined
+        //resort questions
         // this.questionnaireService.saveResults(this.questions)
         //     .then(() =>{
         //         // redirect to my star page
