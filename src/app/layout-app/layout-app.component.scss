@@ -18,7 +18,6 @@ $navHeight: 80px;
 nav {
   flex: 0, 0, 35px;
   background-color: $nav-color;
-  
   text-align: center;
   border-top: 1px solid white;
   position:absolute;
@@ -45,7 +44,6 @@ main {
 }
 
 .flex-menu {
-  font-size: 1.5em;
   color:white;
   padding: 5px;
   background-color: rgb(17, 96, 243);
@@ -64,7 +62,6 @@ nav li:hover {
 
 .flex-logo {
   margin-bottom: 0;
-  padding-left: $s-xs;
   padding-bottom: 0;
   display:flex;
   align-items: center;
@@ -80,12 +77,10 @@ nav li:hover {
 }
 
 .flex-avatar {
-  margin-right: $s-sm;
   flex: 1;
   text-align: right;
-  display: block;
-  padding-top: $s-sm;
-  
+  display: inline-block;
+  padding-right: $s-sm;
 }
 
 li {
@@ -140,12 +135,47 @@ span {
   font-size: $f-sm;
 }
 
-@media only screen and (min-width:750px){
+h1 {
+  font-size: $f-sm;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-left: $s-sm;
+}
+
+h1 > i {
+  display: none;
+}
+
+.greeting {
+  display: none;
+}
+
+.circle-border {
+  border-radius: 50%;
+  border: 1px solid white;
+  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  float:right;
+  
+}
+
+
+@media only screen and (min-width:500px){
   $menuWidth: 70px;
 
   .logo-wrapper {
     padding: $s-sm;
     width: $menuWidth;
+  }
+
+  h1 > i {
+    display: inline-block;
+  }
+
+  .greeting {
+    display: inline-block;
   }
 
   nav {
@@ -168,12 +198,29 @@ span {
   .logo-wrapper {
     display:inline-block;
   }
-  
-  .flex-logo {
-    padding-left: 0;
+  h1 {
+    font-size: $f-md;
   }
-  
-  
-  
-  
+
+  .circle-border {
+    width: 50px;
+    height:50px;
+  }
+}
+
+
+
+
+@media only screen and (min-width:750px){
+
+  h1 {
+    font-size: $f-lg;
+    margin-left: $s-md;
+    letter-spacing: 15px;
+  }
+
+  .circle-border {
+    width: 70px;
+    height: 70px;
+  }
 }
