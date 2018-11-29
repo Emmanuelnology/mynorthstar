@@ -13,8 +13,7 @@ export class TaskManagerService {
 
     tasks: Observable<Task[]>;
 
-    constructor(private db: AngularFirestore) {
-    }
+    constructor(private db: AngularFirestore) {}
 
     addTask(task: Task) {
         this.db.collection('/tasks').add(task).catch(
@@ -29,9 +28,7 @@ export class TaskManagerService {
     }
 
     deleteTask(task: Task) {
-        this.db.collection('/tasks').doc('task.').delete().then(function() {
-            console.log(task.userId);
-            console.log('Success!');
+        this.db.collection('/tasks').doc(`${task.id}`).delete().then(function() {
         }).catch(function(error) {
             throw new Error('Did not delete!');
         });
