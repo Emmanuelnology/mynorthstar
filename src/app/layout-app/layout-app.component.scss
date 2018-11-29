@@ -58,7 +58,7 @@ main {
   height:20px;
   margin-top: $s-xs; 
 }
-.dots:hover {
+nav li:hover {
   cursor: pointer;
 }
 
@@ -126,7 +126,6 @@ main {
 }
 
 .showMenu .menu{
-  transition:$animationDuration;
   width:$menuWidth;
   min-width:$menuWidth;
 }

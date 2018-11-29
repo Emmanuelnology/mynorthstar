@@ -39,7 +39,6 @@ const routes: Routes = [
  { path: 'questionnaire', component: QuestionnaireComponent },
  { path: 'login', component: LoginComponent},
  { path: 'register', component: RegisterComponent},
- { path: 'layout-app', component: LayoutAppComponent},
  { path: 'task-manager', component: TaskManagerComponent},
  { path: 'fbtd', component: FireBaseTestDisplayComponent},
  { path: 'dashboard', component: DashboardComponent},
