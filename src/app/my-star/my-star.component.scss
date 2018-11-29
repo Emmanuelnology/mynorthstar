@@ -9,10 +9,6 @@ main {
     overflow: scroll;
 }
 
-p {
-    color:white;
-}
-
 h1 {
     font-size: 40px;
     padding: $s-sm;
@@ -21,9 +17,23 @@ h1 {
     letter-spacing: 5px;
     color: white;
 }
+h3 {
+    text-align: center;
+}
 
-.star {
-    width: 100%;    
+p {
+color:white;
+
+}
+
+.bigStar { 
+    display: none;
+}
+
+.littleStar {
+    width: 100%; 
+    min-width: 100px; 
+    display:inline-block;  
 }
 
 .total-score {
@@ -33,15 +43,22 @@ h1 {
 }
 
 .tasks {
-    border: 2px solid white;
-    height: 300px;
+    height: 400px;
     width: 100%;
     margin-top: 50px;
-    padding: 100px;
+   
 }
 
 
 @media only screen and (min-width: 768px) {
+    .littleStar {
+        display: none;
+    }
+
+    .bigStar {
+        display: block;
+    }
+
     .star {
         height: 500px;
     }
@@ -72,6 +89,7 @@ h1 {
     }
 
     .star {
+        margin-top: 60px;
         height: 500px;
         width: 70%;
     }
@@ -83,8 +101,9 @@ h1 {
     }
 
     .total-score {
-        margin-top: 0;
+       margin-top: 0;
        width: 100%;
+       height: 250px;
         
     }
 
@@ -93,7 +112,7 @@ h1 {
         width: 100%;    
         height: 300px;   
     }
-
+   
 
 }
 

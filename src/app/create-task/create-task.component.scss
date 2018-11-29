@@ -1,3 +1,9 @@
+@import "../../variables.scss";
+
 .createtask {
-    padding: 5%;
+    padding: $s-sm;
+}
+
+.input-box {
+    margin-right: $s-md;
 }

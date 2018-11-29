@@ -6,9 +6,13 @@ interface ICanvas extends HTMLElement {
   getContext(context: string);
 }
 
-interface IRadarChartOptions {
+
+export interface IRadarChartOptions {
   legend: {
-    display: boolean
+    display: boolean,
+    labels?: {
+      fontColor?: string
+    }
   };
   scale: {
     pointLabels: { // Labels around the chart
@@ -30,10 +34,11 @@ interface IRadarChartOptions {
   };
 }
 
-interface IChartDataSet {
+export interface IChartDataSet {
   data: number[];
   label: string;
   fill: boolean;
+  backgroundColor?: string;
   lineTension: number;
   borderColor: string;
   pointBorderColor: string;
@@ -47,6 +52,10 @@ export interface IData {
   options: IRadarChartOptions;
 }
 
+interface IChart {
+  update();
+}
+
 @Component({
   selector: 'app-star',
   templateUrl: './star.component.html',
@@ -55,29 +64,45 @@ export interface IData {
 
 export class StarComponent implements AfterViewInit {
   @Input() data: IData;
-  chart = [];
+  chart: IChart[] = [];
+  canvasID;
+  constructor(private cd: ChangeDetectorRef) {
+    this.canvasID = this.getID();
+  }
 
-  constructor(private cd: ChangeDetectorRef) {}
+  redraw() {
+    this.chart[0].update();
+  }
+
+  guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
+
+  getID() {
+    return 'canvas' + this.guid();
+  }
 
   createChart() {
-      const canvas: ICanvas = (document.getElementById('canvas') as ICanvas);
-      const ctx = canvas.getContext('2d');
-      this.chart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: this.data.labels,
-          datasets: this.data.datasets,
-        },
-        options: this.data.options,
-      });
-
-    }
-
-    ngAfterViewInit() {
-      this.createChart();
-      this.cd.detectChanges();
-    }
+    const canvas: ICanvas = (document.getElementById(this.canvasID) as ICanvas);
+    const ctx = canvas.getContext('2d');
+    this.chart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: this.data.labels,
+        datasets: this.data.datasets,
+      },
+      options: this.data.options,
+    });
 
   }
 
-
+  ngAfterViewInit() {
+    this.createChart();
+    this.cd.detectChanges();
+  }
+}

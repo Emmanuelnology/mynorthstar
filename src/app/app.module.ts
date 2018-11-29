@@ -2,7 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ChartsModule } from 'ng2-charts';
 
 // Imported Components
 import { Ng2ArcProgressModule } from 'angular2-arc-progress';
@@ -32,6 +31,7 @@ import { ProgressArcComponent } from './progress-arc/progress-arc.component';
 
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { LoginComponent } from './login/login.component';
+import { CompareStarComponent } from './compare-star/compare-star.component';
 
 
 const routes: Routes = [
@@ -44,8 +44,8 @@ const routes: Routes = [
  { path: 'dashboard', component: DashboardComponent},
  { path: 'styles', component: StyleGuideComponent},
  { path: '', component: MyStarComponent},
+ { path: 'compare', component: CompareStarComponent},
 ];
-
 
 @NgModule({
  declarations: [
@@ -63,12 +63,12 @@ const routes: Routes = [
    FireBaseTestDisplayComponent,
    ProgressArcComponent,
    StyleGuideComponent,
-   LoginComponent
+   LoginComponent,
+   CompareStarComponent
  ],
  imports: [
    BrowserModule,
    Ng2ArcProgressModule,
-   ChartsModule,
    RouterModule.forRoot(
      routes,
      { enableTracing: true } // <-- debugging purposes only
