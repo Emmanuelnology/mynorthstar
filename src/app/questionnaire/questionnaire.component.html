@@ -1,8 +1,8 @@
-<app-layout-default icon="fa-taxi" title="QUESTIONNAIRE">
+<app-layout-default icon="fas fa-list-ol" title="Questionnaire">
       <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
         where 0 is strongly disagree and 10 strongly agree
       </p>      
-      <form action="../my-star/my-star.component.html" method="POST">
+    <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
         <div *ngFor="let question of questions">
           <div  class="container">
             <label for="questions">
@@ -11,14 +11,13 @@
             <input
             class="scoring"
             type="range"
-            value="{{questions.score}}"
-            name="question-{{questions.number}}" 
+            [(ngModel)]="question.score"
+            name="question-{{question.number}}" 
             min="0" max="10"
-            #questions
-            (mousemove)="sliderChange(questions.value)"
             required
             >
-            <p>{{questions.value}}</p>
+
+            <p>{{question.score}}</p>
           </div>
         </div>
         <div>

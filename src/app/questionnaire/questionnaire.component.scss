@@ -20,6 +20,9 @@ main > form, h1 {
     color: white;    
 }
 
+div.container p {
+    display: inline-block;
+}
 .container {
     margin-left: 20%; 
     text-align: left;
@@ -44,31 +47,35 @@ main > form, h1 {
     margin-top: 20px;
     -webkit-appearance: none;
     width: 40%;
-    height: 4px;
+    height: 10px;
     border-radius: 5px;   
-    background: $pink;
+    background: $lilac;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+
+
 }
+
+
 
 .scoring::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%; 
     background: $turquoise;
-    cursor: pointer;
+    cursor: progress;
 
 
       &:active {
-    background: $pink;
-          box-shadow: 0 0 0 3px $turquoise,
-                  0 0 0 6px $pink;
-  }
-
+    background: white;
+//           box-shadow: 0 0 0 3px $turquoise,
+//                   0 0 0 6px $pink;
+//   }
+      }
   
 
 }
@@ -114,12 +121,5 @@ main > form, h1 {
     }
 }
 
-// progress[value] {
-//     /* Reset the default appearance */
-//     -webkit-appearance: none;
-//      appearance: none;
-  
-//     width: 250px;
-//     height: 20px;
-// }
+
 }
