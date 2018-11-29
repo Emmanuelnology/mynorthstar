@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FPasswordComponent } from './f-password.component';
+import { MyStarComponent } from './my-star.component';
 
-describe('FPasswordComponent', () => {
-  let component: FPasswordComponent;
-  let fixture: ComponentFixture<FPasswordComponent>;
+describe('ResultsComponent', () => {
+  let component: MyStarComponent;
+  let fixture: ComponentFixture<MyStarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FPasswordComponent ]
+      declarations: [ MyStarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FPasswordComponent);
+    fixture = TestBed.createComponent(MyStarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

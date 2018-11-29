@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-layout-default',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout-app.component.scss']
 })
 export class LayoutAppComponent implements OnInit {
-
+  menuIsVisible = true;
+  @Input() icon: string;
+  @Input() title: string;
   constructor() { }
 
   ngOnInit() {

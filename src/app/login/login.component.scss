@@ -32,10 +32,20 @@ fieldset {
 
     button {
         width: 100%;
-        max-width: 320px;
         font-size: $f-xs;
         padding: 0.75em;
     }
 
 }
 
+a {
+    font-size: $f-xs;
+    font-size: 0.75em;
+    color: #93ecfc;
+    text-align: left
+}
+
+a:hover {
+    color: white;
+    cursor: pointer;
+}

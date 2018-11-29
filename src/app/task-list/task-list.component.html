@@ -3,7 +3,7 @@
   <div class="item-wrapper">
     <ul>
       <li *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">{{ task.task }}
-        <button id="remove-task" (click)="onDelete(task)">Remove Task</button>
+        <button id="remove-task" class="test" (click)="onDelete(task)">Remove Task</button>
       </li>
     </ul>
     <!-- <input id="checkboxInput" type="checkbox" (click)="([checked=task.isChecked = true])"> -->

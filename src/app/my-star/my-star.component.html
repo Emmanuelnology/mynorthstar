@@ -1,0 +1,29 @@
+<app-layout-default icon="fas fa-star" title="My star">
+  
+  <div class="star-flex">
+    
+    <div class="star bigStar">
+      <app-star [data]="bigStarData"> </app-star>
+    </div>
+    
+    <div class="star littleStar">
+      <app-star [data]="littleStarData"> </app-star>
+    </div>
+    <div class="results-score">
+      <div class="total-score">
+        <h3>Total score</h3>
+        <app-progress-arc 
+        [score]="overallResult" 
+        color="turquoise" 
+        ></app-progress-arc>
+        
+        
+      </div>
+      
+      <div class="tasks">
+        <app-task-manager></app-task-manager>
+      </div>
+    </div>
+    
+  </div >
+</app-layout-default>
