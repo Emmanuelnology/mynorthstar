@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ChangeDetectorRef, HostListener } from '@angular/core';
+import { Component, Input, AfterViewInit, ChangeDetectorRef, HostListener, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 
 
@@ -63,7 +63,7 @@ interface IChart {
   styleUrls: ['./star.component.scss']
 })
 
-export class StarComponent implements AfterViewInit {
+export class StarComponent implements AfterViewInit, OnInit {
   @Input() data: IData;
   @Input() size = '100%';
 
@@ -71,7 +71,6 @@ export class StarComponent implements AfterViewInit {
   canvasID: string;
 
   constructor(private cd: ChangeDetectorRef) {
-    this.makeStarUnique();
   }
 
   makeStarUnique() {
@@ -113,6 +112,10 @@ export class StarComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.createChart();
     this.cd.detectChanges();
+  }
+
+  ngOnInit () {
+    this.makeStarUnique();
   }
 
   @HostListener('window:resize', ['$event'])
