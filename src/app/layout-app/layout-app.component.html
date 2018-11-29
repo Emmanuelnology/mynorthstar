@@ -2,6 +2,8 @@
 <div class="flex-banner">
   <div class="flex-menu" (click)="menuIsVisible=!menuIsVisible" >
     <img class="dots" src="../../assets/logo/nav-round.png">
+            <!-- <app-tiny-star *ngIf="starData" [data]="starData" size="1em"></app-tiny-star> -->
+
   </div>
   <div class="flex-logo">
     <div class="logo-wrapper">
@@ -10,7 +12,6 @@
       </a>
     </div>
     <h1>
-        <app-tiny-star *ngIf="starData" [data]="starData" size="1em"></app-tiny-star>
         <i *ngIf="icon" class="{{icon}}"></i>
       {{title}}
     </h1>
@@ -22,15 +23,7 @@
   </div>
 </div>
 <div class="flex-container {{ (menuIsVisible) ? 'showMenu':''}}">
-  <nav class="menu ">
-      <ul >    
-          <li routerLink="/questionnaire"><a ><i class="fas fa-list-ol"></i></a></li>
-          <li routerLink="/profile"><a ><i class="fas fa-user"></i></a></li>
-        <li routerLink="/"><a ><i class="fas fa-star"></i></a></li>
-        <li routerLink="/styles"><a ><i class="fab fa-css3-alt"></i></a></li>
-        <li><a (click)="logout()"><i class="fas fa-times"></i></a></li>
-      </ul>
-  </nav>
+    <app-nav [menuIsVisible]="menuIsVisible"></app-nav>
   <main>
     <div class="content">
       <ng-content></ng-content>
