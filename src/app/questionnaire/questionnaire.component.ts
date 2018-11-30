@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IQuestion, Randomise, QuestionnaireService } from '../services/questionnaire.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -278,11 +278,10 @@ export class QuestionnaireComponent implements OnInit {
         //         // display an error message
         //     });
         //
-        
         // console.log(this.questions);
         const finalResults = this.questionnaireService.getResults(this.questions);
 
-        console.log(finalResults)
+        console.log(finalResults);
 
         // if (finalResults.overallResult !== NaN) {
         //     this.router.navigate(['/']);
@@ -290,7 +289,6 @@ export class QuestionnaireComponent implements OnInit {
         //     console.log("THIS IS WORKING")
         //     return finalResults;
         // } else {
-        
 
         //     console.log("THIS IS WORKING")
         //     return finalResults;
@@ -303,7 +301,6 @@ export class QuestionnaireComponent implements OnInit {
         //     console.log("THIS IS WORKING")
         //     return finalResults;
         // } else {
-        
 
         //     console.log("NOT WORKING");
         //     return finalResults;
