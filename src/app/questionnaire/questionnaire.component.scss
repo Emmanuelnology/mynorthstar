@@ -16,42 +16,64 @@ div.container p {
 }
 
 #output-score {
-    color: rgb(0,255,210);
+    color: $bright-green;
     background: $nav-color;
     width: 25px;
     margin: 0;
-    
     border-radius: 50%;
     text-align: center;
+    display: inline-block;
 }
 
 .scoring {
-    overflow: hidden;
-    margin-right: 5px;
-    margin-bottom: 30px;
-    margin-left: 5px;
-    margin-top: 20px;
+    position: relative;
+}
+
+.scoring > input {
     height:8px;
     width: 80%;
     outline: none;
     border-radius: 5px;
     -webkit-appearance: none;
-    background-color: $nav-color;
     
     &:hover {
         cursor: pointer;
     }
 }
 
-.scoring::-webkit-slider-thumb {
+.scoring-small {
+    overflow: hidden;
+    margin: 20px 5px 30px 5px;
+    background-color: $nav-color;
+}
+
+.scoring-big {
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    
+    background-color: transparent;
+}
+
+.scoring-small::-webkit-slider-thumb { 
     width: 10px;
     height: 10px;
     -webkit-appearance: none;
     border-radius: 50%;
     cursor: pointer;
-    background: rgb(0,255,210);
-    box-shadow: -300px 0 0 300px rgb(0,255,210);
-    
+    background: $bright-green;
+    box-shadow: -300px 0 0 300px $bright-green;
+}
+
+.scoring-big::-webkit-slider-thumb { 
+    width: 15px;
+    height: 15px;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: $bright-green;
+    box-shadow: 0 0 50px 2px $bright-green;
 }
 
 div.sendButton {
