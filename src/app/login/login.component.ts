@@ -33,18 +33,5 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  resetPassword() {
-    this.authService.resetPassword(this.emailResetPassword).then(
-      ()=>{
-      this.resetPasswordConfirm = 'Reset password sent to this address, check your inbox.';
-      this.errorResetPassword = '';
-    }
-    )
-    .catch((error)=>{
-      this.errorResetPassword = error.message;
-      this.resetPasswordConfirm = '';
-    }
-    );
-  }
 
 }
