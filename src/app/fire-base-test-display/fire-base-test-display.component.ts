@@ -26,14 +26,9 @@ export class FireBaseTestDisplayComponent implements AfterContentInit {
 
   }
 
-  // ngOnInit(): any {
-  //   this.items = this._firebaseService.getResources()
-  // }
-
   ngAfterContentInit() {
     this.items = this.db.collection('items').valueChanges();
     this.user = this.afAuth.user;
-    // FIRESE INITALISE HERE? PREFERENCE TO BE INSIDE ngOnInit()? firebase.init;
   }
 
   logIn() {

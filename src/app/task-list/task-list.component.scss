@@ -2,10 +2,10 @@
 
 button{
     font-size: $f-xs;
-    margin: 0 5px 5px 0;
+    margin: 0 $s-sm $s-sm 0;
     padding: 1px 5px;
-    width: auto;
-    height: auto;
+    width: 25px;
+    height: 25px;
 }
 
 .task-container {
@@ -21,13 +21,9 @@ button{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    p {
-        
-    }
 }
 
-.toggles {
+.test {
     display: flex;
     flex-direction: row;
 }
@@ -82,16 +78,18 @@ label {
     height: 25px;
     width: 25px;
     background-color: #eee;
+    background: transparent;
+    border: 0.1px solid $turquoise;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color: $turquoise-tint;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-    background-color: $turquoise;
+    background-color: transparent;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -112,7 +110,7 @@ label {
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid $turquoise;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
