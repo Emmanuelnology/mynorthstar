@@ -24,6 +24,9 @@ export class MyStarComponent implements OnInit {
   };
 
   bigStarOptions = {
+    tooltips: {
+      backgroundColor: 'rgba(	13, 48, 99, 0.6)'
+    },
     legend: {
       display: false
     },
@@ -49,8 +52,10 @@ export class MyStarComponent implements OnInit {
   };
 
   littleStarOptions = {
+    tooltips: {
+      backgroundColor: 'rgba(	13, 48, 99, 0.6)'
+    },
     legend: {
-
       display: false
     },
     scale: {
