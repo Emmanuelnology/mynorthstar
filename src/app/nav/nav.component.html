@@ -1,10 +1,11 @@
 <nav class="{{menuIsVisible?'showMenu':''}}">
-  <ul >    
-    <li routerLink="/questionnaire"><a ><i class="fas fa-list-ol"></i></a></li>
-    <li routerLink="/"><a ><i class="fas fa-star"></i></a></li>
-    <li routerLink="/compare"><a ><i class="fas fa-history"></i></a></li>
-
-    <li routerLink="/styles"><a ><i class="fab fa-css3-alt"></i></a></li>
-    <li (click)="logOut()"><a ><i class="fas fa-times"></i></a></li>
+  <ul  class="tooltip">    
+    <li routerLink="/questionnaire"><a ><i class="fas fa-list-ol"></i></a><span class="tooltiptext">Test Text</span></li>
+    <li routerLink="/compare"><a ><i class="fas fa-history"></i></a><span class="tooltiptext">Test Text</span></li>
+    <li routerLink="/"><a ><i class="fas fa-star"></i></a><span class="tooltiptext">Test Text</span></li>
+    <li routerLink="/styles"><a ><i class="fab fa-css3-alt"></i></a><span class="tooltiptext">Test Text</span></li>
+    <li (click)="logOut()"><a><i class="fas fa-times"></i></a><span class="tooltiptext">Test Text</span></li>
   </ul>
 </nav>
+
+<!-- wrap li in div to correct tooltip-->
