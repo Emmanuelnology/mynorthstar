@@ -9,10 +9,11 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./create-task.component.scss']
 })
 export class CreateTaskComponent implements OnInit {
-
+  taskTitle = '';
   constructor(private taskManagerService: TaskManagerService) { }
 
   ngOnInit() {
+    this.taskTitle = '64w6';
   }
 
   onSubmit(title: string) {
@@ -21,7 +22,10 @@ export class CreateTaskComponent implements OnInit {
       task: title,
       isChecked: false
     };
-    this.taskManagerService.addTask(task);
+    this.taskManagerService.addTask(task).then(
+      () => {
+        this.taskTitle = '';
+    });
   }
 
   resetForm(form) {
