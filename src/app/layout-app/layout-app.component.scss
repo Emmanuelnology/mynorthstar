@@ -72,6 +72,12 @@ main {
   flex: 1;
   text-align: right;
   display: inline-block;
+  padding-top: $s-sm;
+  line-height: 60px;
+}
+
+.flex-avatar span {
+  padding-right: $s-sm;
   margin-right: $s-xs;
 }
 
@@ -127,11 +133,49 @@ h1 > i {
   width: 40px;
   height: 40px;
   float:right;
+  vertical-align: middle;
+  margin-bottom: $s-sm;
+  margin-right: $s-xs;
 }
 
 
 @media only screen and (min-width:500px){
   $menuWidth: 70px;
+
+  /* ToolTip classses */ 
+.tooltip {
+  display: inline-block;    
+  }
+  .menu .tooltip .tooltiptext {
+      margin-left:9px;
+      width : 320px;
+      visibility: hidden;
+      background-color: #FFF;
+      border-radius:4px;
+      border: 1px solid #aeaeae;
+      position: absolute;
+      z-index: 1;
+      padding: 5px;
+      margin-top : -15px; /* according to application */ 
+     opacity: 0;
+      transition: opacity 1s;
+  }
+  .tooltip .tooltiptext::after {
+      content: " ";
+      position: absolute;
+      top: 5%;
+      right: 100%; /* To the left of the tooltip */
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent #aeaeae transparent transparent;
+  }
+  
+  
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+  }
 
   .logo-wrapper {
     padding: $s-sm;
@@ -169,13 +213,27 @@ h1 > i {
   .circle-border {
     width: 50px;
     height:50px;
+    margin-top: $s-xs;
   }
+
+  .flex-avatar {
+    flex: 1;
+    text-align: right;
+    display: inline-block;
+    padding-top: $s-sm;
+    line-height: 55px;
+  }
+  
+  .flex-avatar span{
+   display: hidden;
+  }
+
 }
 
 @media only screen and (min-width:750px){
 
   h1 {
-    font-size: $f-lg;
+    font-size: $f-md;
     margin-left: $s-md;
     letter-spacing: 15px;
   }
@@ -188,5 +246,26 @@ h1 > i {
   .content {
     padding: 40px;
     padding-top: 15px;
+  }
+
+  .flex-avatar {
+    flex: 1;
+    text-align: right;
+    display: inline-block;
+    // padding-top: $s-sm;
+    line-height: 60px;
+  }
+  
+  .flex-avatar span{
+    padding-right: $s-sm;
+  }
+
+}
+
+@media only screen and (min-width:800px){
+  h1 {
+    font-size: $f-lg;
+    margin-left: $s-md;
+    letter-spacing: 15px;
   }
 }

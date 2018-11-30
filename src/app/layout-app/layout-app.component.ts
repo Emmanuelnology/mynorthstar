@@ -12,7 +12,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LayoutAppComponent implements OnInit {
   menuIsVisible = true;
   @Input() icon: string;
-  @Input() title: string;
+  @Input() pageTitle: string;
   @Input() starData: number[];
   user;
 
