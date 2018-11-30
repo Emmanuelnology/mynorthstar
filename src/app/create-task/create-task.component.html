@@ -1,5 +1,5 @@
 <div class="createtask">
-  <h3>New Task</h3>
+  <h3>Tasks:</h3>
   <form #createNewTask="ngForm">
     <input required #title name="new-task" class="input-box" id="new-task" [value]="taskTitle" placeholder="Enter Task">
     <input type="submit" class="btn btn-open btn-turquoise" value="Add" (click)="onSubmit(title.value)">    
