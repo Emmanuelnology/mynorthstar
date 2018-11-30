@@ -1,125 +1,69 @@
 @import '../../variables.scss';
 @import '../../styles.scss';
-/* Body background image, font-family and height */
-body { 
-    // max-height: 100%;
-    // display: block;
-    // overflow-y: scroll;
-    // scroll-behavior: smooth;
-    text-align: center;
-    width: 100%;
-}
+
 
 .instruction {
     font-style: italic;
     padding: 1em;
 }
 
-/* Text color, width and position, input size */
-main > form, h1 {
-    color: white;    
+div.container p {
+    display: inline-block;
 }
-
 .container {
-    margin-left: 20%; 
+    margin-left: 2%; 
     text-align: left;
-    padding-right: 2em;
 }
-// .scoring {
-//     margin-right: 7em;
-//     margin-bottom: 20px;
-//     margin-left: 15px;
-//     margin-top: 5px;
-//     max-width: 45px;
-//     background-color:rgba(250, 250, 250, 0.3);
-//     color: white;
-//     border-radius: 15%;
-//     border: white solid 1px;
 
-// }
+#output-score {
+    color: rgb(0,255,210);
+    background: $nav-color;
+    width: 25px;
+    margin: 0;
+    
+    border-radius: 50%;
+    text-align: center;
+}
+
 .scoring {
-    margin-right: 7em;
+    overflow: hidden;
+    margin-right: 5px;
     margin-bottom: 30px;
-    margin-left: 15px;
+    margin-left: 5px;
     margin-top: 20px;
-    -webkit-appearance: none;
-    width: 40%;
-    height: 4px;
-    border-radius: 5px;   
-    background: $pink;
+    height:8px;
+    width: 80%;
     outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    background-color: $nav-color;
+    
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .scoring::-webkit-slider-thumb {
+    width: 10px;
+    height: 10px;
     -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: $turquoise;
+    border-radius: 50%;
     cursor: pointer;
-
-
-      &:active {
-    background: $pink;
-          box-shadow: 0 0 0 3px $turquoise,
-                  0 0 0 6px $pink;
-  }
-
-  
-
+    background: rgb(0,255,210);
+    box-shadow: -300px 0 0 300px rgb(0,255,210);
+    
 }
 
-
-
-
-.range-slider__value {
-  display: inline-block;
-  position: relative;
-
-  line-height: 20px;
-  text-align: center;
-  border-radius: 3px;
-
-  padding: 5px 10px;
-  margin-left: 8px;
-
-.btn  {
-    margin-top: 1.5em;
+div.sendButton {
+    text-align: center;
+    padding: 30px;
 }
 
-@media only screen and (max-width: 800px) {
-    // main > form {
-    //     font-size: 0.6em;
-    // }
-    main > h1 {
-        font-size: 2em
-    }
-    .input {
-        max-width: 30px;
-    }
-}
-
-@media only screen and (max-width: 150px) {
-    * {
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-        overflow: scroll;
+@media only screen and (min-width: 528px) {
+    .container {
+        margin-left: 20%;
     }
     .scoring {
-        max-width: 15px;
+        width: 300px;
     }
-}
-
-// progress[value] {
-//     /* Reset the default appearance */
-//     -webkit-appearance: none;
-//      appearance: none;
-  
-//     width: 250px;
-//     height: 20px;
-// }
 }

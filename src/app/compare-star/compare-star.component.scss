@@ -9,3 +9,16 @@
 #star {
     z-index: 0;
 }
+
+@media only screen and (min-width: 1000px) {
+    #star {
+        width: 70%;
+        float: left;
+    }
+
+    #history {
+        width: 30%;
+        float: right;
+        font-size: 2.5em;
+    }
+}

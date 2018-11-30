@@ -21,8 +21,6 @@ export class TaskListComponent implements OnInit {
     // this.tasks = this.db.collection('/tasks').valueChanges();
     this.tasks = this.db.collection('/tasks').snapshotChanges()
       .pipe(map((actions) => {
-      console.log(actions);
-
           return actions.map((a) => {
             const data = a.payload.doc.data() as Task;
 
