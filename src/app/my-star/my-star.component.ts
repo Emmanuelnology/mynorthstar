@@ -24,6 +24,7 @@ export class MyStarComponent implements OnInit {
   };
 
   bigStarOptions = {
+    responsive: false,
     tooltips: {
       backgroundColor: 'rgba(	13, 48, 99, 0.6)'
     },
