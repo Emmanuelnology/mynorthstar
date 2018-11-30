@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IQuestion, Randomise, QuestionnaireService } from '../services/questionnaire.service';
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-questionnaire',
@@ -258,7 +260,7 @@ export class QuestionnaireComponent implements OnInit {
         //     category: 'Career',
         // }
     ];
-    constructor(private rand: Randomise, private questionnaireService: QuestionnaireService) {
+    constructor(private rand: Randomise, private questionnaireService: QuestionnaireService, private router: Router) {
         this.questions = this.rand.randomiseOrder(this.questions);
     }
 
@@ -276,11 +278,33 @@ export class QuestionnaireComponent implements OnInit {
         //         // display an error message
         //     });
         //
-
         // console.log(this.questions);
         const finalResults = this.questionnaireService.getResults(this.questions);
+
         console.log(finalResults);
-        return finalResults;
+
+        // if (finalResults.overallResult !== NaN) {
+        //     this.router.navigate(['/']);
+        //     console.log(finalResults);
+        //     console.log("THIS IS WORKING")
+        //     return finalResults;
+        // } else {
+
+        //     console.log("THIS IS WORKING")
+        //     return finalResults;
+        // }
+
+        // if (finalResults.overallResult !== NaN) {
+
+        this.router.navigate(['/']);
+        //     console.log(finalResults);
+        //     console.log("THIS IS WORKING")
+        //     return finalResults;
+        // } else {
+
+        //     console.log("NOT WORKING");
+        //     return finalResults;
+        // }
 
         // let resultObject= {
         //     questionnaire = this.questions,
