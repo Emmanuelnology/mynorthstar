@@ -1,0 +1,17 @@
+#history-container {
+    border: solid red 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.score,
+.checkbox {
+    width: 25%;
+    text-align: right;
+}
+
+.date {
+    width: 50%;
+    text-align: left;
+}
