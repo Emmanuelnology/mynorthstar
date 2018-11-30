@@ -6,22 +6,21 @@
     <form method="POST">
       <fieldset>
         <label for="Email">Email</label>
-        <input type="email" name="Email" id="email" required>
+        <input type="email" name="Email" required>
         <label for="Password">Password</label>
-        <input type="password" minlength="6" name="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          title="Must contain at least one uppercase letter, one lower case letter, a number minimum length is 6 characters"
+        <input type="password" minlength="6" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
           required>
-        <button class="btn btn-flat btn-navy " type="submit" id="submit">Login</button>
+        <button class="btn btn-flat btn-navy " type="submit" >Login</button>
       </fieldset>
-      <a (click)="showPassword=true">Forgot your password?</a>
+      <a (click)="togglePassword()">Forgot your password?</a>
     </form>
   </div>
 <!-- forgot passsword inputs -->
-  <div id="fpassword">
+  <div id="fpassword" [hidden]=showPassword>
       <form action="POST">
-        <fieldset *ngIf="showPassword">
+        <fieldset>
           <label for="forgotpassword">Please enter your email</label>
-          <input type="email" name="Email" id="email">
+          <input type="email" name="Email">
           <button class="btn btn-flat btn-navy" type="submit" id="submit">Reset password</button>
         </fieldset>
       </form>

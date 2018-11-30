@@ -37,7 +37,6 @@ import { CompareStarComponent } from './compare-star/compare-star.component';
 import { HistoryComponent } from './history/history.component';
 import { NavComponent } from './nav/nav.component';
 
-
 const routes: Routes = [
  { path: 'questionnaire', component: QuestionnaireComponent },
  { path: 'login', component: LoginComponent},

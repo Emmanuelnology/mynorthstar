@@ -5,10 +5,7 @@
     display: inline-block;
     width: 320px;
     padding: $s-xs;
-}
-
-#fpassword {
-    border: 1px solid black;
+    position: relative;
 }
 
 form {
@@ -28,10 +25,11 @@ fieldset {
         flex-shrink: 1;
         margin: 0;
         margin-bottom: $s-sm;
-        padding: $s-xs;
+        padding: $s-sm;
         width: 100%;
         max-width: 320px;
         font-size: $f-sm;
+        height: auto;
     }
 
     button {
