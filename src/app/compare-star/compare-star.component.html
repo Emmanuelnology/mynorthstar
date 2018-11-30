@@ -1,6 +1,11 @@
 <app-layout-default icon="fa-taxi" title="Compare star">
-  <div id="star">
-    <app-star [data]="data"></app-star>
+  <div id="layout">
+    <div id="star">
+      <app-star [data]="data"></app-star>
+    </div>
+    <div id="history">
+      <app-history></app-history>
+    </div>
   </div>
-<button (click)="addData()" class="btn btn-flat btn-pink" id="compare-btn">Compare</button>
+  <button (click)="addData()" class="btn btn-flat btn-pink" id="compare-btn">Compare</button>
 </app-layout-default>

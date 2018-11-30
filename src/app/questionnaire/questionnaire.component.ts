@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IQuestion, Randomise } from '../services/questionnaire.service';
+import { IQuestion, Randomise, QuestionnaireService } from '../services/questionnaire.service';
 
 @Component({
     selector: 'app-questionnaire',
@@ -263,4 +263,27 @@ export class QuestionnaireComponent implements OnInit {
     }
     ngOnInit() {
     }
+    onSubmit() {
+        // // check if any field is undefined
+        // resort questions
+        // this.questionnaireService.saveResults(this.questions)
+        //     .then(() =>{
+        //         // redirect to my star page
+        //     })
+        //     .catch( (error)=>{
+        //         // display an error message
+        //     });
+        //
+        // console.log(this.questions);
+        // questionnaireService.saveResults(this.questions);
+
+        // let resultObject= {
+        //     questionnaire = this.questions,
+        //     results = this.resultService.getResults(this.questions)
+        // }
+
+
+        // save to firebase
+    }
+
 }
