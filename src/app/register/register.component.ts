@@ -21,6 +21,10 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this.authService.registerUser(this.email, this.password).then(
       () => {
+        // updateprofile (name)
+        // .then {
+          // route
+       // }
         this.router.navigate(['/']);
     }
     )
