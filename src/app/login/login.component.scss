@@ -6,6 +6,18 @@
     width: 320px;
     padding: $s-xs;
     position: relative;
+    top: 0;
+}
+
+#content-container {
+    max-width: 320px;
+    min-height: 257px;
+    overflow: visible;
+}
+
+#fpassword {
+    border: 1px white solid;
+    overflow: visible;
 }
 
 form {
@@ -16,13 +28,13 @@ form {
 
 fieldset {
     border: none;
-    display: flex;
+    display: block;
 
     label {
         font-size: $f-xs;
     }
+    
     input {
-        flex-shrink: 1;
         margin: 0;
         margin-bottom: $s-sm;
         padding: $s-sm;

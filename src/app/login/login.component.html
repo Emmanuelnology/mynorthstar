@@ -1,31 +1,37 @@
-<app-layout-auth>
+  <app-layout-auth>
+  
+    <div id="content-container">
+      <div id="form-container" >
+    <!-- login inputs -->
+        <div [hidden]=showLogin>
+          <form method="POST">
+            <fieldset>
+              <label for="Email">Email</label>
+              <input type="email" name="Email" required>
 
-  <div id="form-container">
-<!-- login inputs -->
-    <div>
-    <form method="POST">
-      <fieldset>
-        <label for="Email">Email</label>
-        <input type="email" name="Email" required>
-        <label for="Password">Password</label>
-        <input type="password" minlength="6" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          required>
-        <button class="btn btn-flat btn-navy " type="submit" >Login</button>
-      </fieldset>
-      <a (click)="togglePassword()">Forgot your password?</a>
-    </form>
-  </div>
-<!-- forgot passsword inputs -->
-  <div id="fpassword" [hidden]=showPassword>
-      <form action="POST">
-        <fieldset>
-          <label for="forgotpassword">Please enter your email</label>
-          <input type="email" name="Email">
-          <button class="btn btn-flat btn-navy" type="submit" id="submit">Reset password</button>
-        </fieldset>
-      </form>
+              <div (click)=togglePassword()>
+                <label for="Password">Password</label>
+                <input type="password" minlength="6" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                  required>
+                </div>
+              <button class="btn btn-flat btn-navy " type="submit" >Login</button>
+            </fieldset>
+            <a (click)="togglePassword()">Forgot your password?</a>
+          </form>
+        </div>
+  
+    <!-- forgot passsword inputs -->
+      <div id="fpassword" [hidden]=showPassword>
+          <form action="POST">
+            <fieldset>
+              <label for="forgotpassword">Please enter your email</label>
+              <input type="email" name="Email">
+              <button class="btn btn-flat btn-navy" type="submit" id="submit">Reset password</button>
+              <a (click)="togglePassword()">Return to login</a>
+            </fieldset>
+          </form>
+        </div>
+      </div>
     </div>
-
-  </div>
-
-</app-layout-auth>
+  
+  </app-layout-auth>
