@@ -16,19 +16,22 @@ h3 {
 
 .date {
   flex-grow:1;
+  line-height: 50px;
+  p {
+    text-align: right;
+    padding-right: 10px;
+    color:white;
+    font-size: 12px; 
+   
+  }
 }
-
-p {
-  text-align: right;
-  padding-right: 10px;
-  color:white;
-  margin: auto, 0;
-  font-size: $s-sm;
-}
-
 
 .total-score {
   flex: 0, 0, 200px;
+}
+
+.tasks {
+  padding-top: 30px;
 }
 
 .star {
@@ -48,9 +51,15 @@ p {
     display:inline-block;
   }
 
-  .tasks {
-    padding-top: 30px;
+  .date {
+    height: 90px;
+    line-height: 90px;
+    p {
+      font-size: $f-xs;
+    }  
   }
+
+
 }
 
 @media only screen and (min-width: 1024px) {
@@ -68,6 +77,10 @@ p {
 
   .star-heading{
     padding-right: 80px;
+  }
+
+  .tasks {
+    padding: 0;
   }
 
 }
