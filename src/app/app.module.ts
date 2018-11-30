@@ -36,6 +36,7 @@ import { TinyStarComponent } from './tiny-star/tiny-star.component';
 import { CompareStarComponent } from './compare-star/compare-star.component';
 import { HistoryComponent } from './history/history.component';
 import { NavComponent } from './nav/nav.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
  { path: 'questionnaire', component: QuestionnaireComponent },
@@ -45,8 +46,10 @@ const routes: Routes = [
  { path: 'fbtd', component: FireBaseTestDisplayComponent},
  { path: 'dashboard', component: DashboardComponent},
  { path: 'styles', component: StyleGuideComponent},
- { path: '', component: MyStarComponent},
  { path: 'compare', component: CompareStarComponent},
+ { path: 'forgotten-password', component: ForgotPasswordComponent},
+
+ { path: '', component: MyStarComponent},
 ];
 
 @NgModule({
@@ -69,7 +72,8 @@ const routes: Routes = [
    TinyStarComponent,
    CompareStarComponent,
    HistoryComponent,
-   NavComponent
+   NavComponent,
+   ForgotPasswordComponent
  ],
  imports: [
    BrowserModule,
