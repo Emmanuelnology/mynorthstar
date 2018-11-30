@@ -3,6 +3,7 @@ import {IData, IChartDataSet, StarComponent} from '../star/star.component';
 import { renderDetachView } from '@angular/core/src/view/view_attach';
 import { viewAttached } from '@angular/core/src/render3/instructions';
 import { HistoryComponent } from '../history/history.component';
+import { Colours } from '../../colours';
 
 @Component({
   selector: 'app-compare-star',
@@ -10,11 +11,12 @@ import { HistoryComponent } from '../history/history.component';
   styleUrls: ['./compare-star.component.scss']
 })
 
-
 export class CompareStarComponent implements OnInit,  AfterViewInit {
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
   @ViewChild(HistoryComponent) historyViewChild: HistoryComponent;
+
+  public colours: Colours;
 
   datasets: IChartDataSet[] = [];
   data: IData = {
@@ -57,7 +59,7 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
       label: 'Nov 18',
       fill: false,
       lineTension: 0.3,
-      borderColor: 'pink',
+      borderColor: '#b02062',
       pointBorderColor: '#6ecbd3',
       pointRadius: 5,
       pointBackgroundColor: '#37234f'
@@ -67,7 +69,7 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
       label: 'Oct 18',
       fill: false,
       lineTension: 0.3,
-      borderColor: 'blue',
+      borderColor: '#6ecbd3',
       pointBorderColor: '#6ecbd3',
       pointRadius: 5,
       pointBackgroundColor: '#37234f'
@@ -77,7 +79,7 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
       label: 'Sep 18',
       fill: false,
       lineTension: 0.3,
-      borderColor: 'red',
+      borderColor: '#65449b',
       pointBorderColor: '#6ecbd3',
       pointRadius: 5,
       pointBackgroundColor: '#37234f'
@@ -87,7 +89,7 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
       label: 'Aug 18',
       fill: false,
       lineTension: 0.3,
-      borderColor: 'green',
+      borderColor: '#00ffd2',
       pointBorderColor: '#6ecbd3',
       pointRadius: 5,
       pointBackgroundColor: '#37234f'
