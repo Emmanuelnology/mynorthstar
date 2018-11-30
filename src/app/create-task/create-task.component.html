@@ -1,5 +1,7 @@
 <div class="createtask">
-  <label for="new-task"><h2>New Task</h2></label>
-  <input required #title name="new-task" class="input-box" id="new-task" placeholder="Enter Task">
-  <input type="submit" class="btn btn-open btn-turquoise" value="Add" (click)="onSubmit(title.value)">    
+  <h2>New Task</h2>
+  <form #createNewTask="ngForm">
+    <input required #title name="new-task" class="input-box" id="new-task" [value]="taskTitle" placeholder="Enter Task">
+    <input type="submit" class="btn btn-open btn-turquoise" value="Add" (click)="onSubmit(title.value)">    
+  </form>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, Input, AfterViewInit, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
 import { Chart } from 'chart.js';
 
 
@@ -7,6 +7,9 @@ interface ICanvas extends HTMLElement {
 }
 
 export interface IRadarChartOptions {
+  tooltips?: {
+    backgroundColor: string | string []
+  };
   legend: {
     display: boolean,
     labels?: {
@@ -110,6 +113,11 @@ export class StarComponent implements AfterViewInit, OnInit {
 
   ngOnInit () {
     this.makeStarUnique();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.redraw();
   }
 
 

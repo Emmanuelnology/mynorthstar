@@ -1,8 +1,16 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, AfterContentInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import { AuthService } from '../services/auth.service';
+
+
+
+
+
+// https://stackoverflow.com/questions/38559457/firebase-v3-updateprofile-method
+
 
 
 @Component({
@@ -11,48 +19,68 @@ import { auth } from 'firebase/app';
   styleUrls: ['./fire-base-test-display.component.scss']
 })
 
-export class FireBaseTestDisplayComponent {
-
+export class FireBaseTestDisplayComponent implements AfterContentInit {
+  user;
   items: Observable<any[]>;
-  constructor(db: AngularFirestore, public afAuth: AngularFireAuth) {
-    this.items = db.collection('items').valueChanges();
+  constructor(private db: AngularFirestore, public afAuth: AngularFireAuth, private authService: AuthService) {
+
+  }
+
+  // ngOnInit(): any {
+  //   this.items = this._firebaseService.getResources()
+  // }
+
+  ngAfterContentInit() {
+    this.items = this.db.collection('items').valueChanges();
+    this.user = this.afAuth.user;
+    // FIRESE INITALISE HERE? PREFERENCE TO BE INSIDE ngOnInit()? firebase.init;
   }
 
   logIn() {
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
+
   logInEmail(email, password) {
-    console.log('Sign in \nEmail: ' +  email + ' Password: ' + password);
-    document.getElementById('errorMessageRegister').innerHTML = ('Sign in \nEmail: ' +  email + ' Password: ' + password);
-    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const d1 = document.getElementById('errorMessageLogInEmail');
-      d1.insertAdjacentHTML('afterend', '<h2 style="color: red"> Error message: </h2>' +
-      '<p style = "text-align: center; color: red">' + errorMessage + '</p>');
-    });
+    this.authService.logIn(email, password).then(
+      () => {
+      console.log('Redirect to home page');
+    }
+    )
+    .catch((error) => {
+      console.log(error);
+    }
+    );
   }
 
   logOut() {
-    this.afAuth.auth.signOut();
+    this.authService.logOut();
+    console.log('Redirect to login page');
   }
 
+
   registerUser(email, password) {
-    console.log('Register User \nEmail: ' +  email + ' Password: ' + password);
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const d1 = document.getElementById('errorMessageRegister');
-      d1.insertAdjacentHTML('afterend', '<h2 style="color: red"> Error message: </h2>' +
-      '<p style = "text-align: center; color: red">' + errorMessage + '</p>');
-    });
+    this.authService.registerUser(email, password).then(
+      () => {
+      console.log('Redirect to home page');
+    }
+    )
+    .catch((error) => {
+      console.log(error);
+    }
+    );
   }
 
 
   resetPassword(email: string) {
-    this.afAuth.auth.sendPasswordResetEmail(email)
-      .then(() => console.log('email sent'))
-      .catch((error) => console.log(error));
+    this.authService.resetPassword(email).then(
+      () => {
+      console.log('Redirect to  page');
+    }
+    )
+    .catch((error) => {
+      console.log(error);
+    }
+    );
   }
 }
