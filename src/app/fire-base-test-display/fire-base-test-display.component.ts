@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-import * as firebase from 'firebase';
+import { AuthService } from '../services/auth.service';
 
 
 
@@ -22,7 +22,7 @@ import * as firebase from 'firebase';
 export class FireBaseTestDisplayComponent implements AfterContentInit {
   user;
   items: Observable<any[]>;
-  constructor(public db: AngularFirestore, public afAuth: AngularFireAuth) {
+  constructor(private db: AngularFirestore, public afAuth: AngularFireAuth, private authService: AuthService) {
 
   }
 
@@ -41,84 +41,46 @@ export class FireBaseTestDisplayComponent implements AfterContentInit {
   }
 
 
-
-
-
-
-
   logInEmail(email, password) {
-    let user = null;
-    console.log('Sign in \nEmail: ' +  email + ' \nPassword: ' + password);
-    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const d1 = document.getElementById('errorMessageLogInEmail');
-      d1.insertAdjacentHTML('afterend', '<h2 style="color: red"> Error message: </h2>' +
-      '<p style = "text-align: center; color: red">' + errorMessage + '</p>');
-    });
-
-    // Using firebase.auth().currentUser creates error "Firebase: no firebase app has been created".
-    user = this.afAuth.auth.currentUser;
-    console.log('user is: ' + user);
-    console.log(user);
+    this.authService.logIn(email, password).then(
+      () => {
+      console.log('Redirect to home page');
+    }
+    )
+    .catch((error) => {
+      console.log(error);
+    }
+    );
   }
-
-
-
-
-
-
 
   logOut() {
-    this.afAuth.auth.signOut();
+    this.authService.logOut();
+    console.log('Redirect to login page');
   }
 
+
   registerUser(email, password) {
-    let user = null;
-    console.log('Register User \nEmail: ' +  email + ' Password: ' + password);
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    // .then(
-    //   function(){
-    //     user = this.afAuth.auth.currentUser;
-    //     user.sendEmailVerification();
-    //     console.log('The user object is: ' + user);
-    //   }
-
-
-
-
-
-
-
-
-      // no problem
-      // updateProfile shananagans
-      // .then redirect to home page
-
-
-
-
-
-
-
-
-    .catch(function(error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const d1 = document.getElementById('errorMessageRegister');
-      d1.insertAdjacentHTML('afterend', '<h2 style="color: red"> Error message: </h2>' +
-      '<p style = "text-align: center; color: red">' + errorMessage + '</p>');
-    });
-
-    user = this.afAuth.auth.currentUser;
-    console.log('user is: ' + user);
-    // user.sendEmailVerification();
+    this.authService.registerUser(email, password).then(
+      () => {
+      console.log('Redirect to home page');
+    }
+    )
+    .catch((error) => {
+      console.log(error);
+    }
+    );
   }
 
 
   resetPassword(email: string) {
-    this.afAuth.auth.sendPasswordResetEmail(email)
-      .then(() => console.log('email sent'))
-      .catch((error) => console.log(error));
+    this.authService.resetPassword(email).then(
+      () => {
+      console.log('Redirect to  page');
+    }
+    )
+    .catch((error) => {
+      console.log(error);
+    }
+    );
   }
 }
