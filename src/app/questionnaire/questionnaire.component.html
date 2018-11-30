@@ -1,6 +1,6 @@
 <app-layout-default icon="fas fa-list-ol" title="Questionnaire">
       <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
-        where 0 is strongly disagree and 10 strongly agree
+        where 0 is strongly disagree and 10 strongly agree.
       </p>      
     <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
         <div *ngFor="let question of questions">
@@ -17,10 +17,10 @@
             required
             >
 
-            <p>{{question.score}}</p>
+            <p id="output-score">{{question.score}}</p>
           </div>
         </div>
-        <div>
+        <div class="sendButton">
           <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
         </div>
       </form>
