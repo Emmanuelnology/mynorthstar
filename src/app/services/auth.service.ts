@@ -13,7 +13,6 @@ export class AuthService {
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) { }
 
   logIn(email, password) {
-    console.log('Sign in \nEmail: ' +  email + ' \nPassword: ' + password);
     this.user = this.afAuth.auth.signInWithEmailAndPassword(email, password);
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
@@ -24,7 +23,6 @@ export class AuthService {
 
 
   registerUser(email, password) {
-    console.log('Register User \nEmail: ' +  email + ' Password: ' + password);
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
