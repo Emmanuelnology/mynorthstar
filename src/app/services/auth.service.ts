@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   user;
 
@@ -12,6 +14,7 @@ export class AuthService {
 
   logIn(email, password) {
     console.log('Sign in \nEmail: ' +  email + ' \nPassword: ' + password);
+    this.user = this.afAuth.auth.signInWithEmailAndPassword(email, password);
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
