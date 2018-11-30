@@ -91,7 +91,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I have a partner/ stable relationship',
     score: 8,
     weight: 7,
-    category: 'Romance & relationships'
+    category: 'Relationships'
   },
   {
     title: 'Question 9',
@@ -141,7 +141,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I only see my friends at the travelodge',
     score: 4,
     weight: 2,
-    category: 'Romance & relationships',
+    category: 'Relationships',
     positive: false
   },
   {

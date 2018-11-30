@@ -28,7 +28,7 @@ export class MyStarComponent implements OnInit {
       backgroundColor: 'rgba(	13, 48, 99, 0.6)'
     },
     legend: {
-      display: false  
+      display: false
     },
     scale: {
       pointLabels: {
