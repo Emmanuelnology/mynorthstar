@@ -36,7 +36,7 @@ nav li {
 //   -webkit-text-stroke-color: white;
 // }
 
- nav li:hover {
+ nav li:hover, nav .active {
   background-color:rgb(16, 131, 188);
   color:white;
   cursor: pointer; 
