@@ -72,6 +72,10 @@ nav li {
       padding: 5px;
       margin-top : 0px; 
       transition: opacity 1s;
+      border-radius: 5px;
+      background-color: $navy;
+      opacity: 0.5;
+      
   }
   .tooltip .tooltiptext::after {
       position: absolute;
