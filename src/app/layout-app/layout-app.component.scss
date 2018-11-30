@@ -1,7 +1,4 @@
 @import "../../variables.scss";
-$menuWidth: 35px;
-$animationDuration: 0.5s;
-$navHeight: 80px;
 
 .wrapper {
   background-image: url('../../assets/backgrounds/background2.jpg');
@@ -13,23 +10,6 @@ $navHeight: 80px;
 .flex-container {
   display: flex;
   flex-direction: row;
-}
-
-nav {
-  flex: 0, 0, 35px;
-  background-color: $nav-color;
-  
-  text-align: center;
-  border-top: 1px solid white;
-  position:absolute;
-  top:$navHeight;
-  left:0;
-  bottom:0;
-}
-
-nav a {
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: white;
 }
 
 main {
@@ -45,26 +25,26 @@ main {
 }
 
 .flex-menu {
-  font-size: 1.5em;
   color:white;
-  padding: 5px;
   background-color: rgb(17, 96, 243);
-  width:35px;
-  padding-top: 15px;
+  width:$smallMenuWidth;
   cursor: pointer;
+  height:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
+
+
 
 .dots {
   height:20px;
   margin-top: $s-xs; 
 }
-nav li:hover {
-  cursor: pointer;
-}
+
 
 .flex-logo {
   margin-bottom: 0;
-  padding-left: $s-xs;
   padding-bottom: 0;
   display:flex;
   align-items: center;
@@ -80,24 +60,12 @@ nav li:hover {
 }
 
 .flex-avatar {
-  margin-right: $s-sm;
   flex: 1;
   text-align: right;
-  display: block;
+  display: inline-block;
   padding-top: $s-sm;
-  
 }
 
-li {
-  color:$nav-icons-color;
-  font-size: 1.5em;
-  padding-top: $s-sm;
-  padding-bottom: $s-sm;
-}
-
-li:hover {
-  background-color:rgb(17, 96, 243); 
-}
 
 main {
   padding: 10px;
@@ -114,51 +82,69 @@ main {
   bottom:0;
   overflow-y:scroll;
   overflow-x:hidden;
-  transition:$animationDuration;
+  transition: $animationDuration;
 
 }
 
-.menu {
-  overflow:hidden;
-  width:0;
-  transition:$animationDuration;
-  min-width:0;
-}
-
-.showMenu .menu{
-  width:$menuWidth;
-  min-width:$menuWidth;
-}
 
 .showMenu .content {
-  left:$menuWidth;
-  transition:$animationDuration;
-
+  left:$smallMenuWidth;
 }
 
 span {
   font-size: $f-sm;
 }
 
-@media only screen and (min-width:750px){
+h1 {
+  font-size: $f-sm;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-left: $s-sm;
+}
+
+h1 > i {
+  display: none;
+}
+
+.greeting {
+  display: none;
+}
+
+.circle-border {
+  border-radius: 50%;
+  border: 1px solid white;
+  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  float:right;
+  
+}
+
+
+@media only screen and (min-width:500px){
   $menuWidth: 70px;
 
   .logo-wrapper {
     padding: $s-sm;
-    width: $menuWidth;
+    width: $largeMenuWidth;
   }
 
-  nav {
-    flex: 0, 0, 70px;
+  h1 > i {
+    display: inline-block;
   }
-  
+
+  .greeting {
+    display: inline-block;
+  }
+
   .showMenu .content {
-    left:$menuWidth;
+    left:$largeMenuWidth;
   }
 
   .showMenu .menu {
-    width:$menuWidth;
-    min-width:$menuWidth;
+    width:$largeMenuWidth;
+    min-width:$largeMenuWidth;
   }
   
   .flex-menu {
@@ -168,12 +154,29 @@ span {
   .logo-wrapper {
     display:inline-block;
   }
-  
-  .flex-logo {
-    padding-left: 0;
+  h1 {
+    font-size: $f-md;
   }
-  
-  
-  
-  
+
+  .circle-border {
+    width: 50px;
+    height:50px;
+  }
+}
+
+
+
+
+@media only screen and (min-width:750px){
+
+  h1 {
+    font-size: $f-lg;
+    margin-left: $s-md;
+    letter-spacing: 15px;
+  }
+
+  .circle-border {
+    width: 70px;
+    height: 70px;
+  }
 }

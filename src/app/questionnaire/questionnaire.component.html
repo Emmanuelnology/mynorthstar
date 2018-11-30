@@ -1,16 +1,8 @@
 <app-layout-default icon="fas fa-list-ol" title="Questionnaire">
-  <head>
-      <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
-      <!-- <title class="firstitle">Questionnaire</title> -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta charset="UTF-8">
-  </head>
-  <body>
-    <main>
       <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
-        where 0 is strongly disagree and 10 strongly agree
+        where 0 is strongly disagree and 10 strongly agree.
       </p>      
-      <form action="../my-star/my-star.component.html" method="POST">
+    <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
         <div *ngFor="let question of questions">
           <div  class="container">
             <label for="questions">
@@ -18,20 +10,27 @@
             </label>
             <input
             class="scoring"
-            type="number"
-            value ="{{question.score}}" 
+            type="range"
+            [(ngModel)]="question.score"
             name="question-{{question.number}}" 
             min="0" max="10"
             required
             >
+            <!-- <input
+            class="scoring-big"
+            type="range"
+            [(ngModel)]="question.score"
+            name="question-{{question.number}}" 
+            min="0" max="10"
+            required
+            > -->
+
+            <p id="output-score">{{question.score}}</p>
           </div>
         </div>
-        <div>
+        <div class="sendButton">
           <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
         </div>
       </form>
-      <!-- <progress max="100" value="20"></progress> -->
-    </main>
-  </body>
 </app-layout-default>
 
