@@ -64,13 +64,12 @@ export interface IData {
 
 export class StarComponent implements AfterViewInit, OnInit {
   @Input() data: IData;
-  @Input() size = '100%';
+  @Input() size = '600';
 
   chart: Chart = {} as Chart;
   canvasID: string;
 
   constructor(private cd: ChangeDetectorRef) {
-   
 
   }
 
@@ -93,7 +92,7 @@ export class StarComponent implements AfterViewInit, OnInit {
 
   createChart() {
 
-    const colors=['rgb(255,0,110)', 'rgb(112,49,238)', 'rgb(18,148,194)', 'rgb(0,255,213)'];
+    const colors = ['rgb(255,0,110)', 'rgb(112,49,238)', 'rgb(18,148,194)', 'rgb(0,255,213)'];
 
     const data: number[] = this.data.datasets[0].data;
     const dataSetColors: string[] = [];
@@ -118,9 +117,8 @@ export class StarComponent implements AfterViewInit, OnInit {
 
     const canvas: ICanvas = (document.getElementById(this.canvasID) as ICanvas);
     const ctx = canvas.getContext('2d');
-    const size = 500;
-    const radius = 250;
-    const gradient = ctx.createRadialGradient(size / 2, size / 2, 20, 250, 250, 500);
+    const size = this.size;
+    const gradient = ctx.createRadialGradient(size / 2, size / 2, 20, size / 2, size / 2, size);
     gradient.addColorStop(0, colors[0]);
     gradient.addColorStop(0.1, colors[1]);
     gradient.addColorStop(0.22, colors[2]);
