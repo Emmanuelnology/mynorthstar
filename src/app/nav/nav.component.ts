@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
   @Input() menuIsVisible;
 
-  constructor(private authService: AuthService, private router:Router) { }
-  
+  constructor(private authService: AuthService, private router: Router) { }
+
 
   ngOnInit() {
 
@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
 
   logOut() {
     this.authService.logOut().then(
-      () =>{
+      () => {
         this.router.navigate(['/login']);
       }
      );

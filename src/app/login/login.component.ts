@@ -9,13 +9,13 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   showPassword = false;
-  email:string='';
-  password:string='';
-  emailResetPassword:string = '';
-  error:string;
-  errorResetPassword:string;
-  resetPasswordConfirm:string;
-  constructor(private authService: AuthService, private router:Router) { }
+  email = '';
+  password = '';
+  emailResetPassword = '';
+  error: string;
+  errorResetPassword: string;
+  resetPasswordConfirm: string;
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,14 +23,14 @@ export class LoginComponent implements OnInit {
   logIn() {
     this.authService.logIn(this.email, this.password)
     .then(
-      ()=>{
+      () => {
       console.log('Redirect to home page');
       this.router.navigate(['/']);
     }
     )
-    .catch((error)=>{
-      this.error=error.message;
-    })
+    .catch((error) => {
+      this.error = error.message;
+    });
   }
 
 

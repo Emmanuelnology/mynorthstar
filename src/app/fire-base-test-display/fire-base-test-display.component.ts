@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-import { AuthService } from '../services/auth.service'
+import { AuthService } from '../services/auth.service';
 
 
 
@@ -43,11 +43,11 @@ export class FireBaseTestDisplayComponent implements AfterContentInit {
 
   logInEmail(email, password) {
     this.authService.logIn(email, password).then(
-      ()=>{
+      () => {
       console.log('Redirect to home page');
     }
     )
-    .catch((error)=>{
+    .catch((error) => {
       console.log(error);
     }
     );
@@ -61,11 +61,11 @@ export class FireBaseTestDisplayComponent implements AfterContentInit {
 
   registerUser(email, password) {
     this.authService.registerUser(email, password).then(
-      ()=>{
+      () => {
       console.log('Redirect to home page');
     }
     )
-    .catch((error)=>{
+    .catch((error) => {
       console.log(error);
     }
     );
@@ -74,11 +74,11 @@ export class FireBaseTestDisplayComponent implements AfterContentInit {
 
   resetPassword(email: string) {
     this.authService.resetPassword(email).then(
-      ()=>{
+      () => {
       console.log('Redirect to  page');
     }
     )
-    .catch((error)=>{
+    .catch((error) => {
       console.log(error);
     }
     );
