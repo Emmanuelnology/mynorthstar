@@ -18,7 +18,7 @@ export interface IRadarChartOptions {
   };
   scale: {
     pointLabels: { // Labels around the chart
-      fontFamily?:string,      
+      fontFamily?: string,
       display: boolean,
       fontColor: string,
       fontSize: number
@@ -27,7 +27,7 @@ export interface IRadarChartOptions {
       color: string
     },
     ticks: {
-      fontFamily?:string,
+      fontFamily?: string,
       maxTicksLimit?: number,
       display: boolean,
       min: number,
