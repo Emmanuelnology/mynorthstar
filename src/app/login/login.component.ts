@@ -7,14 +7,12 @@ import {Router} from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   showPassword = false;
-  email = '';
-  password = '';
-  emailResetPassword = '';
-  error: string;
-  errorResetPassword: string;
-  resetPasswordConfirm: string;
+  email:string = '';
+  password:string = '';
+  error:string = '';
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
@@ -24,7 +22,6 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(this.email, this.password)
     .then(
       () => {
-      console.log('Redirect to home page');
       this.router.navigate(['/']);
     }
     )

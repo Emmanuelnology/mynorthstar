@@ -11,7 +11,10 @@ import { Ng2ArcProgressModule } from 'angular2-arc-progress';
 // If you have errors, check slack chat, I've posted a solution - George.
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthGuard } from './services/auth-guard.service';
+
 import { environment } from '../environments/environment';
 
 
@@ -37,59 +40,67 @@ import { CompareStarComponent } from './compare-star/compare-star.component';
 import { HistoryComponent } from './history/history.component';
 import { NavComponent } from './nav/nav.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ErrorsComponent } from './errors/errors.component';
 
 const routes: Routes = [
- { path: 'questionnaire', component: QuestionnaireComponent },
- { path: 'login', component: LoginComponent},
- { path: 'register', component: RegisterComponent},
- { path: 'task-manager', component: TaskManagerComponent},
- { path: 'fbtd', component: FireBaseTestDisplayComponent},
- { path: 'dashboard', component: DashboardComponent},
- { path: 'styles', component: StyleGuideComponent},
- { path: 'compare', component: CompareStarComponent},
- { path: 'forgotten-password', component: ForgotPasswordComponent},
+  // Test (TODO remove)
 
- { path: '', component: MyStarComponent},
+  { path: 'fbtd', component: FireBaseTestDisplayComponent},
+
+  // Uunauthenticated routes
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'forgotten-password', component: ForgotPasswordComponent},
+
+  // Authenticated routes
+  { path: 'questionnaire', component: QuestionnaireComponent, canActivate: [AuthGuard]  },
+  { path: 'task-manager', component: TaskManagerComponent, canActivate: [AuthGuard] },
+  { path: 'styles', component: StyleGuideComponent, canActivate: [AuthGuard] },
+  { path: 'compare', component: CompareStarComponent, canActivate: [AuthGuard] },
+  { path: '', component: MyStarComponent, canActivate: [AuthGuard]},
+  { path: 'error', component: ErrorsComponent },
+  { path: '**', component: ErrorsComponent, data: { error: 404 } },
 ];
 
 @NgModule({
- declarations: [
-   AppComponent,
-   LayoutAuthComponent,
-   RegisterComponent,
-   QuestionnaireComponent,
-   MyStarComponent,
-   StarComponent,
-   TaskManagerComponent,
-   LayoutAppComponent,
-   CreateTaskComponent,
-   TaskListComponent,
-   DashboardComponent,
-   FireBaseTestDisplayComponent,
-   ProgressArcComponent,
-   StyleGuideComponent,
-   LoginComponent,
-   TinyStarComponent,
-   CompareStarComponent,
-   HistoryComponent,
-   NavComponent,
-   ForgotPasswordComponent
- ],
- imports: [
-   BrowserModule,
-   Ng2ArcProgressModule,
-   FormsModule,
-   RouterModule.forRoot(
-     routes,
-     { enableTracing: true } // <-- debugging purposes only
-   ),
+  declarations: [
+    AppComponent,
+    LayoutAuthComponent,
+    RegisterComponent,
+    QuestionnaireComponent,
+    MyStarComponent,
+    StarComponent,
+    TaskManagerComponent,
+    LayoutAppComponent,
+    CreateTaskComponent,
+    TaskListComponent,
+    DashboardComponent,
+    FireBaseTestDisplayComponent,
+    ProgressArcComponent,
+    StyleGuideComponent,
+    LoginComponent,
+    TinyStarComponent,
+    CompareStarComponent,
+    HistoryComponent,
+    NavComponent,
+    ForgotPasswordComponent,
+    ErrorsComponent
+  ],
+  imports: [
+    BrowserModule,
+    Ng2ArcProgressModule,
+    FormsModule,
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: true } // <-- debugging purposes only
+      ),
 
-   // Firebase imports
-    AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
- ],
- providers: [],
- bootstrap: [AppComponent]
-})
-export class AppModule { }
+      // Firebase imports
+      AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
+      AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+      AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    ],
+    providers: [AuthGuard],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }
