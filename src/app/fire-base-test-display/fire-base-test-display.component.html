@@ -1,8 +1,9 @@
 
+
 <div *ngIf='afAuth.user | async as user; else showLogin'>
   <div>
     <!-- <h1 style='float:left; display: block'>Hello {{ (user | async).displayName!}} </h1> -->
-    <!-- <h1 style='float:left; display: block'>Hello {{ user.displayName }}! </h1> -->
+    <h1 style='float:left; display: block'>Hello {{ user?.displayName}}! </h1>
     
     <!-- <img src = '{{user.photoURL}}' style='height: 70px; width: 70px; float:right'> -->
   </div>
@@ -10,7 +11,7 @@
   <h1 style='padding-top: 100px;'>Items:</h1>
 
 
-  <p>There are: {{ (items | async).length }} items in the database</p>
+  <p>There are: {{ (items | async)?.length }} items in the database</p>
   <!-- <p>There are: {{ items.length }} items in the database</p> -->
 
   <ul>
