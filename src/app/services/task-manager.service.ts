@@ -16,7 +16,7 @@ export class TaskManagerService {
     constructor(private db: AngularFirestore) {}
 
     addTask(task: Task) {
-        this.db.collection('/tasks').add(task).catch(
+        return this.db.collection('/tasks').add(task).catch(
             () => {
                 throw new Error('Unable to add user');
             }
@@ -33,5 +33,9 @@ export class TaskManagerService {
             throw new Error('Did not delete!');
         });
     }
+
+    // toggleCheckBox(task: Task) {
+    //     this.task.isChecked = !this.task.isChecked;
+    // }
 
 }
