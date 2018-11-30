@@ -40,6 +40,7 @@ import { CompareStarComponent } from './compare-star/compare-star.component';
 import { HistoryComponent } from './history/history.component';
 import { NavComponent } from './nav/nav.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ErrorsComponent } from './errors/errors.component';
 
 const routes: Routes = [
   // Test (TODO remove)
@@ -56,7 +57,9 @@ const routes: Routes = [
   { path: 'task-manager', component: TaskManagerComponent, canActivate: [AuthGuard] },
   { path: 'styles', component: StyleGuideComponent, canActivate: [AuthGuard] },
   { path: 'compare', component: CompareStarComponent, canActivate: [AuthGuard] },
-  { path: '', component: MyStarComponent},
+  { path: '', component: MyStarComponent, canActivate: [AuthGuard]},
+  { path: 'error', component: ErrorsComponent },
+  { path: '**', component: ErrorsComponent, data: { error: 404 } },
 ];
 
 @NgModule({
@@ -80,7 +83,8 @@ const routes: Routes = [
     CompareStarComponent,
     HistoryComponent,
     NavComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ErrorsComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +100,7 @@ const routes: Routes = [
       AngularFirestoreModule, // imports firebase/firestore, only needed for database features
       AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     ],
-    providers: [],
+    providers: [AuthGuard],
     bootstrap: [AppComponent]
   })
   export class AppModule { }
