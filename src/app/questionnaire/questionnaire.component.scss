@@ -30,7 +30,7 @@ div.container p {
 }
 
 .scoring > input {
-    height:8px;
+    height:12px;
     width: 80%;
     outline: none;
     border-radius: 5px;
@@ -67,8 +67,8 @@ div.container p {
 }
 
 .scoring-big::-webkit-slider-thumb { 
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     -webkit-appearance: none;
     border-radius: 50%;
     cursor: pointer;
@@ -85,7 +85,12 @@ div.sendButton {
     .container {
         margin-left: 20%;
     }
-    .scoring {
+    .scoring > input {
         width: 300px;
+        height: 8px;
+    }
+    .scoring-big::-webkit-slider-thumb { 
+        width: 15px;
+        height: 15px;
     }
 }

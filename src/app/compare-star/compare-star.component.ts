@@ -19,7 +19,9 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
   datasets: IChartDataSet[] = [];
   data: IData = {
     datasets: [],
-    labels: ['Happiness', 'Money', 'Romance and relationships', 'D', 'E', 'F', 'G', 'H'],
+    labels: ['Career', 'Friends & Family', 'Happiness',
+    'Health & Wellbeing', 'Home & Environment', 'Money',
+    'Personal Growth', 'Relationships', 'Spirituality'],
     options: {
       legend: {
         display: true,
@@ -51,8 +53,8 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
 
   public pastData = [
     {
-      data: [9, 2, 8, 3, 9, 2, 8, 4],
-      label: 'old',
+      data: [9, 2, 8, 3, 9, 2, 8, 4, 2],
+      label: 'Nov 18',
       fill: false,
       lineTension: 0.3,
       borderColor: 'pink',
@@ -61,8 +63,8 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
       pointBackgroundColor: '#37234f'
     },
     {
-      data: [1, 6, 4, 3, 8, 6, 3, 2],
-      label: 'old',
+      data: [1, 6, 4, 3, 8, 6, 3, 2, 6],
+      label: 'Oct 18',
       fill: false,
       lineTension: 0.3,
       borderColor: 'blue',
@@ -71,8 +73,8 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
       pointBackgroundColor: '#37234f'
     },
     {
-      data: [3, 7, 8, 4, 6, 4, 3, 2],
-      label: 'old',
+      data: [3, 7, 8, 4, 6, 4, 3, 2, 5],
+      label: 'Sep 18',
       fill: false,
       lineTension: 0.3,
       borderColor: 'red',
@@ -81,8 +83,8 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
       pointBackgroundColor: '#37234f'
     },
     {
-      data: [3, 6, 6, 7, 4, 8, 3, 6],
-      label: 'old',
+      data: [3, 6, 6, 7, 4, 8, 3, 6, 3],
+      label: 'Aug 18',
       fill: false,
       lineTension: 0.3,
       borderColor: 'green',
@@ -95,7 +97,7 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
   constructor() {
     this.data.datasets.push(
       {
-        data: [1, 6, 2, 6, 1, 5, 2, 7],
+        data: [1, 6, 2, 6, 1, 5, 2, 7, 9],
         label: 'Current',
         fill: true,
         lineTension: 0.3,

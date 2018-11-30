@@ -34,8 +34,10 @@ export class TaskManagerService {
         });
     }
 
-    // toggleCheckBox(task: Task) {
-    //     this.task.isChecked = !this.task.isChecked;
-    // }
+    toggleCheckBox(task: Task, bool: boolean) {
+        this.db.collection('/tasks').doc(`${task.id}`).update({
+            isChecked: bool,
+        });
+    }
 
 }
