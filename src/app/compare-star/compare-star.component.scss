@@ -21,9 +21,8 @@
     justify-content: center;
 }
 
-#btn-wrap {
-    display: flex;
-    justify-content: space-between;
+#compare-btn {
+    float: right;
 }
 
 @media only screen and (min-width: 768px) {

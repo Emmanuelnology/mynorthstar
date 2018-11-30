@@ -6,8 +6,8 @@
     <div id="history">
       <app-history></app-history>
       <div id="btn-wrap">
-        <button (click)="addData()" class="btn btn-open btn-turquoise" id="compare-btn">Compare</button>
         <button [hidden]="this.historyViewChild.findActive().length<1" (click)="removeData()" (click)="this.historyViewChild.deactivate()" class="btn btn-open btn-pink" id="remove-btn">Remove</button>
+        <button (click)="addData()" class="btn btn-open btn-turquoise" id="compare-btn">Compare</button>
       </div>
     </div>
   </div>
