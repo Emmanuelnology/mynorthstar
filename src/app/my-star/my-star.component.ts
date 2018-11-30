@@ -12,6 +12,7 @@ export class MyStarComponent implements OnInit {
   results: IResult;
   overallResult: number;
 
+
   bigStarData: IData = {
     datasets: [],
     labels: [],
@@ -24,6 +25,7 @@ export class MyStarComponent implements OnInit {
   };
 
   bigStarOptions = {
+    responsive: false,
     tooltips: {
       backgroundColor: 'rgba(	13, 48, 99, 0.6)'
     },
@@ -94,6 +96,8 @@ export class MyStarComponent implements OnInit {
     this.littleStarData.labels = restructuredData.labels;
     this.littleStarData.options = this.littleStarOptions;
   }
+
+
 
   restructureData(results) {
     const categories: string[] = [];
