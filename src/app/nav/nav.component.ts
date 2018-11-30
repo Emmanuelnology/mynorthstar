@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -8,14 +10,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NavComponent implements OnInit {
   @Input() menuIsVisible;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
+
 
   ngOnInit() {
 
   }
 
-  logout() {
-    // ...
+  logOut() {
+    this.authService.logOut().then(
+      () => {
+        this.router.navigate(['/login']);
+      }
+     );
   }
-
 }

@@ -26,16 +26,25 @@ main {
 
 .flex-menu {
   color:white;
-  background-color: rgb(17, 96, 243);
+  background-color: rgb(8, 177, 255);
   width:$smallMenuWidth;
   cursor: pointer;
   height:100%;
   display:flex;
   align-items: center;
   justify-content: center;
+  // position: absolute;
+  // border-bottom: 1px solid white;
 }
 
-
+// .animate-border {
+//   background-color: white;
+//   height: 1px;
+//   width: 70px; 
+//   display: flex;
+//   position: relative;
+//   top: 40px;
+// }
 
 .dots {
   height:20px;
@@ -52,7 +61,7 @@ main {
 
 .logo-wrapper {
   width: 50px;
-  display:none;;
+  display:none;
 }
 
 .flex-logo img {
@@ -63,7 +72,7 @@ main {
   flex: 1;
   text-align: right;
   display: inline-block;
-  padding-top: $s-sm;
+  margin-right: $s-xs;
 }
 
 
@@ -74,7 +83,7 @@ main {
 .content {
   border:1px solid $border-color;
   border-radius: 5px;
-  padding: 10px;
+  padding: 15px;
   position:absolute;
   left:0;
   right:0;
@@ -118,7 +127,6 @@ h1 > i {
   width: 40px;
   height: 40px;
   float:right;
-  
 }
 
 
@@ -164,9 +172,6 @@ h1 > i {
   }
 }
 
-
-
-
 @media only screen and (min-width:750px){
 
   h1 {
@@ -176,7 +181,12 @@ h1 > i {
   }
 
   .circle-border {
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
+  }
+
+  .content {
+    padding: 40px;
+    padding-top: 15px;
   }
 }

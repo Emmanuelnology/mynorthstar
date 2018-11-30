@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {IData, IChartDataSet, StarComponent} from '../star/star.component';
 import { renderDetachView } from '@angular/core/src/view/view_attach';
+import { viewAttached } from '@angular/core/src/render3/instructions';
+import { HistoryComponent } from '../history/history.component';
 
 @Component({
   selector: 'app-compare-star',
@@ -12,6 +14,7 @@ import { renderDetachView } from '@angular/core/src/view/view_attach';
 export class CompareStarComponent implements OnInit,  AfterViewInit {
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
+  @ViewChild(HistoryComponent) historyViewChild: HistoryComponent;
 
   datasets: IChartDataSet[] = [];
   data: IData = {
@@ -45,6 +48,50 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
       },
     }
   };
+
+  public pastData = [
+    {
+      data: [9, 2, 8, 3, 9, 2, 8, 4],
+      label: 'old',
+      fill: false,
+      lineTension: 0.3,
+      borderColor: 'pink',
+      pointBorderColor: '#6ecbd3',
+      pointRadius: 5,
+      pointBackgroundColor: '#37234f'
+    },
+    {
+      data: [1, 6, 4, 3, 8, 6, 3, 2],
+      label: 'old',
+      fill: false,
+      lineTension: 0.3,
+      borderColor: 'blue',
+      pointBorderColor: '#6ecbd3',
+      pointRadius: 5,
+      pointBackgroundColor: '#37234f'
+    },
+    {
+      data: [3, 7, 8, 4, 6, 4, 3, 2],
+      label: 'old',
+      fill: false,
+      lineTension: 0.3,
+      borderColor: 'red',
+      pointBorderColor: '#6ecbd3',
+      pointRadius: 5,
+      pointBackgroundColor: '#37234f'
+    },
+    {
+      data: [3, 6, 6, 7, 4, 8, 3, 6],
+      label: 'old',
+      fill: false,
+      lineTension: 0.3,
+      borderColor: 'green',
+      pointBorderColor: '#6ecbd3',
+      pointRadius: 5,
+      pointBackgroundColor: '#37234f'
+    }
+  ];
+
   constructor() {
     this.data.datasets.push(
       {
@@ -66,21 +113,24 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
     ngAfterViewInit() {
     }
 
-    addData() {
-      this.data.datasets.splice(1);
-      this.data.datasets.push(
-        {
-          data: [9, 2, 8, 3, 9, 2, 8, 4],
-          label: 'old',
-          fill: false,
-          lineTension: 0.3,
-          borderColor: 'pink',
-          pointBorderColor: '#6ecbd3',
-          pointRadius: 5,
-          pointBackgroundColor: '#37234f'
-        }
-      );
-      this.starViewChild.data.datasets = this.data.datasets;
+    redraw() {
       this.starViewChild.redraw();
+    }
+
+    removeData() {
+      this.data.datasets.splice(1);
+      this.redraw();
+    }
+
+    addData() {
+      this.removeData();
+      const activeStates = this.historyViewChild.findActive();
+      for (const state of activeStates) {
+        this.data.datasets.push(
+          this.pastData[state]
+        );
+      }
+      this.starViewChild.data.datasets = this.data.datasets;
+      this.redraw();
     }
 }
