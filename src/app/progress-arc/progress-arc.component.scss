@@ -14,8 +14,16 @@
 .progress-amount {
     z-index:1;
     position:absolute;
-    font-size: 30px;
+    margin-top: -2px;
+    font-size: 24px;
     color: white;
+    text-align: center;
+}
+
+small {
+    font-size: 40%;
+    text-transform: uppercase;
+    display:none;
 }
 
 :host ::ng-deep .purple .progress-fill {
@@ -40,4 +48,9 @@
 
 :host ::ng-deep .navy .progress-fill {
     stroke:$navy;
+}
+@media only screen and (min-width: 768px) {
+small {
+    display:block;
+}
 }

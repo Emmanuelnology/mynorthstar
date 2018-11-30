@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { TaskManagerService } from '../services/task-manager.service';
 import { Task } from '../task-manager/task';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create-task',
@@ -8,10 +9,11 @@ import { Task } from '../task-manager/task';
   styleUrls: ['./create-task.component.scss']
 })
 export class CreateTaskComponent implements OnInit {
-
+  taskTitle = '';
   constructor(private taskManagerService: TaskManagerService) { }
 
   ngOnInit() {
+    this.taskTitle = '64w6';
   }
 
   onSubmit(title: string) {
@@ -20,6 +22,14 @@ export class CreateTaskComponent implements OnInit {
       task: title,
       isChecked: false
     };
-    this.taskManagerService.addTask(task);
+    this.taskManagerService.addTask(task).then(
+      () => {
+        this.taskTitle = '';
+    });
   }
+
+  resetForm(form) {
+    form.reset();
+  }
+
 }

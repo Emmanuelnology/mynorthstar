@@ -8,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProgressArcComponent implements OnInit {
     @Input() score: number;
     @Input() color: string;
-    constructor() { }
+    @Input() size = 100;
+    fontSize: string;
+    constructor() {
+
+    }
 
     ngOnInit() {
-        // this.score = 7.6;
+        this.fontSize = this.size * 0.24 + 'px';
     }
 
 }

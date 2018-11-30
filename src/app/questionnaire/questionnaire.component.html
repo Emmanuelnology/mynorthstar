@@ -1,31 +1,34 @@
 <app-layout-default icon="fas fa-list-ol" title="Questionnaire">
-      <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
-        where 0 is strongly disagree and 10 strongly agree.
-      </p>      
+    <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
+      where 0 is strongly disagree and 10 strongly agree.
+    </p>      
     <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
         <div *ngFor="let question of questions">
           <div  class="container">
             <label for="questions">
               <h4>{{question.number}}. {{question.question}}</h4>
             </label>
-            <input
-            class="scoring"
-            type="range"
-            [(ngModel)]="question.score"
-            name="question-{{question.number}}" 
-            min="0" max="10"
-            required
-            >
-            <!-- <input
-            class="scoring-big"
-            type="range"
-            [(ngModel)]="question.score"
-            name="question-{{question.number}}" 
-            min="0" max="10"
-            required
-            > -->
+            <div class="scoring">
+              <input
+                class="scoring-small"
+                type="range"
+                [(ngModel)]="question.score"
+                name="question-{{question.number}}" 
+                min="0" max="10"
+                required
+              >
+              <input
+                class="scoring-big"
+                type="range"
+                [(ngModel)]="question.score"
+                name="question-{{question.number}}" 
+                min="0" max="10"
+                required
+              >
+              <p id="output-score">{{question.score}}</p>
+            </div>
 
-            <p id="output-score">{{question.score}}</p>
+            
           </div>
         </div>
         <div class="sendButton">
