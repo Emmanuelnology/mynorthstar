@@ -8,22 +8,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-  email:string='';
-  error:string='';
-  confirmation:string;
-  constructor(private authService: AuthService, private router:Router) { }
+  email = '';
+  error = '';
+  confirmation: string;
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
   resetPassword() {
     this.authService.resetPassword(this.email).then(
-      ()=>{
+      () => {
       this.confirmation = 'Reset password sent to this address, check your inbox.';
       this.error = '';
     }
     )
-    .catch((error)=>{
+    .catch((error) => {
       this.error = error.message;
       this.confirmation = '';
     }
