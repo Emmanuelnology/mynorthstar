@@ -33,9 +33,18 @@ main {
   display:flex;
   align-items: center;
   justify-content: center;
+  // position: absolute;
+  // border-bottom: 1px solid white;
 }
 
-
+// .animate-border {
+//   background-color: white;
+//   height: 1px;
+//   width: 70px; 
+//   display: flex;
+//   position: relative;
+//   top: 40px;
+// }
 
 .dots {
   height:20px;
@@ -52,7 +61,7 @@ main {
 
 .logo-wrapper {
   width: 50px;
-  display:none;;
+  display:none;
 }
 
 .flex-logo img {
@@ -118,7 +127,6 @@ h1 > i {
   width: 40px;
   height: 40px;
   float:right;
-  
 }
 
 
@@ -173,7 +181,7 @@ h1 > i {
   }
 
   .circle-border {
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
   }
 }
