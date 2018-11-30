@@ -12,15 +12,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LayoutAppComponent implements OnInit {
   menuIsVisible = true;
   @Input() icon: string;
-  @Input() title: string;
+  @Input() pageTitle: string;
   @Input() starData: number[];
   user;
 
   constructor(public afAuth: AngularFireAuth, private authService: AuthService) {
-
     this.user = this.afAuth.auth.currentUser;
-    console.log('\n\n\n\n\nUser is: ' + this.user.email + '\n\n\n\n\n\n');
-
   }
 
   ngOnInit() {
@@ -28,6 +25,11 @@ export class LayoutAppComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.menuIsVisible = true;
+  }
+
+  computeStyle() {
+    return 'background-color: red';
+    // return "background-image: url(" + user.photoURL + ")";
   }
 }
 

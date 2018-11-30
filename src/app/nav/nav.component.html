@@ -1,10 +1,10 @@
 <nav class="{{menuIsVisible?'showMenu':''}}">
   <ul  class="tooltip">    
-    <li routerLink="/questionnaire"><a ><i class="fas fa-list-ol"></i></a><span class="tooltiptext">Test Text</span></li>
-    <li routerLink="/compare"><a ><i class="fas fa-history"></i></a><span class="tooltiptext">Test Text</span></li>
-    <li routerLink="/"><a ><i class="fas fa-star"></i></a><span class="tooltiptext">Test Text</span></li>
-    <li routerLink="/styles"><a ><i class="fab fa-css3-alt"></i></a><span class="tooltiptext">Test Text</span></li>
-    <li (click)="logOut()"><a><i class="fas fa-times"></i></a><span class="tooltiptext">Test Text</span></li>
+    <li routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a ><i class="fas fa-star"></i></a><span class="tooltiptext">My Star</span></li>
+    <li routerLink="/compare" routerLinkActive="active"><a ><i class="fas fa-history"></i></a><span class="tooltiptext">Compare Stars</span></li>
+    <li routerLink="/questionnaire" routerLinkActive="active"><a ><i class="fas fa-list-ol"></i></a><span class="tooltiptext">New Questionnaire</span></li>
+    <li routerLink="/styles" routerLinkActive="active"><a ><i class="fab fa-css3-alt"></i></a><span class="tooltiptext">Style guide</span></li>
+    <li (click)="logOut()"><a><i class="fas fa-times"></i></a><span class="tooltiptext">Log out</span></li>
   </ul>
 </nav>
 
