@@ -36,7 +36,7 @@ nav li {
 //   -webkit-text-stroke-color: white;
 // }
 
- nav li:hover {
+ nav li:hover, nav .active {
   background-color:rgb(16, 131, 188);
   color:white;
   cursor: pointer; 
@@ -63,30 +63,25 @@ nav li {
   display: inline;    
   }
 
-  .tooltiptext{
-    visibility: hidden;
-  }
   .tooltip .tooltiptext {
-      margin-left:9px;
-      width : 320px;
+      margin-left:9px; 
+      width : 100px;
       visibility: hidden;
-      border-radius:4px;
       position: absolute;
       z-index: 1;
       padding: 5px;
       margin-top : 0px; 
-     opacity: 0;
       transition: opacity 1s;
+      border-radius: 5px;
+      background-color: $navy;
+      opacity: 0.5;
+      
   }
   .tooltip .tooltiptext::after {
-      content: " ";
       position: absolute;
       top: 5%;
       right: 100%; 
       margin-top: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: transparent #aeaeae transparent transparent;
   }
   
   

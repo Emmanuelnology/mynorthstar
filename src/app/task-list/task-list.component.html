@@ -1,13 +1,15 @@
-<h3>Tasks:</h3>
 <div class="tasklist">
   <div class="item-wrapper">
     <ul>
-      <li *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">{{ task.task }}
-          <label class="container">
-            <input type="checkbox" #completed [(ngModel)]='task.isChecked' (click)="task.isChecked = (completed.value == 'on')">
-            <span class="checkmark"></span>
-          </label>
-          <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)">Remove Task</button>
+      <li class="list-item" *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">
+          <div class="test">
+            <label class="container"> 
+                <input type="checkbox" #completed [(ngModel)]='task.isChecked' (click)="task.isChecked = (completed.value == 'on')">
+                <span class="checkmark"></span>
+              </label>
+              <p>{{ task.task }}</p>
+          </div>
+        <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
       </li>
     </ul>
   </div>

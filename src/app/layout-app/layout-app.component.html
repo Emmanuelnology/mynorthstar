@@ -14,17 +14,17 @@
     </div>
     <h1>
         <i *ngIf="icon" class="{{icon}}"></i>
-      {{title}}
+        {{ pageTitle }}
     </h1>
   </div>
   <div class="flex-avatar">
-<<<<<<< HEAD
-      <span class="greeting">Hi, Jeff McTesty</span>
-=======
-      <span class="greeting">Hi {{user.email}}</span>
->>>>>>> 060bfdcc8aa0763ad61415a96fbf59d686dd3c7f
+    <span class="greeting">{{user.email}}</span>
     <div class="circle-border">
+
     </div>
+    <!-- <div class="circle-border" [ngStyle]="{'background-image:url('+{{user.photoURL}}+')'}"> -->
+
+    <!-- </div> -->
   </div>
 </div>
 <div class="flex-container {{ (menuIsVisible) ? 'showMenu':''}}">

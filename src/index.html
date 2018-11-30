@@ -26,10 +26,34 @@
    <!-- <link rel="manifest" href="/manifest.json"> -->
    <meta name="msapplication-TileColor" content="#ffffff">
    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
- 
+  <style>
+  body {
+    background-color:#101f34;
+  }
+    .loadingContainer{
+      height:100vh;
+      
+      position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    
+  </style>
 
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+
+      <div class="loadingContainer">
+            <img src="/assets/loading.gif" alt="">
+        </div>
+
+  </app-root>
 </body>
 </html>
