@@ -7,15 +7,25 @@
 }
 
 #star {
-    z-index: 0;
+    height: 90%;
+    position: absolute;
+    left: 0;
 }
 
-#btn-wrap {
+#history {
+    height: 90%;
+    position: absolute;
+    right: 5%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
 }
 
-@media only screen and (min-width: 1000px) {
+#compare-btn {
+    float: right;
+}
+
+@media only screen and (min-width: 768px) {
     #star {
         width: 70%;
         float: left;

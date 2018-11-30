@@ -2,17 +2,13 @@
 <div class="tasklist">
   <div class="item-wrapper">
     <ul>
-        <li class="list-item" *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}"><p>{{ task.task }}</p>
-          <div class = "toggles">
-              <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)">Remove</button>
-            <label class="container"> 
-              <input type="checkbox" data-md-icheck (change)="toggleVisibility($event)"/>
-              <span class="checkmark"></span>
-            </label>
-          </div>
+      <li *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">{{ task.task }}
+        <div class = "toggles">
+          <input id="checkboxInput" type="checkbox" #completed data-md-icheck (change)="isTrue(task, completed.checked)">
+          <label for="checkboxInput"></label>
+          <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)">Remove Task</button>
+        </div>
       </li>
     </ul>
-    <!-- <input id="checkboxInput" type="checkbox" (click)="([checked=task.isChecked = true])">
-    <label for="checkboxInput"></label> -->
-    </div>
+  </div>
 </div>
