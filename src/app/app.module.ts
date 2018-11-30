@@ -11,7 +11,10 @@ import { Ng2ArcProgressModule } from 'angular2-arc-progress';
 // If you have errors, check slack chat, I've posted a solution - George.
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthGuard } from './services/auth-guard.service';
+
 import { environment } from '../environments/environment';
 
 
@@ -39,15 +42,14 @@ import { NavComponent } from './nav/nav.component';
 
 
 const routes: Routes = [
- { path: 'questionnaire', component: QuestionnaireComponent },
+ { path: 'questionnaire', component: QuestionnaireComponent, canActivate: [AuthGuard]  },
  { path: 'login', component: LoginComponent},
  { path: 'register', component: RegisterComponent},
- { path: 'task-manager', component: TaskManagerComponent},
+ { path: 'task-manager', component: TaskManagerComponent, canActivate: [AuthGuard] },
  { path: 'fbtd', component: FireBaseTestDisplayComponent},
- { path: 'dashboard', component: DashboardComponent},
- { path: 'styles', component: StyleGuideComponent},
+ { path: 'styles', component: StyleGuideComponent, canActivate: [AuthGuard] },
  { path: '', component: MyStarComponent},
- { path: 'compare', component: CompareStarComponent},
+ { path: 'compare', component: CompareStarComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
