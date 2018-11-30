@@ -1,11 +1,13 @@
-<h2>Tasks:</h2>
+<h3>Tasks:</h3>
 <div class="tasklist">
   <div class="item-wrapper">
     <ul>
       <li *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">{{ task.task }}
-        <input id="checkboxInput" type="checkbox" checked (click)="([checked=task.isChecked = true])">
-        <label for="checkboxInput"></label>
-        <button id="remove-task" class="test" (click)="onDelete(task)">Remove Task</button>
+        <div class = "toggles">
+          <input id="checkboxInput" type="checkbox" #completed data-md-icheck (change)="isTrue(task, completed.checked)">
+          <label for="checkboxInput"></label>
+          <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)">Remove Task</button>
+        </div>
       </li>
     </ul>
   </div>

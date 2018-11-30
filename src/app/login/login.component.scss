@@ -1,53 +1,74 @@
 @import '../../variables.scss';
 
 #form-container {
-    text-align: center;
-    display: inline-block;
-    width: 320px;
-    padding: $s-xs;
-    position: relative;
+  text-align: center;
+  display: inline-block;
+  width: 320px;
+  padding: $s-xs;
+  position: relative;
+  top: 0;
+}
+
+#content-container {
+  max-width: 320px;
+  min-height: 257px;
+  overflow: visible;
+}
+
+#fpassword {
+  border: 1px white solid;
+  overflow: visible;
 }
 
 form {
-    width: 100%;
-    text-align: left;
-    margin-top: $s-sm;
+  width: 100%;
+  text-align: left;
+  margin-top: $s-sm;
 }
 
 fieldset {
-    border: none;
-    display: flex;
+  border: none;
+  display: block;
 
-    label {
-        font-size: $f-xs;
-    }
-    input {
-        flex-shrink: 1;
-        margin: 0;
-        margin-bottom: $s-sm;
-        padding: $s-sm;
-        width: 100%;
-        max-width: 320px;
-        font-size: $f-sm;
-        height: auto;
-    }
+  label {
+    font-size: $f-xs;
+    display: block;
+  }
 
-    button {
-        width: 100%;
-        font-size: $f-xs;
-        padding: 0.75em;
-    }
+  input {
+    display: block;
+    margin: 0;
+    margin-bottom: $s-sm;
+    padding: $s-sm;
+    width: 100%;
+    max-width: 320px;
+    font-size: $f-sm;
+    height: auto;
+  }
+
+  button {
+    width: 100%;
+    font-size: $f-xs;
+    padding: 0.75em;
+  }
 
 }
 
-a {
+
+.links {
+  display: flex;
+  flex-direction: column;
+
+  a {
     font-size: $f-xs;
     font-size: 0.75em;
     color: #93ecfc;
-    text-align: left
-}
+    text-align: left;
+    padding-top: 10px;
+  }
 
-a:hover {
+  a:hover {
     color: white;
     cursor: pointer;
+  }
 }
