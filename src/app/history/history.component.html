@@ -1,7 +1,31 @@
-<div id="history-container" *ngFor = "let data of pastData">
+<div id="history-container" *ngFor="let data of pastDataProfile">
   <div class="date">{{data.date}}</div>
   <div class="score">{{data.score}}</div>
-  <div class="checkbox">
+  <div [hidden]="data.isActive === false" 
+  (click) = "data.isActive = !data.isActive"
+  (click) = "findActive()"
+  class="checkbox">
     &#9745;
   </div>
+  <div [hidden]="data.isActive === true" 
+  (click) = "data.isActive = !data.isActive"
+  (click) = "findActive()"
+  class="unchecked">
+      &#9744;
+  </div>
 </div>
+
+<!-- <form>
+  <fieldset  *ngFor="let data of pastDataProfile">
+    <input type="radio" 
+    id="{{data.date}}"
+    name="date and score" 
+    value="{{data.date}}"
+    [(ngModel)] = "data.isActive"
+      >
+        {{data.date}}
+        <span class="score">
+          {{data.score}}
+        </span>
+  </fieldset>
+</form> -->

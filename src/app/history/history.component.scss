@@ -1,12 +1,16 @@
+@import '../../variables.scss';
+
 #history-container {
     border: solid red 2px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: $s-sm 0;
 }
 
 .score,
-.checkbox {
+.checkbox,
+.unchecked {
     width: 25%;
     text-align: right;
 }
@@ -15,3 +19,18 @@
     width: 50%;
     text-align: left;
 }
+
+.checkbox:hover,
+.unchecked:hover {
+    cursor: pointer;
+}
+
+// .score {
+//     float: right;
+// }
+
+// fieldset {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+// }
