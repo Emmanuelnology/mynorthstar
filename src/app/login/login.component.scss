@@ -32,9 +32,11 @@ fieldset {
 
   label {
     font-size: $f-xs;
+    display: block;
   }
 
   input {
+    display: block;
     margin: 0;
     margin-bottom: $s-sm;
     padding: $s-sm;
