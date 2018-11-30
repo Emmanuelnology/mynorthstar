@@ -25,13 +25,14 @@ export class MyStarComponent implements OnInit {
 
   bigStarOptions = {
     tooltips: {
-      backgroundColor: 'rgba(	13, 48, 99, 0.6)'
+      backgroundColor: 'rgba(	176, 32, 98, 0.7)'
     },
     legend: {
       display: false
     },
     scale: {
       pointLabels: {
+        fontFamily: 'nunito',
         display: true,
         fontColor: 'white',
         fontSize: 14
@@ -40,6 +41,7 @@ export class MyStarComponent implements OnInit {
         color: '#b02062'
       },
       ticks: {
+        fontFamily: 'nunito',
         maxTicksLimit: 5,
         display: false,
         min: 0,
@@ -53,7 +55,7 @@ export class MyStarComponent implements OnInit {
 
   littleStarOptions = {
     tooltips: {
-      backgroundColor: 'rgba(	13, 48, 99, 0.6)'
+      backgroundColor: 'rgba(176, 32, 98, 0.7)'
     },
     legend: {
       display: false
@@ -68,6 +70,7 @@ export class MyStarComponent implements OnInit {
         color: '#b02062'
       },
       ticks: {
+        fontFamily: 'nunito',
         maxTicksLimit: 5,
         display: false,
         min: 0,
