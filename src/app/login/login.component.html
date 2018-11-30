@@ -1,20 +1,24 @@
 <app-layout-auth>
-
   <div id="form-container">
-<!-- login inputs -->
+    <!-- login inputs -->
     <div>
-    <form (ngSubmit) = "logIn()">
-      <fieldset>
-        <label for="Email">Email</label>
-        <input [(ngModel)]="email" type="email" name="Email" id="email" required>
-        <label for="Password">Password</label>
-        <input [(ngModel)]="password" type="password" minlength="6" name="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          required>
-        <p *ngIf="error" class="error">{{error}}</p>
-        <button class="btn btn-flat btn-navy " type="submit" id="submit">Login</button>
-      </fieldset>
-      <a routerLink="/forgotten-password">Forgot your password?</a>
-    </form>
+      <form (ngSubmit)="logIn()">
+        <fieldset>
+          <label for="Email">Email</label>
+          <input [(ngModel)]="email" type="email" name="Email" id="email" required>
+          <label for="Password">Password</label>
+          <input [(ngModel)]="password" type="password" minlength="6" name="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+            required>
+          <p *ngIf="error" class="error">{{error}}</p>
+          <button class="btn btn-flat btn-navy " type="submit" id="submit">Login</button>
+        </fieldset>
+
+        <div class="links">
+          <a routerLink="/forgotten-password">Forgot your password?</a>
+          <a routerLink="/register">Register</a>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+
 </app-layout-auth>

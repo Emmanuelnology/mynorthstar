@@ -13,23 +13,17 @@ export class CreateTaskComponent implements OnInit {
   constructor(private taskManagerService: TaskManagerService) { }
 
   ngOnInit() {
-    this.taskTitle = '64w6';
   }
 
-  onSubmit(title: string) {
+  onSubmit(title: HTMLFormElement) {
     const task: Task = {
       userId: 'MOCKUSER',
-      task: title,
+      task: title.value,
       isChecked: false
     };
     this.taskManagerService.addTask(task).then(
       () => {
-        this.taskTitle = '';
+        title.value = '';
     });
   }
-
-  resetForm(form) {
-    form.reset();
-  }
-
 }
