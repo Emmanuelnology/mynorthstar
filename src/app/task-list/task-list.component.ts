@@ -19,7 +19,7 @@ export class TaskListComponent implements OnInit {
 
   marked = false;
   theCheckbox = false;
-  
+
   // toggleVisibility(e){
   //   this.marked= e.target.checked;
   // }
