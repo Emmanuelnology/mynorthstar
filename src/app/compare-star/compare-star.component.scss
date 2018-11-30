@@ -10,6 +10,11 @@
     z-index: 0;
 }
 
+#btn-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
 @media only screen and (min-width: 1000px) {
     #star {
         width: 70%;
