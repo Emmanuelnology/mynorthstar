@@ -40,7 +40,7 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 2',
     number: null,
     question: 'I am classed as tall',
-    score: 5,
+    score: 4,
     weight: 5,
     category: 'Personal growth'
   },
@@ -48,7 +48,7 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 3',
     number: null,
     question: 'I see my friends/family more than once a week',
-    score: 10,
+    score: 4,
     weight: 3,
     category: 'Friends & family'
   },
@@ -56,7 +56,7 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 4',
     number: null,
     question: 'I laugh a lot',
-    score: 1,
+    score: 7,
     weight: 2,
     category: 'Happiness'
   },
@@ -64,7 +64,7 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 5',
     number: null,
     question: 'I do yoga',
-    score: 1,
+    score: 3,
     weight: 1,
     category: 'Spirituality'
   },
@@ -105,7 +105,7 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 10',
     number: null,
     question: 'I watch Netflix often',
-    score: 5,
+    score: 8,
     weight: 2,
     category: 'Home & environment',
     positive: false
@@ -115,7 +115,7 @@ export let exampleQuestions: IQuestion[] = [
     number: null,
     question: 'I regularly eat my five a day',
     score: 4,
-    weight: 4,
+    weight: 2,
     category: 'Health & wellbeing'
   },
   {
@@ -123,14 +123,14 @@ export let exampleQuestions: IQuestion[] = [
     number: null,
     question: 'I regularly exercise',
     score: 7,
-    weight: 4,
+    weight: 5,
     category: 'Health & wellbeing'
   },
   {
     title: 'Question 13',
     number: null,
     question: 'My house is untidy',
-    score: 4,
+    score: 7,
     weight: 4,
     category: 'Home & environment',
     positive: false
@@ -148,7 +148,7 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 15',
     number: null,
     question: 'I have savings',
-    score: 4,
+    score: 6,
     weight: 5,
     category: 'Money'
   },
