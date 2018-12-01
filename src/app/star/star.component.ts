@@ -65,6 +65,7 @@ export interface IData {
 export class StarComponent implements AfterViewInit, OnInit {
   @Input() data: IData;
   @Input() size = 600;
+  widthHeightRatio = 0.7;
 
   chart: Chart = {} as Chart;
   canvasID: string;
@@ -118,7 +119,13 @@ export class StarComponent implements AfterViewInit, OnInit {
     const canvas: ICanvas = (document.getElementById(this.canvasID) as ICanvas);
     const ctx = canvas.getContext('2d');
     const size: number = this.size;
-    const gradient = ctx.createRadialGradient(size / 2, size / 2, 20, size / 2, size / 2, size);
+    const gradient = ctx.createRadialGradient(
+      size / 2,
+      size * this.widthHeightRatio / 2,
+      20,
+      size / 2,
+      size * this.widthHeightRatio / 2,
+      size);
     gradient.addColorStop(0, colors[0]);
     gradient.addColorStop(0.1, colors[1]);
     gradient.addColorStop(0.22, colors[2]);
