@@ -1,11 +1,5 @@
 @import "../../variables.scss";
 
-// #history {
-//     border: 2px solid $border-color;
-//     border-radius: $s-sm;
-//     padding: $s-sm;
-// }
-
 #compare-btn {
     z-index: 1;
 }
@@ -27,6 +21,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#border-container {
+    border: 2px solid $border-color;
+    border-radius: $s-sm;
+    padding: $s-sm;
 }
 
 #compare-btn {
