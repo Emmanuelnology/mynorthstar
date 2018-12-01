@@ -12,10 +12,12 @@
     flex-direction: row;
     justify-content: space-between;
     margin: $s-xs 0;
+    font-size: $f-md;
 }
 
 #legend {
-    margin-bottom: $s-md;
+    margin-bottom: $s-sm;
+    font-size: $f-lg;
 }
 
 
