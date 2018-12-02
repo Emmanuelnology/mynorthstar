@@ -267,8 +267,8 @@ export class QuestionnaireService {
     for (const category of categoryAverages) {
       sumOfResults += category.categoryAverage;
     }
-    const average = sumOfResults / categoryAverages.length;
-    return average;
+    const overallAverage = sumOfResults / categoryAverages.length;
+    return overallAverage;
   }
 }
 
@@ -281,29 +281,29 @@ export class Randomise {
   constructor() { }
 
   randomiseOrder(questionArray: IQuestion[]) {
-    const randomNumberArray = this.createUnorderedArray(questionArray);
-    const unsortedQuestionArray = this.assignQuestionRandomNumbers(questionArray, randomNumberArray);
-    const sortedQuestionArray = unsortedQuestionArray.sort(function(obj1, obj2) {
-      return obj1.number - obj2.number;
+    const unsortedNumberArray = this.createUnorderedArray(questionArray);
+    const unsortedQuestionArray = this.assignQuestionRandomNumbers(questionArray, unsortedNumberArray);
+    const randomSortedQuestionArray = unsortedQuestionArray.sort(function(question1, question2) {
+      return question1.number - question2.number;
     });
-    return sortedQuestionArray;
+    return randomSortedQuestionArray;
   }
 
   createUnorderedArray(questionArray: IQuestion[]): number[] {
-    const randomNumberArray = [];
+    const unsortedNumberArray = [];
     for (const index in questionArray) {
       if (questionArray.hasOwnProperty(index)) {
-        randomNumberArray.push(index);
+        unsortedNumberArray.push(index);
       }
     }
-    randomNumberArray.sort( () => Math.random() - 0.5);
-    return randomNumberArray;
+    unsortedNumberArray.sort( () => Math.random() - 0.5);
+    return unsortedNumberArray;
   }
 
-  assignQuestionRandomNumbers(questionArray: IQuestion[], randomNumberArray: number[]): IQuestion[] {
+  assignQuestionRandomNumbers(questionArray: IQuestion[], unsortedNumberArray: number[]): IQuestion[] {
     for (const index in questionArray) {
       if (questionArray.hasOwnProperty(index)) {
-        questionArray[index].number = randomNumberArray[index];
+        questionArray[index].number = unsortedNumberArray[index];
         questionArray[index].number ++;
       }
     }
