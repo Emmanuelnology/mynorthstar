@@ -288,7 +288,7 @@ export class Randomise {
     const unsortedNumberArray: number[] = [];
     for (const index in questionArray) {
       if (questionArray.hasOwnProperty(index)) {
-        unsortedNumberArray.push(parseInt(index, 1);
+        unsortedNumberArray.push(parseInt(index, 10));
       }
     }
     unsortedNumberArray.sort( () => Math.random() - 0.5);
