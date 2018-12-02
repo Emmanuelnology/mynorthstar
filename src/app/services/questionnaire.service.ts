@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { summaryForJitName } from '@angular/compiler/src/aot/util';
 
 export interface IQuestion {
   title: string;
@@ -276,29 +275,29 @@ export class Randomise {
   constructor() { }
 
   randomiseOrder(questionArray: IQuestion[]) {
-    const unsortedNumberArray: number[] = this.createUnorderedArray(questionArray);
-    const unsortedQuestionArray: IQuestion[] = this.assignQuestionRandomNumbers(questionArray, unsortedNumberArray);
-    const randomSortedQuestionArray: IQuestion[] = unsortedQuestionArray.sort(function(question1, question2) {
+    const unsortedIntegerArray: number[] = this.createUnorderedArray(questionArray);
+    const unsortedQuestionArray: IQuestion[] = this.assignQuestionRandomNumbers(questionArray, unsortedIntegerArray);
+    const sortedQuestionArray: IQuestion[] = unsortedQuestionArray.sort(function(question1, question2) {
       return question1.number - question2.number;
     });
-    return randomSortedQuestionArray;
+    return sortedQuestionArray;
   }
 
   createUnorderedArray(questionArray: IQuestion[]): number[] {
-    const unsortedNumberArray: number[] = [];
+    const unsortedIntegerArray: number[] = [];
     for (const index in questionArray) {
       if (questionArray.hasOwnProperty(index)) {
-        unsortedNumberArray.push(parseInt(index, 10));
+        unsortedIntegerArray.push(parseInt(index, 10));
       }
     }
-    unsortedNumberArray.sort( () => Math.random() - 0.5);
-    return unsortedNumberArray;
+    unsortedIntegerArray.sort( () => Math.random() - 0.5);
+    return unsortedIntegerArray;
   }
 
-  assignQuestionRandomNumbers(questionArray: IQuestion[], unsortedNumberArray: number[]): IQuestion[] {
-    for (const index in unsortedNumberArray) {
-      if (unsortedNumberArray.hasOwnProperty(index)) {
-        questionArray[index].number = unsortedNumberArray[index];
+  assignQuestionRandomNumbers(questionArray: IQuestion[], unsortedIntegerArray: number[]): IQuestion[] {
+    for (const index in unsortedIntegerArray) {
+      if (unsortedIntegerArray.hasOwnProperty(index)) {
+        questionArray[index].number = unsortedIntegerArray[index];
         questionArray[index].number ++;
       }
     }
