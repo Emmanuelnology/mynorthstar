@@ -10,7 +10,7 @@ export interface IQuestion {
   positive: boolean;
 }
 
-export interface ICategory {
+export interface ICategoryAnswer {
   score: number;
   weight: number;
 }
@@ -195,7 +195,7 @@ export class QuestionnaireService {
     const foundCategories: string[] = this.getCategories(positiveAnswers);
     let categoryAverages: ICategoryResult[] = [];
     for (const category of foundCategories) {
-      let sameCategoryArray: ICategory[] = [];
+      let sameCategoryArray: ICategoryAnswer[] = [];
       sameCategoryArray = this.createCategoryObjects(positiveAnswers, category, sameCategoryArray);
       const average: ICategoryResult = {
         categoryName: category,
@@ -227,25 +227,25 @@ export class QuestionnaireService {
     return foundCategories.sort();
   }
 
-  createCategoryObjects(questionArray: IQuestion[], category: string, sameCategoryArray: ICategory[]): ICategory[] {
+  createCategoryObjects(questionArray: IQuestion[], category: string, sameCategoryArray: ICategoryAnswer[]): ICategoryAnswer[] {
     for (const question of questionArray) {
       if (question.category === category) {
-        const categoryObject: ICategory = this.createSingleCategoryObject(question);
+        const categoryObject: ICategoryAnswer = this.createSingleCategoryObject(question);
         sameCategoryArray.push(categoryObject);
       }
     }
     return sameCategoryArray;
   }
 
-  createSingleCategoryObject(question: IQuestion): ICategory {
-    const categoryObject: ICategory = {
+  createSingleCategoryObject(question: IQuestion): ICategoryAnswer {
+    const categoryObject: ICategoryAnswer = {
       score: question.score,
       weight: question.weight
     };
     return categoryObject;
   }
 
-  calculateWeightedAverage(sameCategoryArray: ICategory[]): number {
+  calculateWeightedAverage(sameCategoryArray: ICategoryAnswer[]): number {
     let weightTimesScoreSum = 0;
     let weightSum = 0;
     for (const sameCategory of sameCategoryArray) {
