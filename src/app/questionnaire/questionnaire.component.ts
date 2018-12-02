@@ -27,6 +27,7 @@ export class QuestionnaireComponent implements OnInit {
             score: undefined,
             weight: 5,
             category: 'Happiness',
+            positive: true
         },
         {
             title: 'Question 3',
@@ -43,7 +44,8 @@ export class QuestionnaireComponent implements OnInit {
             question: 'I laugh a lot',
             score: undefined,
             weight: 2,
-            category: 'Happiness'
+            category: 'Happiness',
+            positive: true
         },
         // {
         //     title: 'Question 5',
@@ -51,7 +53,8 @@ export class QuestionnaireComponent implements OnInit {
         //     question: 'I could handle a major unexpected expense',
         //     score: undefined,
         //     weight: 5,
-        //     category: 'Money'
+        //     category: 'Money',
+        //     positive: true
         // },
         // {
         //     title: 'Question 6',
@@ -59,7 +62,8 @@ export class QuestionnaireComponent implements OnInit {
         //     question: 'I can enjoy life because of the way I’m managing my money',
         //     score: undefined,
         //     weight: 2,
-        //     category: 'Money'
+        //     category: 'Money',
+        //     positive: true
         // },
         // {
         //     title: 'Question 7',
@@ -77,6 +81,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 2,
         //     category: 'Romance and relationships',
+        //     positive: true
         // },
         // {
         //     title: 'Question 9',
@@ -94,6 +99,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 7,
         //     category: 'Fun and recreation',
+        //     positive: true
         // },
         // {
         //     title: 'Question 11',
@@ -102,6 +108,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 4,
         //     category: 'Fun and recreation',
+        //     positive: true
         // },
         // {
         //     title: 'Question 12',
@@ -110,6 +117,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 1,
         //     category: 'Fun and recreation',
+        //     positive: true
         // },
         // {
         //     title: 'Question 13',
@@ -127,6 +135,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 4,
         //     category: 'Health and wellbeing',
+        //     positive: true
         // },
         // {
         //     title: 'Question 15',
@@ -144,6 +153,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 5,
         //     category: 'Spirituality',
+        //     positive: true
         // },
         // {
         //     title: 'Question 17',
@@ -152,6 +162,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 5,
         //     category: 'Spirituality',
+        //     positive: true
         // },
         // {
         //     title: 'Question 18',
@@ -160,6 +171,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 5,
         //     category: 'Personal Growth',
+        //     positive: true
         // },
         // {
         //     title: 'Question 19',
@@ -168,6 +180,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 3,
         //     category: 'Personal Growth',
+        //     positive: true
         // },
         // {
         //     title: 'Question 20',
@@ -176,6 +189,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 6,
         //     category: 'Friends and family',
+        //     positive: true
         // },
         // {
         //     title: 'Question 21',
@@ -184,6 +198,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 5,
         //     category: 'Friends and family',
+        //     positive: true
         // },
         // {
         //     title: 'Question 22',
@@ -192,6 +207,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 5,
         //     category: 'Friends and family',
+        //     positive: true
         // },
         // {
         //     title: 'Question 23',
@@ -217,7 +233,8 @@ export class QuestionnaireComponent implements OnInit {
         //     question: 'I am responsible with my money',
         //     score: undefined,
         //     weight: 4,
-        //     category: 'Money'
+        //     category: 'Money',
+        //     positive: true
         // },
         // {
         //     title: 'Question 26',
@@ -226,6 +243,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 6,
         //     category: 'Romance and relationships',
+        //     positive: true
         // },
         // {
         //     title: 'Question 27',
@@ -234,6 +252,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 7,
         //     category: 'Fun and recreation',
+        //     positive: true
         // },
         // {
         //     title: 'Question 28',
@@ -242,6 +261,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 4,
         //     category: 'Career',
+        //     positive: true
         // },
         // {
         //     title: 'Question 29',
@@ -250,6 +270,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 2,
         //     category: 'Health and wellbeing',
+        //     positive: true
         // },
         // {
         //     title: 'Question 30',
@@ -258,6 +279,7 @@ export class QuestionnaireComponent implements OnInit {
         //     score: undefined,
         //     weight: 2,
         //     category: 'Career',
+        //     positive: true
         // }
     ];
     constructor(private rand: Randomise, private questionnaireService: QuestionnaireService, private router: Router) {
