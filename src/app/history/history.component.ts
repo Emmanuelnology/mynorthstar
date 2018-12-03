@@ -32,8 +32,6 @@ export class HistoryComponent implements OnInit {
       }
     }
     this.checked.emit(activeIndex);
-    console.log(activeIndex);
-    return activeIndex;
   }
 
   constructor() { }
