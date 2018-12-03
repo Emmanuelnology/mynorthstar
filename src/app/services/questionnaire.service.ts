@@ -50,7 +50,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I see my friends/family more than once a week',
     score: 4,
     weight: 3,
-    category: 'Friends & family',
+    category: 'Friends & Family',
     positive: true
   },
   {
@@ -113,7 +113,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I watch Netflix often',
     score: 8,
     weight: 2,
-    category: 'Home & environment',
+    category: 'Home & Environment',
     positive: false
   },
   {
@@ -121,8 +121,8 @@ export let exampleQuestions: IQuestion[] = [
     number: null,
     question: 'I regularly eat my five a day',
     score: 4,
-    weight: 2,
-    category: 'Health & wellbeing',
+    weight: 4,
+    category: 'Health & Wellbeing',
     positive: true
   },
   {
@@ -130,8 +130,8 @@ export let exampleQuestions: IQuestion[] = [
     number: null,
     question: 'I regularly exercise',
     score: 7,
-    weight: 5,
-    category: 'Health & wellbeing',
+    weight: 4,
+    category: 'Health & Wellbeing',
     positive: true
   },
   {
@@ -140,7 +140,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'My house is untidy',
     score: 7,
     weight: 4,
-    category: 'Home & environment',
+    category: 'Home & Environment',
     positive: false
   },
   {
