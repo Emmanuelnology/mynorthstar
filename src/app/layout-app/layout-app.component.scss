@@ -111,9 +111,9 @@ span {
 }
 
 h1 {
-  font-size: $f-sm;
+  font-size: $f-xs;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
   margin-left: $s-sm;
 }
 
@@ -123,6 +123,7 @@ h1 > i {
 
 .greeting {
   display: none;
+  font-size: 15px;
 }
 
 .circle-border {
@@ -186,10 +187,6 @@ h1 > i {
     display: inline-block;
   }
 
-  .greeting {
-    display: inline-block;
-  }
-
   .showMenu .content {
     left:$largeMenuWidth;
   }
@@ -207,7 +204,8 @@ h1 > i {
     display:inline-block;
   }
   h1 {
-    font-size: $f-md;
+    font-size: $f-sm;
+    letter-spacing: 12px;
   }
 
   .circle-border {
@@ -233,7 +231,7 @@ h1 > i {
 @media only screen and (min-width:750px){
 
   h1 {
-    font-size: $f-md;
+    font-size: $f-sm;
     margin-left: $s-md;
     letter-spacing: 15px;
   }
@@ -243,6 +241,10 @@ h1 > i {
     height: 55px;
   }
 
+  .greeting {
+    display: inline-block;
+  }
+  
   .content {
     padding: 40px;
     padding-top: 15px;
@@ -264,7 +266,7 @@ h1 > i {
 
 @media only screen and (min-width:800px){
   h1 {
-    font-size: $f-lg;
+    font-size: $f-md;
     margin-left: $s-md;
     letter-spacing: 15px;
   }
