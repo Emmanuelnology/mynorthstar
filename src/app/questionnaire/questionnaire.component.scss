@@ -11,7 +11,7 @@ div.container p {
     display: inline-block;
 }
 .container {
-    margin-left: 2%; 
+    margin-left: 0; 
     text-align: left;
 }
 
@@ -27,7 +27,7 @@ p {
     border-radius: 50%;
     text-align: center;
     display: inline-block;
-    font-size: 1.5em;
+    font-size: $f-sm;
 }
 
 .scoring {
@@ -100,9 +100,9 @@ div.sendButton {
         height: 15px;
     }
     #output-score {
-        font-size: 1.7em;
+        font-size: $f-md;
     }
     p {
-        font-size: 1.7em;
+        font-size: $f-md;
     }
 }
