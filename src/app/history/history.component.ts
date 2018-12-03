@@ -1,14 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
-// class IPastData {
-//   public date: string;
-//   public score: string;
-//   public isActive: boolean;
-//   toggleIsActive() {
-//     this.isActive = !this.isActive;
-//   }
-// }
-
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',

@@ -3,7 +3,6 @@ import { IData, IChartDataSet, StarComponent } from '../star/star.component';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
 // import { viewAttached } from '@angular/core/src/render3/instructions';
-import { HistoryComponent } from '../history/history.component';
 import { Colours } from '../../colours';
 
 @Component({
@@ -15,7 +14,6 @@ import { Colours } from '../../colours';
 export class CompareStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
-  @ViewChild(HistoryComponent) historyViewChild: HistoryComponent;
 
   public colours: Colours;
 
@@ -126,18 +124,6 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     this.data.datasets.splice(1);
     this.redraw();
   }
-
-  // addData() {
-  //   this.removeData();
-  //   const activeStates = this.historyViewChild.findActive();
-  //   for (const state of activeStates) {
-  //     this.data.datasets.push(
-  //       this.pastData[state]
-  //     );
-  //   }
-  //   this.starViewChild.data.datasets = this.data.datasets;
-  //   this.redraw();
-  // }
 
   addData(activeIndex: number[]) {
     this.removeData();
