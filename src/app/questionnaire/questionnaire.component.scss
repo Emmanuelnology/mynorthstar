@@ -23,7 +23,7 @@ p {
 #output-score {
     color: $bright-green;
     background: $nav-color;
-    width: 25px;
+    width: 35px;
     margin: 0;
     border-radius: 50%;
     text-align: center;
@@ -102,6 +102,7 @@ div.sendButton {
     }
     #output-score {
         font-size: $f-lg;
+        width: 40px;
     }
     p {
         font-size: $f-md;
