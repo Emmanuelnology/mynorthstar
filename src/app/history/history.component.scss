@@ -25,7 +25,13 @@
 .unchecked {
     width: 22%;
     text-align: right;
+    color: $turquoise;
 }
+
+// .checkbox:hover,
+// .unchecked:hover {
+//     background-color: $turquoise-tint;
+// }
 
 .score {
     width: 22%;
