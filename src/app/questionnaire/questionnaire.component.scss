@@ -28,7 +28,7 @@ p {
     border-radius: 50%;
     text-align: center;
     display: inline-block;
-    font-size: $f-sm;
+    font-size: $f-md;
 }
 
 .scoring {
@@ -101,7 +101,7 @@ div.sendButton {
         height: 15px;
     }
     #output-score {
-        font-size: $f-md;
+        font-size: $f-lg;
     }
     p {
         font-size: $f-md;
