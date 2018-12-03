@@ -49,7 +49,7 @@ nav .active {
 // }
 
 .tooltiptext {
-  visibility: hidden;
+  display: none;
 }
 
 @media only screen and (min-width:500px) {
@@ -65,6 +65,10 @@ nav .active {
 
   }
 
+  .tooltiptext {
+    display: inline;
+  }
+
   .tooltip .tooltiptext {
     margin-left: 9px;
     width: auto;
@@ -74,7 +78,7 @@ nav .active {
     z-index: 1;
     padding: 5px;
     margin-top: 0px;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
     border-radius: 5px;
     background-color: $navy;
     opacity: 0.5;
