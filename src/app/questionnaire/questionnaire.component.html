@@ -6,10 +6,10 @@
         <div *ngFor="let question of questions">
           <div  class="container">
             <label for="questions">
-              <h4>{{question.number}}. {{question.question}}</h4>
+              <p>{{question.number}}. {{question.question}}</p>
             </label>
             <div class="scoring">
-              <input
+              <input 
                 class="scoring-small"
                 type="range"
                 [(ngModel)]="question.score"
@@ -28,7 +28,11 @@
               <p id="output-score">{{question.score}}</p>
             </div>
 
-            
+            <!-- <div style= "
+                'background-color:rgb(0,'
+                + {{question.score}}
+                + ', 0)';
+                " -->
           </div>
         </div>
         <div class="sendButton">

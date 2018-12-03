@@ -15,15 +15,17 @@ div.container p {
     text-align: left;
 }
 
+
+
 #output-score {
     color: $bright-green;
     background: $nav-color;
-    width: 25px;
+    width: 60px;
     margin: 0;
     border-radius: 50%;
     text-align: center;
     display: inline-block;
-    font-size: 1.5em;
+    font-size: 1000px;
 }
 
 .scoring {
@@ -49,6 +51,7 @@ div.container p {
 }
 
 .scoring-big {
+    // overflow: hidden;
     margin: 0;
     position: absolute;
     top: 20px;
@@ -83,11 +86,11 @@ div.sendButton {
 }
 
 @media only screen and (min-width: 528px) {
-    .container {
-        margin-left: 20%;
-    }
+    // .container {
+    //     margin-left: 20%;
+    // }
     .scoring > input {
-        width: 300px;
+        width: 50%;
         height: 8px;
     }
     .scoring-big::-webkit-slider-thumb { 

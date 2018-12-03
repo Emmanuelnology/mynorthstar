@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class QuestionnaireComponent implements OnInit {
+    questionScore:number;
     questions: IQuestion[] = [
         {
             title: 'Question 1',
@@ -284,10 +285,14 @@ export class QuestionnaireComponent implements OnInit {
     ];
     constructor(private rand: Randomise, private questionnaireService: QuestionnaireService, private router: Router) {
         this.questions = this.rand.randomiseOrder(this.questions);
+
+
+
     }
 
     ngOnInit() {
     }
+
 
     onSubmit() {
         // // check if any field is undefined
