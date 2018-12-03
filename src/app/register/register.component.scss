@@ -42,10 +42,12 @@ fieldset {
         display: block;
         margin: 0;
         margin-bottom: $s-sm;
-        padding: $s-xs;
+        padding: $s-sm;
         width: 100%;
+        max-width: 320px;
         font-size: $f-sm;
-    }
+        height: auto;
+      }
 
     button {
         width: 100%;

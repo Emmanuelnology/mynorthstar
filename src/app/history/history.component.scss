@@ -1,10 +1,6 @@
 @import '../../variables.scss';
 
-// #component-border {
-//     border: 2px solid $border-color;
-//     border-radius: $s-sm;
-//     padding: $s-sm;
-// }
+
 
 #history-container,
 #legend {
@@ -25,16 +21,27 @@
 .unchecked {
     width: 22%;
     text-align: right;
+    color: $turquoise;
+    font-size: 1.75em;
+}
+
+// .fa-square:hover {
+//     background-color: $turquoise-tint;
+// }
+
+.score,
+.date {
+    display: flex;
+    align-items: center;
+    text-align: left;
 }
 
 .score {
     width: 22%;
-    text-align: left;
 }
 
 .date {
     width: 56%;
-    text-align: left;
 }
 
 .checkbox:hover,
