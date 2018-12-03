@@ -1,19 +1,30 @@
 <app-layout-auth>
   <div id="form-container">
-    <form (ngSubmit) = "registerUser()">
+    <form (ngSubmit)="registerUser()">
       <fieldset>
+        
         <label for="Name">Name</label>
         <input [(ngModel)]="name" type="text" name="Name" id="Name" required>
+
         <label for="Email">Email</label>
         <input [(ngModel)]="email" type="email" name="Email" id="email" required>
+
         <label for="Password">Password</label>
         <input [(ngModel)]="password" type="password" minlength="6" name="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          title="Must contain at least one uppercase letter, one lower case letter, one number and must be a minimum of 6 characters" required>
+          title="Must contain at least one uppercase letter, one lower case letter, one number and must be a minimum of 6 characters"
+          required>
+
         <label for="Confirm password">Confirm password</label>
         <input type="password" minlength="6" name="confirmPassword" id="confirm-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          title="Must contain at least one uppercase letter, one lower case letter, one number and minimum length is 6 characters" required>
-        <p *ngIf="error" class="error">{{error}}</p>        
+          title="Must contain at least one uppercase letter, one lower case letter, one number and minimum length is 6 characters"
+          required>
+
+        <p *ngIf="error" class="error">{{error}}</p>
+
         <button class="btn btn-flat btn-navy" type="submit" id="submit">Register</button>
+
+        <a routerLink="/login">Return to login</a>
+      
       </fieldset>
     </form>
   </div>

@@ -1,22 +1,24 @@
-<div id="legend">
-  <div class="date">Date</div>
-  <div class="score">Score</div>
-  <div class="score"></div>
-</div>
-<div id="history-container" *ngFor="let data of pastDataProfile">
-  <div class="date">{{data.date}}</div>
-  <div class="score">{{data.score}}</div>
-  <div [hidden]="data.isActive === false" 
-  (click) = "data.isActive = !data.isActive"
-  (click) = "findActive()"
-  class="checkbox">
-    &#9745;
+<div id="component-border">
+  <div id="legend">
+    <div class="date">Date</div>
+    <div class="score">Score</div>
+    <div class="score"></div>
   </div>
-  <div [hidden]="data.isActive === true" 
-  (click) = "data.isActive = !data.isActive"
-  (click) = "findActive()"
-  class="unchecked">
-      &#9744;
+  <div id="history-container" *ngFor="let data of pastDataProfile">
+    <div class="date">{{data.date}}</div>
+    <div class="score">{{data.score}}</div>
+    <div [hidden]="data.isActive === false" 
+    (click) = "data.isActive = !data.isActive"
+    (click) = "findActive()"
+    class="checkbox">
+      &#9745;
+    </div>
+    <div [hidden]="data.isActive === true" 
+    (click) = "data.isActive = !data.isActive"
+    (click) = "findActive()"
+    class="unchecked">
+        &#9744;
+    </div>
   </div>
 </div>
 
