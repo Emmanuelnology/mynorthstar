@@ -14,6 +14,9 @@ div.container p {
     margin-left: 2%; 
     text-align: left;
 }
+p {
+    font-size: 1.8em;
+}
 
 #output-score {
     color: $bright-green;
@@ -46,6 +49,7 @@ div.container p {
     overflow: hidden;
     margin: 20px 5px 30px 5px;
     background-color: $nav-color;
+    background-image: linear-gradient(-90deg, #00ffd2, pink);
 }
 
 .scoring-big {
@@ -64,7 +68,7 @@ div.container p {
     border-radius: 50%;
     cursor: pointer;
     background: $bright-green;
-    box-shadow: -300px 0 0 300px $bright-green;
+    box-shadow: 300px 0 0 300px $nav-color;
 }
 
 .scoring-big::-webkit-slider-thumb { 
