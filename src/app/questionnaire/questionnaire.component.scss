@@ -12,7 +12,7 @@ div.container p {
 }
 
 .container {
-    margin-left: 2%; 
+    margin: 0; 
     text-align: left;
 }
 
@@ -24,7 +24,6 @@ p {
     color: $bright-green;
     background: $nav-color;
     width: 35px;
-    margin: 0;
     border-radius: 50%;
     text-align: center;
     display: inline-block;
@@ -36,7 +35,7 @@ p {
 }
 
 .scoring > input {
-    height:12px;
+    height: 12px;
     width: 80%;
     outline: none;
     border-radius: 5px;
@@ -55,7 +54,6 @@ p {
 }
 
 .scoring-big {
-    margin: 0;
     position: absolute;
     top: 20px;
     left: 5px;
