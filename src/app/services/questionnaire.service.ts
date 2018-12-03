@@ -114,7 +114,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I watch Netflix often',
     score: 8,
     weight: 2,
-    category: 'Home & environment',
+    category: 'Home & Environment',
     positive: false
   },
   {
@@ -141,7 +141,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'My house is untidy',
     score: 7,
     weight: 4,
-    category: 'Home & environment',
+    category: 'Home & Environment',
     positive: false
   },
   {
