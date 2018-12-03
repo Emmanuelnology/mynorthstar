@@ -58,6 +58,7 @@ export class MainStarComponent implements OnInit {
     this.outputData.labels = this.allStarData.labels;
 
     for (const dataIndex in this.allStarData.datasets) {
+      if (this.allStarData.datasets.hasOwnProperty(dataIndex)) {
       const dataset = {
         data: this.allStarData.datasets[dataIndex],
         label: '',
@@ -69,7 +70,7 @@ export class MainStarComponent implements OnInit {
         pointBackgroundColor: 'white'
       };
       this.outputData.datasets.push(dataset);
-    }
+    }}
 
   }
 
