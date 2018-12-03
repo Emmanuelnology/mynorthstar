@@ -3,8 +3,8 @@ import { IData, IRadarChartOptions, IChartDataSet } from '../star/star.component
 
 export interface IStarData {
   datasets: number[][];
-  labels: string[]
-};
+  labels: string[];
+}
 
 @Component({
   selector: 'app-main-star',
@@ -13,10 +13,10 @@ export interface IStarData {
 })
 export class MainStarComponent implements OnInit {
   @Input() allStarData: IStarData;
-  @Input() showLabels: boolean = true;
-  
+  @Input() showLabels = true;
+
   colors = ['white', 'red', 'blue', 'green'];
-  
+
   outputData: IData = {
     datasets: [],
     labels: [],
@@ -50,15 +50,16 @@ export class MainStarComponent implements OnInit {
       }
     }
   };
-  
+
   ngOnInit() {
 
     this.outputData.options.scale.pointLabels.display = this.showLabels;
 
     this.outputData.labels = this.allStarData.labels;
 
-    for (const dataIndex in this.allStarData.datasets){
-      let dataset = {
+    for (const dataIndex in this.allStarData.datasets) {
+      if (this.allStarData.datasets.hasOwnProperty(dataIndex)) {
+      const dataset = {
         data: this.allStarData.datasets[dataIndex],
         label: '',
         fill: false,
@@ -67,10 +68,10 @@ export class MainStarComponent implements OnInit {
         pointBorderColor: 'white',
         pointRadius: 3,
         pointBackgroundColor: 'white'
-      }
+      };
       this.outputData.datasets.push(dataset);
-    }
-    
+    }}
+
   }
-  
+
 }

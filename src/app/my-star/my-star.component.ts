@@ -14,7 +14,7 @@ export class MyStarComponent implements OnInit {
   results: IResult;
   overallResult: number;
 
-    data:IStarData = {
+    data: IStarData = {
     datasets: [],
     labels: [],
   };
@@ -27,7 +27,7 @@ export class MyStarComponent implements OnInit {
 
   }
 
-  restructureData(results):IStarData {
+  restructureData(results): IStarData {
     const categories: string[] = [];
     const data: number[] = [];
     for (const result of results) {
