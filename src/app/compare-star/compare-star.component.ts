@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import {IData, IChartDataSet, StarComponent} from '../star/star.component';
-import { renderDetachView } from '@angular/core/src/view/view_attach';
-import { viewAttached } from '@angular/core/src/render3/instructions';
-import { HistoryComponent } from '../history/history.component';
+import { IData, IChartDataSet, StarComponent } from '../star/star.component';
+
+// import { renderDetachView } from '@angular/core/src/view/view_attach';
+// import { viewAttached } from '@angular/core/src/render3/instructions';
 import { Colours } from '../../colours';
 
 @Component({
@@ -11,10 +11,9 @@ import { Colours } from '../../colours';
   styleUrls: ['./compare-star.component.scss']
 })
 
-export class CompareStarComponent implements OnInit,  AfterViewInit {
+export class CompareStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
-  @ViewChild(HistoryComponent) historyViewChild: HistoryComponent;
 
   public colours: Colours;
 
@@ -22,8 +21,8 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
   data: IData = {
     datasets: [],
     labels: ['Career', 'Friends & Family', 'Happiness',
-    'Health & Wellbeing', 'Home & Environment', 'Money',
-    'Personal Growth', 'Relationships', 'Spirituality'],
+      'Health & Wellbeing', 'Home & Environment', 'Money',
+      'Personal Growth', 'Relationships', 'Spirituality'],
     options: {
       legend: {
         display: true,
@@ -108,33 +107,32 @@ export class CompareStarComponent implements OnInit,  AfterViewInit {
         pointRadius: 5,
         pointBackgroundColor: '#37234f',
       }
+    );
+  }
+
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+  }
+
+  redraw() {
+    this.starViewChild.redraw();
+  }
+
+  removeData() {
+    this.data.datasets.splice(1);
+    this.redraw();
+  }
+
+  addData(activeIndex: number[]) {
+    this.removeData();
+    for (const index of activeIndex) {
+      this.data.datasets.push(
+        this.pastData[index]
       );
     }
-
-    ngOnInit() {
-    }
-
-    ngAfterViewInit() {
-    }
-
-    redraw() {
-      this.starViewChild.redraw();
-    }
-
-    removeData() {
-      this.data.datasets.splice(1);
-      this.redraw();
-    }
-
-    addData() {
-      this.removeData();
-      const activeStates = this.historyViewChild.findActive();
-      for (const state of activeStates) {
-        this.data.datasets.push(
-          this.pastData[state]
-        );
-      }
-      this.starViewChild.data.datasets = this.data.datasets;
-      this.redraw();
-    }
+    this.starViewChild.data.datasets = this.data.datasets;
+    this.redraw();
+  }
 }
