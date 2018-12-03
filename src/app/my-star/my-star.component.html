@@ -22,12 +22,13 @@
         
       </div>
       <div class= "stars">
+
         <div class="star u-swapon-tablet">
-          <app-star [data]="bigStarData"> </app-star>
+          <app-main-star [allStarData]="data" [showLabels]="true"></app-main-star>
         </div>
         
         <div class="star u-swapon-mobile">
-          <app-star [data]="littleStarData"> </app-star>
+          <app-main-star [allStarData] = "data" [showLabels]="false"></app-main-star>
         </div>
       </div>
     </div>
