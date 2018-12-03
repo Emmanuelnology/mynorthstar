@@ -41,6 +41,7 @@ import { HistoryComponent } from './history/history.component';
 import { NavComponent } from './nav/nav.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ErrorsComponent } from './errors/errors.component';
+import { MainStarComponent } from './main-star/main-star.component';
 
 const routes: Routes = [
   // Test (TODO remove)
@@ -59,7 +60,8 @@ const routes: Routes = [
   { path: 'compare', component: CompareStarComponent, canActivate: [AuthGuard] },
   { path: '', component: MyStarComponent, canActivate: [AuthGuard]},
   { path: 'error', component: ErrorsComponent },
-  { path: '**', component: ErrorsComponent, data: { error: 404 } },
+  { path: 'main-star', component: MainStarComponent },
+  { path: '**', component: ErrorsComponent, data: { error: 404 } }
 ];
 
 @NgModule({
@@ -84,7 +86,8 @@ const routes: Routes = [
     HistoryComponent,
     NavComponent,
     ForgotPasswordComponent,
-    ErrorsComponent
+    ErrorsComponent,
+    MainStarComponent
   ],
   imports: [
     BrowserModule,

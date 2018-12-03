@@ -1,13 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-// class IPastData {
-//   public date: string;
-//   public score: string;
-//   public isActive: boolean;
-//   toggleIsActive() {
-//     this.isActive = !this.isActive;
-//   }
-// }
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-history',
@@ -15,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
+
+  @Output() checked = new EventEmitter <number[]>();
 
   public pastDataProfile = [
     {date: 'Nov 18', score: '6.35', isActive: false},
@@ -32,14 +25,13 @@ export class HistoryComponent implements OnInit {
   }
 
   public findActive() {
-    const activeIndex = [];
+    const activeIndex: number[] = [];
     for (const index in this.pastDataProfile) {
       if (this.pastDataProfile[index].isActive) {
-        activeIndex.push(index);
+        activeIndex.push(parseInt(index, 10));
       }
     }
-    console.log(activeIndex);
-    return activeIndex;
+    this.checked.emit(activeIndex);
   }
 
   constructor() { }

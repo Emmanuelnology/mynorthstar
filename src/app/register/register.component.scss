@@ -7,6 +7,23 @@
     padding: $s-xs;
 }
 
+#Name {
+    text-transform: capitalize;
+}
+
+a {
+    font-size: $f-xs;
+    font-size: 0.75em;
+    color: #93ecfc;
+    text-align: left;
+    padding-top: 10px;
+  }
+
+  a:hover {
+    color: white;
+    cursor: pointer;
+  }
+
 form {
     width: 100%;
     text-align: left;
@@ -22,14 +39,15 @@ fieldset {
         display: block;
     }
     input {
-        
         display: block;
         margin: 0;
         margin-bottom: $s-sm;
-        padding: $s-xs;
+        padding: $s-sm;
         width: 100%;
+        max-width: 320px;
         font-size: $f-sm;
-    }
+        height: auto;
+      }
 
     button {
         width: 100%;

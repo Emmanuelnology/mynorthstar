@@ -1,15 +1,19 @@
 @import '../../variables.scss';
 
+
+
 #history-container,
 #legend {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: $s-xs 0;
+    font-size: $f-md;
 }
 
 #legend {
-    margin-bottom: $s-md;
+    margin-bottom: $s-sm;
+    font-size: $f-lg;
 }
 
 
@@ -17,16 +21,27 @@
 .unchecked {
     width: 22%;
     text-align: right;
+    color: $turquoise;
+    font-size: 1.75em;
+}
+
+// .fa-square:hover {
+//     background-color: $turquoise-tint;
+// }
+
+.score,
+.date {
+    display: flex;
+    align-items: center;
+    text-align: left;
 }
 
 .score {
     width: 22%;
-    text-align: left;
 }
 
 .date {
     width: 56%;
-    text-align: left;
 }
 
 .checkbox:hover,
