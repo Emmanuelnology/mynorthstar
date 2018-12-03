@@ -17,13 +17,6 @@ export class TaskListComponent implements OnInit {
 
   tasks: Observable<any[]>;
 
-  marked = false;
-  theCheckbox = false;
-
-  // toggleVisibility(e){
-  //   this.marked= e.target.checked;
-  // }
-
   ngOnInit() {
     // this.tasks = this.db.collection('/tasks').valueChanges();
     this.tasks = this.db.collection('/tasks').snapshotChanges()
@@ -38,7 +31,6 @@ export class TaskListComponent implements OnInit {
       }),
     );
   }
-
 
   onDelete(task: Task) {
     this.taskManagerService.deleteTask(task);

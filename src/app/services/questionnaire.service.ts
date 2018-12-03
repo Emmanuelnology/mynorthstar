@@ -8,7 +8,7 @@ export interface IQuestion {
   score: number;
   weight: number;
   category: string;
-  positive?: boolean;
+  positive: boolean;
 }
 
 export interface ICategory {
@@ -17,7 +17,7 @@ export interface ICategory {
 }
 
 export interface ICategoryResult {
-  category: string;
+  categoryName: string;
   categoryAverage: number;
 }
 
@@ -40,33 +40,37 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 2',
     number: null,
     question: 'I am classed as tall',
-    score: 5,
+    score: 4,
     weight: 5,
-    category: 'Personal growth'
+    category: 'Personal growth',
+    positive: true
   },
   {
     title: 'Question 3',
     number: null,
     question: 'I see my friends/family more than once a week',
-    score: 10,
+    score: 4,
     weight: 3,
-    category: 'Friends & Family'
+    category: 'Friends & Family',
+    positive: true
   },
   {
     title: 'Question 4',
     number: null,
     question: 'I laugh a lot',
-    score: 1,
+    score: 7,
     weight: 2,
-    category: 'Happiness'
+    category: 'Happiness',
+    positive: true
   },
   {
     title: 'Question 5',
     number: null,
     question: 'I do yoga',
-    score: 1,
+    score: 3,
     weight: 1,
-    category: 'Spirituality'
+    category: 'Spirituality',
+    positive: true
   },
   {
     title: 'Question 6',
@@ -83,7 +87,8 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I have a job which is relevant to my skill level',
     score: 9,
     weight: 4,
-    category: 'Career'
+    category: 'Career',
+    positive: true
   },
   {
     title: 'Question 8',
@@ -91,7 +96,8 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I have a partner/ stable relationship',
     score: 8,
     weight: 7,
-    category: 'Relationships'
+    category: 'Relationships',
+    positive: true
   },
   {
     title: 'Question 9',
@@ -99,13 +105,14 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I enjoy my job',
     score: 8,
     weight: 4,
-    category: 'Happiness'
+    category: 'Happiness',
+    positive: true
   },
   {
     title: 'Question 10',
     number: null,
     question: 'I watch Netflix often',
-    score: 5,
+    score: 8,
     weight: 2,
     category: 'Home & environment',
     positive: false
@@ -116,7 +123,8 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I regularly eat my five a day',
     score: 4,
     weight: 4,
-    category: 'Health & Wellbeing'
+    category: 'Health & Wellbeing',
+    positive: true
   },
   {
     title: 'Question 12',
@@ -124,13 +132,14 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I regularly exercise',
     score: 7,
     weight: 4,
-    category: 'Health & Wellbeing'
+    category: 'Health & Wellbeing',
+    positive: true
   },
   {
     title: 'Question 13',
     number: null,
     question: 'My house is untidy',
-    score: 4,
+    score: 7,
     weight: 4,
     category: 'Home & environment',
     positive: false
@@ -148,9 +157,10 @@ export let exampleQuestions: IQuestion[] = [
     title: 'Question 15',
     number: null,
     question: 'I have savings',
-    score: 4,
+    score: 6,
     weight: 5,
-    category: 'Money'
+    category: 'Money',
+    positive: true
   },
   {
     title: 'Question 16',
@@ -158,7 +168,8 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I am good at networking',
     score: 4,
     weight: 2,
-    category: 'Career'
+    category: 'Career',
+    positive: true
   }
 ];
 
@@ -170,42 +181,37 @@ export class QuestionnaireService {
 
   constructor() { }
 
-  getResults(initialResults: IQuestion[]): IResult {
-    const categoryAverages = this.getCategoryAverages(initialResults);
-    const overallAverage = this.getOverallAverage(categoryAverages);
-    const output: IResult = {
+  getResults(questionArray: IQuestion[]): IResult {
+    const categoryAverages: ICategoryResult[] = this.getCategoryAverages(questionArray);
+    const overallAverage: number = this.getOverallAverage(categoryAverages);
+    const result: IResult = {
       categoryResults: categoryAverages,
       overallResult: overallAverage
     };
-    return output;
+    return result;
   }
 
-  getCategoryAverages(initialResults: IQuestion[]): ICategoryResult[] {
-    const positiveResults = this.makePositive(initialResults);
-    const foundCategories = this.getCategories(positiveResults);
-    let averages: ICategoryResult[] = [];
-    for (const categoryIndex of foundCategories) {
-      let array: ICategory[] = [];
-      array = this.createCategoryObjects(positiveResults, categoryIndex, array);
-      const average = {
-        category: categoryIndex,
-        categoryAverage: this.calculateWeightedAverage(array)
+  getCategoryAverages(questionArray: IQuestion[]): ICategoryResult[] {
+    const positiveAnswers: IQuestion[] = this.makePositive(questionArray);
+    const foundCategories: string[] = this.getCategories(positiveAnswers);
+    let categoryAverages: ICategoryResult[] = [];
+    for (const category of foundCategories) {
+      let sameCategoryArray: ICategory[] = [];
+      sameCategoryArray = this.createCategoryObjects(positiveAnswers, category, sameCategoryArray);
+      const average: ICategoryResult = {
+        categoryName: category,
+        categoryAverage: this.calculateWeightedAverage(sameCategoryArray)
       };
-      averages = averages.concat(average);
+      categoryAverages = categoryAverages.concat(average);
     }
-    return averages;
+    return categoryAverages;
   }
 
   makePositive(questionArray: IQuestion[]): IQuestion[] {
-    for (const questionIndex in questionArray) {
-      if (questionArray.hasOwnProperty(questionIndex)) {
-        const currentQuestion = questionArray[questionIndex];
-        if (currentQuestion.hasOwnProperty('positive')) {
-          if (currentQuestion.positive === false) {
-            currentQuestion.score = 10 - currentQuestion.score;
-            currentQuestion.positive = true;
-          }
-        }
+    for (const question of questionArray) {
+      if (question.positive === false) {
+        question.score = 10 - question.score;
+        question.positive = true;
       }
     }
     return questionArray;
@@ -213,56 +219,51 @@ export class QuestionnaireService {
 
   getCategories(questionArray: IQuestion[]): string[] {
     const foundCategories: string[] = [];
-    for (const questionIndex in questionArray) {
-      if (questionArray.hasOwnProperty(questionIndex)) {
-        const currentCategory = questionArray[questionIndex].category;
-        if (foundCategories.indexOf(currentCategory) < 0) {
-          foundCategories.push(currentCategory);
-        }
+    for (const question of questionArray) {
+      const currentCategory: string = question.category;
+      if (foundCategories.indexOf(currentCategory) < 0) {
+        foundCategories.push(currentCategory);
       }
     }
     return foundCategories.sort();
   }
 
-  createCategoryObjects(positiveResults: IQuestion[], categoryIndex: string, array: ICategory[]): ICategory[] {
-    for (const questionIndex in positiveResults) {
-      if (positiveResults[questionIndex].category === categoryIndex) {
-        const catOb = this.createCatOb(positiveResults[questionIndex]);
-        array.push(catOb);
+  createCategoryObjects(questionArray: IQuestion[], category: string, sameCategoryArray: ICategory[]): ICategory[] {
+    for (const question of questionArray) {
+      if (question.category === category) {
+        const categoryObject: ICategory = this.createSingleCategoryObject(question);
+        sameCategoryArray.push(categoryObject);
       }
     }
-    return array;
+    return sameCategoryArray;
   }
 
-  createCatOb(question: IQuestion): ICategory {
-    const catOb: ICategory = {score: 0, weight: 0};
-    catOb.score = question.score;
-    catOb.weight = question.weight;
-    return catOb;
+  createSingleCategoryObject(question: IQuestion): ICategory {
+    const categoryObject: ICategory = {
+      score: question.score,
+      weight: question.weight
+    };
+    return categoryObject;
   }
 
-  calculateWeightedAverage(array: ICategory[]): number {
+  calculateWeightedAverage(sameCategoryArray: ICategory[]): number {
     let weightTimesScoreSum = 0;
     let weightSum = 0;
-    for (const categoryIndex in array) {
-      if (array.hasOwnProperty(categoryIndex)) {
-        weightTimesScoreSum += array[categoryIndex].score * array[categoryIndex].weight;
-        weightSum += array[categoryIndex].weight;
-      }
+    for (const sameCategory of sameCategoryArray) {
+        weightTimesScoreSum += sameCategory.score * sameCategory.weight;
+        weightSum += sameCategory.weight;
     }
-    const averageScore = weightTimesScoreSum / weightSum;
+    const averageScore: number = weightTimesScoreSum / weightSum;
     return averageScore;
   }
 
-  getOverallAverage(results: ICategoryResult[]): number {
+  getOverallAverage(categoryAverages: ICategoryResult[]): number {
     let sumOfResults = 0;
-    for (const resultIndex in results) {
-      if (results.hasOwnProperty(resultIndex)) {
-        sumOfResults += results[resultIndex].categoryAverage;
-      }
+    for (const category of categoryAverages) {
+      sumOfResults += category.categoryAverage;
     }
-    const average = sumOfResults / results.length;
-    return average;
+    const overallAverage: number = sumOfResults / categoryAverages.length;
+    return overallAverage;
   }
 }
 
@@ -275,29 +276,29 @@ export class Randomise {
   constructor() { }
 
   randomiseOrder(questionArray: IQuestion[]) {
-    const randomNumberArray = this.createUnorderedArray(questionArray);
-    const unsortedQuestionArray = this.assignQuestionRandomNumbers(questionArray, randomNumberArray);
-    const sortedQuestionArray = unsortedQuestionArray.sort(function(obj1, obj2) {
-      return obj1.number - obj2.number;
+    const unsortedNumberArray: number[] = this.createUnorderedArray(questionArray);
+    const unsortedQuestionArray: IQuestion[] = this.assignQuestionRandomNumbers(questionArray, unsortedNumberArray);
+    const randomSortedQuestionArray: IQuestion[] = unsortedQuestionArray.sort(function(question1, question2) {
+      return question1.number - question2.number;
     });
-    return sortedQuestionArray;
+    return randomSortedQuestionArray;
   }
 
   createUnorderedArray(questionArray: IQuestion[]): number[] {
-    const randomNumberArray = [];
+    const unsortedNumberArray: number[] = [];
     for (const index in questionArray) {
       if (questionArray.hasOwnProperty(index)) {
-        randomNumberArray.push(index);
+        unsortedNumberArray.push(parseInt(index, 10));
       }
     }
-    randomNumberArray.sort( () => Math.random() - 0.5);
-    return randomNumberArray;
+    unsortedNumberArray.sort( () => Math.random() - 0.5);
+    return unsortedNumberArray;
   }
 
-  assignQuestionRandomNumbers(questionArray: IQuestion[], randomNumberArray: number[]): IQuestion[] {
-    for (const index in questionArray) {
-      if (questionArray.hasOwnProperty(index)) {
-        questionArray[index].number = randomNumberArray[index];
+  assignQuestionRandomNumbers(questionArray: IQuestion[], unsortedNumberArray: number[]): IQuestion[] {
+    for (const index in unsortedNumberArray) {
+      if (unsortedNumberArray.hasOwnProperty(index)) {
+        questionArray[index].number = unsortedNumberArray[index];
         questionArray[index].number ++;
       }
     }

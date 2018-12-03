@@ -1,15 +1,23 @@
 @import '../../variables.scss';
 
+// #component-border {
+//     border: 2px solid $border-color;
+//     border-radius: $s-sm;
+//     padding: $s-sm;
+// }
+
 #history-container,
 #legend {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: $s-xs 0;
+    font-size: $f-md;
 }
 
 #legend {
-    margin-bottom: $s-md;
+    margin-bottom: $s-sm;
+    font-size: $f-lg;
 }
 
 

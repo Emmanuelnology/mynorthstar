@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import {Router} from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-register',
@@ -13,7 +15,7 @@ export class RegisterComponent implements OnInit {
   password = '';
   error = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,10 +23,10 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this.authService.registerUser(this.email, this.password).then(
       () => {
-        // updateprofile (name)
-        // .then {
-          // route
-       // }
+        this.afAuth.auth.currentUser.updateProfile({
+        displayName: this.name,
+        photoURL: 'https://www.telegraph.co.uk/content/dam/Pets/spark/royal-canin/tabby-kitten-small.jpg?imwidth=450'
+      });
         this.router.navigate(['/']);
     }
     )
