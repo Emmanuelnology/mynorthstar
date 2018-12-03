@@ -4,7 +4,6 @@ h3 {
   text-align: center;
 }
 
-
 .star-heading { 
   display: flex;
   width: 100%;
@@ -12,6 +11,10 @@ h3 {
 
 .stars {
   display: block;
+}
+
+.star {
+  width:100%;
 }
 
 .date {
@@ -22,7 +25,6 @@ h3 {
     padding-right: 10px;
     color:white;
     font-size: 12px; 
-   
   }
 }
 
@@ -34,10 +36,6 @@ h3 {
   padding-top: 30px;
 }
 
-.star {
-  width:100%;
-}
-
 .u-swapon-tablet {
   display:none;
 }
@@ -46,11 +44,11 @@ h3 {
   .u-swapon-mobile {
     display:none;
   }
-
+  
   .u-swapon-tablet {
     display:inline-block;
   }
-
+  
   .date {
     height: 90px;
     line-height: 90px;
@@ -58,29 +56,28 @@ h3 {
       font-size: $f-xs;
     }  
   }
-
-
+  
+  
 }
 
 @media only screen and (min-width: 1024px) {
   .star-flex {
     display:flex;
+    .star-column {
+      flex:2;
+    }
+    
+    .results-score {
+      flex:1;
+    }
+    
+    .star-heading{
+      padding-right: 80px;
+    }
   }
-
-  .star-column {
-    flex:2;
-  }
-
-  .results-score {
-    flex:1;
-  }
-
-  .star-heading{
-    padding-right: 80px;
-  }
-
+  
   .tasks {
     padding: 0;
   }
-
+  
 }

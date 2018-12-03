@@ -50,7 +50,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I see my friends/family more than once a week',
     score: 10,
     weight: 3,
-    category: 'Friends & family'
+    category: 'Friends & Family'
   },
   {
     title: 'Question 4',
@@ -116,7 +116,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I regularly eat my five a day',
     score: 4,
     weight: 4,
-    category: 'Health & wellbeing'
+    category: 'Health & Wellbeing'
   },
   {
     title: 'Question 12',
@@ -124,7 +124,7 @@ export let exampleQuestions: IQuestion[] = [
     question: 'I regularly exercise',
     score: 7,
     weight: 4,
-    category: 'Health & wellbeing'
+    category: 'Health & Wellbeing'
   },
   {
     title: 'Question 13',
