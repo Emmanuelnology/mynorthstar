@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 // class IPastData {
 //   public date: string;
@@ -16,6 +16,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
+  @Output() checked = new EventEmitter <number[]>();
+
   public pastDataProfile = [
     {date: 'Nov 18', score: '6.35', isActive: false},
     {date: 'Oct 18', score: '5.11', isActive: false},
@@ -32,12 +34,13 @@ export class HistoryComponent implements OnInit {
   }
 
   public findActive() {
-    const activeIndex = [];
+    const activeIndex: number[] = [];
     for (const index in this.pastDataProfile) {
       if (this.pastDataProfile[index].isActive) {
-        activeIndex.push(index);
+        activeIndex.push(parseInt(index, 10));
       }
     }
+    this.checked.emit(activeIndex);
     console.log(activeIndex);
     return activeIndex;
   }
