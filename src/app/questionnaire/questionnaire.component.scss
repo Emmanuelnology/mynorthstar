@@ -23,6 +23,7 @@ div.container p {
     border-radius: 50%;
     text-align: center;
     display: inline-block;
+    font-size: 1.5em;
 }
 
 .scoring {
@@ -92,5 +93,8 @@ div.sendButton {
     .scoring-big::-webkit-slider-thumb { 
         width: 15px;
         height: 15px;
+    }
+    #output-score {
+        font-size: 1.7em;
     }
 }
