@@ -6,17 +6,17 @@ nav {
   background-color: $nav-color;
   text-align: center;
   border-top: 1px solid white;
-  position:absolute;
-  top:$navHeight;
-  left:0;
-  bottom:0;
-  width:0;
-  transition:$animationDuration;
-  overflow:hidden;
+  position: absolute;
+  top: $navHeight;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  transition: $animationDuration;
+  overflow: hidden;
 }
 
 nav li {
-  color:$nav-icons-color;
+  color: $nav-icons-color;
   font-size: 1.5em;
   padding-top: $s-sm;
   padding-bottom: $s-sm;
@@ -26,9 +26,9 @@ nav li {
 
 }
 
-.showMenu{
-  width:$smallMenuWidth;
-  min-width:$smallMenuWidth;
+.showMenu {
+  width: $smallMenuWidth;
+  min-width: $smallMenuWidth;
 }
 
 // nav a {
@@ -36,10 +36,11 @@ nav li {
 //   -webkit-text-stroke-color: white;
 // }
 
- nav li:hover, nav .active {
-  background-color:rgb(16, 131, 188);
-  color:white;
-  cursor: pointer; 
+nav li:hover,
+nav .active {
+  background-color: rgb(16, 131, 188);
+  color: white;
+  cursor: pointer;
   -webkit-text-stroke-color: transparent;
 }
 
@@ -51,47 +52,50 @@ nav li {
   visibility: hidden;
 }
 
-@media only screen and (min-width:500px){
+@media only screen and (min-width:500px) {
 
-  .showMenu{
-    width:$largeMenuWidth;
-    min-width:$largeMenuWidth;
+  .showMenu {
+    width: $largeMenuWidth;
+    min-width: $largeMenuWidth;
   }
 
-   
-.tooltip {
-  display: inline;    
+
+  .tooltip {
+    display: inline;
+
   }
 
   .tooltip .tooltiptext {
-      margin-left:9px; 
-      width : 100px;
-      visibility: hidden;
-      position: absolute;
-      z-index: 1;
-      padding: 5px;
-      margin-top : 0px; 
-      transition: opacity 1s;
-      border-radius: 5px;
-      background-color: $navy;
-      opacity: 0.5;
-      
-  }
-  .tooltip .tooltiptext::after {
-      position: absolute;
-      top: 5%;
-      right: 100%; 
-      margin-top: -5px;
-  }
-  
-  
-  li:hover .tooltiptext {
-    visibility: visible;
-      opacity: 1;
+    margin-left: 9px;
+    width: auto;
+    white-space: nowrap;
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+    margin-top: 0px;
+    transition: opacity 1s;
+    border-radius: 5px;
+    background-color: $navy;
+    opacity: 0.5;
+
   }
 
-nav {
-  overflow: visible;
-}
+  .tooltip .tooltiptext::after {
+    position: absolute;
+    top: 5%;
+    right: 100%;
+    margin-top: -5px;
+  }
+
+
+  li:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  nav {
+    overflow: visible;
+  }
 
 }
