@@ -1,7 +1,8 @@
 <app-layout-default icon="fas fa-history" pageTitle="Compare star">
   <div id="layout">
     <div id="star">
-      <app-star [data]="data"></app-star>
+      <!-- <app-star [data]="data"></app-star> -->
+      <app-main-star [data]="data.datasets" [labels]="data.labels"></app-main-star>
     </div>
     <div id="history">
       <div id="border-container">
