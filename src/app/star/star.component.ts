@@ -57,7 +57,7 @@ export interface IData {
 }
 
 interface IChart extends Chart {
-  options?
+  options?;
 }
 
 @Component({
@@ -67,7 +67,7 @@ interface IChart extends Chart {
 })
 
 export class StarComponent implements AfterViewInit, OnInit {
-  @Input() showLabels= true;
+  @Input() showLabels = true;
   @Input() data: IData;
   @Input() size = '100%';
 
