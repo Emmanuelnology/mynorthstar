@@ -57,6 +57,7 @@ export interface IData {
   options: IRadarChartOptions;
 }
 
+
 @Component({
   selector: 'app-star',
   templateUrl: './star.component.html',
