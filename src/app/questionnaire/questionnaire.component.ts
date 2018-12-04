@@ -289,6 +289,10 @@ export class QuestionnaireComponent implements OnInit {
     ngOnInit() {
     }
 
+    getSliderColor(value) {
+        return 'rgba(255,0,0,1)';
+    }
+
     onSubmit() {
         // // check if any field is undefined
         // resort questions
