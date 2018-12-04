@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { IData, IChartDataSet, StarComponent } from '../star/star.component';
-
-import { IStarData, MainStarComponent } from '../main-star/main-star.component';
+import { MainStarComponent } from '../main-star/main-star.component';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
 // import { viewAttached } from '@angular/core/src/render3/instructions';
@@ -15,52 +13,51 @@ import { Colours } from '../../colours';
 
 export class CompareStarComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(StarComponent) starViewChild: StarComponent;
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
   public colours: Colours;
 
-  data: IStarData = {
+  data = {
     datasets: [],
     labels: ['Career', 'Friends & Family', 'Happiness',
     'Health & Wellbeing', 'Home & Environment', 'Money',
     'Personal Growth', 'Relationships', 'Spirituality']
   };
 
-  trialdatasets: IChartDataSet[] = [];
-  trialdata: IData = {
-    datasets: [],
-    labels: ['Career', 'Friends & Family', 'Happiness',
-      'Health & Wellbeing', 'Home & Environment', 'Money',
-      'Personal Growth', 'Relationships', 'Spirituality'],
-    options: {
-      legend: {
-        display: true,
-        labels: {
-          fontColor: 'white'
-        }
-      },
-      scale: {
-        pointLabels: { // Labels around the chart
-          display: true,
-          fontColor: 'white',
-          fontSize: 14
-        },
-        angleLines: { // Radiating lines leading to the labels
-          color: '#b02062'
-        },
-        ticks: {
-          // maxTicksLimit: 5,
-          display: false,
-          min: 0,
-          max: 10,
-        },
-        gridLines: {
-          color: '#777'
-        }
-      },
-    }
-  };
+  // trialdatasets: IChartDataSet[] = [];
+  // trialdata: IData = {
+  //   datasets: [],
+  //   labels: ['Career', 'Friends & Family', 'Happiness',
+  //     'Health & Wellbeing', 'Home & Environment', 'Money',
+  //     'Personal Growth', 'Relationships', 'Spirituality'],
+  //   options: {
+  //     legend: {
+  //       display: true,
+  //       labels: {
+  //         fontColor: 'white'
+  //       }
+  //     },
+  //     scale: {
+  //       pointLabels: { // Labels around the chart
+  //         display: true,
+  //         fontColor: 'white',
+  //         fontSize: 14
+  //       },
+  //       angleLines: { // Radiating lines leading to the labels
+  //         color: '#b02062'
+  //       },
+  //       ticks: {
+  //         // maxTicksLimit: 5,
+  //         display: false,
+  //         min: 0,
+  //         max: 10,
+  //       },
+  //       gridLines: {
+  //         color: '#777'
+  //       }
+  //     },
+  //   }
+  // };
 
   public pastData = [
     // {
@@ -109,7 +106,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   removeData() {
     this.data.datasets.splice(1);
-    // this.redraw();
+    this.mainStarViewChild.removeData();
   }
 
   addData(activeIndex: number[]) {
@@ -119,7 +116,8 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         this.pastData[index]
       );
     }
-    this.mainStarViewChild.allStarData.datasets = this.data.datasets;
+    this.mainStarViewChild.starData = this.data.datasets; // this.data.datasets is of type number[][]
+    console.log(this.mainStarViewChild.starData);
     this.redraw();
   }
 
