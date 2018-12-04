@@ -69,6 +69,7 @@ export class StarComponent implements AfterViewInit, OnInit {
 
   chart: Chart = {} as Chart;
   canvasID: string;
+  gradientColors: string[] =  ['rgb(255,0,110)', 'rgb(112,49,238)', 'rgb(18,148,194)', 'rgb(0,255,213)'];
 
   constructor(private cd: ChangeDetectorRef) {
   }
@@ -90,9 +91,58 @@ export class StarComponent implements AfterViewInit, OnInit {
     return 'canvas' + this.guid();
   }
 
+  createRadarPointColors(data) {
+    const dataSetColors = [];
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        if (data[key] < 2) {
+          dataSetColors[key] = this.gradientColors[0];
+        } else if (data[key] < 4) {
+          dataSetColors[key] = this.gradientColors[1];
+        } else if (data[key] < 8) {
+          dataSetColors[key] = this.gradientColors[2];
+        } else  {
+          dataSetColors[key] = this.gradientColors[3];
+        }
+      }
+    }
+    return dataSetColors;
+
+  }
+
+  createGradient(ctx, parentElement) {
+    const width =  parentElement.offsetWidth;
+    const height =  width*0.5;
+    console.log(height);
+    const gradient = ctx.createRadialGradient(
+
+      width / 2,
+      height / 2,
+      20,
+      width / 2,
+      height / 2,
+      width / 2);
+    gradient.addColorStop(0, this.gradientColors[0]);
+    gradient.addColorStop(0.11, this.gradientColors[1]);
+    gradient.addColorStop(0.4, this.gradientColors[2]);
+    gradient.addColorStop(0.6, this.gradientColors[3]);
+    return gradient;
+  }
+
   createChart() {
-    const canvas: ICanvas = (document.getElementById(this.canvasID) as ICanvas);
+
+    const element = document.getElementById(this.canvasID);
+    const parentElement = document.getElementById(this.canvasID + '-parent');
+
+    const canvas: ICanvas = (element as ICanvas);
     const ctx = canvas.getContext('2d');
+
+    if (this.data.datasets.length === 1) {
+      const gradient = this.createGradient(ctx, parentElement);
+      const pointColors = this.createRadarPointColors(this.data.datasets[0].data);
+      this.data.datasets[0].borderColor = gradient;
+      this.data.datasets[0].pointBackgroundColor = pointColors;
+    }
     this.chart = new Chart(ctx, {
       type: 'radar',
       data: {
