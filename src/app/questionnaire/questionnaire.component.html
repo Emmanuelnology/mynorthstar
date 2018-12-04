@@ -9,8 +9,13 @@
               <p>{{question.number}}. {{question.question}}</p>
             </label>
             <div class="scoring">
+<<<<<<< HEAD
+              <input 
+                class="scoring-small"
+=======
               <input
                 class="scoring-filler"
+>>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
                 type="range"
                 [(ngModel)]="question.score"
                 name="question-{{question.number}}" 
@@ -29,7 +34,11 @@
               <p id="output-score">{{question.score}}</p>
             </div>
 
-            
+            <!-- <div style= "
+                'background-color:rgb(0,'
+                + {{question.score}}
+                + ', 0)';
+                " -->
           </div>
         </div>
         <div class="sendButton">
