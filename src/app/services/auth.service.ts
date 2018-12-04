@@ -30,9 +30,9 @@ export class AuthService {
     return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
-  changeEmailAddress(email, password, newEmail){
+  changeEmailAddress(email, password, newEmail) {
     this.user.signInWithEmailAndPassword(email, password)
-      .then(function(user){
+      .then(function(user) {
         this.user.updateEmail(newEmail);
       });
   }
