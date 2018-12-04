@@ -9,13 +9,11 @@ h3 {
   width: 100%;
 }
 
-.stars {
-  display: block;
-}
+// .stars {
+//   display: block;
+// }
 
-.star {
-  width:100%;
-}
+
 
 .date {
   flex-grow:1;
@@ -44,8 +42,6 @@ h3 {
       font-size: $f-xs;
     }  
   }
-  
-  
 }
 
 @media only screen and (min-width: 1024px) {

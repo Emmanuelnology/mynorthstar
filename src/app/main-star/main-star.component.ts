@@ -7,10 +7,8 @@ import { IData, } from '../star/star.component';
   styleUrls: ['./main-star.component.scss']
 })
 export class MainStarComponent implements OnInit {
-  @Input() showLabels = true;
   @Input() starData: number[][]; // added
   @Input() starLabels: string []; // added
-
 
   colors = ['white', 'red', 'blue', 'green'];
 
@@ -50,8 +48,6 @@ export class MainStarComponent implements OnInit {
 
   ngOnInit() {
 
-    this.outputData.options.scale.pointLabels.display = this.showLabels;
-
     this.outputData.labels = this.starLabels;
 
     for (const dataIndex in this.starData) {
@@ -68,6 +64,7 @@ export class MainStarComponent implements OnInit {
       };
       this.outputData.datasets.push(dataset);
     }}
+
 
   }
 

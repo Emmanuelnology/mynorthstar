@@ -1,7 +1,6 @@
 import { Component, Input, AfterViewInit, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
 import { Chart } from 'chart.js';
 
-
 interface ICanvas extends HTMLElement {
   getContext(context: string);
 }
@@ -57,6 +56,9 @@ export interface IData {
   options: IRadarChartOptions;
 }
 
+interface IChart extends Chart {
+  options?
+}
 
 @Component({
   selector: 'app-star',
@@ -65,10 +67,11 @@ export interface IData {
 })
 
 export class StarComponent implements AfterViewInit, OnInit {
+  @Input() showLabels= true;
   @Input() data: IData;
   @Input() size = '100%';
 
-  chart: Chart = {} as Chart;
+  chart: IChart = {} as Chart;
   canvasID: string;
 
   constructor(private cd: ChangeDetectorRef) {
@@ -106,13 +109,17 @@ export class StarComponent implements AfterViewInit, OnInit {
   }
 
   redraw() {
+    this.chart.options.scale.pointLabels.display = (window.innerWidth > 768); // No other way to change charts other than this. Maybe you can help?
     this.chart.update();
     console.log('Chart was updated');
   }
 
   ngAfterViewInit() {
     this.createChart();
+    this.redraw();
   }
+
+
 
   ngOnInit () {
     this.makeStarUnique();
