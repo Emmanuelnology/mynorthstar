@@ -11,7 +11,7 @@ import { PersistenceSettingsToken } from '@angular/fire/firestore';
 })
 
 export class QuestionnaireComponent implements OnInit {
-    questionScore:number;
+    questionScore: number;
     questions: IQuestion[] = [
         {
             title: 'Question 1',
