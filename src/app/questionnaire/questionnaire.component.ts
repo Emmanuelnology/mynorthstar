@@ -294,8 +294,6 @@ export class QuestionnaireComponent implements OnInit {
     ngOnInit() {
     }
 
-<<<<<<< HEAD
-=======
     getSliderColor(value) {
         if (value <= 3) {
             const blue =  129 + 31.5 * value;
@@ -308,7 +306,6 @@ export class QuestionnaireComponent implements OnInit {
             return 'rgb(0, ' + green + ', 210)';
         }
     }
->>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
 
     onSubmit() {
         // // check if any field is undefined
