@@ -23,13 +23,10 @@
       </div>
       <div class= "stars">
 
-        <div class="star u-swapon-tablet">
-          <app-main-star [allStarData]="data" [showLabels]="true"></app-main-star>
+        <div class="star ">
+          <app-main-star [starData]= "datasets" [starLabels]="labels" [showLabels]="true"></app-main-star>
           </div>
         
-        <div class="star u-swapon-mobile">
-          <app-main-star [allStarData] = "data" [showLabels]="false"></app-main-star>
-        </div>
       </div>
     </div>
     <div class="results-score">
