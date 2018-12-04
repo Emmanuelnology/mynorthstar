@@ -32,7 +32,7 @@ export class MainStarComponent implements OnInit {
           fontSize: 14
         },
         angleLines: {
-          color: '#b02062'
+          color: 'rgba(33,64,103)'
         },
         ticks: {
           fontFamily: 'nunito',
@@ -42,7 +42,7 @@ export class MainStarComponent implements OnInit {
           max: 10,
         },
         gridLines: {
-          color: '#777'
+          color: 'rgba(33,64,103)'
         }
       }
     }
@@ -62,6 +62,7 @@ export class MainStarComponent implements OnInit {
         fill: false,
         lineTension: 0.3,
         borderColor: this.colors[dataIndex],
+        borderWidth: 2,
         pointBorderColor: 'white',
         pointRadius: 3,
         pointBackgroundColor: 'white'

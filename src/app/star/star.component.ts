@@ -1,6 +1,12 @@
 import { Component, Input, AfterViewInit, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
 import { Chart } from 'chart.js';
 
+enum Colors {
+  Red = 'rgb(255,0,110)',
+  Purple = 'rgb(112,49,238)',
+  Blue = 'rgb(18,148,194)',
+  Turquoise = 'rgb(0,255,213)'
+}
 
 interface ICanvas extends HTMLElement {
   getContext(context: string);
@@ -70,8 +76,8 @@ export class StarComponent implements AfterViewInit, OnInit {
 
   chart: Chart = {} as Chart;
   canvasID: string;
-  gradientColors: string[] =  ['rgb(255,0,110)', 'rgb(112,49,238)', 'rgb(18,148,194)', 'rgb(0,255,213)'];
-
+  ctx;
+  canvas;
   constructor(private cd: ChangeDetectorRef) {
   }
 
@@ -97,13 +103,13 @@ export class StarComponent implements AfterViewInit, OnInit {
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         if (data[key] < 2) {
-          dataSetColors[key] = this.gradientColors[0];
-        } else if (data[key] < 4) {
-          dataSetColors[key] = this.gradientColors[1];
-        } else if (data[key] < 8) {
-          dataSetColors[key] = this.gradientColors[2];
+          dataSetColors[key] = Colors.Red;
+        } else if (data[key] < 6) {
+          dataSetColors[key] = Colors.Purple;
+        } else if (data[key] < 9) {
+          dataSetColors[key] = Colors.Blue;
         } else  {
-          dataSetColors[key] = this.gradientColors[3];
+          dataSetColors[key] = Colors.Turquoise;
         }
       }
     }
@@ -113,7 +119,7 @@ export class StarComponent implements AfterViewInit, OnInit {
 
   createGradient(ctx, parentElement) {
     const width =  parentElement.offsetWidth;
-    const height =  width*0.5;
+    const height =  width * 0.5;
     console.log(height);
     const gradient = ctx.createRadialGradient(
 
@@ -122,29 +128,40 @@ export class StarComponent implements AfterViewInit, OnInit {
       20,
       width / 2,
       height / 2,
-      width / 2);
-    gradient.addColorStop(0, this.gradientColors[0]);
-    gradient.addColorStop(0.11, this.gradientColors[1]);
-    gradient.addColorStop(0.4, this.gradientColors[2]);
-    gradient.addColorStop(0.6, this.gradientColors[3]);
+      width / 4);
+    gradient.addColorStop(0, Colors.Red);
+    gradient.addColorStop(0.3, Colors.Purple);
+    gradient.addColorStop(0.7, Colors.Blue);
+    gradient.addColorStop(1, Colors.Turquoise);
     return gradient;
+  }
+
+  overrideGradient() {
+    const parentElement = document.getElementById(this.canvasID + '-parent');
+      const gradient = this.createGradient(this.ctx, parentElement);
+      const pointColors = this.createRadarPointColors(this.data.datasets[0].data);
+      this.data.datasets[0].borderColor = gradient;
+      this.data.datasets[0].pointBackgroundColor = pointColors;
+      this.data.datasets[0].pointBorderColor = 'transparent';
+      this.data.datasets[0].fill = true;
+      this.data.datasets[0].backgroundColor = 'rgba(200,200,200,0.2)';
+  }
+
+  needsGradient() {
+    return (this.data.datasets.length === 1);
   }
 
   createChart() {
 
     const element = document.getElementById(this.canvasID);
-    const parentElement = document.getElementById(this.canvasID + '-parent');
+    this.canvas = (element as ICanvas);
+    this.ctx = this.canvas.getContext('2d');
 
-    const canvas: ICanvas = (element as ICanvas);
-    const ctx = canvas.getContext('2d');
-
-    if (this.data.datasets.length === 1) {
-      const gradient = this.createGradient(ctx, parentElement);
-      const pointColors = this.createRadarPointColors(this.data.datasets[0].data);
-      this.data.datasets[0].borderColor = gradient;
-      this.data.datasets[0].pointBackgroundColor = pointColors;
+    if (this.needsGradient()) {
+      this.overrideGradient();
     }
-    this.chart = new Chart(ctx, {
+
+    this.chart = new Chart(this.ctx, {
       type: 'radar',
       data: {
         labels: this.data.labels,
@@ -156,6 +173,9 @@ export class StarComponent implements AfterViewInit, OnInit {
   }
 
   redraw() {
+    if (this.needsGradient()) {
+      this.overrideGradient();
+    }
     this.chart.update();
     console.log('Chart was updated');
   }
