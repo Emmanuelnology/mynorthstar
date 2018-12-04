@@ -26,10 +26,5 @@ export class LayoutAppComponent implements OnInit {
   onResize() {
     this.menuIsVisible = true;
   }
-
-  computeStyle() {
-    return 'background-color: red';
-    // return "background-image: url(" + user.photoURL + ")";
-  }
 }
 
