@@ -122,7 +122,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   removeData() {
     this.data.datasets.splice(1);
-    this.redraw();
+    // this.redraw();
   }
 
   addData(activeIndex: number[]) {
