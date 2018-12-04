@@ -22,20 +22,11 @@ p {
 #output-score {
     color: $bright-green;
     background: $nav-color;
-<<<<<<< HEAD
-    width: 60px;
-    margin: 0;
-    border-radius: 50%;
-    text-align: center;
-    display: inline-block;
-    font-size: 1000px;
-=======
     width: 35px;
     border-radius: 50%;
     text-align: center;
     display: inline-block;
     font-size: $f-md;
->>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
 }
 
 .scoring {
@@ -60,13 +51,7 @@ p {
     background-color: $nav-color;
 }
 
-<<<<<<< HEAD
-.scoring-big {
-    // overflow: hidden;
-    margin: 0;
-=======
 .scoring-blob {
->>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
     position: absolute;
     top: 20px;
     left: 5px;
@@ -95,12 +80,6 @@ div.sendButton {
 }
 
 @media only screen and (min-width: 528px) {
-<<<<<<< HEAD
-    // .container {
-    //     margin-left: 20%;
-    // }
-=======
->>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
     .scoring > input {
         width: 50%;
         height: 8px;
