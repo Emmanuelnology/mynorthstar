@@ -6,7 +6,7 @@
         <div *ngFor="let question of questions">
           <div  class="container">
             <label for="questions">
-              <h4>{{question.number}}. {{question.question}}</h4>
+              <p>{{question.number}}. {{question.question}}</p>
             </label>
             <div class="scoring">
               <input
@@ -14,7 +14,7 @@
                 type="range"
                 [(ngModel)]="question.score"
                 name="question-{{question.number}}" 
-                min="0" max="10"
+                min="0" max="10"                
                 required
                 [style.backgroundColor]="getSliderColor(question?.score)"
               >
