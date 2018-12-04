@@ -80,6 +80,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
   }
 
   redraw() {
+    this.removeData();
     for (const dataIndex in this.starData) {
       if (this.starData.hasOwnProperty(dataIndex)) {
       const dataset = {
@@ -95,7 +96,6 @@ export class MainStarComponent implements OnInit, AfterViewInit {
       this.outputData.datasets.push(dataset);
     }}
 
-    this.starViewChild.data.datasets = this.outputData.datasets;
     this.starViewChild.redraw();
   }
 

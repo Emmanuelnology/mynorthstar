@@ -106,7 +106,6 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   removeData() {
     this.data.datasets.splice(1);
-    this.mainStarViewChild.removeData();
   }
 
   addData(activeIndex: number[]) {
@@ -116,7 +115,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         this.pastData[index]
       );
     }
-    this.mainStarViewChild.starData = this.data.datasets; // this.data.datasets is of type number[][]
+    this.mainStarViewChild.starData = this.data.datasets;
     console.log(this.mainStarViewChild.starData);
     this.redraw();
   }
