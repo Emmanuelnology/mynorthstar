@@ -18,7 +18,7 @@
     </h1>
   </div>
   <div class="flex-avatar">
-    <span class="greeting">Hi {{user.displayName}}</span>
+    <span class="greeting">Hi, {{user.displayName | titlecase}}</span>
 
     <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }">
     
