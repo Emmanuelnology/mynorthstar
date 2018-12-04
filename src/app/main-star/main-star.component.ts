@@ -1,10 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IData, IRadarChartOptions, IChartDataSet } from '../star/star.component';
-
-export interface IStarData {
-  datasets: number[][];
-  labels: string[]
-};
+import { IData, } from '../star/star.component';
 
 @Component({
   selector: 'app-main-star',
@@ -12,11 +7,13 @@ export interface IStarData {
   styleUrls: ['./main-star.component.scss']
 })
 export class MainStarComponent implements OnInit {
-  @Input() allStarData: IStarData;
-  @Input() showLabels: boolean = true;
-  
+  @Input() showLabels = true;
+  @Input() starData: number[][]; // added
+  @Input() starLabels: string []; // added
+
+
   colors = ['white', 'red', 'blue', 'green'];
-  
+
   outputData: IData = {
     datasets: [],
     labels: [],
@@ -50,16 +47,17 @@ export class MainStarComponent implements OnInit {
       }
     }
   };
-  
+
   ngOnInit() {
 
     this.outputData.options.scale.pointLabels.display = this.showLabels;
 
-    this.outputData.labels = this.allStarData.labels;
+    this.outputData.labels = this.starLabels;
 
-    for (const dataIndex in this.allStarData.datasets){
-      let dataset = {
-        data: this.allStarData.datasets[dataIndex],
+    for (const dataIndex in this.starData) {
+      if (this.starData.hasOwnProperty(dataIndex)) {
+      const dataset = {
+        data: this.starData[dataIndex],
         label: '',
         fill: false,
         lineTension: 0.3,
@@ -67,10 +65,10 @@ export class MainStarComponent implements OnInit {
         pointBorderColor: 'white',
         pointRadius: 3,
         pointBackgroundColor: 'white'
-      }
+      };
       this.outputData.datasets.push(dataset);
-    }
-    
+    }}
+
   }
-  
+
 }

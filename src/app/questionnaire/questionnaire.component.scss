@@ -4,30 +4,38 @@
 
 .instruction {
     font-style: italic;
-    padding: 1em;
 }
 
 div.container p {
     display: inline-block;
 }
+
 .container {
-    margin-left: 2%; 
+    margin: 0; 
     text-align: left;
 }
 
 p {
-    font-size: 1.4em;
+    font-size: $f-sm;
 }
 
 #output-score {
     color: $bright-green;
     background: $nav-color;
+<<<<<<< HEAD
     width: 60px;
     margin: 0;
     border-radius: 50%;
     text-align: center;
     display: inline-block;
     font-size: 1000px;
+=======
+    width: 35px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    font-size: $f-md;
+>>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
 }
 
 .scoring {
@@ -35,7 +43,7 @@ p {
 }
 
 .scoring > input {
-    height:12px;
+    height: 12px;
     width: 80%;
     outline: none;
     border-radius: 5px;
@@ -46,34 +54,32 @@ p {
     }
 }
 
-.scoring-small {
+.scoring-filler {
     overflow: hidden;
     margin: 20px 5px 30px 5px;
     background-color: $nav-color;
-    background-image: linear-gradient(-90deg, #00ffd2, pink);
 }
 
+<<<<<<< HEAD
 .scoring-big {
     // overflow: hidden;
     margin: 0;
+=======
+.scoring-blob {
+>>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
     position: absolute;
     top: 20px;
     left: 5px;
-    
     background-color: transparent;
 }
 
-.scoring-small::-webkit-slider-thumb { 
-    width: 10px;
-    height: 10px;
-    -webkit-appearance: none;
-    border-radius: 50%;
-    cursor: pointer;
-    background: $bright-green;
+.scoring-filler::-webkit-slider-thumb { //filler
     box-shadow: 300px 0 0 300px $nav-color;
+    width: 0;
+    height: 0;
 }
 
-.scoring-big::-webkit-slider-thumb { 
+.scoring-blob::-webkit-slider-thumb { //actual blob
     width: 20px;
     height: 20px;
     -webkit-appearance: none;
@@ -89,21 +95,21 @@ div.sendButton {
 }
 
 @media only screen and (min-width: 528px) {
+<<<<<<< HEAD
     // .container {
     //     margin-left: 20%;
     // }
+=======
+>>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
     .scoring > input {
         width: 50%;
         height: 8px;
     }
-    .scoring-big::-webkit-slider-thumb { 
-        width: 15px;
-        height: 15px;
-    }
-    #output-score {
-        font-size: 1.7em;
+    .scoring-blob::-webkit-slider-thumb { 
+        width: 17px;
+        height: 17px;
     }
     p {
-        font-size: 1.7em;
+        font-size: $f-md;
     }
 }

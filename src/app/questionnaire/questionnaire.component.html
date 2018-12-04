@@ -9,16 +9,22 @@
               <p>{{question.number}}. {{question.question}}</p>
             </label>
             <div class="scoring">
+<<<<<<< HEAD
               <input 
                 class="scoring-small"
+=======
+              <input
+                class="scoring-filler"
+>>>>>>> f7b69bf4787fdf1242fa45b466de89d4acd08c7a
                 type="range"
                 [(ngModel)]="question.score"
                 name="question-{{question.number}}" 
                 min="0" max="10"                
                 required
+                [style.backgroundColor]="getSliderColor(question?.score)"
               >
               <input
-                class="scoring-big"
+                class="scoring-blob"
                 type="range"
                 [(ngModel)]="question.score"
                 name="question-{{question.number}}" 

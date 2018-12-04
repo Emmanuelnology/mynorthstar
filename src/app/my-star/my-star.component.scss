@@ -36,19 +36,7 @@ h3 {
   padding-top: 30px;
 }
 
-.u-swapon-tablet {
-  display:none;
-}
-
 @media only screen and (min-width: 768px) {
-  .u-swapon-mobile {
-    display:none;
-  }
-  
-  .u-swapon-tablet {
-    display:inline-block;
-  }
-  
   .date {
     height: 90px;
     line-height: 90px;
@@ -63,6 +51,7 @@ h3 {
 @media only screen and (min-width: 1024px) {
   .star-flex {
     display:flex;
+
     .star-column {
       flex:2;
     }
