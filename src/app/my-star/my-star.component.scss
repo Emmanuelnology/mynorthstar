@@ -9,13 +9,11 @@ h3 {
   width: 100%;
 }
 
-.stars {
-  display: block;
-}
+// .stars {
+//   display: block;
+// }
 
-.star {
-  width:100%;
-}
+
 
 .date {
   flex-grow:1;
@@ -36,19 +34,7 @@ h3 {
   padding-top: 30px;
 }
 
-.u-swapon-tablet {
-  display:none;
-}
-
 @media only screen and (min-width: 768px) {
-  .u-swapon-mobile {
-    display:none;
-  }
-  
-  .u-swapon-tablet {
-    display:inline-block;
-  }
-  
   .date {
     height: 90px;
     line-height: 90px;
@@ -56,8 +42,6 @@ h3 {
       font-size: $f-xs;
     }  
   }
-  
-  
 }
 
 @media only screen and (min-width: 1024px) {

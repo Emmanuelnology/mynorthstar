@@ -6,14 +6,14 @@
 }
 
 * {
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
 }
 
 a{
-  color:inherit;
-  text-decoration: none;
+    color:inherit;
+    text-decoration: none;
 }
 
 .btn {
@@ -145,9 +145,25 @@ span, p {
     text-align: justify;
 }
 
+.u-swapon-mobile {
+    display:inline-block;
+}
+
+.u-swapon-tablet {
+    display:none;
+}
+
 
 @media only screen and (min-width:750px){
-
+    
+    .u-swapon-mobile {
+        display:none;
+    }
+    
+    .u-swapon-tablet {
+        display:inline-block;
+    }
+    
     h1 {
         font-size:$f-xl;
     }
@@ -183,6 +199,6 @@ span, p {
         text-align: justify;
     }
     
-
+    
 }
 
