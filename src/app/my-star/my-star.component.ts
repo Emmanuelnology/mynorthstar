@@ -13,7 +13,7 @@ export class MyStarComponent implements OnInit {
   results: IResult;
   overallResult: number;
   datasets: number[][] = [];
-  labels:string []= [];
+  labels: string [] = [];
 
 
   constructor(private questionnaireService: QuestionnaireService) {

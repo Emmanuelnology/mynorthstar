@@ -8,12 +8,12 @@ import { IData, } from '../star/star.component';
 })
 export class MainStarComponent implements OnInit {
   @Input() showLabels = true;
-  @Input() starData: number[][]; //added
-  @Input() starLabels: string []; //added 
+  @Input() starData: number[][]; // added
+  @Input() starLabels: string []; // added
 
 
   colors = ['white', 'red', 'blue', 'green'];
-  
+
   outputData: IData = {
     datasets: [],
     labels: [],
