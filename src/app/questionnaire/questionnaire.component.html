@@ -10,7 +10,7 @@
             </label>
             <div class="scoring">
               <input
-                class="scoring-small"
+                class="scoring-filler"
                 type="range"
                 [(ngModel)]="question.score"
                 name="question-{{question.number}}" 
@@ -19,13 +19,12 @@
                 [style.backgroundColor]="getSliderColor(question?.score)"
               >
               <input
-                class="scoring-big"
+                class="scoring-blob"
                 type="range"
                 [(ngModel)]="question.score"
                 name="question-{{question.number}}" 
                 min="0" max="10"
                 required
-                [style.color]="getSliderColor(question?.score)"
               >
               <p id="output-score">{{question.score}}</p>
             </div>
