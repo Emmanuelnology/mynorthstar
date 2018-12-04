@@ -9,6 +9,8 @@ import { IData, StarComponent } from '../star/star.component';
 export class MainStarComponent implements OnInit, AfterViewInit {
   @Input() starData: number[][]; // added
   @Input() starLabels: string []; // added
+  @Input() animation = 500;
+ // added
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
 
@@ -18,6 +20,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
     datasets: [],
     labels: [],
     options:  {
+      animation: {duration: 500},
       tooltips: {
         backgroundColor: 'rgba(	176, 32, 98, 0.7)'
       },
@@ -49,9 +52,8 @@ export class MainStarComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit() {
-
     this.outputData.labels = this.starLabels;
-
+    this.outputData.options.animation = { duration: this.animation };
     for (const dataIndex in this.starData) {
       if (this.starData.hasOwnProperty(dataIndex)) {
       const dataset = {
