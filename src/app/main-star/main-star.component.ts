@@ -7,7 +7,6 @@ import { IData, StarComponent } from '../star/star.component';
   styleUrls: ['./main-star.component.scss']
 })
 export class MainStarComponent implements OnInit, AfterViewInit {
-  @Input() showLabels = true;
   @Input() starData: number[][]; // added
   @Input() starLabels: string []; // added
 
@@ -33,7 +32,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
           fontSize: 14
         },
         angleLines: {
-          color: '#b02062'
+          color: 'rgba(33,64,103)'
         },
         ticks: {
           fontFamily: 'nunito',
@@ -43,15 +42,13 @@ export class MainStarComponent implements OnInit, AfterViewInit {
           max: 10,
         },
         gridLines: {
-          color: '#777'
+          color: 'rgba(33,64,103)'
         }
       }
     }
   };
 
   ngOnInit() {
-
-    this.outputData.options.scale.pointLabels.display = this.showLabels;
 
     this.outputData.labels = this.starLabels;
 
@@ -63,12 +60,14 @@ export class MainStarComponent implements OnInit, AfterViewInit {
         fill: false,
         lineTension: 0.3,
         borderColor: this.colors[dataIndex],
+        borderWidth: 2,
         pointBorderColor: 'white',
         pointRadius: 3,
         pointBackgroundColor: 'white'
       };
       this.outputData.datasets.push(dataset);
     }}
+
 
   }
 
