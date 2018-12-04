@@ -63,6 +63,9 @@ export interface IData {
   options: IRadarChartOptions;
 }
 
+interface IChart extends Chart {
+  options?;
+}
 
 @Component({
   selector: 'app-star',
@@ -71,10 +74,11 @@ export interface IData {
 })
 
 export class StarComponent implements AfterViewInit, OnInit {
+  @Input() showLabels = true;
   @Input() data: IData;
   @Input() size = '100%';
 
-  chart: Chart = {} as Chart;
+  chart: IChart = {} as Chart;
   canvasID: string;
   ctx;
   canvas;
@@ -176,13 +180,18 @@ export class StarComponent implements AfterViewInit, OnInit {
     if (this.needsGradient()) {
       this.overrideGradient();
     }
+    // No other way to change charts other than this. Maybe you can help?
+    this.chart.options.scale.pointLabels.display = (window.innerWidth > 768);
     this.chart.update();
     console.log('Chart was updated');
   }
 
   ngAfterViewInit() {
     this.createChart();
+    this.redraw();
   }
+
+
 
   ngOnInit () {
     this.makeStarUnique();
