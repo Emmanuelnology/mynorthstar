@@ -1,17 +1,17 @@
 <app-layout-default icon="fas fa-history" pageTitle="Compare star">
   <div id="layout">
-      <!-- <app-progress-arc class="u-swapon-tablet"
-      [score]="overallResult" 
-      color="turquoise" 
-      size="100"
-      ></app-progress-arc> -->
+    <div id="mobile-arc" class="u-swapon-mobile">
+      <app-progress-arc class="u-swapon-mobile" [score]="currentScore" color="turquoise" size="60"></app-progress-arc>
+    </div>
     <div id="star">
-      <!-- <app-star [data]="data"></app-star> -->
       <app-main-star [starData]="data.datasets" [starLabels]="data.labels" [animation]="animation" [showLegend]="true"></app-main-star>
+    </div>
+    <div id="tablet-arc" class="u-swapon-tablet" >
+      <app-progress-arc class="u-swapon-tablet" [score]="currentScore" color="turquoise" size="100"></app-progress-arc>
     </div>
     <div id="history">
       <div id="border-container">
-        <app-history (checked) = "addRemoveData($event)"></app-history>
+        <app-history (checked)="addRemoveData($event)"></app-history>
       </div>
     </div>
   </div>
