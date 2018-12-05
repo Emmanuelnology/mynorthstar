@@ -1,8 +1,19 @@
-<app-layout-default>
+<app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
+ 
   <section>
-<p style="color: white">
-  user-profile-options works!
-</p>
-</section>
+    <p style="color: white">
+      user-profile-options works!
+    </p>
+    <form (ngSubmit)="updateClientEmailAddress()">
+      <fieldset>
+          <label for="Email">New email</label>
+          <input [(ngModel)]="newEmail" type="email" name="Email" id="newEmail" required>
+
+          <button class="btn btn-flat btn-navy" type="submit" id="submit">Update email</button>
+
+      </fieldset>
+    </form>
+
+  </section>
 </app-layout-default>
 

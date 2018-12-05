@@ -57,7 +57,7 @@ var routes = [
     { path: '', component: my_star_component_1.MyStarComponent, canActivate: [auth_guard_service_1.AuthGuard] },
     { path: 'error', component: errors_component_1.ErrorsComponent },
     { path: 'main-star', component: main_star_component_1.MainStarComponent },
-    { path: 'user-profile', component: user_profile_options_component_1.UserProfileOptionsComponent },
+    { path: 'user-profile', component: user_profile_options_component_1.UserProfileOptionsComponent, canActivate: [auth_guard_service_1.AuthGuard] },
     { path: '**', component: errors_component_1.ErrorsComponent, data: { error: 404 } }
 ];
 var AppModule = /** @class */ (function () {

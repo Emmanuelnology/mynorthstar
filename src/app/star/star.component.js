@@ -71,6 +71,8 @@ var StarComponent = /** @class */ (function () {
         var parentElement = document.getElementById(this.canvasID + '-parent');
         var gradient = this.createGradient(this.ctx, parentElement);
         var pointColors = this.createRadarPointColors(this.data.datasets[0].data);
+        this.data.options.layout.padding.bottom = 0;
+        this.data.options.layout.padding.top = 0;
         this.data.datasets[0].borderColor = gradient;
         this.data.datasets[0].pointBackgroundColor = pointColors;
         this.data.datasets[0].pointBorderColor = 'transparent';
@@ -101,7 +103,13 @@ var StarComponent = /** @class */ (function () {
             this.overrideGradient();
         }
         // No other way to change charts other than this. Maybe you can help?
-        this.chart.options.scale.pointLabels.display = (window.innerWidth > 768);
+        if (window.innerWidth > 768) {
+            this.chart.options.layout.padding.bottom = 10;
+            this.chart.options.scale.pointLabels.display = true;
+        }
+        else {
+            this.chart.options.scale.pointLabels.display = false;
+        }
         this.chart.update();
         console.log('Chart was updated');
     };
