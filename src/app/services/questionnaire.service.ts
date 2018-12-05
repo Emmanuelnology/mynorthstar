@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthService, IUser } from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 export interface IQuestion {
   title: string;
