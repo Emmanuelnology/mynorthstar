@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { IResult, QuestionnaireService, exampleQuestions, UploadToFirebase } from '../services/questionnaire.service';
-import { IDataSet } from '../main-star/main-star.component';
-import { AuthService, IUser } from '../services/auth.service';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { identifierModuleUrl } from '@angular/compiler';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {  QuestionnaireService, exampleQuestions, UploadToFirebase } from '../services/questionnaire.service';
+import { AuthService } from '../services/auth.service';
+import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 
 
 @Component({
@@ -12,6 +10,8 @@ import { identifierModuleUrl } from '@angular/compiler';
   styleUrls: ['./my-star.component.scss']
 })
 export class MyStarComponent implements OnInit {
+  @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
+
   questions = exampleQuestions;
   results;
   overallResult: number;
@@ -19,11 +19,9 @@ export class MyStarComponent implements OnInit {
   labels: string [] = [];
   user;
 
-
   constructor(private questionnaireService: QuestionnaireService,
     private authService: AuthService,
     private firebase: UploadToFirebase) {
-
     this.user = authService.user;
 
 
@@ -33,7 +31,7 @@ export class MyStarComponent implements OnInit {
    }
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
-    console.log('hi', this.getResults());
+    console.log('Results:', this.getResults());
   }
 
   restructureData(results) {
@@ -49,11 +47,13 @@ export class MyStarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firebase.getRecent(this.user, 2).subscribe((results) => {
+    this.firebase.getRecent(this.user, 1).subscribe((results) => {
+      if (results.length > 0) {
       this.restructureData(results[0].categoryResults);
-      console.log(this.datasets);
-      console.log(this.labels);
-    });
+      this.mainStarViewChild.starData[0].data = this.datasets[0].data;
+      this.mainStarViewChild.redraw();
+    }
+  });
   }
 
 }

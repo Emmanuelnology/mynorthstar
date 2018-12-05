@@ -1,39 +1,84 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
-    <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
-      where 0 is strongly disagree and 10 strongly agree.
-    </p>      
+    <!-- <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
+        where 0 is strongly disagree and 10 strongly agree.
+    </p>       -->
     <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
         <div *ngFor="let question of questions">
-          <div  class="container">
-            <label for="questions">
-              <p>{{question.number}}. {{question.question}}</p>
-            </label>
-            <div class="scoring">
-              <input
-                class="scoring-filler"
-                type="range"
-                [(ngModel)]="question.score"
-                name="question-{{question.number}}" 
-                min="0" max="10"                
-                required
-                [style.backgroundColor]="getSliderColor(question?.score)"
-              >
-              <input
-                class="scoring-blob"
-                type="range"
-                [(ngModel)]="question.score"
-                name="question-{{question.number}}" 
-                min="0" max="10"
-                required
-              >
-
-              <p id="output-score">{{question.score}}</p>
+            <div  class="container"
+                   [style.borderColor]="getSliderColor(question?.score)" >
+                <label for="questions">
+                    <p>{{question.question}}</p>
+                </label>
+                <div class="scoring">
+                    <div class="score-flex-box">
+                        <div class="score-flex">
+                            <input
+                            class="scoring-filler score-inputs"
+                            type="range"
+                            [(ngModel)]="question.score"
+                            name="question-{{question.number}}" 
+                            min="0" max="10"                
+                            required
+                            [style.backgroundColor]="getSliderColor(question?.score)"
+                            >
+                            <input
+                            class="scoring-blob score-inputs"
+                            type="range"
+                            [(ngModel)]="question.score"
+                            (click)="blobClick()"
+                            name="question-{{question.number}}" 
+                            min="0" max="10"
+                            required
+                            >
+                        </div>
+                    </div>
+                    <div class="score-position">
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>0</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>1</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>2</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>3</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>4</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>5</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>6</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>7</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>8</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>9</div>
+                        <div class="ind-score-position"><i class="fas fa-circle"></i>10</div>
+                    </div>
+                    <!-- <p 
+                        id="output-score"
+                        [style.color]="getSliderColor(question?.score)">
+                        {{question.score}}
+                    </p> -->
             </div>
-          </div>
         </div>
-        <div class="sendButton">
-          <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
-        </div>
-      </form>
-</app-layout-default>
+        
+    </div>
 
+    <div class="sendButton">
+        <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
+    </div>
+</form>
+<!-- <p>{{number}} Kieran</p> -->
+<div class="progress-arc {{color}}">
+    <span class="progress-amount" [ngStyle]="{
+    'font-size':fontSize  
+    }">
+        {{number}}/6
+        <!-- {{number*(100/6)}}% -->
+            <!-- <small>Question</small> -->
+    </span>
+
+    <div class="progress-component">
+        <ng2-arc-progress
+        [size]='size'
+        progress={{number*17}}
+        gap=0
+        backgroundColor='rgba(232, 236, 241, 0.3)'
+        strokeWidth='3px'
+        >
+
+        </ng2-arc-progress>
+    </div>
+</div>
+</app-layout-default>
