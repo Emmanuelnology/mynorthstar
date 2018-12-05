@@ -52,6 +52,7 @@ export class MyStarComponent implements OnInit {
     this.firebase.getRecent(this.user,2).subscribe((results)=>{
       this.restructureData(results[0].categoryResults);
       console.log(this.datasets);
+      console.log(this.labels);
     });
   }
 
