@@ -3,8 +3,8 @@
     <ul>
       <div *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">
 
-       <div [hidden]="task.isChecked === false">
-          <li class=" list-item2">
+       <div [hidden]="task.isChecked === true">
+          <li class=" list-item">
             <div class="test">
               <label class="container"> 
                 <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
@@ -22,8 +22,8 @@
         </li>
         </div>
 
-      <div [hidden]="task.isChecked === true">
-        <li class="list-item">
+      <div [hidden]="task.isChecked === false">
+        <li class="list-item2">
           <div class="test">
             <label class="container"> 
               <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">

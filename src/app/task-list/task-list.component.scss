@@ -1,32 +1,11 @@
 @import "../../variables.scss";
 
-// button{
-//     padding: 1px 5px;
-//     width: 25px;
-//     height: 25px;
-// }
-
-button {
-    font-size: $f-xs;
-	background: none;
-	color: $pink;
-    border: none;
-    margin: 0 $s-sm $s-sm 0;
-	padding: 1px 5px;
-	cursor: pointer;
-	outline: inherit;
-}
-
-button:hover {
-    background-color: rgba(176, 32, 98, 0.2);
-}
-
 .task-container {
     padding: $s-sm;
 }
 
 .tasklist {
-    padding-left: $s-sm;
+    padding: 0 $s-sm;
 }
 
 .list-item {
@@ -35,7 +14,7 @@ button:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     border: 1px solid $pink;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgba(176, 32, 98, 0.2);
 }
 
@@ -45,17 +24,9 @@ button:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     border: 1px solid $turquoise;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: $turquoise-tint;
 }
-
-// ul li {
-//     background-color: rgba(176, 32, 98, 0.2);
-//    }
-
-// ul li.selected {
-//     background-color: $turquoise-tint;
-//    }
 
 .test {
     display: flex;
@@ -66,21 +37,24 @@ li {
     font-size: $f-md;
     list-style-type: none;
     vertical-align: top;
+    margin: $s-sm 0;
 }
 
 label {
     position: relative;
 }
 
+.unchecked, .checked {
+    font-size: $f-md;
+    margin: 0 $s-sm;
+}
+
 .unchecked {
     color: $pink;
-    font-size: $f-lg;
 }
 
 .checked {
-    // text-align: right;
     color: $turquoise;
-    font-size: $f-lg;
 }
 
 .checked:hover,
@@ -97,8 +71,23 @@ label {
     background: fill;
 }
 
-input[type=checkbox]:checked ~ .list-item {
-    background-color: $turquoise-tint;
+// input[type=checkbox]:checked ~ .list-item {
+//     background-color: $turquoise-tint;
+// }
+
+button {
+    font-size: $f-xs;
+	background: none;
+	color: $pink;
+    border: none;
+    margin: $ls-xs $ls-sm;
+	padding: 1px 5px;
+	cursor: pointer;
+    outline: inherit;
+}
+
+button:hover {
+    background-color: rgba(176, 32, 98, 0.2);
 }
 
 /* The container */
