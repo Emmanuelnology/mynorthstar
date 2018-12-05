@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Task } from '../task-manager/task';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 
 
 // Snapshot changes and then pipe map and return document ID.
@@ -26,9 +26,9 @@ export class TaskManagerService {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
           return {id, ...data };
-        })
-       };
-    
+        });
+       }
+
     addTask(task: Task) {
         return this.taskCollection.add(task).catch(
             () => {
@@ -64,13 +64,13 @@ export class TaskManagerService {
             isChecked: task.isChecked
         })
         .then(() => {
-            console.log('updated tasks ' + task.task)
+            console.log('updated tasks ' + task.task);
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error);
             throw new Error('Unable to update user');
-        })
-        
+        });
+
     }
 
 }

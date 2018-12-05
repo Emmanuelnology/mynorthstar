@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService) { 
+  constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService) {
     this.tasks = this.taskManagerService.tasks;
   }
 
