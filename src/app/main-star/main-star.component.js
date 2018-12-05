@@ -12,7 +12,7 @@ var MainStarComponent = /** @class */ (function () {
     function MainStarComponent() {
         this.animation = 500;
         this.showLegend = false;
-        this.colors = ['white', '#f32f6d', '#06fab4', '#3fb7fd', '#6ecbd3', '#795afd'];
+        this.colors = ['white', '#06fab4', '#3fb7fd', '#f32f6d', '#6ecbd3', '#795afd'];
         this.outputData = {
             datasets: [],
             labels: [],
@@ -80,9 +80,9 @@ var MainStarComponent = /** @class */ (function () {
                     lineTension: 0.3,
                     borderColor: this.colors[dataIndex],
                     borderWidth: 2,
-                    pointBorderColor: 'white',
+                    pointBorderColor: this.colors[dataIndex],
                     pointRadius: 3,
-                    pointBackgroundColor: 'white'
+                    pointBackgroundColor: this.colors[dataIndex]
                 };
                 this.outputData.datasets.push(dataset);
             }

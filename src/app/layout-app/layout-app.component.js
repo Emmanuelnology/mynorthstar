@@ -11,9 +11,9 @@ var LayoutAppComponent = /** @class */ (function () {
     function LayoutAppComponent(authService) {
         this.authService = authService;
         this.menuIsVisible = true;
-        this.user = authService.user;
     }
     LayoutAppComponent.prototype.ngOnInit = function () {
+        this.user = this.authService.afAuth.auth.currentUser;
     };
     LayoutAppComponent.prototype.onResize = function () {
         this.menuIsVisible = true;
