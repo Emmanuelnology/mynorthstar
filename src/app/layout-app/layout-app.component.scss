@@ -78,6 +78,8 @@ h1 {
 }
 
 .content {
+  background-image: url('../../assets/backgrounds/background2.jpg');
+  background-size: cover;
   border: 1px solid $border-color;
   border-radius: 5px;
   padding: $s-sm;
