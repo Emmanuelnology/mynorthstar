@@ -135,7 +135,6 @@ export class StarComponent implements AfterViewInit, OnInit {
   createGradient(ctx, parentElement) {
     const width =  parentElement.offsetWidth;
     const height =  width * 0.5;
-    console.log(height);
     const gradient = ctx.createRadialGradient(
       width / 2,
       height / 2,
@@ -201,7 +200,6 @@ export class StarComponent implements AfterViewInit, OnInit {
     }
 
     this.chart.update();
-    console.log('Chart was updated');
   }
 
   ngAfterViewInit() {
