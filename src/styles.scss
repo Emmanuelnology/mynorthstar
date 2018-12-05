@@ -103,6 +103,8 @@ a{
 h1 {
     font-size:$f-xs;
     display:inline-block;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 
 h2 {
@@ -155,6 +157,8 @@ span, p {
 
 
 @media only screen and (min-width:$tablet-max){
+
+    @include media-md;
     
     .u-swapon-mobile {
         display:none;
@@ -164,40 +168,40 @@ span, p {
         display:inline-block;
     }
     
-    h1 {
-        font-size:$f-xl;
-    }
+    // h1 {
+    //     font-size:$f-xl;
+    // }
     
-    h2 {
-        font-size:$f-xl;
-        margin-top: $s-sm;
-    }
+    // h2 {
+    //     font-size:$f-xl;
+    //     margin-top: $s-sm;
+    // }
     
-    h3 {
-        font-size:$f-lg;
-        margin-top: $s-sm;
-    }
+    // h3 {
+    //     font-size:$f-lg;
+    //     margin-top: $s-sm;
+    // }
     
-    h4 {
-        font-size:$f-md;
-        margin-top: $s-sm;
-    }
+    // h4 {
+    //     font-size:$f-md;
+    //     margin-top: $s-sm;
+    // }
     
-    h5 {
-        font-size:$f-md;
-        margin-top: $s-sm;
-    }
+    // h5 {
+    //     font-size:$f-md;
+    //     margin-top: $s-sm;
+    // }
     
-    h6 {
-        font-size:$f-sm;
-        margin-top: $s-sm;
-    }
+    // h6 {
+    //     font-size:$f-sm;
+    //     margin-top: $s-sm;
+    // }
     
-    p {
-        font-size: $f-sm;
-        margin: $s-xs 0;
-        text-align: justify;
-    }
+    // p {
+    //     font-size: $f-sm;
+    //     margin: $s-xs 0;
+    //     text-align: justify;
+    // }
     
     
 }
