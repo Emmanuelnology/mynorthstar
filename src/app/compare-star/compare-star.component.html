@@ -2,11 +2,11 @@
   <div id="layout">
     <div id="star">
       <!-- <app-star [data]="data"></app-star> -->
-      <app-main-star [starData]="data.datasets" [starLabels]="data.labels" [animation]=0 [showLegend]="true"></app-main-star>
+      <app-main-star [starData]="data.datasets" [starLabels]="data.labels" [animation]="animation" [showLegend]="true"></app-main-star>
     </div>
     <div id="history">
       <div id="border-container">
-        <app-history (checked) = "addData($event)"></app-history>
+        <app-history (checked) = "addRemoveData($event)"></app-history>
       </div>
     </div>
   </div>

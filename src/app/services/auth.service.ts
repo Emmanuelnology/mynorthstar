@@ -15,12 +15,13 @@ interface IUser {
 })
 
 export class AuthService {
-  user: IUser;
 
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
-    if (this.afAuth.auth) {
-      this.user = this.afAuth.auth.currentUser;
-    }
+
+  }
+
+  get user() {
+    return this.afAuth.auth.currentUser;
   }
 
   logIn(email, password) {
@@ -65,7 +66,4 @@ export class AuthService {
       photoURL: newImage
     });
   }
-
-
-
 }
