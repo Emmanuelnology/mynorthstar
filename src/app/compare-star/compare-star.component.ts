@@ -14,6 +14,10 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
+  currentData = {label: 'Current', data: [3, 9, 6, 8, 3, 9, 4, 9, 5]};
+  emptyData = {label: 'remove', data: []};
+  animation = 0;
+
   data = {
     datasets: [],
     labels: ['Career', 'Friends & Family', 'Happiness',
@@ -31,7 +35,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   constructor() {
     this.data.datasets.push(
-      {label: 'Current', data: [3, 9, 6, 8, 3, 9, 4, 9, 5]}
+      this.currentData
     );
   }
 
@@ -45,19 +49,19 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     this.mainStarViewChild.redraw();
   }
 
-  removeData() {
+  editData() {
     this.data.datasets = [
-      {label: 'Current', data: [3, 9, 6, 8, 3, 9, 4, 9, 5]},
-      {label: 'remove', data: []},
-      {label: 'remove', data: []},
-      {label: 'remove', data: []},
-      {label: 'remove', data: []},
-      {label: 'remove', data: []}
+      this.currentData,
+      this.emptyData,
+      this.emptyData,
+      this.emptyData,
+      this.emptyData,
+      this.emptyData
     ];
   }
 
-  addData(activeIndex: number[]) {
-    this.removeData();
+  addRemoveData(activeIndex: number[]) {
+    this.editData();
     for (const index of activeIndex) {
       this.data.datasets[index + 1] = this.pastData[index];
     }
