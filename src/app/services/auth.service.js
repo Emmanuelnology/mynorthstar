@@ -25,6 +25,12 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.resetPassword = function (email) {
         return this.afAuth.auth.sendPasswordResetEmail(email);
     };
+    AuthService.prototype.changeEmailAddress = function (email, password, newEmail) {
+        this.user.signInWithEmailAndPassword(email, password)
+            .then(function (user) {
+            this.user.updateEmail(newEmail);
+        });
+    };
     AuthService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
