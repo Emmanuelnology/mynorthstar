@@ -56,7 +56,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
       {label: 'remove', data: []},
       {label: 'remove', data: []},
       {label: 'remove', data: []}
-    ]
+    ];
   }
 
   addData(activeIndex: number[]) {
