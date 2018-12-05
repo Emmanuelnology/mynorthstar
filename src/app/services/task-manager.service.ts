@@ -48,21 +48,11 @@ export class TaskManagerService {
         });
     }
 
-    // toggleCheckBox(task: Task, bool: boolean) {
-    //     this.db.collection('/tasks').doc(`${task.id}`).update({
-    //         isChecked: bool,
-    //     });
-    // }
-
     checked(task: Task) {
-        // let payload = {
-        //     isChecked: task.isChecked,
-        // }
-        // this.taskCollection.doc(task.id).update(payload);
-
-        this.taskCollection.doc(task.id).update({
-            isChecked: task.isChecked
-        })
+        const payload = {
+            isChecked: task.isChecked,
+        };
+        this.taskCollection.doc(task.id).update(payload)
         .then(() => {
             console.log('updated tasks ' + task.task);
         })
@@ -70,7 +60,6 @@ export class TaskManagerService {
             console.log(error);
             throw new Error('Unable to update user');
         });
-
     }
 
 }

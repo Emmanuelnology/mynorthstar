@@ -139,6 +139,11 @@ h1 > i {
   margin-right: $s-xs;
 }
 
+.greeting:hover,
+.circle-border:hover {
+  cursor: pointer;
+}
+
 
 @media (min-width: $tablet-min){
   $menuWidth: 70px;

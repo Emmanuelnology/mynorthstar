@@ -19,11 +19,14 @@ var MyStarComponent = /** @class */ (function () {
         this.restructureData(this.results.categoryResults);
     }
     MyStarComponent.prototype.restructureData = function (results) {
-        var data = [];
+        var data = {
+            data: [],
+            label: 'My Star'
+        };
         for (var _i = 0, results_1 = results; _i < results_1.length; _i++) {
             var result = results_1[_i];
             this.labels.push(result.categoryName);
-            data.push(Math.round(result.categoryAverage * 100) / 100);
+            data.data.push(Math.round(result.categoryAverage * 100) / 100);
         }
         this.datasets.push(data);
     };
