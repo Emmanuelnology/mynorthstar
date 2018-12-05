@@ -1,7 +1,7 @@
 <div class="tasklist">
   <div class="item-wrapper">
     <ul>
-      <li class="list-item" *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">
+      <li class="list-item list-item2" *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">
           <div class="test">
             <label class="container"> 
               <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
