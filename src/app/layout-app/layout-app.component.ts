@@ -16,10 +16,11 @@ export class LayoutAppComponent implements OnInit {
   user;
 
   constructor(private authService: AuthService) {
-    this.user = authService.user;
   }
 
   ngOnInit() {
+    this.user = this.authService.user;
+
   }
   @HostListener('window:resize', ['$event'])
   onResize() {
