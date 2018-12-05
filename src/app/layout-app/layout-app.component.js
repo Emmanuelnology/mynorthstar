@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var LayoutAppComponent = /** @class */ (function () {
-    function LayoutAppComponent(afAuth, authService) {
-        this.afAuth = afAuth;
+    function LayoutAppComponent(authService) {
         this.authService = authService;
         this.menuIsVisible = true;
-        this.user = this.afAuth.auth.currentUser;
+        this.user = authService.user;
     }
     LayoutAppComponent.prototype.ngOnInit = function () {
     };
