@@ -16,7 +16,6 @@ interface IUser {
 
 export class AuthService {
 
-
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
 
   }
@@ -67,7 +66,4 @@ export class AuthService {
       photoURL: newImage
     });
   }
-
-
-
 }

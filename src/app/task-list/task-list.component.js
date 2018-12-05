@@ -46,6 +46,14 @@ var TaskListComponent = /** @class */ (function () {
     TaskListComponent.prototype.checked = function (task) {
         this.taskManagerService.checked(task);
     };
+    TaskListComponent.prototype.checkForUserIdMatch = function (task) {
+        var show = false;
+        var userId = this.taskManagerService.userId();
+        var taskUid = task.userId;
+        if (taskUid === userId) {
+            return show = true;
+        }
+    };
     TaskListComponent = __decorate([
         core_1.Component({
             selector: 'app-task-list',
