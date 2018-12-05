@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { Ng2ArcProgressModule } from 'angular2-arc-progress';
 
 // Firebase imports
-// If you have errors, check slack chat, I've posted a solution - George.
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
