@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
-interface IUser {
+export interface IUser {
   uid: string;
   photoURL: string;
   displayName: string;

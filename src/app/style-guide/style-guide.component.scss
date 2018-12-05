@@ -24,3 +24,15 @@
 button {
     margin-right: $s-sm;
 }
+
+@media (min-width: $phone-min) {
+    @include media-sm;
+}
+
+@media (min-width: $tablet-max) {
+    @include media-md;
+}
+
+@media (min-width: $laptop-max) {
+    @include media-lg;
+}

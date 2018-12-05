@@ -7,9 +7,9 @@ import {IData} from '../star/star.component';
 })
 
 export class TinyStarComponent implements OnInit {
-@Input() data: number[];
+@Input() starData: number[] = [];
 @Input() size: string;
-payload = {
+payload: IData = {
   datasets : [{
     data: [],
     label: 'Me',
@@ -23,6 +23,7 @@ payload = {
   }],
   labels: [],
   options: {
+    animation:  {duration: 0 },
     legend: {
       display: false
     },
@@ -48,11 +49,16 @@ payload = {
 };
 
 
+
+
   ngOnInit() {
-    this.payload.datasets[0].data = this.data;
-    for (const d of this.data) {
-      this.payload.labels.push(d);
+      this.payload.datasets[0].data = this.starData;
+      for (const d of this.starData) {
+        this.payload.labels.push(d.toString());
+      }
+      console.log(this.payload, "payload");
     }
-  }
+
+
 
 }
