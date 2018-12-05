@@ -9,6 +9,7 @@ exports.__esModule = true;
 var core_1 = require("@angular/core");
 var TinyStarComponent = /** @class */ (function () {
     function TinyStarComponent() {
+        this.starData = [];
         this.payload = {
             datasets: [{
                     data: [],
@@ -23,6 +24,7 @@ var TinyStarComponent = /** @class */ (function () {
                 }],
             labels: [],
             options: {
+                animation: { duration: 0 },
                 legend: {
                     display: false
                 },
@@ -48,15 +50,16 @@ var TinyStarComponent = /** @class */ (function () {
         };
     }
     TinyStarComponent.prototype.ngOnInit = function () {
-        this.payload.datasets[0].data = this.data;
-        for (var _i = 0, _a = this.data; _i < _a.length; _i++) {
+        this.payload.datasets[0].data = this.starData;
+        for (var _i = 0, _a = this.starData; _i < _a.length; _i++) {
             var d = _a[_i];
-            this.payload.labels.push(d);
+            this.payload.labels.push(d.toString());
         }
+        console.log(this.payload, 'payload');
     };
     __decorate([
         core_1.Input()
-    ], TinyStarComponent.prototype, "data");
+    ], TinyStarComponent.prototype, "starData");
     __decorate([
         core_1.Input()
     ], TinyStarComponent.prototype, "size");

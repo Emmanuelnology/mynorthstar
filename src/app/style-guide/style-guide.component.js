@@ -9,7 +9,6 @@ exports.__esModule = true;
 var core_1 = require("@angular/core");
 var StyleGuideComponent = /** @class */ (function () {
     function StyleGuideComponent() {
-        this.starData = [10, 2, 9];
     }
     StyleGuideComponent.prototype.ngOnInit = function () {
     };

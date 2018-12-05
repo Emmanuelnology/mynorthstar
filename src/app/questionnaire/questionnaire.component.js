@@ -8,15 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var QuestionnaireComponent = /** @class */ (function () {
-    function QuestionnaireComponent(rand, questionnaireService, router, afs) {
+    function QuestionnaireComponent(rand, questionnaireService, router, afs, uploadToFirebase) {
         this.rand = rand;
         this.questionnaireService = questionnaireService;
         this.router = router;
+        this.uploadToFirebase = uploadToFirebase;
         this.questions = [];
-        this.questions = this.rand.randomiseOrder(this.questions);
-        this.questionnaireFromFirebase = afs.collection('questionnaire').valueChanges();
     }
     QuestionnaireComponent.prototype.ngOnInit = function () {
+        this.getQuestions();
+    };
+    QuestionnaireComponent.prototype.getQuestions = function () {
+        var _this = this;
+        this.uploadToFirebase.getAllQuestions().subscribe(function (questions) {
+            _this.questions = _this.rand.randomiseOrder(questions);
+            console.log('HI', questions);
+        });
     };
     QuestionnaireComponent.prototype.getSliderColor = function (value) {
         if (value <= 2) {
@@ -33,42 +40,15 @@ var QuestionnaireComponent = /** @class */ (function () {
         }
     };
     QuestionnaireComponent.prototype.onSubmit = function () {
-        // // check if any field is undefined
-        // resort questions
-        // this.questionnaireService.saveResults(this.questions)
-        //     .then(() =>{
-        //         // redirect to my star page
-        //     })
-        //     .catch( (error)=>{
-        //         // display an error message
-        //     });
-        //
-        // console.log(this.questions);
-        var finalResults = this.questionnaireService.getResults(this.questions);
-        console.log(finalResults);
-        // if (finalResults.overallResult !== NaN) {
-        //     this.router.navigate(['/']);
-        //     console.log(finalResults);
-        //     console.log("THIS IS WORKING")
-        //     return finalResults;
-        // } else {
-        //     console.log("THIS IS WORKING")
-        //     return finalResults;
-        // }
-        // if (finalResults.overallResult !== NaN) {
-        this.router.navigate(['/']);
-        //     console.log(finalResults);
-        //     console.log("THIS IS WORKING")
-        //     return finalResults;
-        // } else {
-        //     console.log("NOT WORKING");
-        //     return finalResults;
-        // }
-        // let resultObject= {
-        //     questionnaire = this.questions,
-        //     results = this.resultService.getResults(this.questions)
-        // }
-        // save to firebase
+        var _this = this;
+        var results = this.questionnaireService.getResults(this.questions);
+        this.uploadToFirebase.upload(results)
+            .then(function () {
+            _this.router.navigate(['/']);
+            console.log(results);
+        })["catch"](function (error) {
+            // display error message
+        });
     };
     QuestionnaireComponent = __decorate([
         core_1.Component({

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { IResult, QuestionnaireService, exampleQuestions } from '../services/questionnaire.service';
-import { IDataSet } from '../main-star/main-star.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {  QuestionnaireService, exampleQuestions, UploadToFirebase } from '../services/questionnaire.service';
+import { AuthService } from '../services/auth.service';
+import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 
 
 @Component({
@@ -9,19 +10,28 @@ import { IDataSet } from '../main-star/main-star.component';
   styleUrls: ['./my-star.component.scss']
 })
 export class MyStarComponent implements OnInit {
+  @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
+
   questions = exampleQuestions;
-  results: IResult;
+  results;
   overallResult: number;
   datasets: IDataSet[] = [];
   labels: string [] = [];
+  user;
+
+  constructor(private questionnaireService: QuestionnaireService,
+    private authService: AuthService,
+    private firebase: UploadToFirebase) {
+    this.user = authService.user;
 
 
-  constructor(private questionnaireService: QuestionnaireService) {
-    this.results = this.questionnaireService.getResults(this.questions);
-    this.overallResult = this.results.overallResult;
+    // console.log("results are", this.results)
+    // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
-  this.restructureData(this.results.categoryResults);
-
+   }
+   getResults() {
+    this.firebase.getAllResults().subscribe((this.results));
+    console.log('Results:', this.getResults());
   }
 
   restructureData(results) {
@@ -37,6 +47,13 @@ export class MyStarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.firebase.getRecent(this.user, 1).subscribe((results) => {
+      if (results.length > 0) {
+      this.restructureData(results[0].categoryResults);
+      this.mainStarViewChild.starData[0].data = this.datasets[0].data;
+      this.mainStarViewChild.redraw();
+    }
+  });
   }
 
 }
