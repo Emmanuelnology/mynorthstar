@@ -49,9 +49,9 @@ export class TaskManagerService {
     }
 
     checked(task: Task) {
-        let payload = {
+        const payload = {
             isChecked: task.isChecked,
-        }
+        };
         this.taskCollection.doc(task.id).update(payload)
         .then(() => {
             console.log('updated tasks ' + task.task);
