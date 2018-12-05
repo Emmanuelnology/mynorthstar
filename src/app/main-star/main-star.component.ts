@@ -33,7 +33,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
         }
       },
       legend: {
-        display: false
+        display: true
       },
       scale: {
         pointLabels: {

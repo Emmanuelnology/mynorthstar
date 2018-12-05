@@ -154,6 +154,7 @@ export class StarComponent implements AfterViewInit, OnInit {
     const parentElement = document.getElementById(this.canvasID + '-parent');
       const gradient = this.createGradient(this.ctx, parentElement);
       const pointColors = this.createRadarPointColors(this.data.datasets[0].data);
+      this.data.options.legend.display = false;
       this.data.datasets[0].borderColor = gradient;
       this.data.datasets[0].pointBackgroundColor = pointColors;
       this.data.datasets[0].pointBorderColor = 'transparent';
