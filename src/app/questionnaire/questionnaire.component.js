@@ -14,15 +14,21 @@ var QuestionnaireComponent = /** @class */ (function () {
         this.router = router;
         this.uploadToFirebase = uploadToFirebase;
         this.questions = [];
+        this.number = 0;
     }
     QuestionnaireComponent.prototype.ngOnInit = function () {
         this.getQuestions();
+    };
+    QuestionnaireComponent.prototype.blobClick = function () {
+        if (this.number < 6) {
+            return this.number++;
+        }
     };
     QuestionnaireComponent.prototype.getQuestions = function () {
         var _this = this;
         this.uploadToFirebase.getAllQuestions().subscribe(function (questions) {
             _this.questions = _this.rand.randomiseOrder(questions);
-            console.log('HI', questions);
+            console.log('Questions:', questions);
         });
     };
     QuestionnaireComponent.prototype.getSliderColor = function (value) {
