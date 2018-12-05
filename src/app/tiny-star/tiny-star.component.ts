@@ -56,7 +56,7 @@ payload: IData = {
       for (const d of this.starData) {
         this.payload.labels.push(d.toString());
       }
-      console.log(this.payload, "payload");
+      console.log(this.payload, 'payload');
     }
 
 

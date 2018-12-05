@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthService, IUser } from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 export interface IQuestion {
   title: string;
@@ -381,14 +381,13 @@ questionnaireCollection: AngularFirestoreCollection<IResult>;
       map(this.restructureDocsInCollection));
   }
 
-  getAllResults(){
-    return this.questionnaireCollection.get().pipe( //score
+  getAllResults() {
+    return this.questionnaireCollection.get().pipe( // score
       map(this.restructureDocsInCollection));
        }
-  
+
   getRecent(user, numberOfResults = 1) {
-    console.log('Finding results for user: ' + user.displayName);
-    const resultCollection = this.afs.collection<IResult>('questionnaires', (reference)=> {
+    const resultCollection = this.afs.collection<IResult>('questionnaires', (reference) => {
       return reference
         .orderBy('date', 'desc')
         .where('user.uid', '==', user.uid)

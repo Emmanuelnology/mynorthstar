@@ -1,44 +1,78 @@
 @import '../../variables.scss';
 
-
-.instruction {
-    font-style: italic;
-    padding-bottom: 1em;
+form {
+    border: 2px solid rgb(26, 52, 87);
+    background-color: rgb(7,13,23);
+    border-radius: 17px;
 }
 
 div.container p {
     display: inline-block;
+    font-size:$f-md;
 }
 
 .container {
     margin: 0; 
     text-align: left;
+    margin-bottom: 30px;
+    padding: 10px;
+    
 }
 
-p {
-    font-size: $f-sm;
+.score-flex-box {
+    display: flex;
 }
 
-#output-score {
-    color: $bright-green;
-    background: $nav-color;
-    width: 35px;
-    border-radius: 50%;
+.score-flex {
+    flex-grow: 1;
+}
+
+.score-position {
+    display: flex;
+    top: 45px;
+    position: relative;
+}
+
+.score-inputs {
+    width: 92.5%;
+    top: 20px;
+    position: absolute;
+    flex-grow: 1;
+    margin-left: 2%;
+    margin-right: 2%;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.fas {
+    display: block;
+    font-size: 0.6em;
+    color: rgb(26, 52, 87);
+    // color: white;
+}
+
+.ind-score-position {
+    flex-grow: 1;
     text-align: center;
-    display: inline-block;
-    font-size: $f-md;
+    font-size: 0.9em;
+    color: rgb(26,52,87);
+    // color: white;
 }
 
 .scoring {
     position: relative;
+    height: 100px;
 }
 
-.scoring > input {
+.score-flex > input {    
     height: 12px;
-    width: 80%;
     outline: none;
     border-radius: 5px;
     -webkit-appearance: none;
+    position: absolute;
+
     
     &:hover {
         cursor: pointer;
@@ -47,19 +81,15 @@ p {
 
 .scoring-filler {
     overflow: hidden;
-    margin: 20px 5px 30px 5px;
     background-color: $nav-color;
 }
 
 .scoring-blob {
-    position: absolute;
-    top: 20px;
-    left: 5px;
     background-color: transparent;
 }
 
 .scoring-filler::-webkit-slider-thumb { //filler
-    box-shadow: 300px 0 0 300px $nav-color;
+    box-shadow: 1000px 0 0 1000px rgb(26,52,87);
     width: 0;
     height: 0;
 }
@@ -70,8 +100,10 @@ p {
     -webkit-appearance: none;
     border-radius: 50%;
     cursor: pointer;
-    background: $bright-green;
-    box-shadow: 0 0 50px 2px $bright-green;
+    // background: white;
+    // box-shadow: 0 0 50px 2px $bright-green;
+    background: white;
+    box-shadow: 0 0 1px 1px white;
 }
 
 div.sendButton {
@@ -79,16 +111,85 @@ div.sendButton {
     padding: 30px;
 }
 
+.progress-arc {
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.progress-amount {
+    z-index:1;
+    position:absolute;
+    margin-top: -2px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+.progress-component {
+    transform:rotate(180deg);
+}
+
+small {
+    font-size: 40%;
+    text-transform: uppercase;
+    display:none;
+}
+
+
 @media only screen and (min-width: 528px) {
-    .scoring > input {
-        width: 50%;
-        height: 8px;
-    }
-    .scoring-blob::-webkit-slider-thumb { 
-        width: 17px;
-        height: 17px;
+    .score-inputs {
+    width: 91.5%;
+    top: 20px;
+    position: absolute;
+    flex-grow: 1;
+    margin-left: 4%;
+    margin-right: 4%;
+
+    &:hover {
+        cursor: pointer;
     }
     p {
-        font-size: $f-md;
+        font-size:$f-lg;
     }
+}    
 }
+
+// @media only screen and (min-width: 528px) {
+//     // .scoring {
+//     //     margin-top: 20px;
+//     //     height: 100px;
+//     // }
+//     .scoring > input {
+//         // width: 50%;
+//         height: 8px;
+//     }
+//     // #output-score {
+//     //     margin-left: 69%;
+//     //     font-size: 60px;
+//     //     width: 85px;
+//     //     top: -20px;
+//     // }
+//     .scoring-blob::-webkit-slider-thumb { 
+//         width: 17px;
+//         height: 17px;
+//     }
+// }
+
+
+
+
+
+// // #output-score {
+// //     color: $bright-green;
+// //     background: $nav-color;
+// //     width: 30px;
+// //     border-radius: 50%;
+// //     text-align: center;
+// //     position: absolute;
+// //     margin-left: 85%;
+// //     font-size: $f-md;
+
+// //     top: 5px;
+// // }
