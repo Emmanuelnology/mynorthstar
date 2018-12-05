@@ -3,7 +3,6 @@ import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
 // import { viewAttached } from '@angular/core/src/render3/instructions';
-import { Colours } from '../../colours';
 
 @Component({
   selector: 'app-compare-star',
@@ -14,8 +13,6 @@ import { Colours } from '../../colours';
 export class CompareStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
-
-  public colours: Colours;
 
   data = {
     datasets: [],
@@ -68,5 +65,4 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     console.log(this.mainStarViewChild.starData);
     this.redraw();
   }
-
 }
