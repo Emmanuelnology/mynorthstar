@@ -22,16 +22,16 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   };
 
   public pastData: IDataSet[] = [
-    {label: 'Nov 18', data: [9, 2, 8, 3, 9, 2, 8, 4, 2]},
-    {label: 'Oct 18', data: [1, 6, 4, 3, 8, 6, 3, 2, 6]},
-    {label: 'Sep 18', data: [3, 7, 8, 4, 6, 4, 3, 2, 5]},
-    {label: 'Aug 18', data: [3, 6, 6, 7, 4, 8, 3, 6, 3]},
-    {label: 'Jul 18', data: [4, 5, 2, 7, 6, 4, 8, 3, 3]}
+    {label: 'Nov 18', data: [2, 7, 5, 6, 3, 8, 3, 7, 3]},
+    {label: 'Oct 18', data: [1, 6, 4, 5, 2, 7, 3, 6, 2]},
+    {label: 'Sep 18', data: [2, 5, 3, 4, 1, 6, 2, 5, 2]},
+    {label: 'Aug 18', data: [1, 4, 2, 3, 2, 5, 1, 3, 2]},
+    {label: 'Jul 18', data: [1, 4, 1, 3, 1, 4, 1, 3, 1]}
   ];
 
   constructor() {
     this.data.datasets.push(
-      {label: 'Current', data: [1, 6, 2, 6, 1, 5, 2, 7, 9]}
+      {label: 'Current', data: [3, 9, 6, 8, 3, 9, 4, 9, 5]}
     );
   }
 
@@ -47,7 +47,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   removeData() {
     this.data.datasets = [
-      {label: 'Current', data: [1, 6, 2, 6, 1, 5, 2, 7, 9]},
+      {label: 'Current', data: [3, 9, 6, 8, 3, 9, 4, 9, 5]},
       {label: 'remove', data: []},
       {label: 'remove', data: []},
       {label: 'remove', data: []},

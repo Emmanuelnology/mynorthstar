@@ -17,12 +17,12 @@ export class MainStarComponent implements OnInit, AfterViewInit {
   @Input() starLabels: string []; // added
   @Input() animation = 500;
   @Input() showLegend = false;
-
+  
  // added
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
 
-  colors = ['white', '#f32f6d', '#06fab4', '#3fb7fd', '#6ecbd3', '#795afd'];
+  colors = ['white', '#06fab4', '#3fb7fd', '#f32f6d', '#6ecbd3', '#795afd'];
 
   outputData: IData = {
     datasets: [],
@@ -93,9 +93,9 @@ export class MainStarComponent implements OnInit, AfterViewInit {
         lineTension: 0.3,
         borderColor: this.colors[dataIndex],
         borderWidth: 2,
-        pointBorderColor: 'white',
+        pointBorderColor: this.colors[dataIndex],
         pointRadius: 3,
-        pointBackgroundColor: 'white'
+        pointBackgroundColor: this.colors[dataIndex]
       };
       this.outputData.datasets.push(dataset);
     }}
