@@ -13,11 +13,34 @@ var UserProfileOptionsComponent = /** @class */ (function () {
         this.authService = authService;
         this.router = router;
         this.newEmail = '';
+        this.newPassword = '';
+        this.successUpdateEmail = '';
+        this.errorUpdateEmail = '';
+        this.successChangePassword = '';
+        this.errorChangePassword = '';
+        this.user = authService.user;
     }
     UserProfileOptionsComponent.prototype.ngOnInit = function () {
     };
     UserProfileOptionsComponent.prototype.updateClientEmailAddress = function () {
-        this.authService.changeEmailAddress(this.newEmail);
+        var _this = this;
+        this.authService.changeEmailAddress(this.newEmail).then(function () {
+            _this.successUpdateEmail = 'Email updated successfully, your new address is ' + _this.authService.user.email;
+            _this.errorUpdateEmail = '';
+        })["catch"](function (error) {
+            _this.errorUpdateEmail = error.message;
+            _this.successUpdateEmail = '';
+        });
+    };
+    UserProfileOptionsComponent.prototype.updateClientPassword = function () {
+        var _this = this;
+        this.authService.changePassword(this.newPassword).then(function () {
+            _this.successChangePassword = 'Password updated successfully';
+            _this.errorChangePassword = '';
+        })["catch"](function (error) {
+            _this.errorChangePassword = error.message;
+            _this.successChangePassword = '';
+        });
     };
     UserProfileOptionsComponent = __decorate([
         core_1.Component({

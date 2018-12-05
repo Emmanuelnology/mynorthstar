@@ -32,7 +32,10 @@ var MainStarComponent = /** @class */ (function () {
                 legend: {
                     display: true,
                     labels: {
-                        fontColor: 'white'
+                        fontColor: 'white',
+                        filter: function (item) {
+                            return !item.text.includes('remove');
+                        }
                     }
                 },
                 scale: {

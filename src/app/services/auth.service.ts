@@ -32,7 +32,6 @@ export class AuthService {
     return this.afAuth.auth.signOut();
   }
 
-
   registerUser(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
   }
@@ -42,11 +41,11 @@ export class AuthService {
   }
 
   changeEmailAddress(newEmail) {
-    console.log('reached!');
-    console.log('This is the new email address ' + newEmail);
-    // console.log("This is the old email address " + this.afAuth.auth.updateCurrentUser());
-    console.log('Accessed new email feature with ' + newEmail + ' old email is ' + this.user.email);
-    // return this.afAuth.user.updateEmail(newEmail);
+    return this.afAuth.auth.currentUser.updateEmail(newEmail);
+  }
+
+  changePassword(newPassword) {
+    return this.afAuth.auth.currentUser.updatePassword(newPassword);
   }
 
 

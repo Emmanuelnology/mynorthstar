@@ -29,11 +29,10 @@ var AuthService = /** @class */ (function () {
         return this.afAuth.auth.sendPasswordResetEmail(email);
     };
     AuthService.prototype.changeEmailAddress = function (newEmail) {
-        console.log('reached!');
-        console.log('This is the new email address ' + newEmail);
-        // console.log("This is the old email address " + this.afAuth.auth.updateCurrentUser());
-        console.log('Accessed new email feature with ' + newEmail + ' old email is ' + this.user.email);
-        // return this.afAuth.user.updateEmail(newEmail);
+        return this.afAuth.auth.currentUser.updateEmail(newEmail);
+    };
+    AuthService.prototype.changePassword = function (newPassword) {
+        return this.afAuth.auth.currentUser.updatePassword(newPassword);
     };
     AuthService = __decorate([
         core_1.Injectable({
