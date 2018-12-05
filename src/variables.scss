@@ -91,7 +91,7 @@
         font-weight: normal;
     }
     p {
-        font-size: 1rem;
+        font-size: $f-xs;
         margin: $s-xs 0;
         text-align: justify;
     }
@@ -99,7 +99,7 @@
 
 @mixin media-md {
     h1 {
-        font-size: $f-lg;
+        font-size: $f-md;
         letter-spacing: $ls-md;
     }
     h2 {
@@ -133,7 +133,7 @@
         font-weight: normal;
     }
     p {
-        font-size: 1rem;
+        font-size: $f-xs;
         margin: $s-xs 0;
         text-align: justify;
     }
@@ -175,7 +175,7 @@
         font-weight: normal;
     }
     p {
-        font-size: 1rem;
+        font-size: $f-xs;
         margin: $s-xs 0;
         text-align: justify;
     }
