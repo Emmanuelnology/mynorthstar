@@ -30,7 +30,8 @@ export interface IRadarChartOptions {
   legend: {
     display: boolean,
     labels?: {
-      fontColor?: string
+      fontColor?: string,
+      filter?: Function
     }
   };
   scale: {
