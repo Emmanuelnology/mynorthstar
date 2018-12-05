@@ -73,16 +73,16 @@ label {
 //     user-select: none;
 // }
 
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    background: transparent;
-    border: 0.1px solid $turquoise;
-}
+// .checkmark {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     height: 25px;
+//     width: 25px;
+//     background-color: #eee;
+//     background: transparent;
+//     border: 0.1px solid $turquoise;
+// }
 
 .unticked:hover {
     background-color: rgba(176, 32, 98, 0.2);
