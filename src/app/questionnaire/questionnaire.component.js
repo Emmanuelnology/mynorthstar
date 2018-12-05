@@ -54,6 +54,20 @@ var QuestionnaireComponent = /** @class */ (function () {
     }
     QuestionnaireComponent.prototype.ngOnInit = function () {
     };
+    QuestionnaireComponent.prototype.getSliderColor = function (value) {
+        if (value <= 3) {
+            var blue = 129 + 31.5 * value;
+            return 'rgb(236, 0, ' + blue + ')';
+        }
+        if (value <= 6 && value > 3) {
+            var red = 85 * value;
+            return 'rgb(' + red + ', 0, 255)';
+        }
+        if (value > 6) {
+            var green = 61.9 * value - 364;
+            return 'rgb(0, ' + green + ', 210)';
+        }
+    };
     QuestionnaireComponent.prototype.onSubmit = function () {
         // // check if any field is undefined
         // resort questions

@@ -19,10 +19,6 @@ var LayoutAppComponent = /** @class */ (function () {
     LayoutAppComponent.prototype.onResize = function () {
         this.menuIsVisible = true;
     };
-    LayoutAppComponent.prototype.computeStyle = function () {
-        return 'background-color: red';
-        // return "background-image: url(" + user.photoURL + ")";
-    };
     __decorate([
         core_1.Input()
     ], LayoutAppComponent.prototype, "icon");

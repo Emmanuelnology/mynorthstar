@@ -7,7 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var core_1 = require("@angular/core");
-;
 var MainStarComponent = /** @class */ (function () {
     function MainStarComponent() {
         this.showLabels = true;
@@ -48,27 +47,32 @@ var MainStarComponent = /** @class */ (function () {
     }
     MainStarComponent.prototype.ngOnInit = function () {
         this.outputData.options.scale.pointLabels.display = this.showLabels;
-        this.outputData.labels = this.allStarData.labels;
-        for (var dataIndex in this.allStarData.datasets) {
-            var dataset = {
-                data: this.allStarData.datasets[dataIndex],
-                label: '',
-                fill: false,
-                lineTension: 0.3,
-                borderColor: this.colors[dataIndex],
-                pointBorderColor: 'white',
-                pointRadius: 3,
-                pointBackgroundColor: 'white'
-            };
-            this.outputData.datasets.push(dataset);
+        this.outputData.labels = this.starLabels;
+        for (var dataIndex in this.starData) {
+            if (this.starData.hasOwnProperty(dataIndex)) {
+                var dataset = {
+                    data: this.starData[dataIndex],
+                    label: '',
+                    fill: false,
+                    lineTension: 0.3,
+                    borderColor: this.colors[dataIndex],
+                    pointBorderColor: 'white',
+                    pointRadius: 3,
+                    pointBackgroundColor: 'white'
+                };
+                this.outputData.datasets.push(dataset);
+            }
         }
     };
     __decorate([
         core_1.Input()
-    ], MainStarComponent.prototype, "allStarData");
+    ], MainStarComponent.prototype, "showLabels");
     __decorate([
         core_1.Input()
-    ], MainStarComponent.prototype, "showLabels");
+    ], MainStarComponent.prototype, "starData");
+    __decorate([
+        core_1.Input()
+    ], MainStarComponent.prototype, "starLabels");
     MainStarComponent = __decorate([
         core_1.Component({
             selector: 'app-main-star',
