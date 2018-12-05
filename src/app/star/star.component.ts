@@ -193,7 +193,14 @@ export class StarComponent implements AfterViewInit, OnInit {
       this.overrideGradient();
     }
     // No other way to change charts other than this. Maybe you can help?
-    this.chart.options.scale.pointLabels.display = (window.innerWidth > 768);
+    if (window.innerWidth > 768) {
+      this.chart.options.layout.padding.bottom = 10;
+      this.chart.options.scale.pointLabels.display = true;
+    }
+    else {
+      this.chart.options.scale.pointLabels.display = false;
+    }
+
     this.chart.update();
     console.log('Chart was updated');
   }
