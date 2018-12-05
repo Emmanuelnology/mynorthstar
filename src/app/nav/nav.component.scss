@@ -1,19 +1,13 @@
 @import '../../variables.scss';
 
 
-
 nav {
   background-color: $nav-color;
   text-align: center;
   border-top: 1px solid white;
-  position: absolute;
-  top: $navHeight;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  transition: $animationDuration;
   overflow: hidden;
 }
+
 
 nav li {
   color: $nav-icons-color;
@@ -26,10 +20,6 @@ nav li {
 
 }
 
-.showMenu {
-  width: $smallMenuWidth;
-  min-width: $smallMenuWidth;
-}
 
 // nav a {
 //   -webkit-text-stroke-width: 0.5px;
@@ -49,20 +39,19 @@ nav .active {
 // }
 
 .tooltiptext {
-  visibility: hidden;
+  display: none;
 }
 
-@media only screen and (min-width:500px) {
-
-  .showMenu {
-    width: $largeMenuWidth;
-    min-width: $largeMenuWidth;
-  }
+@media (min-width: $tablet-min) {
 
 
   .tooltip {
     display: inline;
 
+  }
+
+  .tooltiptext {
+    display: inline;
   }
 
   .tooltip .tooltiptext {
@@ -74,11 +63,10 @@ nav .active {
     z-index: 1;
     padding: 5px;
     margin-top: 0px;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
     border-radius: 5px;
     background-color: $navy;
     opacity: 0.5;
-
   }
 
   .tooltip .tooltiptext::after {
@@ -87,7 +75,6 @@ nav .active {
     right: 100%;
     margin-top: -5px;
   }
-
 
   li:hover .tooltiptext {
     visibility: visible;

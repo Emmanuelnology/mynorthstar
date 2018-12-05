@@ -145,12 +145,16 @@ span, p {
     text-align: justify;
 }
 
+.u-swapon-mobile {
+    display:inline-block;
+}
+
 .u-swapon-tablet {
     display:none;
 }
 
 
-@media only screen and (min-width:750px){
+@media only screen and (min-width:$tablet-max){
     
     .u-swapon-mobile {
         display:none;

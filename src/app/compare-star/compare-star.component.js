@@ -7,119 +7,56 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var core_1 = require("@angular/core");
-var star_component_1 = require("../star/star.component");
+var main_star_component_1 = require("../main-star/main-star.component");
+// import { renderDetachView } from '@angular/core/src/view/view_attach';
+// import { viewAttached } from '@angular/core/src/render3/instructions';
 var CompareStarComponent = /** @class */ (function () {
     function CompareStarComponent() {
-        this.datasets = [];
         this.data = {
             datasets: [],
             labels: ['Career', 'Friends & Family', 'Happiness',
                 'Health & Wellbeing', 'Home & Environment', 'Money',
-                'Personal Growth', 'Relationships', 'Spirituality'],
-            options: {
-                legend: {
-                    display: true,
-                    labels: {
-                        fontColor: 'white'
-                    }
-                },
-                scale: {
-                    pointLabels: {
-                        display: true,
-                        fontColor: 'white',
-                        fontSize: 14
-                    },
-                    angleLines: {
-                        color: '#b02062'
-                    },
-                    ticks: {
-                        // maxTicksLimit: 5,
-                        display: false,
-                        min: 0,
-                        max: 10
-                    },
-                    gridLines: {
-                        color: '#777'
-                    }
-                }
-            }
+                'Personal Growth', 'Relationships', 'Spirituality']
         };
         this.pastData = [
-            {
-                data: [9, 2, 8, 3, 9, 2, 8, 4, 2],
-                label: 'Nov 18',
-                fill: false,
-                lineTension: 0.3,
-                borderColor: '#b02062',
-                pointBorderColor: '#6ecbd3',
-                pointRadius: 5,
-                pointBackgroundColor: '#37234f'
-            },
-            {
-                data: [1, 6, 4, 3, 8, 6, 3, 2, 6],
-                label: 'Oct 18',
-                fill: false,
-                lineTension: 0.3,
-                borderColor: '#6ecbd3',
-                pointBorderColor: '#6ecbd3',
-                pointRadius: 5,
-                pointBackgroundColor: '#37234f'
-            },
-            {
-                data: [3, 7, 8, 4, 6, 4, 3, 2, 5],
-                label: 'Sep 18',
-                fill: false,
-                lineTension: 0.3,
-                borderColor: '#65449b',
-                pointBorderColor: '#6ecbd3',
-                pointRadius: 5,
-                pointBackgroundColor: '#37234f'
-            },
-            {
-                data: [3, 6, 6, 7, 4, 8, 3, 6, 3],
-                label: 'Aug 18',
-                fill: false,
-                lineTension: 0.3,
-                borderColor: '#00ffd2',
-                pointBorderColor: '#6ecbd3',
-                pointRadius: 5,
-                pointBackgroundColor: '#37234f'
-            }
+            { label: 'Nov 18', data: [9, 2, 8, 3, 9, 2, 8, 4, 2] },
+            { label: 'Oct 18', data: [1, 6, 4, 3, 8, 6, 3, 2, 6] },
+            { label: 'Sep 18', data: [3, 7, 8, 4, 6, 4, 3, 2, 5] },
+            { label: 'Aug 18', data: [3, 6, 6, 7, 4, 8, 3, 6, 3] },
+            { label: 'Jul 18', data: [4, 5, 2, 7, 6, 4, 8, 3, 3] }
         ];
-        this.data.datasets.push({
-            data: [1, 6, 2, 6, 1, 5, 2, 7, 9],
-            label: 'Current',
-            fill: true,
-            lineTension: 0.3,
-            borderColor: 'white',
-            pointBorderColor: '#6ecbd3',
-            pointRadius: 5,
-            pointBackgroundColor: '#37234f'
-        });
+        this.data.datasets.push({ label: 'Current', data: [1, 6, 2, 6, 1, 5, 2, 7, 9] });
     }
     CompareStarComponent.prototype.ngOnInit = function () {
     };
     CompareStarComponent.prototype.ngAfterViewInit = function () {
     };
     CompareStarComponent.prototype.redraw = function () {
-        this.starViewChild.redraw();
+        this.mainStarViewChild.redraw();
     };
     CompareStarComponent.prototype.removeData = function () {
-        this.data.datasets.splice(1);
-        this.redraw();
+        this.data.datasets = [
+            { label: 'Current', data: [1, 6, 2, 6, 1, 5, 2, 7, 9] },
+            { label: 'remove', data: [] },
+            { label: 'remove', data: [] },
+            { label: 'remove', data: [] },
+            { label: 'remove', data: [] },
+            { label: 'remove', data: [] }
+        ];
     };
     CompareStarComponent.prototype.addData = function (activeIndex) {
         this.removeData();
         for (var _i = 0, activeIndex_1 = activeIndex; _i < activeIndex_1.length; _i++) {
             var index = activeIndex_1[_i];
-            this.data.datasets.push(this.pastData[index]);
+            this.data.datasets[index + 1] = this.pastData[index];
         }
-        this.starViewChild.data.datasets = this.data.datasets;
+        this.mainStarViewChild.starData = this.data.datasets;
+        console.log(this.mainStarViewChild.starData);
         this.redraw();
     };
     __decorate([
-        core_1.ViewChild(star_component_1.StarComponent)
-    ], CompareStarComponent.prototype, "starViewChild");
+        core_1.ViewChild(main_star_component_1.MainStarComponent)
+    ], CompareStarComponent.prototype, "mainStarViewChild");
     CompareStarComponent = __decorate([
         core_1.Component({
             selector: 'app-compare-star',

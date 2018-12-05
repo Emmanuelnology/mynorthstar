@@ -12,26 +12,23 @@ var MyStarComponent = /** @class */ (function () {
     function MyStarComponent(questionnaireService) {
         this.questionnaireService = questionnaireService;
         this.questions = questionnaire_service_1.exampleQuestions;
-        this.data = {
-            datasets: [],
-            labels: []
-        };
+        this.datasets = [];
+        this.labels = [];
         this.results = this.questionnaireService.getResults(this.questions);
         this.overallResult = this.results.overallResult;
-        this.data = this.restructureData(this.results.categoryResults);
+        this.restructureData(this.results.categoryResults);
     }
     MyStarComponent.prototype.restructureData = function (results) {
-        var categories = [];
-        var data = [];
+        var data = {
+            data: [],
+            label: 'My Star'
+        };
         for (var _i = 0, results_1 = results; _i < results_1.length; _i++) {
             var result = results_1[_i];
-            categories.push(result.categoryName);
-            data.push(Math.round(result.categoryAverage * 100) / 100);
+            this.labels.push(result.categoryName);
+            data.data.push(Math.round(result.categoryAverage * 100) / 100);
         }
-        return {
-            datasets: [data],
-            labels: categories
-        };
+        this.datasets.push(data);
     };
     MyStarComponent.prototype.ngOnInit = function () {
     };

@@ -14,16 +14,10 @@ var HistoryComponent = /** @class */ (function () {
             { date: 'Nov 18', score: '6.35', isActive: false },
             { date: 'Oct 18', score: '5.11', isActive: false },
             { date: 'Sep 18', score: '4.21', isActive: false },
-            { date: 'Aug 18', score: '4.00', isActive: false }
+            { date: 'Aug 18', score: '4.00', isActive: false },
+            { date: 'Jul 18', score: '9.00', isActive: false }
         ];
     }
-    HistoryComponent.prototype.deactivate = function () {
-        for (var index in this.pastDataProfile) {
-            if (this.pastDataProfile.hasOwnProperty(index)) {
-                this.pastDataProfile[index].isActive = false;
-            }
-        }
-    };
     HistoryComponent.prototype.findActive = function () {
         var activeIndex = [];
         for (var index in this.pastDataProfile) {

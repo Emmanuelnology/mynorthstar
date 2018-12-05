@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 
 
@@ -16,11 +15,12 @@ export class LayoutAppComponent implements OnInit {
   @Input() starData: number[];
   user;
 
-  constructor(public afAuth: AngularFireAuth, private authService: AuthService) {
-    this.user = this.afAuth.auth.currentUser;
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
+    this.user = this.authService.user;
+
   }
   @HostListener('window:resize', ['$event'])
   onResize() {
