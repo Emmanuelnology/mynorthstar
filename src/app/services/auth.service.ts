@@ -26,17 +26,12 @@ export class AuthService {
   }
 
   logIn(email, password) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password).then((data)=>{
- 
-
-    });
+    this.afAuth.auth.signInWithEmailAndPassword(email, password);
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   logOut() {
-    return this.afAuth.auth.signOut().then(()=> {
-
-    });
+    return this.afAuth.auth.signOut();
   }
 
   registerUser(email, password) {
