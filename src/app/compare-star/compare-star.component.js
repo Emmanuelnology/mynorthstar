@@ -16,69 +16,14 @@ var CompareStarComponent = /** @class */ (function () {
                 'Health & Wellbeing', 'Home & Environment', 'Money',
                 'Personal Growth', 'Relationships', 'Spirituality']
         };
-        // trialdatasets: IChartDataSet[] = [];
-        // trialdata: IData = {
-        //   datasets: [],
-        //   labels: ['Career', 'Friends & Family', 'Happiness',
-        //     'Health & Wellbeing', 'Home & Environment', 'Money',
-        //     'Personal Growth', 'Relationships', 'Spirituality'],
-        //   options: {
-        //     legend: {
-        //       display: true,
-        //       labels: {
-        //         fontColor: 'white'
-        //       }
-        //     },
-        //     scale: {
-        //       pointLabels: { // Labels around the chart
-        //         display: true,
-        //         fontColor: 'white',
-        //         fontSize: 14
-        //       },
-        //       angleLines: { // Radiating lines leading to the labels
-        //         color: '#b02062'
-        //       },
-        //       ticks: {
-        //         // maxTicksLimit: 5,
-        //         display: false,
-        //         min: 0,
-        //         max: 10,
-        //       },
-        //       gridLines: {
-        //         color: '#777'
-        //       }
-        //     },
-        //   }
-        // };
         this.pastData = [
-            // {
-            //   data: [9, 2, 8, 3, 9, 2, 8, 4, 2],
-            //   label: 'Nov 18',
-            //   fill: false,
-            //   lineTension: 0.3,
-            //   borderColor: '#b02062',
-            //   pointBorderColor: '#6ecbd3',
-            //   pointRadius: 5,
-            //   pointBackgroundColor: '#37234f'
-            // }
-            [9, 2, 8, 3, 9, 2, 8, 4, 2],
-            [1, 6, 4, 3, 8, 6, 3, 2, 6],
-            [3, 7, 8, 4, 6, 4, 3, 2, 5],
-            [3, 6, 6, 7, 4, 8, 3, 6, 3]
+            { label: 'Nov 18', data: [9, 2, 8, 3, 9, 2, 8, 4, 2] },
+            { label: 'Oct 18', data: [1, 6, 4, 3, 8, 6, 3, 2, 6] },
+            { label: 'Sep 18', data: [3, 7, 8, 4, 6, 4, 3, 2, 5] },
+            { label: 'Aug 18', data: [3, 6, 6, 7, 4, 8, 3, 6, 3] },
+            { label: 'Jul 18', data: [4, 5, 2, 7, 6, 4, 8, 3, 3] }
         ];
-        // this.data.datasets.push(
-        //   {
-        //     data: [1, 6, 2, 6, 1, 5, 2, 7, 9],
-        //     label: 'Current',
-        //     fill: true,
-        //     lineTension: 0.3,
-        //     borderColor: 'white',
-        //     pointBorderColor: '#6ecbd3',
-        //     pointRadius: 5,
-        //     pointBackgroundColor: '#37234f',
-        //   }
-        // );
-        this.data.datasets.push([1, 6, 2, 6, 1, 5, 2, 7, 9]);
+        this.data.datasets.push({ label: 'Current', data: [1, 6, 2, 6, 1, 5, 2, 7, 9] });
     }
     CompareStarComponent.prototype.ngOnInit = function () {
     };
@@ -88,13 +33,20 @@ var CompareStarComponent = /** @class */ (function () {
         this.mainStarViewChild.redraw();
     };
     CompareStarComponent.prototype.removeData = function () {
-        this.data.datasets.splice(1);
+        this.data.datasets = [
+            { label: 'Current', data: [1, 6, 2, 6, 1, 5, 2, 7, 9] },
+            { label: 'remove', data: [] },
+            { label: 'remove', data: [] },
+            { label: 'remove', data: [] },
+            { label: 'remove', data: [] },
+            { label: 'remove', data: [] }
+        ];
     };
     CompareStarComponent.prototype.addData = function (activeIndex) {
         this.removeData();
         for (var _i = 0, activeIndex_1 = activeIndex; _i < activeIndex_1.length; _i++) {
             var index = activeIndex_1[_i];
-            this.data.datasets.push(this.pastData[index]);
+            this.data.datasets[index + 1] = this.pastData[index];
         }
         this.mainStarViewChild.starData = this.data.datasets;
         console.log(this.mainStarViewChild.starData);

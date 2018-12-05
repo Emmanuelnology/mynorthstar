@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IResult, QuestionnaireService, exampleQuestions } from '../services/questionnaire.service';
-
+import { IDataSet } from '../main-star/main-star.component';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class MyStarComponent implements OnInit {
   questions = exampleQuestions;
   results: IResult;
   overallResult: number;
-  datasets: number[][] = [];
+  datasets: IDataSet[] = [];
   labels: string [] = [];
 
 
@@ -25,10 +25,13 @@ export class MyStarComponent implements OnInit {
   }
 
   restructureData(results) {
-    const data: number[] = [];
+    const data: IDataSet = {
+      data: [],
+      label: 'My Star'
+    };
     for (const result of results) {
       this.labels.push(result.categoryName);
-      data.push(Math.round(result.categoryAverage * 100) / 100);
+      data.data.push(Math.round(result.categoryAverage * 100) / 100);
     }
     this.datasets.push(data);
   }

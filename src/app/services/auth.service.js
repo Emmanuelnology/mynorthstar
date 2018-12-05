@@ -11,9 +11,12 @@ var AuthService = /** @class */ (function () {
     function AuthService(db, afAuth) {
         this.db = db;
         this.afAuth = afAuth;
+        if (this.afAuth.auth) {
+            this.user = this.afAuth.auth.currentUser;
+        }
     }
     AuthService.prototype.logIn = function (email, password) {
-        this.user = this.afAuth.auth.signInWithEmailAndPassword(email, password);
+        this.afAuth.auth.signInWithEmailAndPassword(email, password);
         return this.afAuth.auth.signInWithEmailAndPassword(email, password);
     };
     AuthService.prototype.logOut = function () {
@@ -25,11 +28,11 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.resetPassword = function (email) {
         return this.afAuth.auth.sendPasswordResetEmail(email);
     };
-    AuthService.prototype.changeEmailAddress = function (email, password, newEmail) {
-        this.user.signInWithEmailAndPassword(email, password)
-            .then(function (user) {
-            this.user.updateEmail(newEmail);
-        });
+    AuthService.prototype.changeEmailAddress = function (newEmail) {
+        return this.afAuth.auth.currentUser.updateEmail(newEmail);
+    };
+    AuthService.prototype.changePassword = function (newPassword) {
+        return this.afAuth.auth.currentUser.updatePassword(newPassword);
     };
     AuthService = __decorate([
         core_1.Injectable({

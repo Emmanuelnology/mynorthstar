@@ -8,10 +8,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var UserProfileOptionsComponent = /** @class */ (function () {
-    function UserProfileOptionsComponent(router) {
+    function UserProfileOptionsComponent(afAuth, authService, router) {
+        this.afAuth = afAuth;
+        this.authService = authService;
         this.router = router;
+        this.newEmail = '';
+        this.newPassword = '';
+        this.successUpdateEmail = '';
+        this.errorUpdateEmail = '';
+        this.successChangePassword = '';
+        this.errorChangePassword = '';
+        this.user = authService.user;
     }
     UserProfileOptionsComponent.prototype.ngOnInit = function () {
+    };
+    UserProfileOptionsComponent.prototype.updateClientEmailAddress = function () {
+        var _this = this;
+        this.authService.changeEmailAddress(this.newEmail).then(function () {
+            _this.successUpdateEmail = 'Email updated successfully, your new address is ' + _this.authService.user.email;
+            _this.errorUpdateEmail = '';
+        })["catch"](function (error) {
+            _this.errorUpdateEmail = error.message;
+            _this.successUpdateEmail = '';
+        });
+    };
+    UserProfileOptionsComponent.prototype.updateClientPassword = function () {
+        var _this = this;
+        this.authService.changePassword(this.newPassword).then(function () {
+            _this.successChangePassword = 'Password updated successfully';
+            _this.errorChangePassword = '';
+        })["catch"](function (error) {
+            _this.errorChangePassword = error.message;
+            _this.successChangePassword = '';
+        });
     };
     UserProfileOptionsComponent = __decorate([
         core_1.Component({

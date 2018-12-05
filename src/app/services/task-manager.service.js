@@ -48,19 +48,11 @@ var TaskManagerService = /** @class */ (function () {
             throw new Error('Did not delete!');
         });
     };
-    // toggleCheckBox(task: Task, bool: boolean) {
-    //     this.db.collection('/tasks').doc(`${task.id}`).update({
-    //         isChecked: bool,
-    //     });
-    // }
     TaskManagerService.prototype.checked = function (task) {
-        // let payload = {
-        //     isChecked: task.isChecked,
-        // }
-        // this.taskCollection.doc(task.id).update(payload);
-        this.taskCollection.doc(task.id).update({
+        var payload = {
             isChecked: task.isChecked
-        })
+        };
+        this.taskCollection.doc(task.id).update(payload)
             .then(function () {
             console.log('updated tasks ' + task.task);
         })["catch"](function (error) {
