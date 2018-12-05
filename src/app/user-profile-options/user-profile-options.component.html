@@ -7,7 +7,6 @@
       <li>Email address: {{user.email}}</li>
       <li>Email verified: {{user.emailVerified}}</li>
       <li>Image: <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }">.</div></li>
-
     </ul>
 
     <p>Change your name below:</p>
@@ -35,7 +34,6 @@
     
     <br>
     
-
     <p *ngIf="successChangePassword" style="color:green; background-color: white">{{successChangePassword}}</p>
     <p *ngIf="errorChangePassword" style="color:red; background-color: white">{{errorChangePassword}}</p>
     <p>Change your password below:</p>
@@ -49,7 +47,6 @@
     
     <br>
     
-
     <p>Change your image below:</p>
     <form (ngSubmit)="updateClientImage()">
         <fieldset>
@@ -61,4 +58,3 @@
 
   </section>
 </app-layout-default>
-
