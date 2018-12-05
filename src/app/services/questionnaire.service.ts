@@ -339,7 +339,7 @@ export class Randomise {
 })
 
 export class UploadToFirebase {
-  questionnaireCollection: AngularFirestoreCollection<IResult>;
+questionnaireCollection: AngularFirestoreCollection<IResult>;
   questionnaire: Observable<IResult[]>;
   questionsCollection: AngularFirestoreCollection<IQuestion>;
 
@@ -380,6 +380,22 @@ export class UploadToFirebase {
     return this.questionsCollection.get().pipe(
       map(this.restructureDocsInCollection));
   }
+
+  getAllResults(){
+    return this.questionnaireCollection.get().pipe( //score
+      map(this.restructureDocsInCollection));
+       }
+  
+  getRecent(user, numberOfResults = 1){
+    const resultCollection = this.afs.collection<IResult>('questionnaires', (reference)=> {
+      return reference
+        .orderBy('date', 'desc')
+        .where('user.uid', '==', user.uid)
+        .limit(numberOfResults);
+    });
+    return resultCollection.get().pipe(map(this.restructureDocsInCollection));
+  }
+
 
   upload(questionnaireObject) {
     return this.questionnaireCollection.add(questionnaireObject);
