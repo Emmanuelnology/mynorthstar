@@ -4,9 +4,15 @@
       <li class="list-item" *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">
           <div class="test">
             <label class="container"> 
-                <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
-                <span class="checkmark"></span>
-              </label>
+              <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
+              <span class="checkmark"></span> -->
+            <div [hidden]="task.isChecked === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="unchecked">
+                <i class="far fa-square"></i>
+              </div>
+              <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="checkbox">
+                <i class="far fa-check-square"></i>
+              </div>
+            </label>
               <p>{{ task.task }}</p>
           </div>
         <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)"><i class="fas fa-times"></i></button>

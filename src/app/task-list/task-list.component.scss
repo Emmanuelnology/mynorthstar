@@ -39,19 +39,18 @@ label {
 
 }
 
-// .box {
-//     float: right;
-// }
+.checkbox,
+.unchecked {
+    width: 22%;
+    text-align: right;
+    color: $turquoise;
+    font-size: 1.75em;
+}
 
-// .box.unchecked:after {
-//     content: "\2610";
-//     color: red;
-// }
-
-// .box:after {
-//     content: "\2611";
-//     color:green;
-// }
+.checkbox:hover,
+.unchecked:hover {
+    cursor: pointer;
+}
 
 /* The container */
 .container {
