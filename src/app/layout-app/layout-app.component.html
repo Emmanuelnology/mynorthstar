@@ -18,9 +18,9 @@
     </h1>
   </div>
   <div class="flex-avatar">
-    <span class="greeting">Hi, {{user.displayName | titlecase}}</span>
+    <span class="greeting" routerLink="/user-profile" routerLinkActive="active">Hi, {{user.displayName | titlecase}}</span>
 
-    <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }">
+    <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }" routerLink="/user-profile" routerLinkActive="active">
     
     </div>
   </div>
