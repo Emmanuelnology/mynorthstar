@@ -2,25 +2,36 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+interface IUser {
+  uid: string;
+  photoURL: string;
+  displayName: string;
+  email: string;
+  emailVerified: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  user;
 
-  constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) { }
+  constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
+
+  }
+
+  get user() {
+    return this.afAuth.auth.currentUser;
+  }
 
   logIn(email, password) {
-    this.user = this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    this.afAuth.auth.signInWithEmailAndPassword(email, password);
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   logOut() {
     return this.afAuth.auth.signOut();
   }
-
 
   registerUser(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
@@ -30,13 +41,29 @@ export class AuthService {
     return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
-  changeEmailAddress(email, password, newEmail) {
-    this.user.signInWithEmailAndPassword(email, password)
-      .then(function(user) {
-        this.user.updateEmail(newEmail);
-      });
+  changeName(newName) {
+    this.afAuth.auth.currentUser.updateProfile({
+      displayName: newName,
+      photoURL: this.user.photoURL
+    });
   }
 
+  changeEmailAddress(newEmail) {
+    return this.afAuth.auth.currentUser.updateEmail(newEmail);
+  }
 
+  changePassword(newPassword) {
+    return this.afAuth.auth.currentUser.updatePassword(newPassword);
+  }
 
+  verifyEmailAddress() {
+    return this.afAuth.auth.currentUser.sendEmailVerification();
+  }
+
+  changeImage(newImage) {
+    this.afAuth.auth.currentUser.updateProfile({
+      displayName: this.user.displayName,
+      photoURL: newImage
+    });
+  }
 }

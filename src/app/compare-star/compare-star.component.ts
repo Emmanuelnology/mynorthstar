@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { MainStarComponent } from '../main-star/main-star.component';
+import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
 // import { viewAttached } from '@angular/core/src/render3/instructions';
-import { Colours } from '../../colours';
 
 @Component({
   selector: 'app-compare-star',
@@ -15,7 +14,9 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
-  public colours: Colours;
+  currentData = {label: 'remove', data: [3, 9, 6, 8, 3, 9, 4, 9, 5]};
+  emptyData = {label: 'remove', data: []};
+  animation = 0;
 
   data = {
     datasets: [],
@@ -24,73 +25,17 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     'Personal Growth', 'Relationships', 'Spirituality']
   };
 
-  // trialdatasets: IChartDataSet[] = [];
-  // trialdata: IData = {
-  //   datasets: [],
-  //   labels: ['Career', 'Friends & Family', 'Happiness',
-  //     'Health & Wellbeing', 'Home & Environment', 'Money',
-  //     'Personal Growth', 'Relationships', 'Spirituality'],
-  //   options: {
-  //     legend: {
-  //       display: true,
-  //       labels: {
-  //         fontColor: 'white'
-  //       }
-  //     },
-  //     scale: {
-  //       pointLabels: { // Labels around the chart
-  //         display: true,
-  //         fontColor: 'white',
-  //         fontSize: 14
-  //       },
-  //       angleLines: { // Radiating lines leading to the labels
-  //         color: '#b02062'
-  //       },
-  //       ticks: {
-  //         // maxTicksLimit: 5,
-  //         display: false,
-  //         min: 0,
-  //         max: 10,
-  //       },
-  //       gridLines: {
-  //         color: '#777'
-  //       }
-  //     },
-  //   }
-  // };
-
-  public pastData = [
-    // {
-    //   data: [9, 2, 8, 3, 9, 2, 8, 4, 2],
-    //   label: 'Nov 18',
-    //   fill: false,
-    //   lineTension: 0.3,
-    //   borderColor: '#b02062',
-    //   pointBorderColor: '#6ecbd3',
-    //   pointRadius: 5,
-    //   pointBackgroundColor: '#37234f'
-    // }
-    [9, 2, 8, 3, 9, 2, 8, 4, 2],
-    [1, 6, 4, 3, 8, 6, 3, 2, 6],
-    [3, 7, 8, 4, 6, 4, 3, 2, 5],
-    [3, 6, 6, 7, 4, 8, 3, 6, 3]
+  public pastData: IDataSet[] = [
+    {label: 'Nov 18', data: [2, 7, 5, 6, 3, 8, 3, 7, 3]},
+    {label: 'Oct 18', data: [1, 6, 4, 5, 2, 7, 3, 6, 2]},
+    {label: 'Sep 18', data: [2, 5, 3, 4, 1, 6, 2, 5, 2]},
+    {label: 'Aug 18', data: [1, 4, 2, 3, 2, 5, 1, 3, 2]},
+    {label: 'Jul 18', data: [1, 4, 1, 3, 1, 4, 1, 3, 1]}
   ];
 
   constructor() {
-    // this.data.datasets.push(
-    //   {
-    //     data: [1, 6, 2, 6, 1, 5, 2, 7, 9],
-    //     label: 'Current',
-    //     fill: true,
-    //     lineTension: 0.3,
-    //     borderColor: 'white',
-    //     pointBorderColor: '#6ecbd3',
-    //     pointRadius: 5,
-    //     pointBackgroundColor: '#37234f',
-    //   }
-    // );
     this.data.datasets.push(
-      [1, 6, 2, 6, 1, 5, 2, 7, 9]
+      this.currentData
     );
   }
 
@@ -104,20 +49,28 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     this.mainStarViewChild.redraw();
   }
 
-  removeData() {
-    this.data.datasets.splice(1);
+  editData() {
+    this.data.datasets = [
+      this.currentData,
+      this.emptyData,
+      this.emptyData,
+      this.emptyData,
+      this.emptyData,
+      this.emptyData
+    ];
   }
 
-  addData(activeIndex: number[]) {
-    this.removeData();
+  addRemoveData(activeIndex: number[]) {
+    this.editData();
+    if (activeIndex.length !== 0) {
+      this.data.datasets[0].label = 'Current';
+    } else {
+      this.data.datasets[0].label = 'remove';
+    }
     for (const index of activeIndex) {
-      this.data.datasets.push(
-        this.pastData[index]
-      );
+      this.data.datasets[index + 1] = this.pastData[index];
     }
     this.mainStarViewChild.starData = this.data.datasets;
-    console.log(this.mainStarViewChild.starData);
     this.redraw();
   }
-
 }

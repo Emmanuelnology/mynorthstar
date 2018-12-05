@@ -1,5 +1,5 @@
 import { Component, Input, AfterViewInit, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart, ChartLegendLabelItem, ChartData } from 'chart.js';
 
 enum Colors {
   Red = 'rgb(255,0,110)',
@@ -30,7 +30,8 @@ export interface IRadarChartOptions {
   legend: {
     display: boolean,
     labels?: {
-      fontColor?: string
+      fontColor?: string,
+      filter?(legendItem: ChartLegendLabelItem, data: ChartData): any;
     }
   };
   scale: {

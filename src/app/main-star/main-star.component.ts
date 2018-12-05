@@ -6,6 +6,7 @@ export interface IDataSet {
   data: number[];
 }
 
+
 @Component({
   selector: 'app-main-star',
   templateUrl: './main-star.component.html',
@@ -21,7 +22,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
 
-  colors = ['white', 'red', 'blue', 'green'];
+  colors = ['white', '#06fab4', '#3fb7fd', '#f32f6d', '#6ecbd3', '#795afd'];
 
   outputData: IData = {
     datasets: [],
@@ -42,7 +43,10 @@ export class MainStarComponent implements OnInit, AfterViewInit {
       legend: {
         display: true,
         labels : {
-          fontColor: 'white'
+          fontColor: 'white',
+          filter: function (item, starData) {
+            return !item.text.includes('remove');
+          }
         }
       },
       scale: {
@@ -73,7 +77,13 @@ export class MainStarComponent implements OnInit, AfterViewInit {
     this.outputData.labels = this.starLabels;
     this.outputData.options.animation = { duration: this.animation };
     this.outputData.options.legend.display = this.showLegend;
+    this.createDatasets();
+  }
 
+  ngAfterViewInit() {
+  }
+
+  createDatasets() {
     for (const dataIndex in this.starData) {
       if (this.starData.hasOwnProperty(dataIndex)) {
       const dataset = {
@@ -83,17 +93,12 @@ export class MainStarComponent implements OnInit, AfterViewInit {
         lineTension: 0.3,
         borderColor: this.colors[dataIndex],
         borderWidth: 2,
-        pointBorderColor: 'white',
+        pointBorderColor: this.colors[dataIndex],
         pointRadius: 3,
-        pointBackgroundColor: 'white'
+        pointBackgroundColor: this.colors[dataIndex]
       };
       this.outputData.datasets.push(dataset);
     }}
-
-
-  }
-
-  ngAfterViewInit() {
   }
 
   removeData() {
@@ -102,21 +107,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
 
   redraw() {
     this.removeData();
-    for (const dataIndex in this.starData) {
-      if (this.starData.hasOwnProperty(dataIndex)) {
-      const dataset = {
-        data: this.starData[dataIndex].data,
-        label: this.starData[dataIndex].label,
-        fill: false,
-        lineTension: 0.3,
-        borderColor: this.colors[dataIndex],
-        pointBorderColor: 'white',
-        pointRadius: 3,
-        pointBackgroundColor: 'white'
-      };
-      this.outputData.datasets.push(dataset);
-    }}
-
+    this.createDatasets();
     this.starViewChild.redraw();
   }
 

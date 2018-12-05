@@ -46,4 +46,13 @@ export class TaskListComponent implements OnInit {
     this.taskManagerService.checked(task);
   }
 
+  checkForUserIdMatch(task: Task) {
+    let show = false;
+    const userId = this.taskManagerService.userId();
+    const taskUid = task.userId;
+    if (taskUid === userId) {
+      return show = true;
+    }
+  }
+
 }

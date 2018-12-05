@@ -7,7 +7,7 @@ import {IData} from '../star/star.component';
 })
 
 export class TinyStarComponent implements OnInit {
-@Input() starData: number[];
+@Input() starData: number[] = [];
 @Input() size: string;
 payload: IData = {
   datasets : [{
