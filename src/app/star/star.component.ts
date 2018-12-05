@@ -196,8 +196,7 @@ export class StarComponent implements AfterViewInit, OnInit {
     if (window.innerWidth > 768) {
       this.chart.options.layout.padding.bottom = 10;
       this.chart.options.scale.pointLabels.display = true;
-    }
-    else {
+    } else {
       this.chart.options.scale.pointLabels.display = false;
     }
 
