@@ -7,15 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var core_1 = require("@angular/core");
-;
+var star_component_1 = require("../star/star.component");
 var MainStarComponent = /** @class */ (function () {
     function MainStarComponent() {
-        this.showLabels = true;
+        this.animation = 500;
         this.colors = ['white', 'red', 'blue', 'green'];
         this.outputData = {
             datasets: [],
             labels: [],
             options: {
+                animation: { duration: 500 },
                 tooltips: {
                     backgroundColor: 'rgba(	176, 32, 98, 0.7)'
                 },
@@ -30,7 +31,7 @@ var MainStarComponent = /** @class */ (function () {
                         fontSize: 14
                     },
                     angleLines: {
-                        color: '#b02062'
+                        color: 'rgba(33,64,103)'
                     },
                     ticks: {
                         fontFamily: 'nunito',
@@ -40,35 +41,68 @@ var MainStarComponent = /** @class */ (function () {
                         max: 10
                     },
                     gridLines: {
-                        color: '#777'
+                        color: 'rgba(33,64,103)'
                     }
                 }
             }
         };
     }
     MainStarComponent.prototype.ngOnInit = function () {
-        this.outputData.options.scale.pointLabels.display = this.showLabels;
-        this.outputData.labels = this.allStarData.labels;
-        for (var dataIndex in this.allStarData.datasets) {
-            var dataset = {
-                data: this.allStarData.datasets[dataIndex],
-                label: '',
-                fill: false,
-                lineTension: 0.3,
-                borderColor: this.colors[dataIndex],
-                pointBorderColor: 'white',
-                pointRadius: 3,
-                pointBackgroundColor: 'white'
-            };
-            this.outputData.datasets.push(dataset);
+        this.outputData.labels = this.starLabels;
+        this.outputData.options.animation = { duration: this.animation };
+        for (var dataIndex in this.starData) {
+            if (this.starData.hasOwnProperty(dataIndex)) {
+                var dataset = {
+                    data: this.starData[dataIndex],
+                    label: '',
+                    fill: false,
+                    lineTension: 0.3,
+                    borderColor: this.colors[dataIndex],
+                    borderWidth: 2,
+                    pointBorderColor: 'white',
+                    pointRadius: 3,
+                    pointBackgroundColor: 'white'
+                };
+                this.outputData.datasets.push(dataset);
+            }
         }
+    };
+    MainStarComponent.prototype.ngAfterViewInit = function () {
+    };
+    MainStarComponent.prototype.removeData = function () {
+        this.outputData.datasets.splice(0);
+    };
+    MainStarComponent.prototype.redraw = function () {
+        this.removeData();
+        for (var dataIndex in this.starData) {
+            if (this.starData.hasOwnProperty(dataIndex)) {
+                var dataset = {
+                    data: this.starData[dataIndex],
+                    label: '',
+                    fill: false,
+                    lineTension: 0.3,
+                    borderColor: this.colors[dataIndex],
+                    pointBorderColor: 'white',
+                    pointRadius: 3,
+                    pointBackgroundColor: 'white'
+                };
+                this.outputData.datasets.push(dataset);
+            }
+        }
+        this.starViewChild.redraw();
     };
     __decorate([
         core_1.Input()
-    ], MainStarComponent.prototype, "allStarData");
+    ], MainStarComponent.prototype, "starData");
     __decorate([
         core_1.Input()
-    ], MainStarComponent.prototype, "showLabels");
+    ], MainStarComponent.prototype, "starLabels");
+    __decorate([
+        core_1.Input()
+    ], MainStarComponent.prototype, "animation");
+    __decorate([
+        core_1.ViewChild(star_component_1.StarComponent)
+    ], MainStarComponent.prototype, "starViewChild");
     MainStarComponent = __decorate([
         core_1.Component({
             selector: 'app-main-star',

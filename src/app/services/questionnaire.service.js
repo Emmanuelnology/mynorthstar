@@ -251,27 +251,27 @@ var Randomise = /** @class */ (function () {
     function Randomise() {
     }
     Randomise.prototype.randomiseOrder = function (questionArray) {
-        var unsortedNumberArray = this.createUnorderedArray(questionArray);
-        var unsortedQuestionArray = this.assignQuestionRandomNumbers(questionArray, unsortedNumberArray);
-        var randomSortedQuestionArray = unsortedQuestionArray.sort(function (question1, question2) {
+        var unsortedIntegerArray = this.createUnorderedArray(questionArray);
+        var unsortedQuestionArray = this.assignQuestionRandomNumbers(questionArray, unsortedIntegerArray);
+        var sortedQuestionArray = unsortedQuestionArray.sort(function (question1, question2) {
             return question1.number - question2.number;
         });
-        return randomSortedQuestionArray;
+        return sortedQuestionArray;
     };
     Randomise.prototype.createUnorderedArray = function (questionArray) {
-        var unsortedNumberArray = [];
+        var unsortedIntegerArray = [];
         for (var index in questionArray) {
             if (questionArray.hasOwnProperty(index)) {
-                unsortedNumberArray.push(parseInt(index, 10));
+                unsortedIntegerArray.push(parseInt(index, 10));
             }
         }
-        unsortedNumberArray.sort(function () { return Math.random() - 0.5; });
-        return unsortedNumberArray;
+        unsortedIntegerArray.sort(function () { return Math.random() - 0.5; });
+        return unsortedIntegerArray;
     };
-    Randomise.prototype.assignQuestionRandomNumbers = function (questionArray, unsortedNumberArray) {
-        for (var index in unsortedNumberArray) {
-            if (unsortedNumberArray.hasOwnProperty(index)) {
-                questionArray[index].number = unsortedNumberArray[index];
+    Randomise.prototype.assignQuestionRandomNumbers = function (questionArray, unsortedIntegerArray) {
+        for (var index in unsortedIntegerArray) {
+            if (unsortedIntegerArray.hasOwnProperty(index)) {
+                questionArray[index].number = unsortedIntegerArray[index];
                 questionArray[index].number++;
             }
         }
