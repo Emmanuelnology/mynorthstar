@@ -25,6 +25,7 @@
                             class="scoring-blob score-inputs"
                             type="range"
                             [(ngModel)]="question.score"
+                            (click)="blobClick()"
                             name="question-{{question.number}}" 
                             min="0" max="10"
                             required
@@ -51,13 +52,33 @@
                     </p> -->
             </div>
         </div>
+        
     </div>
 
     <div class="sendButton">
         <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
     </div>
 </form>
-    <div>
-        <app-questionnaire-progress>ii</app-questionnaire-progress>
+<!-- <p>{{number}} Kieran</p> -->
+<div class="progress-arc {{color}}">
+    <span class="progress-amount" [ngStyle]="{
+    'font-size':fontSize  
+    }">
+        {{number}}/6
+        <!-- {{number*(100/6)}}% -->
+            <!-- <small>Question</small> -->
+    </span>
+
+    <div class="progress-component">
+        <ng2-arc-progress
+        [size]='size'
+        progress={{number*17}}
+        gap=0
+        backgroundColor='rgba(232, 236, 241, 0.3)'
+        strokeWidth='3px'
+        >
+
+        </ng2-arc-progress>
     </div>
+</div>
 </app-layout-default>

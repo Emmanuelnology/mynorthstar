@@ -289,6 +289,7 @@ export class QuestionnaireComponent implements OnInit {
     // ];
 
     questionnaireFromFirebase: Observable<any[]>;
+    number = 0;
 
     constructor(private rand: Randomise, private questionnaireService: QuestionnaireService,
     private router: Router, afs: AngularFirestore) {
@@ -297,6 +298,13 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    blobClick () {
+        if (this.number < 6) {
+            return this.number++;
+        }
+
     }
 
     getSliderColor(value) {
@@ -359,5 +367,7 @@ export class QuestionnaireComponent implements OnInit {
 
         // save to firebase
     }
+
+
 
 }

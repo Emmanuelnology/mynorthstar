@@ -2,7 +2,7 @@
 
 form {
     border: 2px solid rgb(26, 52, 87);
-    // background-color: rgb(7,13,23);
+    background-color: rgb(7,13,23);
     border-radius: 17px;
 }
 
@@ -110,6 +110,33 @@ div.sendButton {
     text-align: center;
     padding: 30px;
 }
+
+.progress-arc {
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.progress-amount {
+    z-index:1;
+    position:absolute;
+    margin-top: -2px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+.progress-component {
+    transform:rotate(180deg);
+}
+
+small {
+    font-size: 40%;
+    text-transform: uppercase;
+    display:none;
+}
+
 
 @media only screen and (min-width: 528px) {
     .score-inputs {
