@@ -68,6 +68,7 @@ export class TaskManagerService {
         })
         .catch((error)=>{
             console.log(error);
+            throw new Error('Unable to update user');
         })
         
     }
