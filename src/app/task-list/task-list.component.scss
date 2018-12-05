@@ -1,11 +1,24 @@
 @import "../../variables.scss";
 
-button{
+// button{
+//     padding: 1px 5px;
+//     width: 25px;
+//     height: 25px;
+// }
+
+button {
     font-size: $f-xs;
+	background: none;
+	color: $pink;
+    border: none;
     margin: 0 $s-sm $s-sm 0;
-    padding: 1px 5px;
-    width: 25px;
-    height: 25px;
+	padding: 1px 5px;
+	cursor: pointer;
+	outline: inherit;
+}
+
+button:hover {
+    background-color: rgba(176, 32, 98, 0.2);
 }
 
 .task-container {
@@ -36,6 +49,14 @@ button{
     background-color: $turquoise-tint;
 }
 
+// ul li {
+//     background-color: rgba(176, 32, 98, 0.2);
+//    }
+
+// ul li.selected {
+//     background-color: $turquoise-tint;
+//    }
+
 .test {
     display: flex;
     flex-direction: row;
@@ -49,27 +70,35 @@ li {
 
 label {
     position: relative;
-
 }
 
 .unchecked {
     color: $pink;
-    font-size: $f-xl;
+    font-size: $f-lg;
 }
 
 .checked {
     // text-align: right;
     color: $turquoise;
-    font-size: $f-xl;
+    font-size: $f-lg;
 }
-
-// .checked:hover {
-//     background-color: $turquoise-tint;
-// }
 
 .checked:hover,
 .unchecked:hover {
     cursor: pointer;
+}
+
+.unticked:hover {
+    background-color: rgba(176, 32, 98, 0.2);
+}
+
+.ticked:hover {
+    background-color: $turquoise-tint;
+    background: fill;
+}
+
+input[type=checkbox]:checked ~ .list-item {
+    background-color: $turquoise-tint;
 }
 
 /* The container */
@@ -93,15 +122,6 @@ label {
 //     background: transparent;
 //     border: 0.1px solid $turquoise;
 // }
-
-.unticked:hover {
-    background-color: rgba(176, 32, 98, 0.2);
-}
-
-.ticked:hover {
-    background-color: $turquoise-tint;
-    background: fill;
-}
 
 // .container input:checked ~ .checkmark {
 //     background-color: transparent;
