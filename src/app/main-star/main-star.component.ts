@@ -42,7 +42,10 @@ export class MainStarComponent implements OnInit, AfterViewInit {
       legend: {
         display: true,
         labels : {
-          fontColor: 'white'
+          fontColor: 'white',
+          filter: function (item) {
+            return !item.text.includes('remove');
+          }
         }
       },
       scale: {
