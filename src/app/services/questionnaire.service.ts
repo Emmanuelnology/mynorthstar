@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 
 export interface IQuestion {
   title: string;
@@ -22,7 +25,9 @@ export interface ICategoryResult {
 
 export interface IResult {
   categoryResults: ICategoryResult[];
-  overallResult: number;
+  overallResult: number; //add date & user id
+  date: Date;
+  userID: string;
 }
 
 export let exampleQuestions: IQuestion[] = [
@@ -185,9 +190,11 @@ export class QuestionnaireService {
     const overallAverage: number = this.getOverallAverage(categoryAverages);
     const result: IResult = {
       categoryResults: categoryAverages,
-      overallResult: overallAverage
+      overallResult: overallAverage,
+      date: new Date(),
+      userID: "userID"
     };
-    return result;
+    return result; //add
   }
 
   getCategoryAverages(questionArray: IQuestion[]): ICategoryResult[] {
@@ -302,6 +309,34 @@ export class Randomise {
       }
     }
     return questionArray;
+  }
+
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class UploadToFirebase {
+  questionnaireCollection: AngularFirestoreCollection<IQuestion>;
+  questionnaire: Observable<IResult[]>
+
+  constructor(private afs: AngularFirestore) {
+    this.questionnaireCollection = this.afs.collection('questionnaires');
+    this.questionnaire = this.questionnaireCollection.snapshotChanges()
+      .pipe(map(this.includeCollectionID));
+   }
+
+   includeCollectionID(docChangeAction) {
+    return docChangeAction.map((a) => {
+      const data = a.payload.doc.data();
+      const id = a.payload.doc.id;
+      return { id, ...data };
+    });
+  }
+
+  upload(questionnaireObject) {
+    return this.questionnaireCollection.add(questionnaireObject)
   }
 
 }

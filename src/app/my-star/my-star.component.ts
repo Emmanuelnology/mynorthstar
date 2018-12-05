@@ -17,10 +17,7 @@ export class MyStarComponent implements OnInit {
 
 
   constructor(private questionnaireService: QuestionnaireService) {
-    this.results = this.questionnaireService.getResults(this.questions);
-    this.overallResult = this.results.overallResult;
-
-  this.restructureData(this.results.categoryResults);
+    const results = this.questionnaireService.getResults(this.questions);
 
   }
 
