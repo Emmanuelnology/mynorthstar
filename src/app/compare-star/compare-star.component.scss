@@ -1,7 +1,12 @@
 @import "../../variables.scss";
 
 #star {
-    margin: $s-sm 0;
+    margin-bottom: $s-sm;
+}
+
+#mobile-arc {
+    text-align: right;
+    width: 100%;
 }
 
 #history {
@@ -20,26 +25,33 @@
 
 @media only screen and (min-width: 768px) {
 
+    #layout {
+        display: grid;
+        grid-template-areas: 
+            ". history"
+            "arc history"
+            "star history"
+            ". history";
+        grid-template-columns: 60fr 35fr;
+        grid-template-rows: 2fr 1fr 3fr 3fr;
+        height: 100%;
+    }
+
     #star {
-        float: left;
-        width: 60%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        max-width: 55vw;
+        grid-area: star;
     }
     
     #history {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 35%;
-        float: right;
-        font-size: 2.5em;
+        min-width: 32.5vw;
+        margin: 0;
+        grid-area: history;
     }
 
-    #layout {
-        height: 100%;
-        display: flex;
-        align-content: center;
+    #tablet-arc {
+        grid-area: arc;
+        text-align: right;
+        max-width: 52.5vw;
     }
+
 }

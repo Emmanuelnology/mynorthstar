@@ -2,9 +2,9 @@
 <header>
     <div class="wrapper">
         <div class="logo-wrapper menu">
-            <a routerLink="/">
+            <a>
               <img (click)="menuIsVisible=!menuIsVisible" class="u-swapon-mobile dots" src="../../assets/logo/nav-round.png">
-              <img class="u-swapon-tablet" src="../../assets/logo/northstar-logo.png">
+              <img routerLink="/" class="u-swapon-tablet" src="../../assets/logo/northstar-logo.png">
             </a>
           </div>
           <h1>
@@ -18,13 +18,9 @@
           <div class="avatar-img" [ngStyle]="{ 'background-image':'url(' + user?.photoURL + ')' }" routerLink="/user-profile" routerLinkActive="active"></div>
         </div>
     </div>
-
   </header>
-
     <div class="wrapper">
           <app-nav class="menu {{ (menuIsVisible) ? '':'hideMenu'}}"></app-nav>
-
-
     <main class="f-grow content">
         <ng-content></ng-content>
     </main>

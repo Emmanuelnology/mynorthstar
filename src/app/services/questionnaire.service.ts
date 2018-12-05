@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { AuthService, IUser } from '../services/auth.service';
 
 export interface IQuestion {
   title: string;
@@ -22,7 +26,12 @@ export interface ICategoryResult {
 
 export interface IResult {
   categoryResults: ICategoryResult[];
-  overallResult: number;
+  overallResult: number; // add date & user id
+  date: Date;
+  user: {
+    uid: string;
+    displayName: string;
+  };
 }
 
 export let exampleQuestions: IQuestion[] = [
@@ -177,17 +186,36 @@ export let exampleQuestions: IQuestion[] = [
 })
 
 export class QuestionnaireService {
+  user;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    this.user = authService.user;
+   }
 
   getResults(questionArray: IQuestion[]): IResult {
+    // console.log(questionArray)
     const categoryAverages: ICategoryResult[] = this.getCategoryAverages(questionArray);
     const overallAverage: number = this.getOverallAverage(categoryAverages);
+    const addDate = new Date();
+    const userObject = this.createUserObject();
+
     const result: IResult = {
       categoryResults: categoryAverages,
-      overallResult: overallAverage
+      overallResult: overallAverage,
+      date: addDate,
+      user: userObject // createUser()
     };
-    return result;
+    return result; // add
+  }
+
+  createUserObject() {
+    console.log('The user is ' + this.user);
+    // const currentUser:IUser=this.auth.user;
+    const currentUser = {
+      uid: this.user.uid,
+      displayName: this.user.displayName
+    };
+    return currentUser;
   }
 
   getCategoryAverages(questionArray: IQuestion[]): ICategoryResult[] {
@@ -302,6 +330,75 @@ export class Randomise {
       }
     }
     return questionArray;
+  }
+
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class UploadToFirebase {
+questionnaireCollection: AngularFirestoreCollection<IResult>;
+  questionnaire: Observable<IResult[]>;
+  questionsCollection: AngularFirestoreCollection<IQuestion>;
+
+  constructor(private afs: AngularFirestore) {
+    this.questionnaireCollection = this.afs.collection('questionnaires');
+    this.questionsCollection = this.afs.collection('questionnaire');
+    this.questionnaire = this.questionnaireCollection.snapshotChanges()
+      .pipe(map(this.includeCollectionID));
+        // console.log("HI");
+        // this.get(this.questionsCollection)
+
+   }
+
+   includeCollectionID(docChangeAction) {
+    return docChangeAction.map((a) => {
+      const data = a.payload.doc.data();
+      const id = a.payload.doc.id;
+      return { id, ...data };
+    });
+  }
+
+  restructureDocsInCollection(collectionSnapshot) {
+      const docArray = [];
+
+      collectionSnapshot.forEach((doc) => {
+        docArray.push(
+          {
+            // id: doc.id,
+            ...doc.data()
+          }
+        );
+      });
+      return docArray;
+
+  }
+
+  getAllQuestions() {
+    return this.questionsCollection.get().pipe(
+      map(this.restructureDocsInCollection));
+  }
+
+  getAllResults() {
+    return this.questionnaireCollection.get().pipe( // score
+      map(this.restructureDocsInCollection));
+       }
+
+  getRecent(user, numberOfResults = 1) {
+    const resultCollection = this.afs.collection<IResult>('questionnaires', (reference) => {
+      return reference
+        .orderBy('date', 'desc')
+        .where('user.uid', '==', user.uid)
+        .limit(numberOfResults);
+    });
+    return resultCollection.get().pipe(map(this.restructureDocsInCollection));
+  }
+
+
+  upload(questionnaireObject) {
+    return this.questionnaireCollection.add(questionnaireObject);
   }
 
 }

@@ -12,9 +12,10 @@ var main_star_component_1 = require("../main-star/main-star.component");
 // import { viewAttached } from '@angular/core/src/render3/instructions';
 var CompareStarComponent = /** @class */ (function () {
     function CompareStarComponent() {
-        this.currentData = { label: 'Current', data: [3, 9, 6, 8, 3, 9, 4, 9, 5] };
+        this.currentData = { label: 'remove', data: [3, 9, 6, 8, 3, 9, 4, 9, 5] };
         this.emptyData = { label: 'remove', data: [] };
         this.animation = 0;
+        this.currentScore = 7.67;
         this.data = {
             datasets: [],
             labels: ['Career', 'Friends & Family', 'Happiness',
@@ -49,12 +50,17 @@ var CompareStarComponent = /** @class */ (function () {
     };
     CompareStarComponent.prototype.addRemoveData = function (activeIndex) {
         this.editData();
+        if (activeIndex.length !== 0) {
+            this.data.datasets[0].label = 'Current';
+        }
+        else {
+            this.data.datasets[0].label = 'remove';
+        }
         for (var _i = 0, activeIndex_1 = activeIndex; _i < activeIndex_1.length; _i++) {
             var index = activeIndex_1[_i];
             this.data.datasets[index + 1] = this.pastData[index];
         }
         this.mainStarViewChild.starData = this.data.datasets;
-        console.log(this.mainStarViewChild.starData);
         this.redraw();
     };
     __decorate([

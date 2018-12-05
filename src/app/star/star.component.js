@@ -59,7 +59,6 @@ var StarComponent = /** @class */ (function () {
     StarComponent.prototype.createGradient = function (ctx, parentElement) {
         var width = parentElement.offsetWidth;
         var height = width * 0.5;
-        console.log(height);
         var gradient = ctx.createRadialGradient(width / 2, height / 2, 20, width / 2, height / 2, width / 4);
         gradient.addColorStop(0, Colors.Red);
         gradient.addColorStop(0.3, Colors.Purple);
@@ -111,7 +110,6 @@ var StarComponent = /** @class */ (function () {
             this.chart.options.scale.pointLabels.display = false;
         }
         this.chart.update();
-        console.log('Chart was updated');
     };
     StarComponent.prototype.ngAfterViewInit = function () {
         this.createChart();
