@@ -5,17 +5,30 @@
     position: relative;
 }
 
+
 form {
-    border: 2px solid rgb(26, 52, 87);
-    background-color: rgb(7,13,23);
+    border: 2px solid $border-color;
+    // background-color: rgba(7,13,23,0.5);
     border-radius: 17px;
     flex: 2;
-    margin-right: 27%;
+}
+#output-score {
+    color: $bright-green;
+    background: $nav-color;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    margin-left: 87%;
+    font-size: $f-xl;
+
+    top: -2px;
 }
 
 div.container p {
     display: inline-block;
-    font-size:$f-md;
+    font-size:$f-sm;
 }
 
 .container {
@@ -35,18 +48,19 @@ div.container p {
 }
 
 .score-position {
-    display: flex;
     top: 45px;
     position: relative;
+    width: 85%;
+    display: none
 }
 
 .score-inputs {
-    width: 92.5%;
+    width: 79%;
     top: 20px;
     position: absolute;
     flex-grow: 1;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 2.5%;
+    // margin-right: 2.5%;
 
     &:hover {
         cursor: pointer;
@@ -56,21 +70,25 @@ div.container p {
 .fas {
     display: block;
     font-size: 0.6em;
-    color: rgb(26, 52, 87);
-    // color: white;
+    // color: rgb(26, 52, 87);
+    color: $nav-color;
+    // color: black;
+    // color: #080e18
+
 }
 
 .ind-score-position {
     flex-grow: 1;
     text-align: center;
     font-size: 0.9em;
-    color: rgb(26,52,87);
-    // color: white;
+    color: $nav-color;
+    color: black;
+
 }
 
 .scoring {
     position: relative;
-    height: 100px;
+    height: 40px;
 }
 
 .score-flex > input {    
@@ -96,7 +114,7 @@ div.container p {
 }
 
 .scoring-filler::-webkit-slider-thumb { //filler
-    box-shadow: 1000px 0 0 1000px rgb(26,52,87);
+    box-shadow: 1000px 0 0 1000px $nav-color;
     width: 0;
     height: 0;
 }
@@ -107,10 +125,9 @@ div.container p {
     -webkit-appearance: none;
     border-radius: 50%;
     cursor: pointer;
-    // background: white;
-    // box-shadow: 0 0 50px 2px $bright-green;
+    box-shadow: 0 0 30px 1px white;
     background: white;
-    box-shadow: 0 0 1px 1px white;
+    // box-shadow: 0 0 1px 1px white;
 }
 
 div.sendButton {
@@ -119,15 +136,71 @@ div.sendButton {
 }
 
 .progress-arc {
+    // flex: 1;
+    // flex-shrink: 1;
+    // position: fixed;
+    // right: 2%;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    display: none;
+}
+
+.progress-amount {
+    z-index: 1;
+    position: absolute;
+    margin-top: -2px;
+    font-size: 24px;
+    color: red;
+    text-align: center;
+}
+
+.progress-component {
+    transform:rotate(180deg);
+}
+
+
+
+
+@media only screen and (min-width: 894px) {
+    // .score-inputs {
+    // width: 91.5%;
+    // top: 20px;
+    // position: absolute;
+    // flex-grow: 1;
+    // margin-left: 4%;
+    // margin-right: 4%;
+
+    // &:hover {
+    //     cursor: pointer;
+    // }
+    // }
+.score-position {
+    display: flex;
+}
+#output-score {
+    margin-left: 90%;
+
+}
+.scoring {
+    height: 100px;
+}
+    p {
+        font-size:$f-md;
+    }
+    form {
+    flex: 2;
+    margin-right: 27%;
+}
+.progress-arc {
     flex: 1;
     flex-shrink: 1;
     position: fixed;
-    right: 2%;
+    right: 4%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .progress-amount {
     z-index: 1;
     position: absolute;
@@ -139,31 +212,9 @@ div.sendButton {
 
 .progress-component {
     transform:rotate(180deg);
+
 }
-
-small {
-    font-size: 40%;
-    text-transform: uppercase;
-    display: none;
-}
-
-
-@media only screen and (min-width: 528px) {
-    .score-inputs {
-    width: 91.5%;
-    top: 20px;
-    position: absolute;
-    flex-grow: 1;
-    margin-left: 4%;
-    margin-right: 4%;
-
-    &:hover {
-        cursor: pointer;
-    }
-    p {
-        font-size:$f-lg;
-    }
-}    
+    
 }
 
 // @media only screen and (min-width: 528px) {
@@ -187,19 +238,21 @@ small {
 //     }
 // }
 
+@media only screen and (max-width: 483px) {
+    #output-score {
+    // color: $bright-green;
+    // background: $nav-color;
+    width: 40px;
+    // border-radius: 50%;
+    // text-align: center;
+    // justify-content: center;
+    // position: absolute;
+    margin-left: 85%;
+    font-size: $f-lg;
+
+    top: 5px;
+}
+}
 
 
 
-
-// // #output-score {
-// //     color: $bright-green;
-// //     background: $nav-color;
-// //     width: 30px;
-// //     border-radius: 50%;
-// //     text-align: center;
-// //     position: absolute;
-// //     margin-left: 85%;
-// //     font-size: $f-md;
-
-// //     top: 5px;
-// // }
