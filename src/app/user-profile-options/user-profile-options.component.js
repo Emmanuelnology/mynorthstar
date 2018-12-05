@@ -8,10 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var UserProfileOptionsComponent = /** @class */ (function () {
-    function UserProfileOptionsComponent(router) {
+    function UserProfileOptionsComponent(afAuth, authService, router) {
+        this.afAuth = afAuth;
+        this.authService = authService;
         this.router = router;
+        this.newEmail = '';
     }
     UserProfileOptionsComponent.prototype.ngOnInit = function () {
+    };
+    UserProfileOptionsComponent.prototype.updateClientEmailAddress = function () {
+        this.authService.changeEmailAddress(this.newEmail);
     };
     UserProfileOptionsComponent = __decorate([
         core_1.Component({
