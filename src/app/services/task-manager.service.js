@@ -21,8 +21,9 @@ var core_1 = require("@angular/core");
 var operators_1 = require("rxjs/operators");
 // Snapshot changes and then pipe map and return document ID.
 var TaskManagerService = /** @class */ (function () {
-    function TaskManagerService(db) {
+    function TaskManagerService(db, afAuth) {
         this.db = db;
+        this.afAuth = afAuth;
         this.taskCollection = this.db.collection('tasks');
         this.tasks = this.taskCollection.snapshotChanges()
             .pipe(operators_1.map(this.includeCollectionID));
@@ -59,6 +60,9 @@ var TaskManagerService = /** @class */ (function () {
             console.log(error);
             throw new Error('Unable to update user');
         });
+    };
+    TaskManagerService.prototype.userId = function () {
+        return this.afAuth.user.uid;
     };
     TaskManagerService = __decorate([
         core_1.Injectable({

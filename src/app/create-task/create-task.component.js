@@ -16,9 +16,10 @@ var CreateTaskComponent = /** @class */ (function () {
     };
     CreateTaskComponent.prototype.onSubmit = function (title) {
         var task = {
-            userId: 'MOCKUSER',
+            userId: this.taskManagerService.userId(),
             task: title.value.charAt(0).toUpperCase() + title.value.slice(1).toLowerCase(),
-            isChecked: false
+            isChecked: false,
+            timestamp: new Date()
         };
         this.taskManagerService.addTask(task).then(function () {
             title.value = '';

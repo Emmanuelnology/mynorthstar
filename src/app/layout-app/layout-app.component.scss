@@ -19,11 +19,11 @@ main {
 header .wrapper > * {
   padding: $s-xs;
 }
+
 header .wrapper {
   align-items: center;
   height: $largeMenuWidth;
 }
-
 
 .avatar {
   display: inline-block;
@@ -67,7 +67,6 @@ header .wrapper {
 
 .logo-wrapper img {
   width: 100%;
-  
 }
 
 .greeting, 
@@ -90,14 +89,12 @@ h1 {
   padding: $s-sm;
   overflow-y: scroll;
   overflow-x: hidden;
-  
 }
 
 @media (min-width: $tablet-min) {
   header .wrapper > * {
     padding: $s-sm;
   }
-  
 
   .avatar {
     display:inline-block;
@@ -112,7 +109,6 @@ h1 {
     font-size: $f-sm;
     letter-spacing: 12px;
   }
-  
 }
 
 @media (min-width: $tablet-max) {
@@ -124,5 +120,4 @@ h1 {
     margin-left: $s-md;
     letter-spacing: 15px;
   }
-
 }
