@@ -15,13 +15,13 @@ interface IUser {
 })
 
 export class AuthService {
-  
+
 
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
 
   }
 
-  get user(){
+  get user() {
     return this.afAuth.auth.currentUser;
   }
 
