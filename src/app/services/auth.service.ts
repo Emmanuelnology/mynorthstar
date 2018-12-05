@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   logIn(email, password) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password).then((data)=>{
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).then((data) => {
       this.user = data.user;
 
     });
@@ -32,8 +32,8 @@ export class AuthService {
   }
 
   logOut() {
-    return this.afAuth.auth.signOut().then(()=> {
-      this.user=null;
+    return this.afAuth.auth.signOut().then(() => {
+      this.user = null;
     });
   }
 
