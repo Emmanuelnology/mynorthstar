@@ -1,36 +1,26 @@
-<div class="wrapper">
-<div class="flex-banner">
-  <div class="flex-menu" (click)="menuIsVisible=!menuIsVisible" >
-    <img class="dots" src="../../assets/logo/nav-round.png">
-            <app-tiny-star *ngIf="starData" [data]="starData" size="1em"></app-tiny-star>
+<div class="body">
+<header>
+    <div class="wrapper">
+        <div class="logo-wrapper menu">
+            <a routerLink="/">
+              <img class="u-swapon-mobile " src="../../assets/logo/nav-round.png">
+              <img class="u-swapon-tablet" src="../../assets/logo/northstar-logo.png">
+            </a>
+          </div>
+          <h1>
+            <i *ngIf="icon" class="{{icon}}"></i>
+            {{ pageTitle }}
+          </h1>
 
-  </div>
-  <!-- <div class="animate-border"></div> -->
-  <div class="flex-logo">
-    <div class="logo-wrapper">
-        <a routerLink="/">
-      <img src="../../assets/logo/northstar-logo.png">
-      </a>
     </div>
-    <h1>
-        <i *ngIf="icon" class="{{icon}}"></i>
-        {{ pageTitle }}
-    </h1>
-  </div>
-  <div class="flex-avatar">
-    <span class="greeting">Hi, {{user.displayName | titlecase}}</span>
+  </header>
 
-    <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }">
-    
+    <div class="wrapper">
+          <app-nav class="menu"></app-nav>
+
+
+    <main class="f-grow content">
+        <ng-content></ng-content>
+    </main>
     </div>
   </div>
-</div>
-<div class="flex-container {{ (menuIsVisible) ? 'showMenu':''}}">
-    <app-nav [menuIsVisible]="menuIsVisible"></app-nav>
-  <main>
-    <div class="content">
-      <ng-content></ng-content>
-    </div>
-  </main>
-</div>
-</div>

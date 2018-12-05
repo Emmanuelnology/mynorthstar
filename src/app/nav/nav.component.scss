@@ -1,19 +1,14 @@
 @import '../../variables.scss';
 
 
-
 nav {
   background-color: $nav-color;
   text-align: center;
   border-top: 1px solid white;
-  position: absolute;
-  top: $navHeight;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  transition: $animationDuration;
   overflow: hidden;
+  
 }
+
 
 nav li {
   color: $nav-icons-color;
@@ -26,10 +21,6 @@ nav li {
 
 }
 
-.showMenu {
-  width: $smallMenuWidth;
-  min-width: $smallMenuWidth;
-}
 
 // nav a {
 //   -webkit-text-stroke-width: 0.5px;
@@ -54,10 +45,6 @@ nav .active {
 
 @media (min-width: $tablet-min) {
 
-  .showMenu {
-    width: $largeMenuWidth;
-    min-width: $largeMenuWidth;
-  }
 
   .tooltip {
     display: inline;
