@@ -1,13 +1,23 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
  
   <section>
-    <h2>Your details</h2>
-    <ul>
-      <li>Name: {{user.displayName}}</li>
-      <li>Email address: {{user.email}}</li>
-      <li>Email verified: {{user.emailVerified}}</li>
-      <li>Image: <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }">.</div></li>
-    </ul>
+    <div class="header-content">
+      <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }"></div>
+      <div class="text-inside-header">
+        <h2>{{user.displayName}}</h2>
+      
+        <p>Email address: {{user.email}}</p>
+        
+        <p> verified: {{user.emailVerified}}</p>
+      </div>
+    </div>
+
+
+
+
+
+
+
 
     <p>Change your name below:</p>
     <form (ngSubmit)="updateClientName()">

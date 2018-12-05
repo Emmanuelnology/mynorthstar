@@ -18,13 +18,9 @@
           <div class="avatar-img" [ngStyle]="{ 'background-image':'url(' + user?.photoURL + ')' }" routerLink="/user-profile" routerLinkActive="active"></div>
         </div>
     </div>
-
   </header>
-
     <div class="wrapper">
           <app-nav class="menu {{ (menuIsVisible) ? '':'hideMenu'}}"></app-nav>
-
-
     <main class="f-grow content">
         <ng-content></ng-content>
     </main>

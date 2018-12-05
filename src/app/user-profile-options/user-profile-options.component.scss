@@ -1,13 +1,27 @@
 @import "../../variables.scss";
 
+.header-content {
+  display: block;
+  height: 300px;
+  width: 110%;
+  background-image: url('https://cdn.londonandpartners.com/-/media/images/london/visit/london-organisations/tower-bridge-exhibition/tower-bridge-homepage-image.jpg?mw=1920&hash=E19E0136A57855A8ED61B4E66EA72F1646CA8DAC');
+  background-size: cover;
+  margin-left: -15px;
+  margin-top: -27px;
+}
+
 .circle-border {
-    border-radius: 50%;
-    border: 1px solid white;
-    background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
-    background-size: cover;
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
-    margin-bottom: $s-sm;
-    margin-right: $s-xs;
-  }
+  border-radius: 50%;
+  border: 1px solid white;
+  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  vertical-align: middle;
+  float: left;
+  margin: $s-sm;
+}
+
+.text-inside-header {
+  padding-top: 30px;
+}

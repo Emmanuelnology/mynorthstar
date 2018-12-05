@@ -14,6 +14,8 @@ export class QuestionnaireComponent implements OnInit {
     downloadQuestions: IQuestion;
     questions = [];
 
+    questionnaireFromFirebase: Observable<any[]>;
+    number = 0;
     constructor(
         private rand: Randomise,
         private questionnaireService: QuestionnaireService,
@@ -27,6 +29,13 @@ export class QuestionnaireComponent implements OnInit {
 
     ngOnInit() {
         this.getQuestions();
+    }
+
+    blobClick () {
+        if (this.number < 6) {
+            return this.number++;
+        }
+
     }
 
     getQuestions() {
@@ -61,5 +70,7 @@ export class QuestionnaireComponent implements OnInit {
                 // display error message
             });
     }
+
+
 
 }
