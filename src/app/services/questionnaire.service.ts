@@ -381,13 +381,13 @@ questionnaireCollection: AngularFirestoreCollection<IResult>;
       map(this.restructureDocsInCollection));
   }
 
-  getAllResults(){
-    return this.questionnaireCollection.get().pipe( //score
+  getAllResults() {
+    return this.questionnaireCollection.get().pipe( // score
       map(this.restructureDocsInCollection));
        }
-  
-  getRecent(user, numberOfResults = 1){
-    const resultCollection = this.afs.collection<IResult>('questionnaires', (reference)=> {
+
+  getRecent(user, numberOfResults = 1) {
+    const resultCollection = this.afs.collection<IResult>('questionnaires', (reference) => {
       return reference
         .orderBy('date', 'desc')
         .where('user.uid', '==', user.uid)

@@ -24,7 +24,6 @@ var MyStarComponent = /** @class */ (function () {
         this.firebase.getAllResults().subscribe((this.results));
         console.log('hi', this.getResults());
     };
-    ;
     MyStarComponent.prototype.restructureData = function (results) {
         var data = {
             data: [],

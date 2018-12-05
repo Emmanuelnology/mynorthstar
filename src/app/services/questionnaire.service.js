@@ -341,7 +341,7 @@ var UploadToFirebase = /** @class */ (function () {
         return this.questionsCollection.get().pipe(operators_1.map(this.restructureDocsInCollection));
     };
     UploadToFirebase.prototype.getAllResults = function () {
-        return this.questionnaireCollection.get().pipe(//score
+        return this.questionnaireCollection.get().pipe(// score
         operators_1.map(this.restructureDocsInCollection));
     };
     UploadToFirebase.prototype.getRecent = function (user, numberOfResults) {

@@ -55,7 +55,7 @@ var TinyStarComponent = /** @class */ (function () {
             var d = _a[_i];
             this.payload.labels.push(d.toString());
         }
-        console.log(this.payload, "payload");
+        console.log(this.payload, 'payload');
     };
     __decorate([
         core_1.Input()
