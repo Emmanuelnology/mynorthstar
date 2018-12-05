@@ -54,7 +54,21 @@ $f-md: 1.5rem;
 $f-lg: 2rem;
 $f-xl: 2.7rem;
 
+// global breakpoints
+// global text spacing
+// font size tweaks
+
 $animationDuration: 0.5s;
 $navHeight: 80px;
 $smallMenuWidth: 40px;
 $largeMenuWidth: 70px;
+
+
+//global media queries
+$phone-min: 320px;
+$phone-max: 424px;
+$tablet-min: 425px; 
+$tablet-max: 767px;
+$laptop-min: 768px;
+$laptop-max: 1023px;
+$desktop-min:1024px;

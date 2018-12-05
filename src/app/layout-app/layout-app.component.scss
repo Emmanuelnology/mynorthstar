@@ -140,43 +140,43 @@ h1 > i {
 }
 
 
-@media only screen and (min-width:500px){
+@media (min-width: $tablet-min){
   $menuWidth: 70px;
 
-  /* ToolTip classses */ 
-.tooltip {
-  display: inline-block;    
-  }
-  .menu .tooltip .tooltiptext {
-      margin-left:9px;
-      width : 320px;
-      visibility: hidden;
-      background-color: #FFF;
-      border-radius:4px;
-      border: 1px solid #aeaeae;
-      position: absolute;
-      z-index: 1;
-      padding: 5px;
-      margin-top : -15px; /* according to application */ 
-     opacity: 0;
-      transition: opacity 1s;
-  }
-  .tooltip .tooltiptext::after {
-      content: " ";
-      position: absolute;
-      top: 5%;
-      right: 100%; /* To the left of the tooltip */
-      margin-top: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: transparent #aeaeae transparent transparent;
-  }
+//   /* ToolTip classses */ 
+// .tooltip {
+//   display: inline-block;    
+//   }
+//   .menu .tooltip .tooltiptext {
+//       margin-left:9px;
+//       width : 320px;
+//       visibility: hidden;
+//       background-color: #FFF;
+//       border-radius:4px;
+//       border: 1px solid #aeaeae;
+//       position: absolute;
+//       z-index: 1;
+//       padding: 5px;
+//       margin-top : -15px; /* according to application */ 
+//      opacity: 0;
+//       transition: opacity 1s;
+//   }
+//   .tooltip .tooltiptext::after {
+//       content: " ";
+//       position: absolute;
+//       top: 5%;
+//       right: 100%; /* To the left of the tooltip */
+//       margin-top: -5px;
+//       border-width: 5px;
+//       border-style: solid;
+//       border-color: transparent #aeaeae transparent transparent;
+//   }
   
   
-  .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-  }
+//   .tooltip:hover .tooltiptext {
+//       visibility: visible;
+//       opacity: 1;
+//   }
 
   .logo-wrapper {
     padding: $s-sm;
@@ -228,7 +228,7 @@ h1 > i {
 
 }
 
-@media only screen and (min-width:750px){
+@media (min-width: $tablet-max) {
 
   h1 {
     font-size: $f-sm;
@@ -264,7 +264,7 @@ h1 > i {
 
 }
 
-@media only screen and (min-width:800px){
+@media (min-width: $laptop-min) {
   h1 {
     font-size: $f-md;
     margin-left: $s-md;

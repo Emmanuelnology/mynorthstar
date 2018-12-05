@@ -52,13 +52,12 @@ nav .active {
   display: none;
 }
 
-@media only screen and (min-width:500px) {
+@media (min-width: $tablet-min) {
 
   .showMenu {
     width: $largeMenuWidth;
     min-width: $largeMenuWidth;
   }
-
 
   .tooltip {
     display: inline;
@@ -82,7 +81,6 @@ nav .active {
     border-radius: 5px;
     background-color: $navy;
     opacity: 0.5;
-
   }
 
   .tooltip .tooltiptext::after {
@@ -91,7 +89,6 @@ nav .active {
     right: 100%;
     margin-top: -5px;
   }
-
 
   li:hover .tooltiptext {
     visibility: visible;
