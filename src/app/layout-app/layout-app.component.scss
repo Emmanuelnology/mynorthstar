@@ -40,6 +40,11 @@ header .wrapper {
   background-size: cover;
 }
 
+.avatar-img:hover,
+.greeting:hover {
+  cursor: pointer;
+}
+
 .wrapper {
   display:flex;
 }
@@ -119,5 +124,5 @@ h1 {
     margin-left: $s-md;
     letter-spacing: 15px;
   }
-  
+
 }
