@@ -3,7 +3,7 @@
       where 0 is strongly disagree and 10 strongly agree.
     </p>      
     <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
-        <div *ngFor="let question of questionnaireFromFirebase | async">
+        <div *ngFor="let question of questions">
           <div  class="container">
             <label for="questions">
               <p>{{question.number}}. {{question.question}}</p>

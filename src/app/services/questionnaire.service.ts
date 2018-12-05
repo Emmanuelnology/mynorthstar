@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
-import { AuthService, IUser } from '../services/auth.service'
+import { map } from 'rxjs/operators';
+import { AuthService, IUser } from '../services/auth.service';
 
 export interface IQuestion {
   title: string;
@@ -26,7 +26,7 @@ export interface ICategoryResult {
 
 export interface IResult {
   categoryResults: ICategoryResult[];
-  overallResult: number; //add date & user id
+  overallResult: number; // add date & user id
   date: Date;
   user: {
     uid: string;
@@ -189,18 +189,15 @@ export class QuestionnaireService {
   user;
 
   constructor(private authService: AuthService) {
-    this.user = authService.user
+    this.user = authService.user;
    }
-
-  ngOnInit() {
-  }
 
   getResults(questionArray: IQuestion[]): IResult {
     // console.log(questionArray)
     const categoryAverages: ICategoryResult[] = this.getCategoryAverages(questionArray);
     const overallAverage: number = this.getOverallAverage(categoryAverages);
     const addDate = new Date();
-    const userObject = this.createUserObject()
+    const userObject = this.createUserObject();
 
     const result: IResult = {
       categoryResults: categoryAverages,
@@ -212,12 +209,12 @@ export class QuestionnaireService {
   }
 
   createUserObject() {
-    console.log("The user is " + this.user);
+    console.log('The user is ' + this.user);
     // const currentUser:IUser=this.auth.user;
     const currentUser = {
-      uid: "yZawBjT9UVeAI6LF1zOViWi65d52", //this.user.uid,
-      displayName: "Nologist"//this.user.displayName
-    }
+      uid: this.user.uid,
+      displayName: this.user.displayName
+    };
     return currentUser;
   }
 
@@ -343,8 +340,8 @@ export class Randomise {
 
 export class UploadToFirebase {
   questionnaireCollection: AngularFirestoreCollection<IResult>;
-  questionnaire: Observable<IResult[]>
-  questionsCollection: AngularFirestoreCollection<IQuestion>
+  questionnaire: Observable<IResult[]>;
+  questionsCollection: AngularFirestoreCollection<IQuestion>;
 
   constructor(private afs: AngularFirestore) {
     this.questionnaireCollection = this.afs.collection('questionnaires');
@@ -353,7 +350,7 @@ export class UploadToFirebase {
       .pipe(map(this.includeCollectionID));
         // console.log("HI");
         // this.get(this.questionsCollection)
-      
+
    }
 
    includeCollectionID(docChangeAction) {
@@ -364,8 +361,24 @@ export class UploadToFirebase {
     });
   }
 
-  get(){
-    return this.questionnaireCollection.get();
+  restructureDocsInCollection(collectionSnapshot) {
+      const docArray = [];
+
+      collectionSnapshot.forEach((doc) => {
+        docArray.push(
+          {
+            // id: doc.id,
+            ...doc.data()
+          }
+        );
+      });
+      return docArray;
+
+  }
+
+  getAllQuestions() {
+    return this.questionsCollection.get().pipe(
+      map(this.restructureDocsInCollection));
   }
 
   upload(questionnaireObject) {
