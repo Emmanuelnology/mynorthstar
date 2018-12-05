@@ -90,6 +90,7 @@ h1 {
   overflow-x: hidden;
 }
 
+
 @media (min-width: $tablet-min) {
   header .wrapper > * {
     padding: $s-sm;
@@ -104,11 +105,8 @@ h1 {
     max-width: $largeMenuWidth;
   }
 
-  h1 {
-    font-size: $f-sm;
-    letter-spacing: 12px;
-  }
 }
+
 
 @media (min-width: $tablet-max) {
   .greeting {
