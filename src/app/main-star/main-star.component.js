@@ -12,7 +12,7 @@ var MainStarComponent = /** @class */ (function () {
     function MainStarComponent() {
         this.animation = 500;
         this.showLegend = false;
-        this.colors = ['white', 'red', 'blue', 'green'];
+        this.colors = ['white', '#f32f6d', '#06fab4', '#3fb7fd', '#6ecbd3', '#795afd'];
         this.outputData = {
             datasets: [],
             labels: [],
@@ -33,7 +33,7 @@ var MainStarComponent = /** @class */ (function () {
                     display: true,
                     labels: {
                         fontColor: 'white',
-                        filter: function (item) {
+                        filter: function (item, starData) {
                             return !item.text.includes('remove');
                         }
                     }

@@ -24,12 +24,17 @@ export class AuthService {
   }
 
   logIn(email, password) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).then((data)=>{
+      this.user = data.user;
+
+    });
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   logOut() {
-    return this.afAuth.auth.signOut();
+    return this.afAuth.auth.signOut().then(()=> {
+      this.user=null;
+    });
   }
 
   registerUser(email, password) {
@@ -40,12 +45,30 @@ export class AuthService {
     return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
+  changeName(newName) {
+    this.afAuth.auth.currentUser.updateProfile({
+      displayName: newName,
+      photoURL: this.user.photoURL
+    });
+  }
+
   changeEmailAddress(newEmail) {
     return this.afAuth.auth.currentUser.updateEmail(newEmail);
   }
 
   changePassword(newPassword) {
     return this.afAuth.auth.currentUser.updatePassword(newPassword);
+  }
+
+  verifyEmailAddress() {
+    return this.afAuth.auth.currentUser.sendEmailVerification();
+  }
+
+  changeImage(newImage) {
+    this.afAuth.auth.currentUser.updateProfile({
+      displayName: this.user.displayName,
+      photoURL: newImage
+    });
   }
 
 

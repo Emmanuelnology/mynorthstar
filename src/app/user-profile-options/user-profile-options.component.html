@@ -1,6 +1,24 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
  
   <section>
+    <h2>Your details</h2>
+    <ul>
+      <li>Name: {{user.displayName}}</li>
+      <li>Email address: {{user.email}}</li>
+      <li>Email verified: {{user.emailVerified}}</li>
+      <li>Image: <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }">.</div></li>
+
+    </ul>
+
+    <p>Change your name below:</p>
+    <form (ngSubmit)="updateClientName()">
+        <fieldset>
+          <label for="Name">New name</label>
+          <input [(ngModel)]="newName" type="name" name="name" id="newName" required>
+          <button class="btn btn-flat btn-navy" type="submit" id="submitNewName">Update name</button>
+      </fieldset>
+    </form>
+
     <p>Your email address is: {{user.email}}.</p>
     <p>You can change it below:</p>
     <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
@@ -10,7 +28,7 @@
       <fieldset>
           <label for="Email">New email</label>
           <input [(ngModel)]="newEmail" type="email" name="Email" id="newEmail" required>
-          <button class="btn btn-flat btn-navy" type="submit" id="submit">Update email</button>
+          <button class="btn btn-flat btn-navy" type="submit" id="submitNewEmail">Update email</button>
       </fieldset>
     </form>
 
@@ -19,11 +37,20 @@
     <p>Change your password below:</p>
     <form (ngSubmit)="updateClientPassword()">
         <fieldset>
-            <label for="Email">New password</label>
-            <input [(ngModel)]="newPassword" type="password" name="password" id="newPassword" required>
-            <button class="btn btn-flat btn-navy" type="submit" id="submit">Update password</button>
-        </fieldset>
-      </form>
+          <label for="Password">New password</label>
+          <input [(ngModel)]="newPassword" type="password" name="password" id="newPassword" required>
+          <button class="btn btn-flat btn-navy" type="submit" id="submitNewPassword">Update password</button>
+      </fieldset>
+    </form>
+
+    <p>Change your image below:</p>
+    <form (ngSubmit)="updateClientImage()">
+        <fieldset>
+          <label for="Image">Paste image url here:</label>
+          <input [(ngModel)]="newImage" type="imageName" name="imageName" id="newImage" required>
+          <button class="btn btn-flat btn-navy" type="submit" id="submitNewImage">Update image</button>
+      </fieldset>
+    </form>
 
   </section>
 </app-layout-default>
