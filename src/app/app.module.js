@@ -13,7 +13,6 @@ var forms_1 = require("@angular/forms");
 // Imported Components
 var angular2_arc_progress_1 = require("angular2-arc-progress");
 // Firebase imports
-// If you have errors, check slack chat, I've posted a solution - George.
 var fire_1 = require("@angular/fire");
 var firestore_1 = require("@angular/fire/firestore");
 var auth_1 = require("@angular/fire/auth");
