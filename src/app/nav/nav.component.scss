@@ -49,20 +49,23 @@ nav .active {
 // }
 
 .tooltiptext {
-  visibility: hidden;
+  display: none;
 }
 
-@media only screen and (min-width:500px) {
+@media (min-width: $tablet-min) {
 
   .showMenu {
     width: $largeMenuWidth;
     min-width: $largeMenuWidth;
   }
 
-
   .tooltip {
     display: inline;
 
+  }
+
+  .tooltiptext {
+    display: inline;
   }
 
   .tooltip .tooltiptext {
@@ -74,11 +77,10 @@ nav .active {
     z-index: 1;
     padding: 5px;
     margin-top: 0px;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
     border-radius: 5px;
     background-color: $navy;
     opacity: 0.5;
-
   }
 
   .tooltip .tooltiptext::after {
@@ -87,7 +89,6 @@ nav .active {
     right: 100%;
     margin-top: -5px;
   }
-
 
   li:hover .tooltiptext {
     visibility: visible;

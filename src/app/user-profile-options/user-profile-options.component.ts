@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import {Router} from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-user-profile-options',
@@ -7,12 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-profile-options.component.scss']
 })
 export class UserProfileOptionsComponent implements OnInit {
+  newEmail = '';
 
-  constructor(private router: Router) {
-
-}
+  constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
+
+  updateClientEmailAddress() {
+    this.authService.changeEmailAddress(this.newEmail);
+  }
+
 
 }

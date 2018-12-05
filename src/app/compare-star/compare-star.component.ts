@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { IData, IChartDataSet, StarComponent } from '../star/star.component';
+import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
 // import { viewAttached } from '@angular/core/src/render3/instructions';
@@ -13,100 +13,27 @@ import { Colours } from '../../colours';
 
 export class CompareStarComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(StarComponent) starViewChild: StarComponent;
+  @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
   public colours: Colours;
 
-  datasets: IChartDataSet[] = [];
-  data: IData = {
+  data = {
     datasets: [],
     labels: ['Career', 'Friends & Family', 'Happiness',
-      'Health & Wellbeing', 'Home & Environment', 'Money',
-      'Personal Growth', 'Relationships', 'Spirituality'],
-    options: {
-      legend: {
-        display: true,
-        labels: {
-          fontColor: 'white'
-        }
-      },
-      scale: {
-        pointLabels: { // Labels around the chart
-          display: true,
-          fontColor: 'white',
-          fontSize: 14
-        },
-        angleLines: { // Radiating lines leading to the labels
-          color: '#b02062'
-        },
-        ticks: {
-          // maxTicksLimit: 5,
-          display: false,
-          min: 0,
-          max: 10,
-        },
-        gridLines: {
-          color: '#777'
-        }
-      },
-    }
+    'Health & Wellbeing', 'Home & Environment', 'Money',
+    'Personal Growth', 'Relationships', 'Spirituality']
   };
 
-  public pastData = [
-    {
-      data: [9, 2, 8, 3, 9, 2, 8, 4, 2],
-      label: 'Nov 18',
-      fill: false,
-      lineTension: 0.3,
-      borderColor: '#b02062',
-      pointBorderColor: '#6ecbd3',
-      pointRadius: 5,
-      pointBackgroundColor: '#37234f'
-    },
-    {
-      data: [1, 6, 4, 3, 8, 6, 3, 2, 6],
-      label: 'Oct 18',
-      fill: false,
-      lineTension: 0.3,
-      borderColor: '#6ecbd3',
-      pointBorderColor: '#6ecbd3',
-      pointRadius: 5,
-      pointBackgroundColor: '#37234f'
-    },
-    {
-      data: [3, 7, 8, 4, 6, 4, 3, 2, 5],
-      label: 'Sep 18',
-      fill: false,
-      lineTension: 0.3,
-      borderColor: '#65449b',
-      pointBorderColor: '#6ecbd3',
-      pointRadius: 5,
-      pointBackgroundColor: '#37234f'
-    },
-    {
-      data: [3, 6, 6, 7, 4, 8, 3, 6, 3],
-      label: 'Aug 18',
-      fill: false,
-      lineTension: 0.3,
-      borderColor: '#00ffd2',
-      pointBorderColor: '#6ecbd3',
-      pointRadius: 5,
-      pointBackgroundColor: '#37234f'
-    }
+  public pastData: IDataSet[] = [
+    {label: 'Nov 18', data: [9, 2, 8, 3, 9, 2, 8, 4, 2]},
+    {label: 'Oct 18', data: [1, 6, 4, 3, 8, 6, 3, 2, 6]},
+    {label: 'Sep 18', data: [3, 7, 8, 4, 6, 4, 3, 2, 5]},
+    {label: 'Aug 18', data: [3, 6, 6, 7, 4, 8, 3, 6, 3]}
   ];
 
   constructor() {
     this.data.datasets.push(
-      {
-        data: [1, 6, 2, 6, 1, 5, 2, 7, 9],
-        label: 'Current',
-        fill: true,
-        lineTension: 0.3,
-        borderColor: 'white',
-        pointBorderColor: '#6ecbd3',
-        pointRadius: 5,
-        pointBackgroundColor: '#37234f',
-      }
+      {label: 'Current', data: [1, 6, 2, 6, 1, 5, 2, 7, 9]}
     );
   }
 
@@ -117,12 +44,11 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   }
 
   redraw() {
-    this.starViewChild.redraw();
+    this.mainStarViewChild.redraw();
   }
 
   removeData() {
     this.data.datasets.splice(1);
-    this.redraw();
   }
 
   addData(activeIndex: number[]) {
@@ -132,7 +58,9 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         this.pastData[index]
       );
     }
-    this.starViewChild.data.datasets = this.data.datasets;
+    this.mainStarViewChild.starData = this.data.datasets;
+    console.log(this.mainStarViewChild.starData);
     this.redraw();
   }
+
 }

@@ -1,26 +1,15 @@
 @import "../../variables.scss";
 
-#compare-btn {
-    z-index: 1;
-}
-
-#compare-btn:hover {
-    cursor: pointer;
-}
-
 #star {
-    height: 90%;
-    position: absolute;
-    left: 0;
+    margin: $s-sm 0;
 }
 
 #history {
-    height: 90%;
-    position: absolute;
-    right: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 #border-container {
@@ -29,19 +18,28 @@
     padding: $s-sm;
 }
 
-#compare-btn {
-    float: right;
-}
-
 @media only screen and (min-width: 768px) {
-    #star {
-        width: 70%;
-        float: left;
-    }
 
+    #star {
+        float: left;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
     #history {
-        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 35%;
         float: right;
         font-size: 2.5em;
+    }
+
+    #layout {
+        height: 100%;
+        display: flex;
+        align-content: center;
     }
 }

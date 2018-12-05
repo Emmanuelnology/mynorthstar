@@ -13,7 +13,6 @@ var forms_1 = require("@angular/forms");
 // Imported Components
 var angular2_arc_progress_1 = require("angular2-arc-progress");
 // Firebase imports
-// If you have errors, check slack chat, I've posted a solution - George.
 var fire_1 = require("@angular/fire");
 var firestore_1 = require("@angular/fire/firestore");
 var auth_1 = require("@angular/fire/auth");
@@ -42,6 +41,7 @@ var nav_component_1 = require("./nav/nav.component");
 var forgot_password_component_1 = require("./forgot-password/forgot-password.component");
 var errors_component_1 = require("./errors/errors.component");
 var main_star_component_1 = require("./main-star/main-star.component");
+var user_profile_options_component_1 = require("./user-profile-options/user-profile-options.component");
 var routes = [
     // Test (TODO remove)
     { path: 'fbtd', component: fire_base_test_display_component_1.FireBaseTestDisplayComponent },
@@ -57,6 +57,7 @@ var routes = [
     { path: '', component: my_star_component_1.MyStarComponent, canActivate: [auth_guard_service_1.AuthGuard] },
     { path: 'error', component: errors_component_1.ErrorsComponent },
     { path: 'main-star', component: main_star_component_1.MainStarComponent },
+    { path: 'user-profile', component: user_profile_options_component_1.UserProfileOptionsComponent, canActivate: [auth_guard_service_1.AuthGuard] },
     { path: '**', component: errors_component_1.ErrorsComponent, data: { error: 404 } }
 ];
 var AppModule = /** @class */ (function () {
@@ -86,7 +87,8 @@ var AppModule = /** @class */ (function () {
                 nav_component_1.NavComponent,
                 forgot_password_component_1.ForgotPasswordComponent,
                 errors_component_1.ErrorsComponent,
-                main_star_component_1.MainStarComponent
+                main_star_component_1.MainStarComponent,
+                user_profile_options_component_1.UserProfileOptionsComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,

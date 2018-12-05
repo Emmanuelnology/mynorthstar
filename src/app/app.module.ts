@@ -3,17 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 // Imported Components
 import { Ng2ArcProgressModule } from 'angular2-arc-progress';
 
 // Firebase imports
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthGuard } from './services/auth-guard.service';
-
 import { environment } from '../environments/environment';
 
 
@@ -61,7 +58,7 @@ const routes: Routes = [
   { path: '', component: MyStarComponent, canActivate: [AuthGuard]},
   { path: 'error', component: ErrorsComponent },
   { path: 'main-star', component: MainStarComponent },
-  { path: 'user-profile', component: UserProfileOptionsComponent },
+  { path: 'user-profile', component: UserProfileOptionsComponent, canActivate: [AuthGuard] },
   { path: '**', component: ErrorsComponent, data: { error: 404 } }
 ];
 
