@@ -11,10 +11,14 @@ var AuthService = /** @class */ (function () {
     function AuthService(db, afAuth) {
         this.db = db;
         this.afAuth = afAuth;
-        if (this.afAuth.auth) {
-            this.user = this.afAuth.auth.currentUser;
-        }
     }
+    Object.defineProperty(AuthService.prototype, "user", {
+        get: function () {
+            return this.afAuth.auth.currentUser;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AuthService.prototype.logIn = function (email, password) {
         this.afAuth.auth.signInWithEmailAndPassword(email, password);
         return this.afAuth.auth.signInWithEmailAndPassword(email, password);

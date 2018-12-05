@@ -66,7 +66,7 @@ export class UserProfileOptionsComponent implements OnInit {
   }
 
   updateClientImage() {
-    this.authService.changeImage(this.newImage);
+    this.authService.changeImage(this.newImage  );
   }
 }
 

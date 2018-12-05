@@ -3,6 +3,7 @@ import { Task } from '../task-manager/task';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 
 // Snapshot changes and then pipe map and return document ID.
@@ -15,7 +16,7 @@ export class TaskManagerService {
     tasks: Observable<Task[]>;
     taskCollection: AngularFirestoreCollection<Task>;
 
-    constructor(private db: AngularFirestore) {
+    constructor(private db: AngularFirestore, private afAuth: AuthService) {
         this.taskCollection = this.db.collection<Task>('tasks');
         this.tasks = this.taskCollection.snapshotChanges()
         .pipe(map(this.includeCollectionID));
@@ -60,6 +61,10 @@ export class TaskManagerService {
             console.log(error);
             throw new Error('Unable to update user');
         });
+    }
+
+    userId() {
+        return this.afAuth.user.uid;
     }
 
 }
