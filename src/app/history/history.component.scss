@@ -8,12 +8,12 @@
     flex-direction: row;
     justify-content: space-between;
     margin: $s-xs 0;
-    font-size: $f-md;
+    font-size: $f-sm;
 }
 
 #legend {
     margin-bottom: $s-sm;
-    font-size: $f-lg;
+    font-size: $f-md;
 }
 
 
@@ -24,10 +24,6 @@
     color: $turquoise;
     font-size: 1.75em;
 }
-
-// .fa-square:hover {
-//     background-color: $turquoise-tint;
-// }
 
 .score,
 .date {
@@ -49,12 +45,15 @@
     cursor: pointer;
 }
 
-// .score {
-//     float: right;
-// }
+@media only screen and (min-width: 768px) {
+    #history-container,
+    #legend {
+    margin: $s-xs 0;
+    font-size: $f-md;
+    }
 
-// fieldset {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-// }
+    #legend {
+    margin-bottom: $s-sm;
+    font-size: $f-lg;
+    }
+}
