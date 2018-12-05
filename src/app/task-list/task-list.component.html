@@ -7,10 +7,10 @@
               <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
               <span class="checkmark"></span> -->
             <div [hidden]="task.isChecked === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="unchecked">
-                <i class="far fa-square"></i>
+                <i class="unticked far fa-square"></i>
               </div>
-              <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="checkbox">
-                <i class="far fa-check-square"></i>
+              <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="checked">
+                <i class="ticked far fa-check-square"></i>
               </div>
             </label>
               <p>{{ task.task }}</p>

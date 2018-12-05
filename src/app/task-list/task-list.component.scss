@@ -21,6 +21,9 @@ button{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    border: 1px solid $pink;
+    border-radius: 10px;
+    background-color: rgba(176, 32, 98, 0.2);
 }
 
 .test {
@@ -39,15 +42,22 @@ label {
 
 }
 
-.checkbox,
 .unchecked {
-    width: 22%;
-    text-align: right;
-    color: $turquoise;
-    font-size: 1.75em;
+    color: $pink;
+    font-size: $f-lg;
 }
 
-.checkbox:hover,
+.checked {
+    // text-align: right;
+    color: $turquoise;
+    font-size: $f-lg;
+}
+
+// .checked:hover {
+//     background-color: $turquoise-tint;
+// }
+
+.checked:hover,
 .unchecked:hover {
     cursor: pointer;
 }
@@ -63,10 +73,10 @@ label {
     user-select: none;
 }
 
-.container input {
-    opacity: 0;
-    cursor: pointer;
-}
+// .container input {
+//     opacity: 0;
+//     cursor: pointer;
+// }
 
 .checkmark {
     position: absolute;
@@ -79,32 +89,32 @@ label {
     border: 0.1px solid $turquoise;
 }
 
-.container:hover input ~ .checkmark {
+.ticked:hover {
     background-color: $turquoise-tint;
 }
 
-.container input:checked ~ .checkmark {
-    background-color: transparent;
-}
+// .container input:checked ~ .checkmark {
+//     background-color: transparent;
+// }
 
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
+// .checkmark:after {
+//     content: "";
+//     position: absolute;
+//     display: none;
+// }
 
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
+// .container input:checked ~ .checkmark:after {
+//     display: block;
+// }
 
-.container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid $turquoise;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
+// .container .checkmark:after {
+//     left: 9px;
+//     top: 5px;
+//     width: 5px;
+//     height: 10px;
+//     border: solid $turquoise;
+//     border-width: 0 3px 3px 0;
+//     -webkit-transform: rotate(45deg);
+//     -ms-transform: rotate(45deg);
+//     transform: rotate(45deg);
+// }

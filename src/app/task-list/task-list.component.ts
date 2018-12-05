@@ -38,10 +38,6 @@ export class TaskListComponent implements OnInit {
     this.taskManagerService.deleteTask(task);
   }
 
-  // isTrue(task: Task, bool) {
-  //   this.taskManagerService.toggleCheckBox(task, bool);
-  // }
-
   checked(task: Task) {
     this.taskManagerService.checked(task);
   }
