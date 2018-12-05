@@ -16,6 +16,14 @@ export interface IRadarChartOptions {
   tooltips?: {
     backgroundColor: string | string []
   };
+  layout?: {
+    padding: {
+        left: number,
+        right: number,
+        top: number,
+        bottom: number
+    }
+  };
   legend: {
     display: boolean,
     labels?: {
@@ -126,7 +134,6 @@ export class StarComponent implements AfterViewInit, OnInit {
     const height =  width * 0.5;
     console.log(height);
     const gradient = ctx.createRadialGradient(
-
       width / 2,
       height / 2,
       20,

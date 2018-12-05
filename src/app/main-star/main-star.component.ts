@@ -19,6 +19,14 @@ export class MainStarComponent implements OnInit {
       tooltips: {
         backgroundColor: 'rgba(	176, 32, 98, 0.7)'
       },
+      layout: {
+        padding: {
+          left: 0,
+          top: 50,
+          right: 0,
+          bottom: 40,
+        }
+      },
       legend: {
         display: false
       },
