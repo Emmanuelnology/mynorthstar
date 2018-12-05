@@ -36,7 +36,6 @@ export class QuestionnaireComponent implements OnInit {
        });
     }
 
-
     getSliderColor(value) {
         if (value <= 2) {
             const blue =  129 + 31.5 * value;

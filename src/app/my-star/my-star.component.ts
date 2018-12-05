@@ -20,21 +20,21 @@ export class MyStarComponent implements OnInit {
   user;
 
 
-  constructor(private questionnaireService: QuestionnaireService, 
+  constructor(private questionnaireService: QuestionnaireService,
     private authService: AuthService,
     private firebase: UploadToFirebase) {
-   
+
     this.user = authService.user;
-     
+
 
     // console.log("results are", this.results)
     // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
    }
    getResults() {
-    this.firebase.getAllResults().subscribe((this.results))
+    this.firebase.getAllResults().subscribe((this.results));
     console.log('hi', this.getResults());
-  };
+  }
 
   restructureData(results) {
     const data: IDataSet = {
@@ -49,7 +49,7 @@ export class MyStarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firebase.getRecent(this.user,2).subscribe((results)=>{
+    this.firebase.getRecent(this.user, 2).subscribe((results) => {
       this.restructureData(results[0].categoryResults);
       console.log(this.datasets);
       console.log(this.labels);
