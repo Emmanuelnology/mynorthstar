@@ -10,14 +10,48 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class UserProfileOptionsComponent implements OnInit {
   newEmail = '';
-
-  constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) { }
+  newPassword = '';
+  successUpdateEmail = '';
+  errorUpdateEmail = '';
+  successChangePassword = '';
+  errorChangePassword = '';
+  user;
+  constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) {
+    this.user = authService.user;
+   }
 
   ngOnInit() {
   }
 
   updateClientEmailAddress() {
-    this.authService.changeEmailAddress(this.newEmail);
+    this.authService.changeEmailAddress(this.newEmail).then(
+      () => {
+        this.successUpdateEmail = "Email updated successfully, your new address is " + this.authService.user.email;
+        this.errorUpdateEmail = '';
+      }
+    )
+    .catch(
+      (error) => {
+        this.errorUpdateEmail = error.message;
+        this.successUpdateEmail = ''
+      }  
+    );
+  }
+
+  updateClientPassword() {
+    this.authService.changePassword(this.newPassword).then(
+      () => {
+        this.successChangePassword = "Password updated successfully";
+        this.errorChangePassword = '';
+      }
+    )
+    .catch(
+      (error) => {
+        this.errorChangePassword = error.message;
+        this.successChangePassword = ''
+      }  
+    );
+  }
   }
 
 

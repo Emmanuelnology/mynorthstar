@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    this.authService.user.uid;
   }
 
   registerUser() {
@@ -27,12 +28,11 @@ export class RegisterComponent implements OnInit {
         displayName: this.name,
         photoURL: 'https://www.telegraph.co.uk/content/dam/Pets/spark/royal-canin/tabby-kitten-small.jpg?imwidth=450'
       });
-        this.router.navigate(['/']);
-    }
+      this.router.navigate(['/']);
+      }
     )
     .catch((error) => {
       this.error = error.message;
-    }
-    );
+    });
   }
 }
