@@ -1,0 +1,13 @@
+@import "../../variables.scss";
+
+.circle-border {
+    border-radius: 50%;
+    border: 1px solid white;
+    background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-bottom: $s-sm;
+    margin-right: $s-xs;
+  }

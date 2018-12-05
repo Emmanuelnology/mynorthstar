@@ -8,8 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var main_star_component_1 = require("../main-star/main-star.component");
+// import { renderDetachView } from '@angular/core/src/view/view_attach';
+// import { viewAttached } from '@angular/core/src/render3/instructions';
 var CompareStarComponent = /** @class */ (function () {
     function CompareStarComponent() {
+        this.currentData = { label: 'Current', data: [3, 9, 6, 8, 3, 9, 4, 9, 5] };
+        this.emptyData = { label: 'remove', data: [] };
+        this.animation = 0;
         this.data = {
             datasets: [],
             labels: ['Career', 'Friends & Family', 'Happiness',
@@ -17,12 +22,13 @@ var CompareStarComponent = /** @class */ (function () {
                 'Personal Growth', 'Relationships', 'Spirituality']
         };
         this.pastData = [
-            { label: 'Nov 18', data: [9, 2, 8, 3, 9, 2, 8, 4, 2] },
-            { label: 'Oct 18', data: [1, 6, 4, 3, 8, 6, 3, 2, 6] },
-            { label: 'Sep 18', data: [3, 7, 8, 4, 6, 4, 3, 2, 5] },
-            { label: 'Aug 18', data: [3, 6, 6, 7, 4, 8, 3, 6, 3] }
+            { label: 'Nov 18', data: [2, 7, 5, 6, 3, 8, 3, 7, 3] },
+            { label: 'Oct 18', data: [1, 6, 4, 5, 2, 7, 3, 6, 2] },
+            { label: 'Sep 18', data: [2, 5, 3, 4, 1, 6, 2, 5, 2] },
+            { label: 'Aug 18', data: [1, 4, 2, 3, 2, 5, 1, 3, 2] },
+            { label: 'Jul 18', data: [1, 4, 1, 3, 1, 4, 1, 3, 1] }
         ];
-        this.data.datasets.push({ label: 'Current', data: [1, 6, 2, 6, 1, 5, 2, 7, 9] });
+        this.data.datasets.push(this.currentData);
     }
     CompareStarComponent.prototype.ngOnInit = function () {
     };
@@ -31,14 +37,21 @@ var CompareStarComponent = /** @class */ (function () {
     CompareStarComponent.prototype.redraw = function () {
         this.mainStarViewChild.redraw();
     };
-    CompareStarComponent.prototype.removeData = function () {
-        this.data.datasets.splice(1);
+    CompareStarComponent.prototype.editData = function () {
+        this.data.datasets = [
+            this.currentData,
+            this.emptyData,
+            this.emptyData,
+            this.emptyData,
+            this.emptyData,
+            this.emptyData
+        ];
     };
-    CompareStarComponent.prototype.addData = function (activeIndex) {
-        this.removeData();
+    CompareStarComponent.prototype.addRemoveData = function (activeIndex) {
+        this.editData();
         for (var _i = 0, activeIndex_1 = activeIndex; _i < activeIndex_1.length; _i++) {
             var index = activeIndex_1[_i];
-            this.data.datasets.push(this.pastData[index]);
+            this.data.datasets[index + 1] = this.pastData[index];
         }
         this.mainStarViewChild.starData = this.data.datasets;
         console.log(this.mainStarViewChild.starData);
