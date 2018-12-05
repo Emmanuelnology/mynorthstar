@@ -23,6 +23,7 @@ var TaskListComponent = /** @class */ (function () {
     function TaskListComponent(db, taskManagerService) {
         this.db = db;
         this.taskManagerService = taskManagerService;
+        this.tasks = this.taskManagerService.tasks;
     }
     TaskListComponent.prototype.ngOnInit = function () {
         // this.tasks = this.db.collection('/tasks').valueChanges();
@@ -39,8 +40,11 @@ var TaskListComponent = /** @class */ (function () {
     TaskListComponent.prototype.onDelete = function (task) {
         this.taskManagerService.deleteTask(task);
     };
-    TaskListComponent.prototype.isTrue = function (task, bool) {
-        this.taskManagerService.toggleCheckBox(task, bool);
+    // isTrue(task: Task, bool) {
+    //   this.taskManagerService.toggleCheckBox(task, bool);
+    // }
+    TaskListComponent.prototype.checked = function (task) {
+        this.taskManagerService.checked(task);
     };
     TaskListComponent = __decorate([
         core_1.Component({

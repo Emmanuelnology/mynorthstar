@@ -13,6 +13,9 @@ interface ICanvas extends HTMLElement {
 }
 
 export interface IRadarChartOptions {
+  animation: {
+    duration: number;
+  };
   tooltips?: {
     backgroundColor: string | string []
   };
