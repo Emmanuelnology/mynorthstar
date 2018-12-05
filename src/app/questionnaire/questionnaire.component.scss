@@ -28,7 +28,7 @@ div.container p {
 
 .score-position {
     display: flex;
-    top: 40px;
+    top: 45px;
     position: relative;
 }
 
@@ -48,16 +48,16 @@ div.container p {
 .fas {
     display: block;
     font-size: 0.6em;
-    // color: rgb(26, 52, 87);
-    color: white;
+    color: rgb(26, 52, 87);
+    // color: white;
 }
 
 .ind-score-position {
     flex-grow: 1;
     text-align: center;
     font-size: 0.9em;
-    // color: rgb(26,52,87);
-    color: white;
+    color: rgb(26,52,87);
+    // color: white;
 }
 
 .scoring {

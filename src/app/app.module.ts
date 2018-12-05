@@ -39,6 +39,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ErrorsComponent } from './errors/errors.component';
 import { MainStarComponent } from './main-star/main-star.component';
 import { UserProfileOptionsComponent } from './user-profile-options/user-profile-options.component';
+import { QuestionnaireProgressComponent } from './questionnaire-progress/questionnaire-progress.component';
 
 const routes: Routes = [
   // Test (TODO remove)
@@ -86,7 +87,8 @@ const routes: Routes = [
     ForgotPasswordComponent,
     ErrorsComponent,
     MainStarComponent,
-    UserProfileOptionsComponent
+    UserProfileOptionsComponent,
+    QuestionnaireProgressComponent
   ],
   imports: [
     BrowserModule,
