@@ -19,8 +19,7 @@ export class LayoutAppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.authService.user;
-
+    this.user = this.authService.afAuth.auth.currentUser;
   }
   @HostListener('window:resize', ['$event'])
   onResize() {

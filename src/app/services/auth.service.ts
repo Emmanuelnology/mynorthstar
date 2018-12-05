@@ -15,17 +15,19 @@ interface IUser {
 })
 
 export class AuthService {
-  user: IUser;
+  
 
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
-    if (this.afAuth.auth) {
-      this.user = this.afAuth.auth.currentUser;
-    }
+
+  }
+
+  get user(){
+    return this.afAuth.auth.currentUser;
   }
 
   logIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((data)=>{
-      this.user = data.user;
+ 
 
     });
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
@@ -33,7 +35,7 @@ export class AuthService {
 
   logOut() {
     return this.afAuth.auth.signOut().then(()=> {
-      this.user=null;
+
     });
   }
 
