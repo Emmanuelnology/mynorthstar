@@ -1,9 +1,16 @@
 @import '../../variables.scss';
 
+.whole-questionnaire {
+    display: flex;
+    position: relative;
+}
+
 form {
     border: 2px solid rgb(26, 52, 87);
     background-color: rgb(7,13,23);
     border-radius: 17px;
+    flex: 2;
+    margin-right: 27%;
 }
 
 div.container p {
@@ -112,15 +119,18 @@ div.sendButton {
 }
 
 .progress-arc {
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    flex: 1;
+    flex-shrink: 1;
+    position: fixed;
+    right: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .progress-amount {
-    z-index:1;
-    position:absolute;
+    z-index: 1;
+    position: absolute;
     margin-top: -2px;
     font-size: 24px;
     color: white;
@@ -134,7 +144,7 @@ div.sendButton {
 small {
     font-size: 40%;
     text-transform: uppercase;
-    display:none;
+    display: none;
 }
 
 
