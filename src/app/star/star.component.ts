@@ -19,6 +19,14 @@ export interface IRadarChartOptions {
   tooltips?: {
     backgroundColor: string | string []
   };
+  layout?: {
+    padding: {
+        left: number,
+        right: number,
+        top: number,
+        bottom: number
+    }
+  };
   legend: {
     display: boolean,
     labels?: {
@@ -129,7 +137,6 @@ export class StarComponent implements AfterViewInit, OnInit {
     const height =  width * 0.5;
     console.log(height);
     const gradient = ctx.createRadialGradient(
-
       width / 2,
       height / 2,
       20,
@@ -147,6 +154,7 @@ export class StarComponent implements AfterViewInit, OnInit {
     const parentElement = document.getElementById(this.canvasID + '-parent');
       const gradient = this.createGradient(this.ctx, parentElement);
       const pointColors = this.createRadarPointColors(this.data.datasets[0].data);
+      this.data.options.legend.display = false;
       this.data.datasets[0].borderColor = gradient;
       this.data.datasets[0].pointBackgroundColor = pointColors;
       this.data.datasets[0].pointBorderColor = 'transparent';

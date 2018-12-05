@@ -8,51 +8,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var QuestionnaireComponent = /** @class */ (function () {
-    function QuestionnaireComponent(rand, questionnaireService, router) {
+    function QuestionnaireComponent(rand, questionnaireService, router, afs) {
         this.rand = rand;
         this.questionnaireService = questionnaireService;
         this.router = router;
-        this.questions = [
-            {
-                title: 'Question 1',
-                number: 1,
-                question: 'I do not feel particularly pleased with the way I am',
-                score: undefined,
-                weight: 2,
-                category: 'Happiness',
-                positive: false
-            },
-            {
-                title: 'Question 2',
-                number: 2,
-                question: 'I feel that life is very rewarding',
-                score: undefined,
-                weight: 5,
-                category: 'Happiness',
-                positive: true
-            },
-            {
-                title: 'Question 3',
-                number: 3,
-                question: 'I rarely wake up feeling rested',
-                score: undefined,
-                weight: 5,
-                category: 'Finance',
-                positive: false
-            },
-            {
-                title: 'Question 4',
-                number: 4,
-                question: 'I laugh a lot',
-                score: undefined,
-                weight: 2,
-                category: 'Happiness',
-                positive: true
-            },
-        ];
+        this.questions = [];
         this.questions = this.rand.randomiseOrder(this.questions);
+        this.questionnaireFromFirebase = afs.collection('questionnaire').valueChanges();
     }
     QuestionnaireComponent.prototype.ngOnInit = function () {
+    };
+    QuestionnaireComponent.prototype.getSliderColor = function (value) {
+        if (value <= 2) {
+            var blue = 129 + 31.5 * value;
+            return 'rgb(236, 0, ' + blue + ')';
+        }
+        if (value <= 6 && value > 2) {
+            var red = 236 - (value - 3) * 59;
+            return 'rgb(' + red + ', 0, 255)';
+        }
+        if (value > 6) {
+            var green = 61.9 * value - 364;
+            return 'rgb(0, ' + green + ', 210)';
+        }
     };
     QuestionnaireComponent.prototype.onSubmit = function () {
         // // check if any field is undefined

@@ -13,9 +13,11 @@ import { map } from 'rxjs/operators';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService) { }
+  constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService) {
+    this.tasks = this.taskManagerService.tasks;
+  }
 
-  tasks: Observable<any[]>;
+  tasks: Observable<Task[]>;
 
   ngOnInit() {
     // this.tasks = this.db.collection('/tasks').valueChanges();
@@ -36,8 +38,12 @@ export class TaskListComponent implements OnInit {
     this.taskManagerService.deleteTask(task);
   }
 
-  isTrue(task: Task, bool) {
-    this.taskManagerService.toggleCheckBox(task, bool);
+  // isTrue(task: Task, bool) {
+  //   this.taskManagerService.toggleCheckBox(task, bool);
+  // }
+
+  checked(task: Task) {
+    this.taskManagerService.checked(task);
   }
 
 }

@@ -17,13 +17,6 @@ var HistoryComponent = /** @class */ (function () {
             { date: 'Aug 18', score: '4.00', isActive: false }
         ];
     }
-    HistoryComponent.prototype.deactivate = function () {
-        for (var index in this.pastDataProfile) {
-            if (this.pastDataProfile.hasOwnProperty(index)) {
-                this.pastDataProfile[index].isActive = false;
-            }
-        }
-    };
     HistoryComponent.prototype.findActive = function () {
         var activeIndex = [];
         for (var index in this.pastDataProfile) {
