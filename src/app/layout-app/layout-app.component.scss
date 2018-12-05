@@ -1,4 +1,3 @@
-
 @import "../../variables.scss";
 
 .body {
@@ -19,11 +18,11 @@ main {
 header .wrapper > * {
   padding: $s-xs;
 }
+
 header .wrapper {
   align-items: center;
   height: $largeMenuWidth;
 }
-
 
 .avatar {
   display: inline-block;
@@ -38,6 +37,11 @@ header .wrapper {
   border: 1px solid white;
   background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
   background-size: cover;
+}
+
+.avatar-img:hover,
+.greeting:hover {
+  cursor: pointer;
 }
 
 .wrapper {
@@ -62,7 +66,6 @@ header .wrapper {
 
 .logo-wrapper img {
   width: 100%;
-  
 }
 
 .greeting, 
@@ -85,14 +88,13 @@ h1 {
   padding: $s-sm;
   overflow-y: scroll;
   overflow-x: hidden;
-  
 }
+
 
 @media (min-width: $tablet-min) {
   header .wrapper > * {
     padding: $s-sm;
   }
-  
 
   .avatar {
     display:inline-block;
@@ -103,12 +105,8 @@ h1 {
     max-width: $largeMenuWidth;
   }
 
-  h1 {
-    font-size: $f-sm;
-    letter-spacing: 12px;
-  }
-  
 }
+
 
 @media (min-width: $tablet-max) {
   .greeting {
@@ -119,5 +117,4 @@ h1 {
     margin-left: $s-md;
     letter-spacing: 15px;
   }
-  
 }

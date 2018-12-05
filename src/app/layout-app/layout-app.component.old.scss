@@ -176,8 +176,8 @@ h1>i {
   margin-right: $s-xs;
 }
 
-.greeting:hover,
-.circle-border:hover {
+.greeting.active:hover,
+.avatar-img:hover {
   cursor: pointer;
 }
 

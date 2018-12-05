@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,6 +18,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var core_1 = require("@angular/core");
+var operators_1 = require("rxjs/operators");
 exports.exampleQuestions = [
     {
         title: 'Question 1',
@@ -154,16 +166,32 @@ exports.exampleQuestions = [
     }
 ];
 var QuestionnaireService = /** @class */ (function () {
-    function QuestionnaireService() {
+    function QuestionnaireService(authService) {
+        this.authService = authService;
+        this.user = authService.user;
     }
     QuestionnaireService.prototype.getResults = function (questionArray) {
+        // console.log(questionArray)
         var categoryAverages = this.getCategoryAverages(questionArray);
         var overallAverage = this.getOverallAverage(categoryAverages);
+        var addDate = new Date();
+        var userObject = this.createUserObject();
         var result = {
             categoryResults: categoryAverages,
-            overallResult: overallAverage
+            overallResult: overallAverage,
+            date: addDate,
+            user: userObject // createUser()
         };
-        return result;
+        return result; // add
+    };
+    QuestionnaireService.prototype.createUserObject = function () {
+        console.log('The user is ' + this.user);
+        // const currentUser:IUser=this.auth.user;
+        var currentUser = {
+            uid: this.user.uid,
+            displayName: this.user.displayName
+        };
+        return currentUser;
     };
     QuestionnaireService.prototype.getCategoryAverages = function (questionArray) {
         var positiveAnswers = this.makePositive(questionArray);
@@ -285,3 +313,55 @@ var Randomise = /** @class */ (function () {
     return Randomise;
 }());
 exports.Randomise = Randomise;
+var UploadToFirebase = /** @class */ (function () {
+    function UploadToFirebase(afs) {
+        this.afs = afs;
+        this.questionnaireCollection = this.afs.collection('questionnaires');
+        this.questionsCollection = this.afs.collection('questionnaire');
+        this.questionnaire = this.questionnaireCollection.snapshotChanges()
+            .pipe(operators_1.map(this.includeCollectionID));
+        // console.log("HI");
+        // this.get(this.questionsCollection)
+    }
+    UploadToFirebase.prototype.includeCollectionID = function (docChangeAction) {
+        return docChangeAction.map(function (a) {
+            var data = a.payload.doc.data();
+            var id = a.payload.doc.id;
+            return __assign({ id: id }, data);
+        });
+    };
+    UploadToFirebase.prototype.restructureDocsInCollection = function (collectionSnapshot) {
+        var docArray = [];
+        collectionSnapshot.forEach(function (doc) {
+            docArray.push(__assign({}, doc.data()));
+        });
+        return docArray;
+    };
+    UploadToFirebase.prototype.getAllQuestions = function () {
+        return this.questionsCollection.get().pipe(operators_1.map(this.restructureDocsInCollection));
+    };
+    UploadToFirebase.prototype.getAllResults = function () {
+        return this.questionnaireCollection.get().pipe(// score
+        operators_1.map(this.restructureDocsInCollection));
+    };
+    UploadToFirebase.prototype.getRecent = function (user, numberOfResults) {
+        if (numberOfResults === void 0) { numberOfResults = 1; }
+        var resultCollection = this.afs.collection('questionnaires', function (reference) {
+            return reference
+                .orderBy('date', 'desc')
+                .where('user.uid', '==', user.uid)
+                .limit(numberOfResults);
+        });
+        return resultCollection.get().pipe(operators_1.map(this.restructureDocsInCollection));
+    };
+    UploadToFirebase.prototype.upload = function (questionnaireObject) {
+        return this.questionnaireCollection.add(questionnaireObject);
+    };
+    UploadToFirebase = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
+        })
+    ], UploadToFirebase);
+    return UploadToFirebase;
+}());
+exports.UploadToFirebase = UploadToFirebase;

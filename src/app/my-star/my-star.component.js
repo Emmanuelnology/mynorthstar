@@ -9,15 +9,21 @@ exports.__esModule = true;
 var core_1 = require("@angular/core");
 var questionnaire_service_1 = require("../services/questionnaire.service");
 var MyStarComponent = /** @class */ (function () {
-    function MyStarComponent(questionnaireService) {
+    function MyStarComponent(questionnaireService, authService, firebase) {
         this.questionnaireService = questionnaireService;
+        this.authService = authService;
+        this.firebase = firebase;
         this.questions = questionnaire_service_1.exampleQuestions;
         this.datasets = [];
         this.labels = [];
-        this.results = this.questionnaireService.getResults(this.questions);
-        this.overallResult = this.results.overallResult;
-        this.restructureData(this.results.categoryResults);
+        this.user = authService.user;
+        // console.log("results are", this.results)
+        // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
     }
+    MyStarComponent.prototype.getResults = function () {
+        this.firebase.getAllResults().subscribe((this.results));
+        console.log('hi', this.getResults());
+    };
     MyStarComponent.prototype.restructureData = function (results) {
         var data = {
             data: [],
@@ -31,6 +37,12 @@ var MyStarComponent = /** @class */ (function () {
         this.datasets.push(data);
     };
     MyStarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.firebase.getRecent(this.user, 2).subscribe(function (results) {
+            _this.restructureData(results[0].categoryResults);
+            console.log(_this.datasets);
+            console.log(_this.labels);
+        });
     };
     MyStarComponent = __decorate([
         core_1.Component({
