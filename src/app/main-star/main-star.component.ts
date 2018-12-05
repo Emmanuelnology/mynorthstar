@@ -6,6 +6,7 @@ export interface IDataSet {
   data: number[];
 }
 
+
 @Component({
   selector: 'app-main-star',
   templateUrl: './main-star.component.html',
@@ -21,7 +22,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
 
-  colors = ['white', 'red', 'blue', 'green'];
+  colors = ['white', '#f32f6d', '#06fab4', '#3fb7fd', '#6ecbd3', '#795afd'];
 
   outputData: IData = {
     datasets: [],
@@ -43,7 +44,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
         display: true,
         labels : {
           fontColor: 'white',
-          filter: function (item) {
+          filter: function (item, starData) {
             return !item.text.includes('remove');
           }
         }

@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var main_star_component_1 = require("../main-star/main-star.component");
+// import { renderDetachView } from '@angular/core/src/view/view_attach';
+// import { viewAttached } from '@angular/core/src/render3/instructions';
 var CompareStarComponent = /** @class */ (function () {
     function CompareStarComponent() {
         this.data = {
