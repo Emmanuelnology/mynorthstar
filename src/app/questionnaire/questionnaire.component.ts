@@ -1,11 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IQuestion, Randomise, QuestionnaireService, UploadToFirebase } from '../services/questionnaire.service';
 import { Router } from '@angular/router';
-import { PersistenceSettingsToken } from '@angular/fire/firestore';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service'
-
 
 @Component({
     selector: 'app-questionnaire',
@@ -14,7 +11,7 @@ import { AuthService } from '../services/auth.service'
 })
 
 export class QuestionnaireComponent implements OnInit {
-    questions: IQuestion[] = [];
+    downloadQuestions:IQuestion;
     // questions: IQuestion[] = [
     //     {
     //         title: 'Question 1',
@@ -288,23 +285,34 @@ export class QuestionnaireComponent implements OnInit {
         // }
     // ];
 
+    // questionCollection: AngularFirestoreCollection<IQuestion>;
     questionnaireFromFirebase: Observable<any[]>;
 
     constructor(
-        private auth: AuthService,
         private rand: Randomise, 
         private questionnaireService: QuestionnaireService,
-        private router: Router, afs: AngularFirestore, 
+        private router: Router, 
+        afs: AngularFirestore, 
         private uploadToFirebase: UploadToFirebase
-    ) {
-        this.questions = this.rand.randomiseOrder(this.questions);
+    ) { 
+    
+            
+        // this.downloadQuestions = this.get();
+        // this.downloadQuestions = this.rand.randomiseOrder(this.downloadQuestions);
         this.questionnaireFromFirebase = afs.collection('questionnaire').valueChanges();
+        console.log('hi', this.questionnaireFromFirebase)
     }
 
 
     ngOnInit() {
-        this.auth.user.displayName;
+
     }
+
+    get() {
+        const questionsFromQuestionnaire = this.uploadToFirebase.get();
+        console.log("HI", questionsFromQuestionnaire)
+    }
+
 
     getSliderColor(value) {
         if (value <= 2) {
@@ -321,14 +329,15 @@ export class QuestionnaireComponent implements OnInit {
 
     onSubmit() {
 
-        const results = this.questionnaireService.getResults(this.questions);
-        this.uploadToFirebase.upload(results)
-            .then(() => {
-                this.router.navigate(['/']);
-            })
-            .catch((error) => {
-                // display error message
-            })
+        // const results = this.questionnaireService.getResults(this.questions);
+        // this.uploadToFirebase.upload(results)
+        //     .then(() => {
+        //         this.router.navigate(['/']);
+        //         console.log(results)
+        //     })
+        //     .catch((error) => {
+        //         // display error message
+        //     })
     }
 
 }
