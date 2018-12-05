@@ -11,7 +11,8 @@ var star_component_1 = require("../star/star.component");
 var MainStarComponent = /** @class */ (function () {
     function MainStarComponent() {
         this.animation = 500;
-        this.colors = ['white', 'red', 'blue', 'green'];
+        this.showLegend = false;
+        this.colors = ['white', '#f32f6d', '#06fab4', '#3fb7fd', '#6ecbd3', '#795afd'];
         this.outputData = {
             datasets: [],
             labels: [],
@@ -20,8 +21,22 @@ var MainStarComponent = /** @class */ (function () {
                 tooltips: {
                     backgroundColor: 'rgba(	176, 32, 98, 0.7)'
                 },
+                layout: {
+                    padding: {
+                        left: 0,
+                        top: 40,
+                        right: 0,
+                        bottom: 40
+                    }
+                },
                 legend: {
-                    display: false
+                    display: true,
+                    labels: {
+                        fontColor: 'white',
+                        filter: function (item, starData) {
+                            return !item.text.includes('remove');
+                        }
+                    }
                 },
                 scale: {
                     pointLabels: {
@@ -50,11 +65,17 @@ var MainStarComponent = /** @class */ (function () {
     MainStarComponent.prototype.ngOnInit = function () {
         this.outputData.labels = this.starLabels;
         this.outputData.options.animation = { duration: this.animation };
+        this.outputData.options.legend.display = this.showLegend;
+        this.createDatasets();
+    };
+    MainStarComponent.prototype.ngAfterViewInit = function () {
+    };
+    MainStarComponent.prototype.createDatasets = function () {
         for (var dataIndex in this.starData) {
             if (this.starData.hasOwnProperty(dataIndex)) {
                 var dataset = {
-                    data: this.starData[dataIndex],
-                    label: '',
+                    data: this.starData[dataIndex].data,
+                    label: this.starData[dataIndex].label,
                     fill: false,
                     lineTension: 0.3,
                     borderColor: this.colors[dataIndex],
@@ -67,28 +88,12 @@ var MainStarComponent = /** @class */ (function () {
             }
         }
     };
-    MainStarComponent.prototype.ngAfterViewInit = function () {
-    };
     MainStarComponent.prototype.removeData = function () {
         this.outputData.datasets.splice(0);
     };
     MainStarComponent.prototype.redraw = function () {
         this.removeData();
-        for (var dataIndex in this.starData) {
-            if (this.starData.hasOwnProperty(dataIndex)) {
-                var dataset = {
-                    data: this.starData[dataIndex],
-                    label: '',
-                    fill: false,
-                    lineTension: 0.3,
-                    borderColor: this.colors[dataIndex],
-                    pointBorderColor: 'white',
-                    pointRadius: 3,
-                    pointBackgroundColor: 'white'
-                };
-                this.outputData.datasets.push(dataset);
-            }
-        }
+        this.createDatasets();
         this.starViewChild.redraw();
     };
     __decorate([
@@ -100,6 +105,9 @@ var MainStarComponent = /** @class */ (function () {
     __decorate([
         core_1.Input()
     ], MainStarComponent.prototype, "animation");
+    __decorate([
+        core_1.Input()
+    ], MainStarComponent.prototype, "showLegend");
     __decorate([
         core_1.ViewChild(star_component_1.StarComponent)
     ], MainStarComponent.prototype, "starViewChild");

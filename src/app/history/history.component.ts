@@ -13,7 +13,8 @@ export class HistoryComponent implements OnInit {
     {date: 'Nov 18', score: '6.35', isActive: false},
     {date: 'Oct 18', score: '5.11', isActive: false},
     {date: 'Sep 18', score: '4.21', isActive: false},
-    {date: 'Aug 18', score: '4.00', isActive: false}
+    {date: 'Aug 18', score: '4.00', isActive: false},
+    {date: 'Jul 18', score: '9.00', isActive: false}
   ];
 
   public findActive() {

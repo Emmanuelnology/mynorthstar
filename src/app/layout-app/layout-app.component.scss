@@ -1,113 +1,73 @@
+
 @import "../../variables.scss";
 
-.wrapper {
-  background-image: url('../../assets/backgrounds/background2.jpg');
-  background-size: cover;
-  color: white;
-  min-height: 100vh;
-}
-
-.flex-container {
+.body {
+  height: 100vh;
   display: flex;
-  flex-direction: row;
-}
-
-main {
-  flex: 1;
-}
-
-.flex-banner {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items:center;
-  height:$navHeight;
-}
-
-.flex-menu {
+  flex-flow: column nowrap;
   color:white;
-  background-color: rgb(8, 177, 255);
-  width:$smallMenuWidth;
-  cursor: pointer;
-  height:100%;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  // position: absolute;
-  // border-bottom: 1px solid white;
 }
 
-// .animate-border {
-//   background-color: white;
-//   height: 1px;
-//   width: 70px; 
-//   display: flex;
-//   position: relative;
-//   top: 40px;
-// }
-
-.dots {
-  height:20px;
-  margin-top: $s-xs; 
+.body :nth-child(2) {
+  flex-grow: 1;
 }
-
-
-.flex-logo {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  display:flex;
-  align-items: center;
-}
-
-.logo-wrapper {
-  width: 50px;
-  display:none;
-}
-
-.flex-logo img {
-  width:100%;
-}
-
-.flex-avatar {
-  flex: 1;
-  text-align: right;
-  display: inline-block;
-  padding-top: $s-sm;
-  line-height: 60px;
-}
-
-.flex-avatar span {
-  padding-right: $s-sm;
-  margin-right: $s-xs;
-}
-
 
 main {
-  padding: 10px;
+  overflow: scroll;
 }
 
-.content {
-  border:1px solid $border-color;
-  border-radius: 5px;
-  padding: 15px;
-  position:absolute;
-  left:0;
-  right:0;
-  top:$navHeight;
-  bottom:0;
-  overflow-y:scroll;
-  overflow-x:hidden;
-  transition: $animationDuration;
-
+header .wrapper > * {
+  padding: $s-xs;
+}
+header .wrapper {
+  align-items: center;
+  height: $largeMenuWidth;
 }
 
 
-.showMenu .content {
-  left:$smallMenuWidth;
+.avatar {
+  display: inline-block;
+  height: $largeMenuWidth;
+  width: $largeMenuWidth;
 }
 
-span {
-  font-size: $f-sm;
+.avatar-img {
+  min-width:100%;
+  min-height:100%;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+  background-size: cover;
+}
+
+.wrapper {
+  display:flex;
+}
+
+.menu {
+  min-width: $smallMenuWidth;
+  max-width: $smallMenuWidth;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.hideMenu {
+  max-width: 0 !important; 
+  min-width: 0 !important; 
+}
+
+.f-grow {
+  flex-grow: 1;
+}    
+
+.logo-wrapper img {
+  width: 100%;
+  
+}
+
+.greeting, 
+.avatar {
+  display:none;
 }
 
 h1 {
@@ -117,157 +77,47 @@ h1 {
   margin-left: $s-sm;
 }
 
-h1 > i {
-  display: none;
-}
-
-.greeting {
-  display: none;
-  font-size: 15px;
-}
-
-.circle-border {
-  border-radius: 50%;
-  border: 1px solid white;
-  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+.content {
+  background-image: url('../../assets/backgrounds/background2.jpg');
   background-size: cover;
-  width: 40px;
-  height: 40px;
-  float:right;
-  vertical-align: middle;
-  margin-bottom: $s-sm;
-  margin-right: $s-xs;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  padding: $s-sm;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  
 }
 
-
-@media (min-width: $tablet-min){
-  $menuWidth: 70px;
-
-//   /* ToolTip classses */ 
-// .tooltip {
-//   display: inline-block;    
-//   }
-//   .menu .tooltip .tooltiptext {
-//       margin-left:9px;
-//       width : 320px;
-//       visibility: hidden;
-//       background-color: #FFF;
-//       border-radius:4px;
-//       border: 1px solid #aeaeae;
-//       position: absolute;
-//       z-index: 1;
-//       padding: 5px;
-//       margin-top : -15px; /* according to application */ 
-//      opacity: 0;
-//       transition: opacity 1s;
-//   }
-//   .tooltip .tooltiptext::after {
-//       content: " ";
-//       position: absolute;
-//       top: 5%;
-//       right: 100%; /* To the left of the tooltip */
-//       margin-top: -5px;
-//       border-width: 5px;
-//       border-style: solid;
-//       border-color: transparent #aeaeae transparent transparent;
-//   }
-  
-  
-//   .tooltip:hover .tooltiptext {
-//       visibility: visible;
-//       opacity: 1;
-//   }
-
-  .logo-wrapper {
+@media (min-width: $tablet-min) {
+  header .wrapper > * {
     padding: $s-sm;
-    width: $largeMenuWidth;
-  }
-
-  h1 > i {
-    display: inline-block;
-  }
-
-  .showMenu .content {
-    left:$largeMenuWidth;
-  }
-
-  .showMenu .menu {
-    width:$largeMenuWidth;
-    min-width:$largeMenuWidth;
   }
   
-  .flex-menu {
-    display: none;
-  }
 
-  .logo-wrapper {
+  .avatar {
     display:inline-block;
   }
+
+  .menu {
+    min-width: $largeMenuWidth;
+    max-width: $largeMenuWidth;
+  }
+
   h1 {
     font-size: $f-sm;
     letter-spacing: 12px;
   }
-
-  .circle-border {
-    width: 50px;
-    height:50px;
-    margin-top: $s-xs;
-  }
-
-  .flex-avatar {
-    flex: 1;
-    text-align: right;
-    display: inline-block;
-    padding-top: $s-sm;
-    line-height: 55px;
-  }
   
-  .flex-avatar span {
-   display: hidden;
-  }
-
 }
 
 @media (min-width: $tablet-max) {
-
+  .greeting {
+    display:inline-block;
+  }
   h1 {
     font-size: $f-sm;
     margin-left: $s-md;
     letter-spacing: 15px;
   }
-
-  .circle-border {
-    width: 55px;
-    height: 55px;
-  }
-
-  .greeting {
-    display: inline-block;
-  }
   
-  .content {
-    padding: 40px;
-    padding-top: 15px;
-  }
-
-  .flex-avatar {
-    flex: 1;
-    text-align: right;
-    display: inline-block;
-    // padding-top: $s-sm;
-    line-height: 60px;
-  }
-  
-  .flex-avatar span {
-    padding-right: $s-sm;
-  }
-
-}
-
-@media (min-width: $laptop-min) {
-  h1 {
-    font-size: $f-md;
-    margin-left: $s-md;
-    letter-spacing: 15px;
-  }
 }
