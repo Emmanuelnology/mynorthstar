@@ -17,6 +17,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   currentData = {label: 'remove', data: [3, 9, 6, 8, 3, 9, 4, 9, 5]};
   emptyData = {label: 'remove', data: []};
   animation = 0;
+  currentScore = 7.67;
 
   data = {
     datasets: [],
