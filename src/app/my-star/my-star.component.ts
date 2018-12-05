@@ -19,7 +19,7 @@ export class MyStarComponent implements OnInit {
   labels: string [] = [];
   user;
 
-  constructor(private questionnaireService: QuestionnaireService, 
+  constructor(private questionnaireService: QuestionnaireService,
     private authService: AuthService,
     private firebase: UploadToFirebase) {
     this.user = authService.user;
@@ -30,7 +30,7 @@ export class MyStarComponent implements OnInit {
 
    }
    getResults() {
-    this.firebase.getAllResults().subscribe((this.results))
+    this.firebase.getAllResults().subscribe((this.results));
     console.log('Results:', this.getResults());
   }
 
