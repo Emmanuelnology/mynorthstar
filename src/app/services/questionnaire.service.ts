@@ -386,7 +386,8 @@ questionnaireCollection: AngularFirestoreCollection<IResult>;
       map(this.restructureDocsInCollection));
        }
   
-  getRecent(user, numberOfResults = 1){
+  getRecent(user, numberOfResults = 1) {
+    console.log('Finding results for user: ' + user.displayName);
     const resultCollection = this.afs.collection<IResult>('questionnaires', (reference)=> {
       return reference
         .orderBy('date', 'desc')
