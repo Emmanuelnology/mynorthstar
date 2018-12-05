@@ -25,7 +25,7 @@ var UserProfileOptionsComponent = /** @class */ (function () {
     UserProfileOptionsComponent.prototype.updateClientEmailAddress = function () {
         var _this = this;
         this.authService.changeEmailAddress(this.newEmail).then(function () {
-            _this.successUpdateEmail = "Email updated successfully, your new address is " + _this.authService.user.email;
+            _this.successUpdateEmail = 'Email updated successfully, your new address is ' + _this.authService.user.email;
             _this.errorUpdateEmail = '';
         })["catch"](function (error) {
             _this.errorUpdateEmail = error.message;
@@ -35,7 +35,7 @@ var UserProfileOptionsComponent = /** @class */ (function () {
     UserProfileOptionsComponent.prototype.updateClientPassword = function () {
         var _this = this;
         this.authService.changePassword(this.newPassword).then(function () {
-            _this.successChangePassword = "Password updated successfully";
+            _this.successChangePassword = 'Password updated successfully';
             _this.errorChangePassword = '';
         })["catch"](function (error) {
             _this.errorChangePassword = error.message;

@@ -26,33 +26,32 @@ export class UserProfileOptionsComponent implements OnInit {
   updateClientEmailAddress() {
     this.authService.changeEmailAddress(this.newEmail).then(
       () => {
-        this.successUpdateEmail = "Email updated successfully, your new address is " + this.authService.user.email;
+        this.successUpdateEmail = 'Email updated successfully, your new address is ' + this.authService.user.email;
         this.errorUpdateEmail = '';
       }
     )
     .catch(
       (error) => {
         this.errorUpdateEmail = error.message;
-        this.successUpdateEmail = ''
-      }  
+        this.successUpdateEmail = '';
+      }
     );
   }
 
   updateClientPassword() {
     this.authService.changePassword(this.newPassword).then(
       () => {
-        this.successChangePassword = "Password updated successfully";
+        this.successChangePassword = 'Password updated successfully';
         this.errorChangePassword = '';
       }
     )
     .catch(
       (error) => {
         this.errorChangePassword = error.message;
-        this.successChangePassword = ''
-      }  
+        this.successChangePassword = '';
+      }
     );
   }
-  }
-
-
 }
+
+

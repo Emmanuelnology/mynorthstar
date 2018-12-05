@@ -44,7 +44,7 @@ export class AuthService {
     return this.afAuth.auth.currentUser.updateEmail(newEmail);
   }
 
-  changePassword(newPassword){
+  changePassword(newPassword) {
     return this.afAuth.auth.currentUser.updatePassword(newPassword);
   }
 

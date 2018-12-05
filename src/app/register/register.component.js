@@ -18,7 +18,6 @@ var RegisterComponent = /** @class */ (function () {
         this.error = '';
     }
     RegisterComponent.prototype.ngOnInit = function () {
-        this.authService.user.uid;
     };
     RegisterComponent.prototype.registerUser = function () {
         var _this = this;
