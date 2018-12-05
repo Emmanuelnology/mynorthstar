@@ -12,15 +12,20 @@ var UserProfileOptionsComponent = /** @class */ (function () {
         this.afAuth = afAuth;
         this.authService = authService;
         this.router = router;
+        this.newName = '';
         this.newEmail = '';
-        this.newPassword = '';
         this.successUpdateEmail = '';
         this.errorUpdateEmail = '';
+        this.newPassword = '';
         this.successChangePassword = '';
         this.errorChangePassword = '';
+        this.newImage = '';
         this.user = authService.user;
     }
     UserProfileOptionsComponent.prototype.ngOnInit = function () {
+    };
+    UserProfileOptionsComponent.prototype.updateClientName = function () {
+        this.authService.changeName(this.newName);
     };
     UserProfileOptionsComponent.prototype.updateClientEmailAddress = function () {
         var _this = this;
@@ -41,6 +46,9 @@ var UserProfileOptionsComponent = /** @class */ (function () {
             _this.errorChangePassword = error.message;
             _this.successChangePassword = '';
         });
+    };
+    UserProfileOptionsComponent.prototype.updateClientImage = function () {
+        this.authService.changeImage(this.newImage);
     };
     UserProfileOptionsComponent = __decorate([
         core_1.Component({
