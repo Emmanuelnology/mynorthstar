@@ -16,14 +16,6 @@ export class HistoryComponent implements OnInit {
     {date: 'Aug 18', score: '4.00', isActive: false}
   ];
 
-  public deactivate() {
-    for (const index in this.pastDataProfile) {
-      if (this.pastDataProfile.hasOwnProperty(index)) {
-        this.pastDataProfile[index].isActive = false;
-      }
-    }
-  }
-
   public findActive() {
     const activeIndex: number[] = [];
     for (const index in this.pastDataProfile) {

@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IQuestion, Randomise, QuestionnaireService } from '../services/questionnaire.service';
 import { Router } from '@angular/router';
 import { PersistenceSettingsToken } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -11,43 +14,44 @@ import { PersistenceSettingsToken } from '@angular/fire/firestore';
 })
 
 export class QuestionnaireComponent implements OnInit {
-    questions: IQuestion[] = [
-        {
-            title: 'Question 1',
-            number: 1,
-            question: 'I do not feel particularly pleased with the way I am',
-            score: undefined,
-            weight: 2,
-            category: 'Happiness',
-            positive: false
-        },
-        {
-            title: 'Question 2',
-            number: 2,
-            question: 'I feel that life is very rewarding',
-            score: undefined,
-            weight: 5,
-            category: 'Happiness',
-            positive: true
-        },
-        {
-            title: 'Question 3',
-            number: 3,
-            question: 'I rarely wake up feeling rested',
-            score: undefined,
-            weight: 5,
-            category: 'Finance',
-            positive: false
-        },
-        {
-            title: 'Question 4',
-            number: 4,
-            question: 'I laugh a lot',
-            score: undefined,
-            weight: 2,
-            category: 'Happiness',
-            positive: true
-        },
+    questions: IQuestion[] = [];
+    // questions: IQuestion[] = [
+    //     {
+    //         title: 'Question 1',
+    //         number: 1,
+    //         question: 'I do not feel particularly pleased with the way I am',
+    //         score: undefined,
+    //         weight: 2,
+    //         category: 'Happiness',
+    //         positive: false
+    //     },
+    //     {
+    //         title: 'Question 2',
+    //         number: 2,
+    //         question: 'I feel that life is very rewarding',
+    //         score: undefined,
+    //         weight: 5,
+    //         category: 'Happiness',
+    //         positive: true
+    //     },
+    //     {
+    //         title: 'Question 3',
+    //         number: 3,
+    //         question: 'I rarely wake up feeling rested',
+    //         score: undefined,
+    //         weight: 5,
+    //         category: 'Finance',
+    //         positive: false
+    //     },
+    //     {
+    //         title: 'Question 4',
+    //         number: 4,
+    //         question: 'I laugh a lot',
+    //         score: undefined,
+    //         weight: 2,
+    //         category: 'Happiness',
+    //         positive: true
+    //     },
         // {
         //     title: 'Question 5',
         //     number: 5,
@@ -282,20 +286,25 @@ export class QuestionnaireComponent implements OnInit {
         //     category: 'Career',
         //     positive: true
         // }
-    ];
-    constructor(private rand: Randomise, private questionnaireService: QuestionnaireService, private router: Router) {
+    // ];
+
+    questionnaireFromFirebase: Observable<any[]>;
+
+    constructor(private rand: Randomise, private questionnaireService: QuestionnaireService,
+    private router: Router, afs: AngularFirestore) {
         this.questions = this.rand.randomiseOrder(this.questions);
+        this.questionnaireFromFirebase = afs.collection('questionnaire').valueChanges();
     }
 
     ngOnInit() {
     }
 
     getSliderColor(value) {
-        if (value <= 3) {
+        if (value <= 2) {
             const blue =  129 + 31.5 * value;
             return 'rgb(236, 0, ' + blue + ')';
-        } if (value <= 6 && value > 3) {
-            const red = 85 * value;
+        } if (value <= 6 && value > 2) {
+            const red = 236 - (value - 3) * 59;
             return 'rgb(' + red + ', 0, 255)';
         } if (value > 6) {
             const green = 61.9 * value - 364;

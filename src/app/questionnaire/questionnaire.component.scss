@@ -4,6 +4,7 @@
 
 .instruction {
     font-style: italic;
+    padding-bottom: 1em;
 }
 
 div.container p {
@@ -81,7 +82,7 @@ div.sendButton {
 
 @media only screen and (min-width: 528px) {
     .scoring > input {
-        width: 300px;
+        width: 50%;
         height: 8px;
     }
     .scoring-blob::-webkit-slider-thumb { 
