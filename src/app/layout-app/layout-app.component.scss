@@ -16,12 +16,28 @@ main {
   overflow: scroll;
 }
 
-header {
-  height: 80px;
+header .wrapper > * {
+  padding: $s-xs;
 }
-
 header .wrapper {
   align-items: center;
+  height: $largeMenuWidth;
+}
+
+
+.avatar {
+  display: inline-block;
+  height: $largeMenuWidth;
+  width: $largeMenuWidth;
+}
+
+.avatar-img {
+  min-width:100%;
+  min-height:100%;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+  background-size: cover;
 }
 
 .wrapper {
@@ -29,14 +45,15 @@ header .wrapper {
 }
 
 .menu {
-  min-width: 80px;
-  max-width: 80px;
+  min-width: $smallMenuWidth;
+  max-width: $smallMenuWidth;
   overflow: hidden;
   transition: 0.5s;
 }
 
-.smallMenu {
-  max-width: 20px !important; 
+.hideMenu {
+  max-width: 0 !important; 
+  min-width: 0 !important; 
 }
 
 .f-grow {
@@ -45,7 +62,12 @@ header .wrapper {
 
 .logo-wrapper img {
   width: 100%;
-  padding: $s-sm;
+  
+}
+
+.greeting, 
+.avatar {
+  display:none;
 }
 
 h1 {
@@ -58,26 +80,42 @@ h1 {
 .content {
   border: 1px solid $border-color;
   border-radius: 5px;
-  padding: 15px;
+  padding: $s-sm;
   overflow-y: scroll;
   overflow-x: hidden;
-
+  
 }
 
 @media (min-width: $tablet-min) {
+  header .wrapper > * {
+    padding: $s-sm;
+  }
+  
 
-h1 {
+  .avatar {
+    display:inline-block;
+  }
+
+  .menu {
+    min-width: $largeMenuWidth;
+    max-width: $largeMenuWidth;
+  }
+
+  h1 {
     font-size: $f-sm;
     letter-spacing: 12px;
   }
-
+  
 }
 
 @media (min-width: $tablet-max) {
+  .greeting {
+    display:inline-block;
+  }
   h1 {
     font-size: $f-sm;
     margin-left: $s-md;
     letter-spacing: 15px;
   }
-
+  
 }
