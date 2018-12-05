@@ -1,15 +1,22 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit  } from '@angular/core';
 import { IData, StarComponent } from '../star/star.component';
 
+export interface IDataSet {
+  label: string;
+  data: number[];
+}
+
 @Component({
   selector: 'app-main-star',
   templateUrl: './main-star.component.html',
   styleUrls: ['./main-star.component.scss']
 })
 export class MainStarComponent implements OnInit, AfterViewInit {
-  @Input() starData: number[][]; // added
+  @Input() starData: IDataSet[]; // added
   @Input() starLabels: string []; // added
   @Input() animation = 500;
+  @Input() showLegend = false;
+
  // added
 
   @ViewChild(StarComponent) starViewChild: StarComponent;
@@ -27,13 +34,16 @@ export class MainStarComponent implements OnInit, AfterViewInit {
       layout: {
         padding: {
           left: 0,
-          top: 50,
+          top: 40,
           right: 0,
           bottom: 40,
         }
       },
       legend: {
-        display: true
+        display: true,
+        labels : {
+          fontColor: 'white'
+        }
       },
       scale: {
         pointLabels: {
@@ -62,11 +72,13 @@ export class MainStarComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.outputData.labels = this.starLabels;
     this.outputData.options.animation = { duration: this.animation };
+    this.outputData.options.legend.display = this.showLegend;
+
     for (const dataIndex in this.starData) {
       if (this.starData.hasOwnProperty(dataIndex)) {
       const dataset = {
-        data: this.starData[dataIndex],
-        label: '',
+        data: this.starData[dataIndex].data,
+        label: this.starData[dataIndex].label,
         fill: false,
         lineTension: 0.3,
         borderColor: this.colors[dataIndex],
@@ -93,8 +105,8 @@ export class MainStarComponent implements OnInit, AfterViewInit {
     for (const dataIndex in this.starData) {
       if (this.starData.hasOwnProperty(dataIndex)) {
       const dataset = {
-        data: this.starData[dataIndex],
-        label: '',
+        data: this.starData[dataIndex].data,
+        label: this.starData[dataIndex].label,
         fill: false,
         lineTension: 0.3,
         borderColor: this.colors[dataIndex],
