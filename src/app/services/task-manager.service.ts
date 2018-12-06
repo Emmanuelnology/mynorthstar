@@ -71,4 +71,11 @@ export class TaskManagerService {
         });
     }
 
+    // lengthOfTaskList() {
+    //     this.tasks.subscribe(result => {
+    //         console.log(result.length);
+    //         return result.length;
+    //     });
+    // }
+
 }

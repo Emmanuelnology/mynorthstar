@@ -12,6 +12,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class CreateTaskComponent implements OnInit {
   taskTitle = '';
+
   constructor(private taskManagerService: TaskManagerService, private afAuth: AuthService) { }
 
   ngOnInit() {
@@ -29,4 +30,5 @@ export class CreateTaskComponent implements OnInit {
         title.value = '';
     });
   }
+
 }
