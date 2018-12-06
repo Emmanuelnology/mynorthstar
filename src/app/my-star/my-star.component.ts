@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {  QuestionnaireService,  UploadToFirebase, IResult } from '../services/questionnaire.service';
+import { Component, AfterViewInit, ViewChild, OnInit } from '@angular/core';
+import { UploadToFirebase } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 import {Router} from '@angular/router';
@@ -26,12 +26,12 @@ export class MyStarComponent implements OnInit {
   ready = false;
 >>>>>>> 64c616b69c5279e5afebe367d384830c734c7f69
 
-  constructor(private questionnaireService: QuestionnaireService,
+  constructor(
     private authService: AuthService,
     private firebase: UploadToFirebase,
     private router: Router
    ) {
-    this.user = authService.user;
+    this.user = this.authService.user;
 
 
     // console.log("results are", this.results)
