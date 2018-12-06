@@ -5,10 +5,30 @@
     position: relative;
 }
 
+.instruction {
+    font-style: italic;
+    font-size: $f-sm;
+    margin-bottom: 30px;
+}
+.score-indicator {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+ .score-indicator p {
+     text-transform: uppercase;
+     font-size: $f-xs;
+     letter-spacing: 1px;
+ }
+.score-indicator-agree {
+    color: $bright-green;
+ }
+ .score-indicator-disagree {
+    color: $pink;
+ }
 
 form {
     border: 2px solid $border-color;
-    // background-color: rgba(7,13,23,0.5);
+
     border-radius: 17px;
     flex: 2;
 }
@@ -28,7 +48,7 @@ form {
 
 div.container p {
     display: inline-block;
-    font-size:$f-sm;
+    font-size: $f-sm;
 }
 
 .container {
@@ -67,7 +87,7 @@ div.container p {
     }
 }
 
-.fas {
+.fass {
     display: block;
     font-size: 0.6em;
     // color: rgb(26, 52, 87);
@@ -163,18 +183,14 @@ div.sendButton {
 
 
 @media only screen and (min-width: 894px) {
-    // .score-inputs {
-    // width: 91.5%;
-    // top: 20px;
-    // position: absolute;
-    // flex-grow: 1;
-    // margin-left: 4%;
-    // margin-right: 4%;
+.score-indicator {
+    position: absolute;
+    top: 250px; 
+}
 
-    // &:hover {
-    //     cursor: pointer;
-    // }
-    // }
+.score-indicator-mobile {
+    display: none;
+}
 .score-position {
     display: flex;
 }
@@ -196,6 +212,7 @@ div.sendButton {
     flex: 1;
     flex-shrink: 1;
     position: fixed;
+    top: 140px;
     right: 4%;
     display: flex;
     align-items: center;

@@ -1,7 +1,10 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
-    <!-- <p class="instruction"> Please give yourself a score between 0 and 10 for each question,
-        where 0 is strongly disagree and 10 strongly agree.
-    </p>       -->
+    <p class="instruction"> Score yourself on the following.
+    </p>
+            <div class="score-indicator score-indicator-mobile">
+            <p class="score-indicator-agree"><i class="fas fa-square"></i> strongly agree</p>
+            <p class="score-indicator-disagree"><i class="fas fa-square"></i> strongly disagree</p>
+        </div>    
     <div class="whole-questionnaire">
         <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
             <div *ngFor="let question of questions">
@@ -33,17 +36,17 @@
                             </div>
                         </div>
                         <div class="score-position">
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>0</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>1</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>2</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>3</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>4</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>5</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>6</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>7</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>8</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>9</div>
-                            <div class="ind-score-position"><i class="fas fa-circle"></i>10</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>0</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>1</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>2</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>3</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>4</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>5</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>6</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>7</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>8</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>9</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>10</div>
                         </div>
                         <p 
                             id="output-score"
@@ -69,12 +72,16 @@
             [size]='200'
             progress={{number*17}}
             gap=0
-            progressColor="#00ffd2"
+            progressColor="#6ecbd3"
             backgroundColor='rgba(232, 236, 241, 0.3)'
             strokeWidth='10px'
             >
 
             </ng2-arc-progress>
+        </div>
+        <div class="score-indicator score-indicator-desktop">
+            <p class="score-indicator-agree"><i class="fas fa-square"></i> strongly agree</p>
+            <p class="score-indicator-disagree"><i class="fas fa-square"></i> strongly disagree</p>
         </div>
     </div>
 </div>
