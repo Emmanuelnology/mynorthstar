@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { TaskManagerService } from '../services/task-manager.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -13,26 +14,13 @@ import { map } from 'rxjs/operators';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService) {
+  constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService, private afAuth: AuthService) {
     this.tasks = this.taskManagerService.tasks;
   }
 
   tasks: Observable<Task[]>;
 
-  ngOnInit() {
-    // this.tasks = this.db.collection('/tasks').valueChanges();
-    this.tasks = this.db.collection('/tasks').snapshotChanges()
-      .pipe(map((actions) => {
-          return actions.map((a) => {
-            const data = a.payload.doc.data() as Task;
-
-            // Get document ID
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          });
-      }),
-    );
-  }
+  ngOnInit() { }
 
   onDelete(task: Task) {
     this.taskManagerService.deleteTask(task);
@@ -42,13 +30,13 @@ export class TaskListComponent implements OnInit {
     this.taskManagerService.checked(task);
   }
 
-  checkForUserIdMatch(task: Task) {
-    let show = false;
-    const userId = this.taskManagerService.userId();
-    const taskUid = task.userId;
-    if (taskUid === userId) {
-      return show = true;
-    }
+  getUserTasks(task: Task) {
+    // console.log(this.taskManagerService.getTasks(task.userId));
+    // console.log(task.userId);
+    this.taskManagerService.getTasks(task.userId).subscribe(
+      (data) => {
+        console.log(data);
+      }
+    );
   }
-
 }

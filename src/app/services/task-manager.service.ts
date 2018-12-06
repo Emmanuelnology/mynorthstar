@@ -38,8 +38,14 @@ export class TaskManagerService {
         );
     }
 
-    getTasks() {
-        this.taskCollection.get();
+    getTasks(userId: string) {
+        let task: AngularFirestoreDocument<Task>;
+        task = this.taskCollection.doc<Task>(userId);
+        return task.get().pipe(
+            map((snapshot) => {
+                return { id: userId, ...snapshot.data() };
+        })
+      );
     }
 
     deleteTask(task: Task) {
@@ -61,10 +67,6 @@ export class TaskManagerService {
             console.log(error);
             throw new Error('Unable to update user');
         });
-    }
-
-    userId() {
-        return this.afAuth.user.uid;
     }
 
 }
