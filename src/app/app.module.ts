@@ -59,6 +59,7 @@ const routes: Routes = [
   { path: '', component: MyStarComponent, canActivate: [AuthGuard]},
   { path: 'error', component: ErrorsComponent },
   { path: 'main-star', component: MainStarComponent },
+  { path: 'star', component: StarComponent },
   { path: 'user-profile', component: UserProfileOptionsComponent, canActivate: [AuthGuard] },
   { path: 'import', component: ImportComponent, canActivate: [AuthGuard] },
   { path: '**', component: ErrorsComponent, data: { error: 404 } }
