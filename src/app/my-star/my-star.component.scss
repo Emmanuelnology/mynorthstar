@@ -7,12 +7,15 @@ h3 {
 .star-heading { 
   display: flex;
   width: 100%;
-  height: 80px;
 }
 
 .star {
   margin: 0;
 }
+
+// .welcome-text{
+//   display: none;
+// }
 
 .date {
   flex-grow:1;
@@ -41,7 +44,10 @@ h3 {
       font-size: $f-xs;
     }
   }
-  
+  .star-heading{
+    height: 70px;
+  }
+
   .date {
     height: 90px;
     line-height: 90px;
