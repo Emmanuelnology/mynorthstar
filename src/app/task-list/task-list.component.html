@@ -2,17 +2,14 @@
   <div class="item-wrapper">
     <ul>
       <li class="list-item" *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">
-        <div *ngIf="checkForUserIdMatch(task)">  
-          <div class="test">
-            <label class="container"> 
-                <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
-                <span class="checkmark"></span>
-              </label>
-              <p>{{ task.task }}</p>
-          </div>
-          <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
-          <p>{{ task.userId }}</p>
+        <div class="test">
+          <label class="container"> 
+              <input type="checkbox" #completed [(ngModel)]="task.isChecked" (click)="getUserTasks(task)" (change)="checked(task)">
+              <span class="checkmark"></span>
+            </label>
+            <p>{{ task.task }}</p>
         </div>
+        <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
       </li>
     </ul>
   </div>
