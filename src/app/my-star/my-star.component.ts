@@ -19,6 +19,7 @@ export class MyStarComponent implements OnInit {
   datasets: IDataSet[] = [];
   labels: string [] = [];
   user;
+  ready = false;
 
   constructor(private questionnaireService: QuestionnaireService,
     private authService: AuthService,
@@ -31,23 +32,13 @@ export class MyStarComponent implements OnInit {
     // console.log("results are", this.results)
     // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
-    this.completedQuestionnaire();
-   }
 
-   completedQuestionnaire(){
-     let  dataArray = this.datasets 
-     console.log('hi', dataArray)
 
   }
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
     console.log('Results:', this.getResults());
-    if (this.datasets.length == 0) {
-      this.router.navigate(['/questionnaire']);
-    }
-    else {
-      this.router.navigate(['/']);
-    }
+
   }
 
   restructureData(results) {
@@ -66,10 +57,13 @@ export class MyStarComponent implements OnInit {
 
     this.firebase.getRecent(this.user, 1).subscribe((results) => {
       if (results.length > 0) {
+      this.ready = true;
       this.restructureData(results[0].categoryResults);
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.mainStarViewChild.redraw();
       this.overallResult = results[0].overallResult;
+    } else {
+      this.router.navigate(['/questionnaire']);
     }
   });
   }
