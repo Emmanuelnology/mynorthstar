@@ -28,6 +28,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
     datasets: [],
     labels: [],
     options:  {
+      aspectRatio: 1,
       animation: {duration: 500},
       tooltips: {
         backgroundColor: 'rgba(	176, 32, 98, 0.7)'

@@ -16,6 +16,7 @@ export interface IRadarChartOptions {
   animation: {
     duration: number;
   };
+  aspectRatio: number;
   tooltips?: {
     backgroundColor: string | string []
   };
