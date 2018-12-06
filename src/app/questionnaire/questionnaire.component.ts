@@ -17,9 +17,9 @@ export class QuestionnaireComponent implements OnInit {
 
     questionnaireFromFirebase: Observable<any[]>;
     number;
-    
 
-    
+
+
     constructor(
         private rand: Randomise,
         private questionnaireService: QuestionnaireService,
@@ -36,11 +36,11 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     blobClick () {
-        let numberAnswered: number[] = [];
-        for (let index of this.questions) {
+        const numberAnswered: number[] = [];
+        for (const index of this.questions) {
 
             if (this.questions[index.score] != null) {
-                numberAnswered.push(1);          
+                numberAnswered.push(1);
             }
         }
         this.number = numberAnswered.length;
