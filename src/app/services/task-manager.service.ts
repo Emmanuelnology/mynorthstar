@@ -16,8 +16,10 @@ export class TaskManagerService {
     tasks: Observable<Task[]>;
     taskCollection: AngularFirestoreCollection<Task>;
 
-    constructor(private db: AngularFirestore, private afAuth: AuthService) {
-        this.taskCollection = this.db.collection<Task>('tasks');
+    constructor(private db: AngularFirestore, private auth: AuthService) {
+        this.taskCollection = this.db.collection<Task>('tasks', (ref) => {
+           return ref.where('userId', '==', this.auth.user.uid);
+        });
         this.tasks = this.taskCollection.snapshotChanges()
         .pipe(map(this.includeCollectionID));
     }
@@ -38,12 +40,12 @@ export class TaskManagerService {
         );
     }
 
-    getTasks(userId: string) {
+    getTask(taskId: string) {
         let task: AngularFirestoreDocument<Task>;
-        task = this.taskCollection.doc<Task>(userId);
+        task = this.taskCollection.doc<Task>(taskId);
         return task.get().pipe(
             map((snapshot) => {
-                return { id: userId, ...snapshot.data() };
+                return { id: taskId, ...snapshot.data() };
         })
       );
     }
