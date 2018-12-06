@@ -34,7 +34,7 @@ export class MyStarComponent implements OnInit {
     // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
    }
-  
+
 
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
