@@ -41,18 +41,18 @@ export class AuthService {
     return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
-  changeName(newName) {
+  changeName(newName: string) {
     this.afAuth.auth.currentUser.updateProfile({
       displayName: newName,
       photoURL: this.user.photoURL
     });
   }
 
-  changeEmailAddress(newEmail) {
+  changeEmailAddress(newEmail: string) {
     return this.afAuth.auth.currentUser.updateEmail(newEmail);
   }
 
-  changePassword(newPassword) {
+  changePassword(newPassword: string) {
     return this.afAuth.auth.currentUser.updatePassword(newPassword);
   }
 
@@ -60,7 +60,7 @@ export class AuthService {
     return this.afAuth.auth.currentUser.sendEmailVerification();
   }
 
-  changeImage(newImage) {
+  changeImage(newImage: string) {
     this.afAuth.auth.currentUser.updateProfile({
       displayName: this.user.displayName,
       photoURL: newImage
