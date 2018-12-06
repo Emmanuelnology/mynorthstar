@@ -4,7 +4,8 @@
             <p class="score-indicator-agree"><i class="fas fa-square"></i> strongly agree</p>
             <p class="score-indicator-disagree"><i class="fas fa-square"></i> strongly disagree</p>
         </div>    
-    <div class="whole-questionnaire">
+    <app-spinner *ngIf="!ready" text=""></app-spinner>
+    <div *ngIf="ready" class="whole-questionnaire">
         <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
             <div *ngFor="let question of questions">
                 <div  class="container">
