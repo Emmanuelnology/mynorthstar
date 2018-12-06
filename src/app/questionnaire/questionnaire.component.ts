@@ -66,15 +66,12 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     getSliderColor(value) {
-        if (value <= 2) {
-            const blue =  129 + 31.5 * value;
-            return 'rgb(236, 0, ' + blue + ')';
-        } if (value <= 6 && value > 2) {
-            const red = 236 - (value - 3) * 59;
-            return 'rgb(' + red + ', 0, 255)';
-        } if (value > 6) {
-            const green = 61.9 * value - 364;
-            return 'rgb(0, ' + green + ', 210)';
+        if (value <= 3) {
+            return 'rgb(236, 0, 129)';
+        } if (value <= 7 && value > 3) {
+            return 'rgb(50, 152, 228)';
+        } if (value > 7) {
+            return 'rgb(0, 255, 210)';
         }
     }
 

@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   name = '';
   email = '';
   password = '';
+  confirmPassword = '';
   error = '';
 
   constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) { }

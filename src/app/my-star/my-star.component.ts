@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {  QuestionnaireService,  UploadToFirebase, IResult } from '../services/questionnaire.service';
+import { Component, AfterViewInit, ViewChild, OnInit } from '@angular/core';
+import { UploadToFirebase } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 import {Router} from '@angular/router';
@@ -19,14 +19,15 @@ export class MyStarComponent implements OnInit {
   datasets: IDataSet[] = [];
   labels: string [] = [];
   user;
+  currentDate;
   ready = false;
 
-  constructor(private questionnaireService: QuestionnaireService,
+  constructor(
     private authService: AuthService,
     private firebase: UploadToFirebase,
     private router: Router
    ) {
-    this.user = authService.user;
+    this.user = this.authService.user;
 
 
     // console.log("results are", this.results)
@@ -62,6 +63,8 @@ export class MyStarComponent implements OnInit {
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.mainStarViewChild.redraw();
       this.overallResult = results[0].overallResult;
+      console.log('HI', results[0]);
+      this.currentDate = results[0].date;
     } else {
       this.router.navigate(['/questionnaire']);
     }
