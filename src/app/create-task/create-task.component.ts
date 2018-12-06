@@ -20,7 +20,7 @@ export class CreateTaskComponent implements OnInit {
   }
 
   onSubmit(title: HTMLFormElement) {
-    if(title.value) {
+    if (title.value) {
       const task: Task = {
         userId: this.afAuth.user.uid,
         task: title.value.charAt(0).toUpperCase() + title.value.slice(1).toLowerCase(),

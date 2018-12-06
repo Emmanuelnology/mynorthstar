@@ -19,7 +19,7 @@ export class TaskManagerService {
     constructor(private db: AngularFirestore, private auth: AuthService) {
         this.taskCollection = this.db.collection<Task>('tasks', (reference) => {
            return reference
-           .where('userId', '==', this.auth.user.uid).orderBy('timestamp', "desc")
+           .where('userId', '==', this.auth.user.uid).orderBy('timestamp', 'desc');
         });
         this.tasks = this.taskCollection.snapshotChanges()
         .pipe(map(this.includeCollectionID));
