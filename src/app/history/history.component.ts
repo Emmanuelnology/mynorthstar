@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { UploadToFirebase } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-history',
@@ -25,7 +26,9 @@ export class HistoryComponent implements OnInit {
     this.checked.emit(activeIndex);
   }
 
-  constructor( private authService: AuthService,
+  constructor( 
+    private authService: AuthService,
+    private router: Router,
     private firebase: UploadToFirebase) {
     this.user = this.authService.user;
   }
@@ -39,6 +42,8 @@ export class HistoryComponent implements OnInit {
             this.pastDataProfile.push({date: results[index].date, score: results[index].overallResult, isActive:false})
           }
         }
+      } else {
+        this.router.navigate(['/questionnaire']);
       }
     });
   }

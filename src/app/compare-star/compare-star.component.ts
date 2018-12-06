@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 import { UploadToFirebase } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
+import {Router} from '@angular/router';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
 // import { viewAttached } from '@angular/core/src/render3/instructions';
@@ -41,6 +42,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   constructor(
     private authService: AuthService,
+    private router: Router,
     private firebase: UploadToFirebase) {
     this.user = this.authService.user;
   }
@@ -88,6 +90,8 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
           this.currentData
         );
         this.redraw();
+      } else {
+        this.router.navigate(['/questionnaire']);
       }
 
       this.currentDate = results[0].date;
