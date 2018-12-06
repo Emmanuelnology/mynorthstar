@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
+import {  QuestionnaireService,  UploadToFirebase, IResult } from '../services/questionnaire.service';
+import { AuthService } from '../services/auth.service';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
 // import { viewAttached } from '@angular/core/src/render3/instructions';
@@ -14,10 +16,13 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
-  currentData = {label: 'remove', data: [3, 9, 6, 8, 3, 9, 4, 9, 5]};
+  currentData = {label: 'remove', data: []};
   emptyData = {label: 'remove', data: []};
   animation = 0;
   currentScore = 7.67;
+  user;
+  results;
+  public pastData: IDataSet[];
 
   data = {
     datasets: [],
@@ -26,21 +31,63 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     'Personal Growth', 'Relationships', 'Spirituality']
   };
 
-  public pastData: IDataSet[] = [
-    {label: 'Nov 18', data: [2, 7, 5, 6, 3, 8, 3, 7, 3]},
-    {label: 'Oct 18', data: [1, 6, 4, 5, 2, 7, 3, 6, 2]},
-    {label: 'Sep 18', data: [2, 5, 3, 4, 1, 6, 2, 5, 2]},
-    {label: 'Aug 18', data: [1, 4, 2, 3, 2, 5, 1, 3, 2]},
-    {label: 'Jul 18', data: [1, 4, 1, 3, 1, 4, 1, 3, 1]}
+  public intermediateData: IDataSet[] = [
+    {label: '', data: []},
+    {label: '', data: []},
+    {label: '', data: []},
+    {label: '', data: []},
+    {label: '', data: []},
+    {label: '', data: []}
   ];
 
-  constructor() {
-    this.data.datasets.push(
-      this.currentData
-    );
+  constructor(
+    private questionnaireService: QuestionnaireService,
+    private authService: AuthService,
+    private firebase: UploadToFirebase) {
+    this.user = authService.user;
+   
+    // this.data.datasets.push(
+    //   this.currentData
+    // );
+  }
+
+  getResults() {
+    this.firebase.getAllResults().subscribe((this.results));
+    console.log('Results:', this.getResults());
+  }
+
+  restructureData(categoryResults, index) {
+    for (const result of categoryResults) {
+      this.intermediateData[index].data.push(Math.round(result.categoryAverage * 100) / 100);
+    }
   }
 
   ngOnInit() {
+
+    this.firebase.getRecent(this.user, 6).subscribe((results) => {
+      if (results.length > 0) {
+        for (const index in results) {
+          if (results.hasOwnProperty(index)) {
+            this.restructureData(results[index].categoryResults , index);
+            this.intermediateData[index].label = "date";            
+          }
+        }
+        this.currentData.data = this.intermediateData[0].data;
+        this.pastData = [
+          this.intermediateData[1],
+          this.intermediateData[2],    
+          this.intermediateData[3],    
+          this.intermediateData[4],
+          this.intermediateData[5]
+        ];
+        this.data.datasets.push(
+          this.currentData
+        );
+        this.redraw();
+    }
+
+    // this.currentScore = results[0].overallResult;
+  });
   }
 
   ngAfterViewInit() {
@@ -56,6 +103,8 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
       this.emptyData,
       this.emptyData,
       this.emptyData,
+
+
       this.emptyData,
       this.emptyData
     ];
