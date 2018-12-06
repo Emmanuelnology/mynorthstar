@@ -4,6 +4,9 @@
     display: flex;
     position: relative;
 }
+// form {
+//     width: 70%;
+// }
 
 .instruction {
     font-style: italic;
@@ -58,7 +61,8 @@ div.container p {
     margin: 0; 
     text-align: left;
     margin-bottom: 30px;
-    padding: 10px;    
+    padding: 10px;
+    width: 90%; 
 }
 
 .score-flex-box {
@@ -179,6 +183,22 @@ div.sendButton {
 
 .progress-component {
     transform:rotate(180deg);
+}
+
+.check-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+
+    height: 87%;
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    width: 40px;
+}
+.each-check {
+    flex: 1;
 }
 
 @media only screen and (min-width: 894px) {

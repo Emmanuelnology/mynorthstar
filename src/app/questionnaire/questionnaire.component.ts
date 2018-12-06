@@ -16,7 +16,10 @@ export class QuestionnaireComponent implements OnInit {
     ready = false;
 
     questionnaireFromFirebase: Observable<any[]>;
-    number = 0;
+    number;
+    
+
+    
     constructor(
         private rand: Randomise,
         private questionnaireService: QuestionnaireService,
@@ -33,26 +36,17 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     blobClick () {
-        // if (this.number < 6) {
-        //     return this.number++;
-        // }
-        let numberAnswered = [];
-        for (let questionInput of this.questions) {
-            if (this.questions[questionInput].score != null) {
-                
+        let numberAnswered: number[] = [];
+        for (let index of this.questions) {
+
+            if (this.questions[index.score] != null) {
+                numberAnswered.push(1);          
             }
-        if (this.number < 30) {
-            return this.number++;
         }
-
-        console.log("blob click =", this.questions[2].score)
-
-     }
+        this.number = numberAnswered.length;
+        return console.log(numberAnswered.length);
     }
 
-    // onQuestionUpdate(allquestions) {
-    //     console.log(allquestions.score);
-    // }
 
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
@@ -64,7 +58,7 @@ export class QuestionnaireComponent implements OnInit {
 
        // this.ready = true;
 
-    //    this.ready = true;
+       this.ready = true;
 
         console.log('Questions:', questions);
 

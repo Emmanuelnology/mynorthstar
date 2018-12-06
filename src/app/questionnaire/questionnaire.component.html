@@ -61,7 +61,10 @@
             <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
         </div>
     </form>
-    <div class="progress-arc">
+    <!-- <div>
+        <input id="checkQuestions" type="checkbox" ng-checked="leader" aria-label="Follower input">
+    </div> -->
+    <!-- <div class="progress-arc">
         <span class="progress-amount">
             {{number}}/30
         </span>
@@ -76,11 +79,22 @@
             strokeWidth='10px'
             >
             </ng2-arc-progress>
-        </div>
-        <div class="score-indicator score-indicator-desktop">
+        </div> -->
+        <!-- <div class="score-indicator score-indicator-desktop">
             <p class="score-indicator-agree"><i class="fas fa-square"></i> strongly agree</p>
             <p class="score-indicator-disagree"><i class="fas fa-square"></i> strongly disagree</p>
         </div>
+    </div> -->
+    <div  style="background-color:#101f34;" class="check-list">
+    <div *ngFor="let question of questions" class="each-check">
+        <div *ngIf="(question.score == null)">
+            <i class="far fa-lg fa-square"></i>
+        </div>
+        <div *ngIf="(question.score != null)">
+            <i class="far fa-lg fa-check-square"></i>
+        </div>
+    </div>
+
     </div>
 </div>
 </app-layout-default>
