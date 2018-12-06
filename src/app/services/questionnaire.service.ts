@@ -219,7 +219,7 @@ questionnaireCollection: AngularFirestoreCollection<IResult>;
 
   import(data) {
     for (const item of data) {
-      this.questionsCollection.add(item).then(() =>{
+      this.questionsCollection.add(item).then(() => {
         console.log('Added: ' + item.question);
       });
     }
