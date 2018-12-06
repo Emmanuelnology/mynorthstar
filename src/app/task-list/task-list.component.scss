@@ -1,19 +1,11 @@
 @import "../../variables.scss";
 
-button{
-    font-size: $f-xs;
-    margin: 0 $s-sm $s-sm 0;
-    padding: 1px 5px;
-    width: 25px;
-    height: 25px;
-}
-
 .task-container {
     padding: $s-sm;
 }
 
 .tasklist {
-    padding-left: $s-sm;
+    padding: 0 $s-sm;
 }
 
 .list-item {
@@ -21,6 +13,19 @@ button{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    border: 1px solid $pink;
+    border-radius: 5px;
+    background-color: rgba(176, 32, 98, 0.2);
+}
+
+.list-item2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid $turquoise;
+    border-radius: 5px;
+    background-color: $turquoise-tint;
 }
 
 .test {
@@ -32,80 +37,103 @@ li {
     font-size: $f-md;
     list-style-type: none;
     vertical-align: top;
+    margin: $s-sm 0;
 }
 
 label {
     position: relative;
-
 }
 
-// .box {
-//     float: right;
+.unchecked, .checked {
+    font-size: $f-md;
+    margin: 0 $s-sm;
+}
+
+.unchecked {
+    color: $pink;
+}
+
+.checked {
+    color: $turquoise;
+}
+
+.checked:hover,
+.unchecked:hover {
+    cursor: pointer;
+}
+
+.unticked:hover {
+    background-color: rgba(176, 32, 98, 0.2);
+}
+
+.ticked:hover {
+    background-color: $turquoise-tint;
+    background: fill;
+}
+
+// input[type=checkbox]:checked ~ .list-item {
+//     background-color: $turquoise-tint;
 // }
 
-// .box.unchecked:after {
-//     content: "\2610";
-//     color: red;
-// }
+button {
+    font-size: $f-xs;
+	background: none;
+	color: $pink;
+    border: none;
+    margin: $ls-xs $ls-sm;
+	padding: 2px 5px;
+	cursor: pointer;
+    outline: inherit;
+}
 
-// .box:after {
-//     content: "\2611";
-//     color:green;
-// }
+button:hover {
+    background-color: rgba(176, 32, 98, 0.2);
+}
 
 /* The container */
-.container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    user-select: none;
-}
+// .container {
+//     display: block;
+//     position: relative;
+//     padding-left: 35px;
+//     margin-bottom: 12px;
+//     cursor: pointer;
+//     font-size: 22px;
+//     user-select: none;
+// }
 
-.container input {
-    opacity: 0;
-    cursor: pointer;
-}
+// .checkmark {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     height: 25px;
+//     width: 25px;
+//     background-color: #eee;
+//     background: transparent;
+//     border: 0.1px solid $turquoise;
+// }
 
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    background: transparent;
-    border: 0.1px solid $turquoise;
-}
+// .container input:checked ~ .checkmark {
+//     background-color: transparent;
+// }
 
-.container:hover input ~ .checkmark {
-    background-color: $turquoise-tint;
-}
+// .checkmark:after {
+//     content: "";
+//     position: absolute;
+//     display: none;
+// }
 
-.container input:checked ~ .checkmark {
-    background-color: transparent;
-}
+// .container input:checked ~ .checkmark:after {
+//     display: block;
+// }
 
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid $turquoise;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
+// .container .checkmark:after {
+//     left: 9px;
+//     top: 5px;
+//     width: 5px;
+//     height: 10px;
+//     border: solid $turquoise;
+//     border-width: 0 3px 3px 0;
+//     -webkit-transform: rotate(45deg);
+//     -ms-transform: rotate(45deg);
+//     transform: rotate(45deg);
+// }
