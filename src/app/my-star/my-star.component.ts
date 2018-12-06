@@ -63,13 +63,10 @@ export class MyStarComponent implements OnInit {
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.mainStarViewChild.redraw();
       this.overallResult = results[0].overallResult;
-<<<<<<< HEAD
       console.log('HI', results[0]);
       this.currentDate = results[0].date;
-=======
     } else {
       this.router.navigate(['/questionnaire']);
->>>>>>> 2ca2d6b7fc3578e69a40b47cf9a8ea0717916f9f
     }
   });
   }
