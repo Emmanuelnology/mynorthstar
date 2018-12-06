@@ -19,17 +19,18 @@ p{
 
 .star {
   margin: auto;
+  position: relative;
 }
 
 .welcome-text{
-    
-      text-align: right;
-      // border: 1px solid red;
-      display: none;
-      
-  }
-  // display: none;
   
+  text-align: right;
+  // border: 1px solid red;
+  display: none;
+  
+}
+// display: none;
+
 
 .welcome-text .i{
   text-align: right;
@@ -38,7 +39,7 @@ p{
 .date {
   flex-grow:1;
   line-height: 50px;
- 
+  
 }
 
 .total-score {
@@ -47,72 +48,79 @@ p{
 
 
 // @media only screen and (min-width: $tablet-min){ 
-//   // .star-heading{
-//   //   height: $s-lg;
-//   // }
-
-
-// }
-
-@media only screen and (min-width: 800px) {
-  @include media-lg;  
-
-  .star{
-    min-width: 30vw;
+  //   // .star-heading{
+    //   //   height: $s-lg;
+    //   // }
     
-  }
-
-  .welcome-text{
-    margin-bottom: 20px;
-    text-align: justify;
-    padding-left: 10px;
-
-    display:none;
     
-    p{
-      font-size: 12px;
-    }
-  }
-  .star-heading{
-    height: 10px;
-  }
-  
-  .date {
-    height: 90px;
-    // line-height: 90px;
-    p {
-      font-size: $f-xs;
-    }  
-  }
-}
-
-@media only screen and (min-width:900px) {
- 
-  .star{
-    width: 50vw;
-  }
-  .star-flex {
-    display:flex;
+    // }
     
-    .star-column {
-      flex:2;
+    @media only screen and (min-width: 800px) {
+      @include media-md;  
+
+      .spinner{
+        position: absolute;
+        margin-left: 250px;
+        margin-top: 200px;
+      }
+    
+      .star{
+        min-width: 30vw;
+        
+      }
+      
+      .welcome-text{
+        margin-bottom: 20px;
+        text-align: justify;
+        padding-left: 10px;
+        
+        display:none;
+        
+        p{
+          font-size: 12px;
+        }
+      }
+      .star-heading{
+        height: 10px;
+      }
+      
+      .date {
+        height: 90px;
+        // line-height: 90px;
+        p {
+          font-size: $f-xs;
+        }  
+      }
     }
     
-    .results-score {
-      flex:1;
+    @media only screen and (min-width:900px) {
+      
+      .star{
+        width: 50vw;
+      }
+      .star-flex {
+        display:flex;
+        
+        .star-column {
+          flex:2;
+        }
+        
+        .results-score {
+          flex:1;
+        }
+        
+        .star-heading{
+          padding-right: 30px;
+        }
+      }
+      
+      .welcome-text{
+        padding-right: 20px;
+        display:block;
+      }
+      .tasks {
+        padding: 0;
+      }
+      
     }
     
-    .star-heading{
-      padding-right: 30px;
-    }
-  }
-
-  .welcome-text{
-    padding-right: 20px;
-    display:block;
-  }
-  .tasks {
-    padding: 0;
-  }
-  
-}
