@@ -137,14 +137,15 @@ export class StarComponent implements AfterViewInit, OnInit {
 
   createGradient(ctx, parentElement) {
     const width =  parentElement.offsetWidth;
-    const height =  width * 0.5;
+    const height =  width;
     const gradient = ctx.createRadialGradient(
       width / 2,
       height / 2,
-      20,
+      10,
       width / 2,
       height / 2,
-      width / 4);
+      width / 1.5 );
+      console.log(width);
     gradient.addColorStop(0, Colors.Red);
     gradient.addColorStop(0.3, Colors.Purple);
     gradient.addColorStop(0.7, Colors.Blue);

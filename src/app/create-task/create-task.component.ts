@@ -12,21 +12,29 @@ import { AuthService } from '../services/auth.service';
 })
 export class CreateTaskComponent implements OnInit {
   taskTitle = '';
+  addButtonDisabled = false;
+
   constructor(private taskManagerService: TaskManagerService, private afAuth: AuthService) { }
 
   ngOnInit() {
   }
 
   onSubmit(title: HTMLFormElement) {
-    const task: Task = {
-      userId: this.afAuth.user.uid,
-      task: title.value.charAt(0).toUpperCase() + title.value.slice(1).toLowerCase(),
-      isChecked: false,
-      timestamp: new Date()
-    };
-    this.taskManagerService.addTask(task).then(
-      () => {
-        title.value = '';
-    });
+    if(title.value) {
+      const task: Task = {
+        userId: this.afAuth.user.uid,
+        task: title.value.charAt(0).toUpperCase() + title.value.slice(1).toLowerCase(),
+        isChecked: false,
+        timestamp: new Date()
+      };
+
+      this.addButtonDisabled = true;
+
+      this.taskManagerService.addTask(task).then(
+        () => {
+          title.value = '';
+          this.addButtonDisabled = false;
+      });
   }
+}
 }

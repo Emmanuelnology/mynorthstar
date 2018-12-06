@@ -5,11 +5,11 @@
         </div>
     </div>
 
-<p class="instruction"> Score yourself on the following</p>
+<!-- <p class="instruction"> Score yourself on the following</p>
 <div class="score-indicator score-indicator-mobile">
     <p class="score-indicator-agree"><i class="fas fa-square"></i>strongly agree</p>
     <p class="score-indicator-disagree"><i class="fas fa-square"></i>strongly disagree</p>
-</div>    
+</div>     -->
 <app-spinner *ngIf="!ready" text=""></app-spinner>
 <div *ngIf="ready" class="whole-questionnaire">
     <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
@@ -70,27 +70,30 @@
 <!-- <div>
     <input id="checkQuestions" type="checkbox" ng-checked="leader" aria-label="Follower input">
 </div> -->
-<!-- <div class="progress-arc">
+<div class="progress-arc">
     <span class="progress-amount">
-        {{number}}/30
+        {{(number)? number : 0}}/{{questions.length}}
     </span>
     
     <div class="progress-component">
         <ng2-arc-progress
         [size]='200'
-        progress={{number*3.3}}
+        [progress]="(number)? (number / questions.length)*100:0"
         gap=0
         progressColor="#6ecbd3"
         backgroundColor='rgba(232, 236, 241, 0.3)'
         strokeWidth='10px'
         >
     </ng2-arc-progress>
-</div> -->
-<!-- <div class="score-indicator score-indicator-desktop">
-    <p class="score-indicator-agree"><i class="fas fa-square"></i> strongly agree</p>
-    <p class="score-indicator-disagree"><i class="fas fa-square"></i> strongly disagree</p>
 </div>
-</div> -->
+ <div class="score-indicator score-indicator-desktop">
+    <p>Try to answer the questions quickly and don’t ponder too long.
+         The idea is that you go with you gut and how you feel. 
+         There is no right answer but honesty is the key to getting the best result
+    </p>
+</div>
+</div>
 
 </div>
+
 </app-layout-default>
