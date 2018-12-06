@@ -19,16 +19,15 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   currentData = {label: 'remove', data: []};
   emptyData = {label: 'remove', data: []};
   animation = 0;
-  currentScore = 7.67;
+  currentScore;
   user;
   results;
+  currentDate;
   public pastData: IDataSet[];
 
   data = {
     datasets: [],
-    labels: ['Career', 'Friends & Family', 'Happiness',
-    'Health & Wellbeing', 'Home & Environment', 'Money',
-    'Personal Growth', 'Relationships', 'Spirituality']
+    labels: []
   };
 
   public intermediateData: IDataSet[] = [
@@ -51,14 +50,20 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     // );
   }
 
-  getResults() {
-    this.firebase.getAllResults().subscribe((this.results));
-    console.log('Results:', this.getResults());
-  }
+  // getResults() {
+  //   this.firebase.getAllResults().subscribe((this.results));
+  //   console.log('Results:', this.getResults());
+  // }
 
   restructureData(categoryResults, index) {
     for (const result of categoryResults) {
       this.intermediateData[index].data.push(Math.round(result.categoryAverage * 100) / 100);
+    }
+  }
+
+  getLabels(results) {
+    for (const category of results[0].categoryResults) {  
+      this.data.labels.push(category.categoryName)
     }
   }
 
@@ -69,9 +74,13 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         for (const index in results) {
           if (results.hasOwnProperty(index)) {
             this.restructureData(results[index].categoryResults , index);
-            this.intermediateData[index].label = "date";            
+            // this.intermediateData[index].label = results[index].date;  
+            
+            this.intermediateData[index].label = 'date';           
           }
         }
+
+        this.getLabels(results);
         this.currentData.data = this.intermediateData[0].data;
         this.pastData = [
           this.intermediateData[1],
@@ -86,7 +95,9 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         this.redraw();
     }
 
-    // this.currentScore = results[0].overallResult;
+    this.currentDate = results[0].date;
+    this.currentScore = results[0].overallResult;
+    this.intermediateData[index].label = results[index].date;
   });
   }
 
