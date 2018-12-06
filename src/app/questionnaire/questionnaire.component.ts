@@ -32,16 +32,30 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     blobClick () {
-        if (this.number < 6) {
-            return this.number++;
+        // if (this.number < 6) {
+        //     return this.number++;
+        // }
+        let numberAnswered = [];
+        for (let questionInput of this.questions) {
+            if (this.questions[questionInput].score != null) {
+                
+            }
         }
 
+        console.log("blob click =", this.questions[2].score)
+
     }
+
+    // onQuestionUpdate(allquestions) {
+    //     console.log(allquestions.score);
+    // }
 
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
-            console.log('Questions:', questions);
+            // console.log('Questions:', questions[0].score);
+            // this.onQuestionUpdate(questions);
+
        });
     }
 
