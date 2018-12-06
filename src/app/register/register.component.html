@@ -53,20 +53,22 @@
           pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
           >
 
-        <p *ngIf="error" class="error">{{error}}</p>
-        <p *ngIf="namey.touched && namey.invalid">Name cannot be empty</p>
-        <p *ngIf="emailAddress.touched && emailAddress.invalid">Email is invalid</p>
-        <div *ngIf="passwordy.touched && passwordy.invalid">
-          <p>Password is invalid it must be:</p>
-          <ul>
-            <li>> 6 characters</li>
-            <li>> One is a lowercase letter</li>
-            <li>> One is an uppercase letter</li>
-            <li>> One is a number</li>
-          </ul>
-
+        <div class="error">
+          <p *ngIf="error">{{error}}</p>
+          <p *ngIf="namey.touched && namey.invalid">Name cannot be empty</p>
+          <p *ngIf="emailAddress.touched && emailAddress.invalid">Email is invalid</p>
+          <div *ngIf="passwordy.touched && passwordy.invalid" id="errors">
+            <p>Password is invalid it must be:</p>
+            <ul>
+              <li>> 6 characters</li>
+              <li>> One is a lowercase letter</li>
+              <li>> One is an uppercase letter</li>
+              <li>> One is a number</li>
+            </ul>
+  
+          </div>
+          <p *ngIf="confirmyPasswordy.touched && passwordy.value != confirmyPasswordy.value">Passwords don't match</p>
         </div>
-        <p *ngIf="confirmyPasswordy.touched && passwordy.value != confirmyPasswordy.value">Passwords don't match</p>
 
         <button [disabled]="registerForm.invalid || passwordy.value != confirmyPasswordy.value " class="btn btn-flat btn-navy" type="submit" id="submit">Register</button>
 
