@@ -4,18 +4,34 @@ h3 {
   text-align: center;
 }
 
+p{
+  font-size: 4px;
+  text-align: left;
+}
+
 .star-heading { 
   display: flex;
   width: 100%;
+  height: $s-sm;
 }
 
 .star {
   margin: 0;
 }
 
-// .welcome-text{
-//   display: none;
-// }
+.welcome-text{
+    i{
+      text-align: right;
+      border: 1px solid red;
+  }
+    
+  }
+  // display: none;
+  
+
+.welcome-text .i{
+  text-align: right;
+}
 
 .date {
   flex-grow:1;
@@ -31,23 +47,35 @@ h3 {
   flex: 0, 0, 200px;
 }
 
-.tasks {
-  padding-top: 30px;
-}
 
-@media only screen and (min-width: 768px) {
+// @media only screen and (min-width: $tablet-min){ 
+//   // .star-heading{
+//   //   height: $s-lg;
+//   // }
+
+
+// }
+
+@media only screen and (min-width: $tablet-max) {
+  // @include media-lg;  
+
+  .star{
+    max-width: 55vw;
+    
+  }
+
   .welcome-text{
-    padding-right: 70px;
-    padding-left: 25px;
-
+    padding-right: 20px;
+    display:block;
+    
     p{
-      font-size: $f-xs;
+      font-size: 12px;
     }
   }
   .star-heading{
-    height: 70px;
+    height: 10px;
   }
-
+  
   .date {
     height: 90px;
     line-height: 90px;
@@ -57,10 +85,14 @@ h3 {
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: $desktop-min) {
+ 
+  .star{
+    width: 50vw;
+  }
   .star-flex {
     display:flex;
-
+    
     .star-column {
       flex:2;
     }
@@ -70,7 +102,7 @@ h3 {
     }
     
     .star-heading{
-      padding-right: 80px;
+      padding-right: 30px;
     }
   }
   

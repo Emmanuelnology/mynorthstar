@@ -18,6 +18,7 @@ export class MyStarComponent implements OnInit {
   datasets: IDataSet[] = [];
   labels: string [] = [];
   user;
+  welcomeHidden = false;
 
   constructor(private questionnaireService: QuestionnaireService,
     private authService: AuthService,
@@ -29,6 +30,10 @@ export class MyStarComponent implements OnInit {
     // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
    }
+   toggleWelcome(){
+     this.welcomeHidden =! this.welcomeHidden;
+   }
+
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
     console.log('Results:', this.getResults());
