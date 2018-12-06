@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {  QuestionnaireService,  UploadToFirebase, IResult } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -21,17 +22,32 @@ export class MyStarComponent implements OnInit {
 
   constructor(private questionnaireService: QuestionnaireService,
     private authService: AuthService,
-    private firebase: UploadToFirebase) {
+    private firebase: UploadToFirebase,
+    private router: Router
+   ) {
     this.user = authService.user;
 
 
     // console.log("results are", this.results)
     // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
+    this.completedQuestionnaire();
    }
+
+   completedQuestionnaire(){
+     let  dataArray = this.datasets 
+     console.log('hi', dataArray)
+
+  }
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
     console.log('Results:', this.getResults());
+    if (this.datasets.length == 0) {
+      this.router.navigate(['/questionnaire']);
+    }
+    else {
+      this.router.navigate(['/']);
+    }
   }
 
   restructureData(results) {
