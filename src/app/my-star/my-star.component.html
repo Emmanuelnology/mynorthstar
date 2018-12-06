@@ -9,7 +9,7 @@
             </p>
         </div>
         <div class="date">
-          <p> Date</p>
+          <p> {{currentDate?.toDate() | date: "dd/MM/y"}} </p>
         </div>
         <div class="total-score">
           <app-progress-arc class="u-swapon-mobile"
@@ -29,9 +29,10 @@
         
       </div>
       <!-- <div class= "stars"> -->
-
         <div class="star ">
-          <app-main-star  [starData]= "datasets" [starLabels]="labels" ></app-main-star>
+            <app-spinner *ngIf = "!ready" text="Loading"></app-spinner>
+
+          <app-main-star *ngIf="ready" [starData]= "datasets" [starLabels]="labels" ></app-main-star>
          
           </div>
         
