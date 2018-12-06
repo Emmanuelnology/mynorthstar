@@ -59,8 +59,8 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   }
 
   getLabels(results) {
-    for (const category of results[0].categoryResults) {  
-      this.data.labels.push(category.categoryName)
+    for (const category of results[0].categoryResults) {
+      this.data.labels.push(category.categoryName);
     }
   }
 
@@ -71,9 +71,9 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         for (const index in results) {
           if (results.hasOwnProperty(index)) {
             this.restructureData(results[index].categoryResults , index);
-            // this.intermediateData[index].label = results[index].date;  
-            
-            this.intermediateData[index].label = 'date';           
+            // this.intermediateData[index].label = results[index].date;
+
+            this.intermediateData[index].label = 'date';
           }
         }
 
@@ -81,8 +81,8 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         this.currentData.data = this.intermediateData[0].data;
         this.pastData = [
           this.intermediateData[1],
-          this.intermediateData[2],    
-          this.intermediateData[3],    
+          this.intermediateData[2],
+          this.intermediateData[3],
           this.intermediateData[4],
           this.intermediateData[5]
         ];

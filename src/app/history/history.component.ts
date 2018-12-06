@@ -26,7 +26,7 @@ export class HistoryComponent implements OnInit {
     this.checked.emit(activeIndex);
   }
 
-  constructor( 
+  constructor(
     private authService: AuthService,
     private router: Router,
     private firebase: UploadToFirebase) {
@@ -39,7 +39,7 @@ export class HistoryComponent implements OnInit {
         results.shift();
         for (const index in results) {
           if (results.hasOwnProperty(index)) {
-            this.pastDataProfile.push({date: results[index].date, score: results[index].overallResult, isActive:false})
+            this.pastDataProfile.push({date: results[index].date, score: results[index].overallResult, isActive: false});
           }
         }
       } else {
