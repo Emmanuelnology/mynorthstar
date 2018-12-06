@@ -55,7 +55,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
           fontFamily: 'nunito',
           display: true,
           fontColor: 'white',
-          fontSize: 14
+          fontSize: 12
         },
         angleLines: {
           color: 'rgba(33,64,103)'

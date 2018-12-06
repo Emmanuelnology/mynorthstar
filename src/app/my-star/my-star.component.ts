@@ -33,9 +33,9 @@ export class MyStarComponent implements OnInit {
     // console.log("results are", this.results)
     // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
+   }
 
 
-  }
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
     console.log('Results:', this.getResults());
@@ -58,13 +58,14 @@ export class MyStarComponent implements OnInit {
 
     this.firebase.getRecent(this.user, 1).subscribe((results) => {
       if (results.length > 0) {
-      this.ready = true;
       this.restructureData(results[0].categoryResults);
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.mainStarViewChild.redraw();
       this.overallResult = results[0].overallResult;
       console.log('HI', results[0]);
       this.currentDate = results[0].date;
+            this.ready = true;
+
     } else {
       this.router.navigate(['/questionnaire']);
     }
