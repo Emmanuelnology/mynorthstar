@@ -19,6 +19,7 @@ export class MyStarComponent implements OnInit {
   datasets: IDataSet[] = [];
   labels: string [] = [];
   user;
+  currentDate;
   ready = false;
 
   constructor(private questionnaireService: QuestionnaireService,
@@ -62,6 +63,8 @@ export class MyStarComponent implements OnInit {
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.mainStarViewChild.redraw();
       this.overallResult = results[0].overallResult;
+      console.log('HI', results[0]);
+      this.currentDate = results[0].date;
     } else {
       this.router.navigate(['/questionnaire']);
     }
