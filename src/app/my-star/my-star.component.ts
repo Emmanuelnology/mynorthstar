@@ -18,6 +18,7 @@ export class MyStarComponent implements OnInit {
   datasets: IDataSet[] = [];
   labels: string [] = [];
   user;
+  currentDate;
 
   constructor(private questionnaireService: QuestionnaireService,
     private authService: AuthService,
@@ -54,6 +55,8 @@ export class MyStarComponent implements OnInit {
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.mainStarViewChild.redraw();
       this.overallResult = results[0].overallResult;
+      console.log('HI', results[0]);
+      this.currentDate = results[0].date;
     }
   });
   }

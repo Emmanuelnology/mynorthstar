@@ -9,7 +9,7 @@
             </p>
         </div>
         <div class="date">
-          <p> Date</p>
+          <p> {{currentDate?.toDate() | date: "dd/MM/y"}} </p>
         </div>
         <div class="total-score">
           <app-progress-arc class="u-swapon-mobile"
