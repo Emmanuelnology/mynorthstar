@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(this.email, this.password)
     .then(
       () => {
-        
+
       this.router.navigate(['/']);
-      
+
     }
     )
     .catch((error) => {
