@@ -186,19 +186,27 @@ div.sendButton {
 }
 
 .check-list {
+    height:50%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     margin: 0;
-
-    height: 87%;
     position: fixed;
-    right: 20px;
-    top: 100px;
-    width: 40px;
+    margin-top: -$s-sm;
+    margin-left: -$s-sm;
+    width:10px;
 }
 .each-check {
-    flex: 1;
+    flex-grow: 1;
+}
+
+.complete {
+    background-color: $turquoise;
+}
+
+.incomplete {
+    
+    background-color: $nav-color;
+
 }
 
 @media only screen and (min-width: 894px) {
