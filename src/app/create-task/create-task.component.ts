@@ -3,6 +3,7 @@ import { TaskManagerService } from '../services/task-manager.service';
 import { Task } from '../task-manager/task';
 import { FormsModule } from '@angular/forms';
 import { SlicePipe } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-create-task',
@@ -11,14 +12,14 @@ import { SlicePipe } from '@angular/common';
 })
 export class CreateTaskComponent implements OnInit {
   taskTitle = '';
-  constructor(private taskManagerService: TaskManagerService) { }
+  constructor(private taskManagerService: TaskManagerService, private afAuth: AuthService) { }
 
   ngOnInit() {
   }
 
   onSubmit(title: HTMLFormElement) {
     const task: Task = {
-      userId: this.taskManagerService.userId(),
+      userId: this.afAuth.user.uid,
       task: title.value.charAt(0).toUpperCase() + title.value.slice(1).toLowerCase(),
       isChecked: false,
       timestamp: new Date()

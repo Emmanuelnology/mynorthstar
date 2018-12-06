@@ -40,6 +40,7 @@ import { ErrorsComponent } from './errors/errors.component';
 import { MainStarComponent } from './main-star/main-star.component';
 import { UserProfileOptionsComponent } from './user-profile-options/user-profile-options.component';
 import { ImportComponent } from './import/import.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 const routes: Routes = [
   // Test (TODO remove)
@@ -90,7 +91,8 @@ const routes: Routes = [
     ErrorsComponent,
     MainStarComponent,
     UserProfileOptionsComponent,
-    ImportComponent
+    ImportComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
