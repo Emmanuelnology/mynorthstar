@@ -1,5 +1,7 @@
 @import '../../variables.scss' ;
 
+@include media-sm;
+
 h3 {
   text-align: center;
 }
@@ -16,13 +18,13 @@ p{
 }
 
 .star {
-  margin: 0;
+  margin: auto;
 }
 
 .welcome-text{
     
       text-align: right;
-      border: 1px solid red;
+      // border: 1px solid red;
       display: none;
       
   }
@@ -36,11 +38,7 @@ p{
 .date {
   flex-grow:1;
   line-height: 50px;
-  p {
-    text-align: right;
-    padding-right: 10px;
-    font-size: 12px; 
-  }
+ 
 }
 
 .total-score {
@@ -56,17 +54,20 @@ p{
 
 // }
 
-@media only screen and (min-width: $tablet-max) {
-  // @include media-lg;  
+@media only screen and (min-width: 800px) {
+  @include media-lg;  
 
   .star{
-    max-width: 55vw;
+    min-width: 30vw;
     
   }
 
   .welcome-text{
-    padding-right: 20px;
-    display:block;
+    margin-bottom: 20px;
+    text-align: justify;
+    padding-left: 10px;
+
+    display:none;
     
     p{
       font-size: 12px;
@@ -78,14 +79,14 @@ p{
   
   .date {
     height: 90px;
-    line-height: 90px;
+    // line-height: 90px;
     p {
       font-size: $f-xs;
     }  
   }
 }
 
-@media only screen and (min-width: $desktop-min) {
+@media only screen and (min-width:900px) {
  
   .star{
     width: 50vw;
@@ -105,7 +106,11 @@ p{
       padding-right: 30px;
     }
   }
-  
+
+  .welcome-text{
+    padding-right: 20px;
+    display:block;
+  }
   .tasks {
     padding: 0;
   }

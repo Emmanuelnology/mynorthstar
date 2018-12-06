@@ -19,12 +19,8 @@ export class MyStarComponent implements OnInit {
   datasets: IDataSet[] = [];
   labels: string [] = [];
   user;
-<<<<<<< HEAD
-  welcomeHidden = false;
-=======
   currentDate;
   ready = false;
->>>>>>> 64c616b69c5279e5afebe367d384830c734c7f69
 
   constructor(
     private authService: AuthService,
@@ -37,17 +33,9 @@ export class MyStarComponent implements OnInit {
     // console.log("results are", this.results)
     // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
-<<<<<<< HEAD
    }
-   toggleWelcome(){
-     this.welcomeHidden =! this.welcomeHidden;
-   }
+  
 
-=======
-
-
-  }
->>>>>>> 64c616b69c5279e5afebe367d384830c734c7f69
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
     console.log('Results:', this.getResults());
@@ -70,13 +58,14 @@ export class MyStarComponent implements OnInit {
 
     this.firebase.getRecent(this.user, 1).subscribe((results) => {
       if (results.length > 0) {
-      this.ready = true;
       this.restructureData(results[0].categoryResults);
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.mainStarViewChild.redraw();
       this.overallResult = results[0].overallResult;
       console.log('HI', results[0]);
       this.currentDate = results[0].date;
+            this.ready = true;
+
     } else {
       this.router.navigate(['/questionnaire']);
     }
