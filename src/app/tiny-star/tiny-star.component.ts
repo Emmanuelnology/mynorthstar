@@ -23,6 +23,7 @@ payload: IData = {
   }],
   labels: [],
   options: {
+    aspectRatio: 1,
     animation:  {duration: 0 },
     legend: {
       display: false
