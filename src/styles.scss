@@ -134,11 +134,12 @@ h1 {
 
 .input-box {
     font-family: $primary-font;
-    border: 2px solid $lilac;
+    border: 2px solid #0d4863;
     border-radius: 17px;
     padding: 4px 16px;
     line-height: 1.7;
     margin-top:$s-sm; 
+    background-color: transparent;
 }
 
 span, p {
