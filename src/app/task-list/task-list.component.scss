@@ -31,6 +31,7 @@
 .test {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
     
 li {
@@ -42,11 +43,11 @@ li {
 
 label {
     position: relative;
+    // margin: $ls-xs $ls-sm;
 }
 
 .unchecked, .checked {
     font-size: $f-md;
-    margin: 0;
 }
 
 .unchecked {
@@ -62,6 +63,10 @@ label {
     cursor: pointer;
 }
 
+.ticked, .unticked {
+    margin: $ls-xs $ls-sm;
+}
+
 .unticked:hover {
     background-color: rgba(176, 32, 98, 0.2);
 }
@@ -70,10 +75,6 @@ label {
     background-color: $turquoise-tint;
     background: fill;
 }
-
-// input[type=checkbox]:checked ~ .list-item {
-//     background-color: $turquoise-tint;
-// }
 
 button {
     font-size: $f-xs;
