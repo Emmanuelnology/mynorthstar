@@ -77,6 +77,7 @@ export interface IData {
 
 interface IChart extends Chart {
   options?;
+  update();
 }
 
 @Component({
