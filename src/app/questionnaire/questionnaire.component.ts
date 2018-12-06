@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 export class QuestionnaireComponent implements OnInit {
     downloadQuestions: IQuestion;
     questions = [];
+    ready = false;
 
     questionnaireFromFirebase: Observable<any[]>;
     number = 0;
@@ -32,6 +33,7 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     blobClick () {
+<<<<<<< HEAD
         // if (this.number < 6) {
         //     return this.number++;
         // }
@@ -40,6 +42,10 @@ export class QuestionnaireComponent implements OnInit {
             if (this.questions[questionInput].score != null) {
                 
             }
+=======
+        if (this.number < 30) {
+            return this.number++;
+>>>>>>> bee32d98fd907c15add9e2be788174198a529f20
         }
 
         console.log("blob click =", this.questions[2].score)
@@ -53,9 +59,14 @@ export class QuestionnaireComponent implements OnInit {
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
+<<<<<<< HEAD
             // console.log('Questions:', questions[0].score);
             // this.onQuestionUpdate(questions);
 
+=======
+       // this.ready = true;
+        console.log('Questions:', questions);
+>>>>>>> bee32d98fd907c15add9e2be788174198a529f20
        });
     }
 
@@ -84,7 +95,4 @@ export class QuestionnaireComponent implements OnInit {
                 // display error message
             });
     }
-
-
-
 }

@@ -1,0 +1,19 @@
+@import '../../variables.scss';
+.loadingContainer {
+    display:flex;
+    width:100%;
+    height:100%;
+    flex-direction: column;
+}
+
+.loadingContainer>* {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+p {
+    display:block;
+    margin-top: $s-sm;
+}
