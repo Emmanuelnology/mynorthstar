@@ -7,13 +7,12 @@ h3 {
 .star-heading { 
   display: flex;
   width: 100%;
+  height: 80px;
 }
 
-// .stars {
-//   display: block;
-// }
-
-
+.star {
+  margin: 0;
+}
 
 .date {
   flex-grow:1;
@@ -21,7 +20,6 @@ h3 {
   p {
     text-align: right;
     padding-right: 10px;
-    color:white;
     font-size: 12px; 
   }
 }
@@ -35,6 +33,15 @@ h3 {
 }
 
 @media only screen and (min-width: 768px) {
+  .welcome-text{
+    padding-right: 70px;
+    padding-left: 25px;
+
+    p{
+      font-size: $f-xs;
+    }
+  }
+  
   .date {
     height: 90px;
     line-height: 90px;
