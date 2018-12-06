@@ -42,7 +42,7 @@ export class QuestionnaireComponent implements OnInit {
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
-       // this.ready = true;
+       this.ready = true;
         console.log('Questions:', questions);
        });
     }
