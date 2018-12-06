@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { QuestionnaireService, exampleQuestions } from './questionnaire.service';
+import { QuestionnaireService } from './questionnaire.service';
 
 describe('QuestionnaireService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
@@ -11,6 +11,9 @@ describe('QuestionnaireService', () => {
   });
 });
 
+
+// exampleQuestions taken from the import
+// To bring back do import { QuestionnaireService, exampleQuestions } from './questionnaire.service';
 // describe('getResults', () => {
 //   beforeEach(() => TestBed.configureTestingModule({}));
 //   it('should equal x when passed y', () => {
