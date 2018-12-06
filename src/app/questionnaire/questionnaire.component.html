@@ -1,11 +1,11 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
-    <p class="instruction"> Score yourself on the following.
-    </p>
-            <div class="score-indicator score-indicator-mobile">
-            <p class="score-indicator-agree"><i class="fas fa-square"></i> strongly agree</p>
-            <p class="score-indicator-disagree"><i class="fas fa-square"></i> strongly disagree</p>
+    <p class="instruction"> Score yourself on the following</p>
+        <div class="score-indicator score-indicator-mobile">
+            <p class="score-indicator-agree"><i class="fas fa-square"></i>strongly agree</p>
+            <p class="score-indicator-disagree"><i class="fas fa-square"></i>strongly disagree</p>
         </div>    
-    <div class="whole-questionnaire">
+    <app-spinner *ngIf="!ready" text=""></app-spinner>
+    <div *ngIf="ready" class="whole-questionnaire">
         <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
             <div *ngFor="let question of questions">
                 <div  class="container">
@@ -36,17 +36,17 @@
                             </div>
                         </div>
                         <div class="score-position">
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>0</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>1</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>2</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>3</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>4</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>5</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>6</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>7</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>8</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>9</div>
-                            <div class="ind-score-position"><i class="fass fas fa-circle"></i>10</div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                            <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
                         </div>
                         <p 
                             id="output-score"
@@ -54,8 +54,7 @@
                             {{question.score}}
                         </p>
                 </div>
-            </div>
-            
+            </div>            
         </div>
 
         <div class="sendButton">
@@ -64,19 +63,18 @@
     </form>
     <div class="progress-arc">
         <span class="progress-amount">
-            {{number}}/6
+            {{number}}/30
         </span>
 
         <div class="progress-component">
             <ng2-arc-progress
             [size]='200'
-            progress={{number*17}}
+            progress={{number*3.3}}
             gap=0
             progressColor="#6ecbd3"
             backgroundColor='rgba(232, 236, 241, 0.3)'
             strokeWidth='10px'
             >
-
             </ng2-arc-progress>
         </div>
         <div class="score-indicator score-indicator-desktop">
