@@ -12,7 +12,7 @@ p{
 .star-heading { 
   display: flex;
   width: 100%;
-  height: $s-sm;
+  height: $s-md;
 }
 
 .star {
@@ -20,11 +20,11 @@ p{
 }
 
 .welcome-text{
-    i{
+    
       text-align: right;
       border: 1px solid red;
-  }
-    
+      display: none;
+      
   }
   // display: none;
   
