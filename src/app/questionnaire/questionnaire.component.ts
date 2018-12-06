@@ -32,7 +32,7 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     blobClick () {
-        if (this.number < 6) {
+        if (this.number < 30) {
             return this.number++;
         }
 
@@ -70,7 +70,4 @@ export class QuestionnaireComponent implements OnInit {
                 // display error message
             });
     }
-
-
-
 }
