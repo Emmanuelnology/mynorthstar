@@ -30,9 +30,9 @@
       </div>
       <!-- <div class= "stars"> -->
         <div class="star ">
-            <app-spinner *ngIf = "!ready" text="Loading"></app-spinner>
+            <app-spinner [hidden] = "ready" text="Loading"></app-spinner>
 
-          <app-main-star *ngIf="ready" [starData]= "datasets" [starLabels]="labels" ></app-main-star>
+          <app-main-star [hidden]="!ready" [starData]= "datasets" [starLabels]="labels" ></app-main-star>
          
           </div>
         
