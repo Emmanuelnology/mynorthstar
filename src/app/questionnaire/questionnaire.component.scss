@@ -7,7 +7,7 @@
 
 .instruction {
     font-style: italic;
-    font-size: $f-sm;
+    font-size: $f-xs;
     margin-bottom: 30px;
 }
 
@@ -16,7 +16,7 @@
     margin-bottom: 10px;
 }
 
- .score-indicator p {
+.score-indicator p {
      text-transform: uppercase;
      font-size: $f-xs;
      letter-spacing: 1px;
@@ -39,19 +39,19 @@ form {
 #output-score {
     color: $bright-green;
     background: $nav-color;
-    width: 50px;
+    width: 35px;
     border-radius: 50%;
     text-align: center;
     justify-content: center;
     position: absolute;
     margin-left: 87%;
-    font-size: $f-xl;
-    top: -2px;
+    font-size: $f-md;
 }
 
 div.container p {
     display: inline-block;
-    font-size: $f-sm;
+    font-size: $f-xs;
+    margin-left: 2.5%;
 }
 
 .container {
@@ -72,7 +72,7 @@ div.container p {
 .score-position {
     top: 45px;
     position: relative;
-    width: 85%;
+    width: 84.2%;
     display: none
 }
 
@@ -91,9 +91,9 @@ div.container p {
 
 .fass {
     display: block;
-    font-size: 0.6em;
+    font-size: 0.5em;
     // color: rgb(26, 52, 87);
-    color: $nav-color;
+    color: rgba(255,255,255, 0.3);
     // color: black;
     // color: #080e18
 
@@ -103,9 +103,6 @@ div.container p {
     flex-grow: 1;
     text-align: center;
     font-size: 0.9em;
-    color: $nav-color;
-    color: black;
-
 }
 
 .scoring {
@@ -172,7 +169,7 @@ div.sendButton {
     z-index: 1;
     position: absolute;
     margin-top: -2px;
-    font-size: 24px;
+    font-size: $f-sm;
     color: red;
     text-align: center;
 }
@@ -199,7 +196,7 @@ div.sendButton {
         height: 100px;
     }
     p {
-        font-size:$f-md;
+        font-size:$f-md!important;
     }
     form {
         flex: 2;
@@ -219,13 +216,17 @@ div.sendButton {
         z-index: 1;
         position: absolute;
         margin-top: -2px;
-        font-size: 24px;
+        font-size: $f-sm;
         color: white;
         text-align: center;
     }
     .progress-component {
         transform:rotate(180deg);
-    }    
+    }
+    .container {
+        margin-bottom: 0;
+    } 
+
 }
 
 @media only screen and (max-width: 483px) {
@@ -241,6 +242,9 @@ div.sendButton {
     font-size: $f-lg;
     top: 5px;
     }
+    .container {
+        margin-bottom: 0;
+    } 
 }
 
 // @media only screen and (min-width: 528px) {
