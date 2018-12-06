@@ -30,6 +30,8 @@
     display: flex;
     align-items: center;
     text-align: left;
+    font-weight: 100;
+    font-size: $f-sm;
 }
 
 .score {
@@ -49,11 +51,11 @@
     #history-container,
     #legend {
     margin: $s-xs 0;
-    font-size: $f-md;
+    // font-size: $f-md;
     }
 
     #legend {
     margin-bottom: $s-sm;
-    font-size: $f-lg;
+    // font-size: $f-lg;
     }
 }
