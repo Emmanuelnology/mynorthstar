@@ -10,28 +10,32 @@
     font-size: $f-sm;
     margin-bottom: 30px;
 }
+
 .score-indicator {
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
  .score-indicator p {
      text-transform: uppercase;
      font-size: $f-xs;
      letter-spacing: 1px;
- }
+}
+
 .score-indicator-agree {
     color: $bright-green;
- }
- .score-indicator-disagree {
+}
+
+.score-indicator-disagree {
     color: $pink;
- }
+}
 
 form {
     border: 2px solid $border-color;
-
     border-radius: 17px;
     flex: 2;
 }
+
 #output-score {
     color: $bright-green;
     background: $nav-color;
@@ -42,7 +46,6 @@ form {
     position: absolute;
     margin-left: 87%;
     font-size: $f-xl;
-
     top: -2px;
 }
 
@@ -55,8 +58,7 @@ div.container p {
     margin: 0; 
     text-align: left;
     margin-bottom: 30px;
-    padding: 10px;
-    
+    padding: 10px;    
 }
 
 .score-flex-box {
@@ -179,59 +181,66 @@ div.sendButton {
     transform:rotate(180deg);
 }
 
-
-
-
 @media only screen and (min-width: 894px) {
-.score-indicator {
-    position: absolute;
-    top: 250px; 
-}
-
-.score-indicator-mobile {
-    display: none;
-}
-.score-position {
-    display: flex;
-}
-#output-score {
-    margin-left: 90%;
-
-}
-.scoring {
-    height: 100px;
-}
+    .score-indicator {
+        position: absolute;
+        top: 250px; 
+    }
+    .score-indicator-mobile {
+        display: none;
+    }
+    .score-position {
+        display: flex;
+    }
+    #output-score {
+        margin-left: 90%;
+    }
+    .scoring {
+        height: 100px;
+    }
     p {
         font-size:$f-md;
     }
     form {
-    flex: 2;
-    margin-right: 27%;
-}
-.progress-arc {
-    flex: 1;
-    flex-shrink: 1;
-    position: fixed;
-    top: 140px;
-    right: 4%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.progress-amount {
-    z-index: 1;
-    position: absolute;
-    margin-top: -2px;
-    font-size: 24px;
-    color: white;
-    text-align: center;
+        flex: 2;
+        margin-right: 27%;
+    }
+    .progress-arc {
+        flex: 1;
+        flex-shrink: 1;
+        position: fixed;
+        top: 140px;
+        right: 4%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .progress-amount {
+        z-index: 1;
+        position: absolute;
+        margin-top: -2px;
+        font-size: 24px;
+        color: white;
+        text-align: center;
+    }
+    .progress-component {
+        transform:rotate(180deg);
+    }    
 }
 
-.progress-component {
-    transform:rotate(180deg);
-
-}
-    
+@media only screen and (max-width: 483px) {
+    #output-score {
+    // color: $bright-green;
+    // background: $nav-color;
+    width: 40px;
+    // border-radius: 50%;
+    // text-align: center;
+    // justify-content: center;
+    // position: absolute;
+    margin-left: 85%;
+    font-size: $f-lg;
+    top: 5px;
+    }
 }
 
 // @media only screen and (min-width: 528px) {
@@ -254,22 +263,3 @@ div.sendButton {
 //         height: 17px;
 //     }
 // }
-
-@media only screen and (max-width: 483px) {
-    #output-score {
-    // color: $bright-green;
-    // background: $nav-color;
-    width: 40px;
-    // border-radius: 50%;
-    // text-align: center;
-    // justify-content: center;
-    // position: absolute;
-    margin-left: 85%;
-    font-size: $f-lg;
-
-    top: 5px;
-}
-}
-
-
-
