@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { UploadToFirebase } from '../services/questionnaire.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-history',
@@ -7,15 +9,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
+  user;
+
   @Output() checked = new EventEmitter <number[]>();
 
-  public pastDataProfile = [
-    {date: 'Nov 18', score: '6.35', isActive: false},
-    {date: 'Oct 18', score: '5.11', isActive: false},
-    {date: 'Sep 18', score: '4.21', isActive: false},
-    {date: 'Aug 18', score: '4.00', isActive: false},
-    {date: 'Jul 18', score: '2.76', isActive: false}
-  ];
+  public pastDataProfile = [];
 
   public findActive() {
     const activeIndex: number[] = [];
@@ -27,9 +25,22 @@ export class HistoryComponent implements OnInit {
     this.checked.emit(activeIndex);
   }
 
-  constructor() { }
+  constructor( private authService: AuthService,
+    private firebase: UploadToFirebase) {
+    this.user = this.authService.user;
+  }
 
   ngOnInit() {
+    this.firebase.getRecent(this.user, 6).subscribe((results) => {
+      if (results.length > 0) {
+        results.shift();
+        for (const index in results) {
+          if (results.hasOwnProperty(index)) {
+            this.pastDataProfile.push({date: results[index].date, score: results[index].overallResult, isActive:false})
+          }
+        }
+      }
+    });
   }
 
 }

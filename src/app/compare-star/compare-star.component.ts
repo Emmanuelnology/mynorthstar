@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
-import {  QuestionnaireService,  UploadToFirebase, IResult } from '../services/questionnaire.service';
+import { UploadToFirebase } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
@@ -40,14 +40,9 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   ];
 
   constructor(
-    private questionnaireService: QuestionnaireService,
     private authService: AuthService,
     private firebase: UploadToFirebase) {
-    this.user = authService.user;
-   
-    // this.data.datasets.push(
-    //   this.currentData
-    // );
+    this.user = this.authService.user;
   }
 
   // getResults() {
@@ -93,12 +88,12 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
           this.currentData
         );
         this.redraw();
-    }
+      }
 
-    this.currentDate = results[0].date;
-    this.currentScore = results[0].overallResult;
-    this.intermediateData[index].label = results[index].date;
-  });
+      this.currentDate = results[0].date;
+      this.currentScore = results[0].overallResult;
+      // this.intermediateData[index].label = results[index].date;
+    });
   }
 
   ngAfterViewInit() {
