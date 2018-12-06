@@ -65,11 +65,12 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     this.editData();
     if (activeIndex.length !== 0) {
       this.data.datasets[0].label = 'Current';
+      for (const index of activeIndex) {
+        this.data.datasets[index + 1] = this.pastData[index];
+      }
     } else {
       this.data.datasets[0].label = 'remove';
-    }
-    for (const index of activeIndex) {
-      this.data.datasets[index + 1] = this.pastData[index];
+      this.data.datasets.splice(1);
     }
     this.mainStarViewChild.starData = this.data.datasets;
     this.redraw();
