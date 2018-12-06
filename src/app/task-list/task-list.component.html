@@ -1,19 +1,49 @@
 <div class="tasklist">
   <div class="item-wrapper">
     <ul>
-      <li class="list-item" *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">
-        <div *ngIf="checkForUserIdMatch(task)">  
+      <div *ngFor="let task of tasks | async; let i = index" id="{{ 'task-' + i }}">
+
+       <div [hidden]="task.isChecked === true">
+          <li class=" list-item">
+            <div class="test">
+              <label class="container"> 
+                <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
+                <span class="checkmark"></span> -->
+              <div [hidden]="task.isChecked === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="unchecked">
+                  <i class="unticked far fa-square"></i>
+                </div>
+                <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="checked">
+                  <i class="ticked far fa-check-square"></i>
+                </div>
+              </label>
+                <p>{{ task.task }}</p>
+            </div>
+            <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
+        </li>
+        </div>
+
+      <div [hidden]="task.isChecked === false">
+        <li class="list-item2">
           <div class="test">
             <label class="container"> 
-                <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
-                <span class="checkmark"></span>
-              </label>
+              <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
+              <span class="checkmark"></span> -->
+            <div [hidden]="task.isChecked === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="unchecked">
+                <i class="unticked far fa-square"></i>
+              </div>
+              <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="checked">
+                <i class="ticked far fa-check-square"></i>
+              </div>
+            </label>
               <p>{{ task.task }}</p>
           </div>
-          <button id="remove-task" class="btn btn-flat btn-pink" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
-          <p>{{ task.userId }}</p>
-        </div>
-      </li>
+          <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
+        </li>
+      </div>
+
+
+    </div>
+
     </ul>
   </div>
 </div>
