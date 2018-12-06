@@ -14,6 +14,8 @@ export class QuestionnaireComponent implements OnInit {
     downloadQuestions: IQuestion;
     questions = [];
 
+    questionnaireFromFirebase: Observable<any[]>;
+    number = 0;
     constructor(
         private rand: Randomise,
         private questionnaireService: QuestionnaireService,
@@ -29,13 +31,19 @@ export class QuestionnaireComponent implements OnInit {
         this.getQuestions();
     }
 
+    blobClick () {
+        if (this.number < 6) {
+            return this.number++;
+        }
+
+    }
+
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
-            console.log('HI', questions);
+            console.log('Questions:', questions);
        });
     }
-
 
     getSliderColor(value) {
         if (value <= 2) {
@@ -62,5 +70,7 @@ export class QuestionnaireComponent implements OnInit {
                 // display error message
             });
     }
+
+
 
 }

@@ -39,6 +39,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ErrorsComponent } from './errors/errors.component';
 import { MainStarComponent } from './main-star/main-star.component';
 import { UserProfileOptionsComponent } from './user-profile-options/user-profile-options.component';
+import { ImportComponent } from './import/import.component';
 
 const routes: Routes = [
   // Test (TODO remove)
@@ -59,6 +60,7 @@ const routes: Routes = [
   { path: 'error', component: ErrorsComponent },
   { path: 'main-star', component: MainStarComponent },
   { path: 'user-profile', component: UserProfileOptionsComponent, canActivate: [AuthGuard] },
+  { path: 'import', component: ImportComponent, canActivate: [AuthGuard] },
   { path: '**', component: ErrorsComponent, data: { error: 404 } }
 ];
 
@@ -86,7 +88,8 @@ const routes: Routes = [
     ForgotPasswordComponent,
     ErrorsComponent,
     MainStarComponent,
-    UserProfileOptionsComponent
+    UserProfileOptionsComponent,
+    ImportComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var questionnaire_service_1 = require("../services/questionnaire.service");
+var main_star_component_1 = require("../main-star/main-star.component");
 var MyStarComponent = /** @class */ (function () {
     function MyStarComponent(questionnaireService, authService, firebase) {
         this.questionnaireService = questionnaireService;
@@ -22,7 +23,7 @@ var MyStarComponent = /** @class */ (function () {
     }
     MyStarComponent.prototype.getResults = function () {
         this.firebase.getAllResults().subscribe((this.results));
-        console.log('hi', this.getResults());
+        console.log('Results:', this.getResults());
     };
     MyStarComponent.prototype.restructureData = function (results) {
         var data = {
@@ -38,12 +39,17 @@ var MyStarComponent = /** @class */ (function () {
     };
     MyStarComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.firebase.getRecent(this.user, 2).subscribe(function (results) {
-            _this.restructureData(results[0].categoryResults);
-            console.log(_this.datasets);
-            console.log(_this.labels);
+        this.firebase.getRecent(this.user, 1).subscribe(function (results) {
+            if (results.length > 0) {
+                _this.restructureData(results[0].categoryResults);
+                _this.mainStarViewChild.starData[0].data = _this.datasets[0].data;
+                _this.mainStarViewChild.redraw();
+            }
         });
     };
+    __decorate([
+        core_1.ViewChild(main_star_component_1.MainStarComponent)
+    ], MyStarComponent.prototype, "mainStarViewChild");
     MyStarComponent = __decorate([
         core_1.Component({
             selector: 'app-my-star',

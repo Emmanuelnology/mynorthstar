@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthService, IUser } from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 export interface IQuestion {
   title: string;
@@ -34,153 +34,6 @@ export interface IResult {
   };
 }
 
-export let exampleQuestions: IQuestion[] = [
-  {
-    title: 'Question 1',
-    number: null,
-    question: 'I do not feel particularly pleased with the way I am',
-    score: 2,
-    weight: 4,
-    category: 'Happiness',
-    positive: false
-  },
-  {
-    title: 'Question 2',
-    number: null,
-    question: 'I am classed as tall',
-    score: 4,
-    weight: 5,
-    category: 'Personal growth',
-    positive: true
-  },
-  {
-    title: 'Question 3',
-    number: null,
-    question: 'I see my friends/family more than once a week',
-    score: 4,
-    weight: 3,
-    category: 'Friends & Family',
-    positive: true
-  },
-  {
-    title: 'Question 4',
-    number: null,
-    question: 'I laugh a lot',
-    score: 7,
-    weight: 2,
-    category: 'Happiness',
-    positive: true
-  },
-  {
-    title: 'Question 5',
-    number: null,
-    question: 'I do yoga',
-    score: 3,
-    weight: 1,
-    category: 'Spirituality',
-    positive: true
-  },
-  {
-    title: 'Question 6',
-    number: null,
-    question: 'I worry about my financial situation',
-    score: 1,
-    weight: 3,
-    category: 'Money',
-    positive: false
-  },
-  {
-    title: 'Question 7',
-    number: null,
-    question: 'I have a job which is relevant to my skill level',
-    score: 9,
-    weight: 4,
-    category: 'Career',
-    positive: true
-  },
-  {
-    title: 'Question 8',
-    number: null,
-    question: 'I have a partner/ stable relationship',
-    score: 8,
-    weight: 7,
-    category: 'Relationships',
-    positive: true
-  },
-  {
-    title: 'Question 9',
-    number: null,
-    question: 'I enjoy my job',
-    score: 8,
-    weight: 4,
-    category: 'Happiness',
-    positive: true
-  },
-  {
-    title: 'Question 10',
-    number: null,
-    question: 'I watch Netflix often',
-    score: 8,
-    weight: 2,
-    category: 'Home & Environment',
-    positive: false
-  },
-  {
-    title: 'Question 11',
-    number: null,
-    question: 'I regularly eat my five a day',
-    score: 4,
-    weight: 4,
-    category: 'Health & Wellbeing',
-    positive: true
-  },
-  {
-    title: 'Question 12',
-    number: null,
-    question: 'I regularly exercise',
-    score: 7,
-    weight: 4,
-    category: 'Health & Wellbeing',
-    positive: true
-  },
-  {
-    title: 'Question 13',
-    number: null,
-    question: 'My house is untidy',
-    score: 7,
-    weight: 4,
-    category: 'Home & Environment',
-    positive: false
-  },
-  {
-    title: 'Question 14',
-    number: null,
-    question: 'I only see my friends at the travelodge',
-    score: 4,
-    weight: 2,
-    category: 'Relationships',
-    positive: false
-  },
-  {
-    title: 'Question 15',
-    number: null,
-    question: 'I have savings',
-    score: 6,
-    weight: 5,
-    category: 'Money',
-    positive: true
-  },
-  {
-    title: 'Question 16',
-    number: null,
-    question: 'I am good at networking',
-    score: 4,
-    weight: 2,
-    category: 'Career',
-    positive: true
-  }
-];
-
 @Injectable({
   providedIn: 'root'
 })
@@ -207,6 +60,7 @@ export class QuestionnaireService {
     };
     return result; // add
   }
+
 
   createUserObject() {
     console.log('The user is ' + this.user);
@@ -345,7 +199,9 @@ questionnaireCollection: AngularFirestoreCollection<IResult>;
 
   constructor(private afs: AngularFirestore) {
     this.questionnaireCollection = this.afs.collection('questionnaires');
-    this.questionsCollection = this.afs.collection('questionnaire');
+    // this.questionsCollection = this.afs.collection('questionnaire');
+    this.questionsCollection = this.afs.collection('questions');
+
     this.questionnaire = this.questionnaireCollection.snapshotChanges()
       .pipe(map(this.includeCollectionID));
         // console.log("HI");
@@ -359,6 +215,14 @@ questionnaireCollection: AngularFirestoreCollection<IResult>;
       const id = a.payload.doc.id;
       return { id, ...data };
     });
+  }
+
+  import(data) {
+    for (const item of data) {
+      this.questionsCollection.add(item).then(() => {
+        console.log('Added: ' + item.question);
+      });
+    }
   }
 
   restructureDocsInCollection(collectionSnapshot) {

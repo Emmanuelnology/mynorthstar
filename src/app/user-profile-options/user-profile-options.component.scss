@@ -15,13 +15,21 @@
   border: 1px solid white;
   background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
   background-size: cover;
-  width: 200px;
-  height: 200px;
+  background-position: center;
+  width: 150px;
+  height: 150px;
   vertical-align: middle;
   float: left;
-  margin: $s-sm;
+  margin-top: $s-lg;
+  margin-left: $s-md;
 }
 
 .text-inside-header {
-  padding-top: 30px;
+  padding-top: $s-lg;
+  padding-left: 220px;
+}
+
+i,
+#welcome {
+  color:  $bright-green;
 }
