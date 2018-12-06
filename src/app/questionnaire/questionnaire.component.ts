@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 export class QuestionnaireComponent implements OnInit {
     downloadQuestions: IQuestion;
     questions = [];
+    ready = false;
 
     questionnaireFromFirebase: Observable<any[]>;
     number = 0;
@@ -32,7 +33,7 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     blobClick () {
-        if (this.number < 6) {
+        if (this.number < 30) {
             return this.number++;
         }
 
@@ -41,20 +42,18 @@ export class QuestionnaireComponent implements OnInit {
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
-            console.log('Questions:', questions);
+       this.ready = true;
+        console.log('Questions:', questions);
        });
     }
 
     getSliderColor(value) {
-        if (value <= 2) {
-            const blue =  129 + 31.5 * value;
-            return 'rgb(236, 0, ' + blue + ')';
-        } if (value <= 6 && value > 2) {
-            const red = 236 - (value - 3) * 59;
-            return 'rgb(' + red + ', 0, 255)';
-        } if (value > 6) {
-            const green = 61.9 * value - 364;
-            return 'rgb(0, ' + green + ', 210)';
+        if (value <= 3) {
+            return 'rgb(236, 0, 129)';
+        } if (value <= 7 && value > 3) {
+            return 'rgb(50, 152, 228)';
+        } if (value > 7) {
+            return 'rgb(0, 255, 210)';
         }
     }
 
@@ -70,7 +69,4 @@ export class QuestionnaireComponent implements OnInit {
                 // display error message
             });
     }
-
-
-
 }

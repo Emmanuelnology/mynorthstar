@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {  QuestionnaireService,  UploadToFirebase, IResult } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -18,25 +19,39 @@ export class MyStarComponent implements OnInit {
   datasets: IDataSet[] = [];
   labels: string [] = [];
   user;
+<<<<<<< HEAD
   welcomeHidden = false;
+=======
+  currentDate;
+  ready = false;
+>>>>>>> 64c616b69c5279e5afebe367d384830c734c7f69
 
   constructor(private questionnaireService: QuestionnaireService,
     private authService: AuthService,
-    private firebase: UploadToFirebase) {
+    private firebase: UploadToFirebase,
+    private router: Router
+   ) {
     this.user = authService.user;
 
 
     // console.log("results are", this.results)
     // const getAllResults = this.firebase.restructureDocsInCollection(this.results);
 
+<<<<<<< HEAD
    }
    toggleWelcome(){
      this.welcomeHidden =! this.welcomeHidden;
    }
 
+=======
+
+
+  }
+>>>>>>> 64c616b69c5279e5afebe367d384830c734c7f69
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
     console.log('Results:', this.getResults());
+
   }
 
   restructureData(results) {
@@ -55,10 +70,15 @@ export class MyStarComponent implements OnInit {
 
     this.firebase.getRecent(this.user, 1).subscribe((results) => {
       if (results.length > 0) {
+      this.ready = true;
       this.restructureData(results[0].categoryResults);
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.mainStarViewChild.redraw();
       this.overallResult = results[0].overallResult;
+      console.log('HI', results[0]);
+      this.currentDate = results[0].date;
+    } else {
+      this.router.navigate(['/questionnaire']);
     }
   });
   }

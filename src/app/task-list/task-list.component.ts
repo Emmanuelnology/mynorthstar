@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 
-
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -14,13 +13,13 @@ import { AuthService } from '../services/auth.service';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService, private afAuth: AuthService) {
+  constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService) {
     this.tasks = this.taskManagerService.tasks;
   }
 
   tasks: Observable<Task[]>;
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   onDelete(task: Task) {
     this.taskManagerService.deleteTask(task);
@@ -28,15 +27,5 @@ export class TaskListComponent implements OnInit {
 
   checked(task: Task) {
     this.taskManagerService.checked(task);
-  }
-
-  getUserTasks(task: Task) {
-    // console.log(this.taskManagerService.getTasks(task.userId));
-    // console.log(task.userId);
-    this.taskManagerService.getTasks(task.userId).subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
   }
 }
