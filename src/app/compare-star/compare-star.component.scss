@@ -49,9 +49,23 @@
     }
 
     #tablet-arc {
+        display: flex;
+        width: 100%;
         grid-area: arc;
-        text-align: right;
         max-width: 52.5vw;
     }
 
+    #date {
+        flex-grow: 1;
+        line-height: 90px;
+
+        p {
+            text-align: right;
+            padding-right: 10px;
+        }
+    }
+
+    #total-score {
+        flex: 0, 0, 200px;
+    }
 }
