@@ -73,9 +73,8 @@
                     </div>
                 </div>            
             </div>
-            
-            <div class="sendButton">
-                <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
+            <div class="sendButton mobile-send-button">
+                <button class="btn btn-open btn-turquoise" (click)='onSubmit()' type="submit">SEND</button>
             </div>
         </form>
     </div>
@@ -105,7 +104,9 @@
             There is no right answer but honesty is the key to getting the best result
         </p>
         <button (click)="randomiseAnswers()" *ngIf="!environment.production" class="btn btn-open btn-pink">Randomise Answers</button>
-
+        <div class="sendButton">
+            <button class="btn btn-open btn-turquoise" (click)='onSubmit()' type="submit">SEND</button>
+        </div>
     </div>
 </div>
 

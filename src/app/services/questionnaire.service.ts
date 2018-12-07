@@ -63,7 +63,7 @@ export class QuestionnaireService {
 
 
   createUserObject() {
-    console.log('The user is ' + this.user);
+    console.log('The user is ' + this.user.displayName);
     // const currentUser:IUser=this.auth.user;
     const currentUser = {
       uid: this.user.uid,
