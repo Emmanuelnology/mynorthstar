@@ -59,12 +59,12 @@ export class MyStarComponent implements OnInit {
     this.firebase.getRecent(this.user, 1).subscribe((results) => {
       if (results.length > 0) {
       this.restructureData(results[0].categoryResults);
-      this.mainStarViewChild.starData[0].data = this.datasets[0].data;
-      this.mainStarViewChild.redraw();
+      // this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.overallResult = results[0].overallResult;
       console.log('HI', results[0]);
       this.currentDate = results[0].date;
             this.ready = true;
+            this.mainStarViewChild.redraw();
 
     } else {
       this.router.navigate(['/questionnaire']);

@@ -1,6 +1,6 @@
 @import '../../variables.scss';
 
-
+@include media-sm;
 
 #history-container,
 #legend {
@@ -48,6 +48,7 @@
 }
 
 @media only screen and (min-width: 768px) {
+
     #history-container,
     #legend {
     margin: $s-xs 0;
@@ -58,4 +59,5 @@
     margin-bottom: $s-sm;
     // font-size: $f-lg;
     }
+
 }
