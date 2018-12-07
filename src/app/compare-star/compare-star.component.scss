@@ -40,19 +40,24 @@
     #star {
         max-width: 55vw;
         grid-area: star;
+        // border: red solid 2px;
     }
     
     #history {
         min-width: 32.5vw;
         margin: 0;
         grid-area: history;
+        // border: red solid 2px;
+        height: 75%;
     }
 
     #tablet-arc {
         display: flex;
         width: 100%;
         grid-area: arc;
-        max-width: 52.5vw;
+        max-width: 55vw;
+        // border: red solid 2px;
+        height: 60px;
     }
 
     #date {
