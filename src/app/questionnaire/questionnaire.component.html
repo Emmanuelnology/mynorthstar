@@ -20,7 +20,7 @@
                         
                         <div class= "text-slider">
                             <label for="questions" class="question-text">
-                                <p>{{question.question}}</p>
+                                <p class="qst">{{question.question}}</p>
                             </label>
                             <div class="slider">
                                 <div class="scoring">
@@ -65,10 +65,11 @@
                             </div>
                         </div>
                         <div class="displayed-score">
-                            <div class="circle-div">
+                            <div class="circle-div"
+                            [style.borderColor]="getSliderColor(question?.score)">
                                 <p
                                 id="output-score"
-                                [style.color]="getSliderColor(question?.score)">
+                                >
                                 {{question.score}}
                             </p>
                         </div>
@@ -81,9 +82,6 @@
             </div>
         </form>
         </div>
-        <!-- <div>
-            <input id="checkQuestions" type="checkbox" ng-checked="leader" aria-label="Follower input">
-        </div> -->
         
         <div class="right" >
             <div class="progress-arc">

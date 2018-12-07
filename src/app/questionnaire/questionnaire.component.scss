@@ -10,7 +10,7 @@
     display: flex;
     width:100%;
     
-    }
+}
 
 form {
     flex: 2;
@@ -21,6 +21,11 @@ div.container p {
     font-size: $f-xs;
     margin-left: 2.5%;
 }
+
+.qst {
+    width: 80%;
+}
+
 .question-text {
     width: 90%;
 }
@@ -52,6 +57,7 @@ div.container p {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid;
 }
 
 .score-flex-box {
@@ -70,7 +76,7 @@ div.container p {
 }
 
 .score-inputs {
-    width: 79%;
+    width: 80%;
     top: 20px;
     position: absolute;
     flex-grow: 1;
@@ -165,6 +171,7 @@ div.sendButton {
 .progress-component {
     transform:rotate(180deg);
 }
+
 .question-brief {
     display: block;
     position: absolute;
@@ -194,6 +201,7 @@ div.sendButton {
 .incomplete {
     background-color: $nav-color;
 }
+
 @media only screen and (min-width: 894px) {
     .left {
         width: 70%;
