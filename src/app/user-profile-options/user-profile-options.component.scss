@@ -37,7 +37,7 @@ i,
 
 #profileChanges{
   height: 100vh;
-  background-color: black;
+  background-color: rgba(0,0,0,0.2);
   // margin-left: -15px;
   width: 100%;
 }
@@ -110,7 +110,7 @@ fieldset{
     width: 150px;
     height: 150px;
   }
-  
+
   .text-inside-header {
     padding-left: 200px;
   }
