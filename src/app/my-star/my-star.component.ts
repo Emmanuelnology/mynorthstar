@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { UploadToFirebase } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
@@ -58,10 +58,10 @@ export class MyStarComponent implements OnInit {
 
     this.firebase.getRecent(this.user, 1).subscribe((results) => {
       if (results.length > 0) {
+
       this.restructureData(results[0].categoryResults);
       // this.mainStarViewChild.starData[0].data = this.datasets[0].data;
       this.overallResult = results[0].overallResult;
-      console.log('HI', results[0]);
       this.currentDate = results[0].date;
             this.ready = true;
             this.mainStarViewChild.redraw();
@@ -71,5 +71,6 @@ export class MyStarComponent implements OnInit {
     }
   });
   }
+
 
 }

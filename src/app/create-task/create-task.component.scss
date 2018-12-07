@@ -1,5 +1,7 @@
 @import "../../variables.scss";
 
+@include media-sm;
+
 .createtask {
     padding: $s-sm;
 }
@@ -13,10 +15,21 @@
 }
 
 .input-box {
-    margin-right: $s-md;
-    width: 80%;
+    width: 70%;
 }
 
-.add-btn {
-    // width: 40%;
+.addButton {
+    // width: 20%;
+}
+
+@media only screen and (min-width:1170px) and (max-width:26850px) {
+    .input-box {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width:270px) and (max-width:320px) {
+    .input-box {
+        width: 60%;
+    }
 }

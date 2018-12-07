@@ -3,7 +3,7 @@
   <div>
     <form class="task-entry" #createNewTask="ngForm" (ngSubmit)='onSubmit(title)'>
       <input [disabled]="addButtonDisabled" required #title name="new-task" class="input-box" id="new-task" [value]="taskTitle" placeholder="Enter Task">
-      <button [disabled]="addButtonDisabled" type="submit" class="add-btn btn btn-open btn-turquoise">Add</button>
+      <button [disabled]="addButtonDisabled || taskCount >= 5" type="submit" class="add-btn btn btn-open btn-turquoise">Add</button>
     </form>
   </div>
 </div>
