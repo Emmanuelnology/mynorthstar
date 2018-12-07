@@ -99,7 +99,8 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(
       routes,
-      { enableTracing: false,
+      {
+        enableTracing: false,
         anchorScrolling: 'enabled'
       } // <-- debugging purposes only
       ),
