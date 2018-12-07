@@ -1,5 +1,7 @@
 @import "../../variables.scss";
 
+@include media-sm;
+
 .createtask {
     padding: $s-sm;
 }
