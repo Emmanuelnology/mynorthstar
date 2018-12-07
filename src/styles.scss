@@ -157,6 +157,11 @@ span, p {
     display:none;
 }
 
+.main-content {
+    padding:$s-sm;
+    overflow-y:scroll;
+    height:100%;
+}
 
 @media only screen and (min-width:$tablet-max){
 

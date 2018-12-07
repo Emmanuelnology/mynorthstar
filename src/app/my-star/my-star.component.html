@@ -1,11 +1,11 @@
-<app-layout-default pageTitle="My star" icon="fas fa-star">
-  
+<app-layout-default pageTitle="My star" icon="fas fa-star" >
+  <div class="main-content">
   <div class="star-flex">
     <div class="star-column">
       <div class="star-heading">
       
         <div class="date">
-            <h2> {{currentDate?.toDate() | date: "dd/MM/y"}}</h2>
+          <h2> {{currentDate?.toDate() | date: "dd/MM/y"}}</h2>
           
         </div>
         <div class="total-score">
@@ -57,4 +57,5 @@
     </div>
     
   </div >
+  </div>
 </app-layout-default>

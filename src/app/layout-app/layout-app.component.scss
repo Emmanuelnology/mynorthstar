@@ -86,8 +86,8 @@ h1 {
   background-size: cover;
   border: 1px solid $border-color;
   border-radius: 5px;
-  padding: $s-sm;
-  overflow-y: scroll;
+//   padding: $s-sm;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 

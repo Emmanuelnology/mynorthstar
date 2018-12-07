@@ -25,6 +25,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   results;
   currentDate;
   public pastData: IDataSet[];
+  ready = false;
 
   data = {
     datasets: [],
@@ -68,6 +69,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
     this.firebase.getRecent(this.user, 6).subscribe((results) => {
       if (results.length > 0) {
+        this.ready = true;
         for (const index in results) {
           if (results.hasOwnProperty(index)) {
             this.restructureData(results[index].categoryResults , index);
