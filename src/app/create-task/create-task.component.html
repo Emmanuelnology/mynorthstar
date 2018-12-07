@@ -2,8 +2,8 @@
   <h3>Tasks:</h3>
   <div>
     <form class="task-entry" #createNewTask="ngForm" (ngSubmit)='onSubmit(title)'>
-      <input required #title name="new-task" class="input-box" id="new-task" [value]="taskTitle" placeholder="Enter Task">
-      <button type="submit" class="add-btn btn btn-open btn-turquoise">Add</button>
+      <input [disabled]="addButtonDisabled" required #title name="new-task" class="input-box" id="new-task" [value]="taskTitle" placeholder="Enter Task">
+      <button [disabled]="addButtonDisabled" type="submit" class="add-btn btn btn-open btn-turquoise">Add</button>
     </form>
   </div>
 </div>
