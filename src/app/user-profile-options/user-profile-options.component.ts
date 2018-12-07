@@ -23,15 +23,13 @@ export class UserProfileOptionsComponent implements OnInit {
 
   newImage = '';
 
-
-
-
   user;
   constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) {
     this.user = authService.user;
    }
 
   ngOnInit() {
+
   }
 
   updateClientName() {

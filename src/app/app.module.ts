@@ -99,7 +99,10 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(
       routes,
-      { enableTracing: true } // <-- debugging purposes only
+      {
+        enableTracing: false,
+        anchorScrolling: 'enabled'
+      } // <-- debugging purposes only
       ),
 
       // Firebase imports
