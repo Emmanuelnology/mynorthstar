@@ -19,6 +19,8 @@ export class UserProfileOptionsComponent implements OnInit {
   successChangePassword = '';
   errorChangePassword = '';
 
+  confirmPassword = '';
+
   newImage = '';
 
 
