@@ -66,6 +66,10 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     getSliderColor(value) {
+        if (value == null) {
+            return '#101f34';
+            // return 'white';
+        }
         if (value <= 3) {
             return 'rgb(236, 0, 129)';
         } if (value <= 7 && value > 3) {
