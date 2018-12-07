@@ -1,20 +1,58 @@
 @import '../../variables.scss';
 
+.big-boys {
+    display: flex;
+    flex-direction: row;
+    height:100%;
+}
+
+.whole-check-list {
+    display: flex;
+    flex-basis:10px;
+    background-color: aqua;
+    margin: 0;
+    // margin-top: -$s-sm;
+    // margin-left: -$s-sm;
+    // overflow: scroll;;
+}
+
+.check-list {
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    // margin: 0;
+    // position: fixed;
+    // margin-top: -$s-sm;
+    // margin-left: -$s-sm;
+    // width:10px;
+    // overflow: hidden;
+    flex-grow: 1;
+}
+
+.each-check {
+    flex-grow: 1;
+}
+
+.complete {
+    background-color: $turquoise;
+}
+
+.incomplete {
+    background-color: $nav-color;
+}
+
 .whole-questionnaire {
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
 
 }
 
 .left {
     display: flex;
     width:100%;
-    
 }
 
-form {
-    flex: 2;
-}
 
 div.container p {
     display: inline-block;
@@ -34,6 +72,7 @@ div.container p {
     display: flex;
     flex-direction: row;
     margin-bottom: 40px;
+    width:100%
 }
 
 .text-slider {
@@ -86,17 +125,17 @@ div.container p {
     }
 }
 
-.fass {
-    display: block;
-    font-size: 0.5em;
-    color: rgba(255,255,255, 0.3);
-}
+// .fass {
+//     display: block;
+//     font-size: 0.5em;
+//     color: rgba(255,255,255, 0.3);
+// }
 
-.ind-score-position {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 0.9em;
-}
+// .ind-score-position {
+//     flex-grow: 1;
+//     text-align: center;
+//     font-size: 0.9em;
+// }
 
 .scoring {
     position: relative;
@@ -143,19 +182,19 @@ div.sendButton {
     text-align: center;
     padding: 30px;
 }
+
 .right {
     display: none;
     width: 20%;
     margin-left: 5%;
     margin-right: 5%;
 }
+
 .progress-arc {
     display: flex;
     align-items: center;
     justify-content: center;
-
     position: absolute;
-
 }
 
 .progress-amount {
@@ -165,7 +204,6 @@ div.sendButton {
     font-size: 24px;
     color: white;
     text-align: center;
-
 }
 
 .progress-component {
@@ -176,30 +214,7 @@ div.sendButton {
     display: block;
     position: absolute;
     width: 200px;
-    top: 320px;
-    
-}
-
-.check-list {
-    height:50%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    position: fixed;
-    margin-top: -$s-sm;
-    margin-left: -$s-sm;
-    width:10px;
-}
-.each-check {
-    flex-grow: 1;
-}
-
-.complete {
-    background-color: $turquoise;
-}
-
-.incomplete {
-    background-color: $nav-color;
+    top: 320px;    
 }
 
 @media only screen and (min-width: 894px) {
@@ -209,6 +224,4 @@ div.sendButton {
     .right {
         display: block;
     }
-
 }
-
