@@ -3,8 +3,8 @@
     <div class="all-html-questionnaire">   
         <div class="whole-check-list">
             <div class="check-list">
-                <div *ngFor="let question of questions" class="each-check {{(question.score !==null) ? 'complete':'incomplete'}}">
-                </div>
+                <a href="#{{question.id}}" *ngFor="let question of questions" class="each-check {{(question.score !==null) ? 'complete':'incomplete'}}">
+                </a>
             </div>
         </div>
         
