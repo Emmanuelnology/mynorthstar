@@ -17,6 +17,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
   @Input() starLabels: string []; // added
   @Input() animation = 500;
   @Input() showLegend = false;
+  @Input() breakpoint = 768;
 
  // added
 
