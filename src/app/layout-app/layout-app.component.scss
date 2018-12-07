@@ -1,0 +1,126 @@
+@import "../../variables.scss";
+
+.body {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  color:white;
+}
+
+.body :nth-child(2) {
+  flex-grow: 1;
+}
+
+main {
+  overflow: scroll;
+}
+
+header .wrapper > * {
+  padding: $s-xs;
+}
+
+header .wrapper {
+  align-items: center;
+  height: $largeMenuWidth;
+}
+
+.avatar {
+  display: inline-block;
+  height: $largeMenuWidth;
+  width: $largeMenuWidth;
+}
+
+.avatar-img {
+  min-width:100%;
+  min-height:100%;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.avatar-img:hover,
+.greeting:hover {
+  cursor: pointer;
+}
+
+.wrapper {
+  display:flex;
+}
+
+.menu {
+  min-width: $smallMenuWidth;
+  max-width: $smallMenuWidth;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.hideMenu {
+  max-width: 0 !important; 
+  min-width: 0 !important; 
+}
+
+.f-grow {
+  flex-grow: 1;
+}    
+
+.logo-wrapper img {
+  width: 100%;
+}
+
+.greeting, 
+.avatar {
+  display:none;
+}
+
+h1 {
+  font-size: $f-xs;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-left: $s-sm;
+}
+
+.content {
+  background-image: url('../../assets/backgrounds/background2.jpg');
+  background-size: cover;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  padding: $s-sm;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media (min-width: $tablet-min) {
+  header .wrapper > * {
+    padding: $s-sm;
+  }
+
+  .avatar {
+    display:inline-block;
+  }
+
+  .menu {
+    min-width: $largeMenuWidth;
+    max-width: $largeMenuWidth;
+  }
+
+}
+
+
+@media ( min-width: 580px){
+  .greeting {
+    display: inline-block;
+  }
+}
+
+@media (min-width: $tablet-max) {
+  .greeting {
+    display:inline-block;
+  }
+  h1 {
+    font-size: $f-sm;
+    margin-left: $s-md;
+    letter-spacing: 15px;
+  }
+}

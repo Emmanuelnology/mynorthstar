@@ -1,0 +1,88 @@
+@import '../../variables.scss';
+
+
+nav {
+  background-color: $nav-color;
+  text-align: center;
+  border-top: 1px solid white;
+  overflow: hidden;
+}
+
+
+nav li {
+  color: $nav-icons-color;
+  font-size: 1.5em;
+  padding-top: $s-sm;
+  padding-bottom: $s-sm;
+  list-style-type: none;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
+
+}
+
+
+// nav a {
+//   -webkit-text-stroke-width: 0.5px;
+//   -webkit-text-stroke-color: white;
+// }
+
+nav li:hover,
+nav .active {
+  background-color: rgb(16, 131, 188);
+  color: white;
+  cursor: pointer;
+  -webkit-text-stroke-color: transparent;
+}
+
+// nav a:hover {
+//   -webkit-text-stroke-color: transparent;
+// }
+
+.tooltiptext {
+  display: none;
+}
+
+@media (min-width: $tablet-min) {
+
+
+  .tooltip {
+    display: inline;
+
+  }
+
+  .tooltiptext {
+    display: inline;
+  }
+
+  .tooltip .tooltiptext {
+    margin-left: 9px;
+    width: auto;
+    white-space: nowrap;
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+    margin-top: 0px;
+    transition: opacity 0.5s;
+    border-radius: 5px;
+    background-color: $navy;
+    opacity: 0.5;
+  }
+
+  .tooltip .tooltiptext::after {
+    position: absolute;
+    top: 5%;
+    right: 100%;
+    margin-top: -5px;
+  }
+
+  li:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  nav {
+    overflow: visible;
+  }
+
+}

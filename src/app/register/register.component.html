@@ -1,0 +1,80 @@
+<app-layout-auth>
+  <div id="form-container">
+    <form (ngSubmit)="registerUser()" #registerForm="ngForm">
+      <fieldset>
+        
+        <label for="Name">Name</label>
+        <input
+          [(ngModel)]="name"
+          type="text"
+          name="Name"
+          id="name"
+          required
+          #namey="ngModel"
+          minlength="1"
+          
+        >
+
+        <label for="Email">Email</label>
+        <input
+          [(ngModel)]="email"
+          type="email"
+          name="Email"
+          id="email"
+          required
+          #emailAddress="ngModel"
+          email
+
+        >
+
+        <label for="Password">Password</label>
+        <input
+          [(ngModel)]="password"
+          type="password"
+          minlength="6"
+          name="Password"
+          id="password"
+          #passwordy="ngModel"
+          title="Must contain at least one uppercase letter, one lower case letter, one number and must be a minimum of 6 characters"
+          required
+          pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+          >
+
+        <label for="Confirm password">Confirm password</label>
+        <input
+          [(ngModel)]="confirmPassword"
+          type="password"
+          minlength="6"
+          name="confirmPassword"
+          id="confirmPassword"
+          #confirmyPasswordy="ngModel"
+          title="Must contain at least one uppercase letter, one lower case letter, one number and minimum length is 6 characters"
+          required
+          pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+          >
+
+        <div class="error">
+          <p *ngIf="error">{{error}}</p>
+          <p *ngIf="namey.touched && namey.invalid">Name cannot be empty</p>
+          <p *ngIf="emailAddress.touched && emailAddress.invalid">Email is invalid</p>
+          <div *ngIf="passwordy.touched && passwordy.invalid" id="errors">
+            <p>Password is invalid it must be:</p>
+            <ul>
+              <li>> 6 characters</li>
+              <li>> One is a lowercase letter</li>
+              <li>> One is an uppercase letter</li>
+              <li>> One is a number</li>
+            </ul>
+  
+          </div>
+          <p *ngIf="confirmyPasswordy.touched && passwordy.value != confirmyPasswordy.value">Passwords don't match</p>
+        </div>
+
+        <button [disabled]="registerForm.invalid || passwordy.value != confirmyPasswordy.value " class="btn btn-flat btn-navy" type="submit" id="submit">Register</button>
+
+        <a routerLink="/login">Return to login</a>
+      
+      </fieldset>
+    </form>
+  </div>
+</app-layout-auth>

@@ -1,7 +1,208 @@
 /* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
+:root {
+    font-size: 14px;
+    font-family: "nunito", sans-serif;
+}
 
 * {
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
 }
+
+a{
+    color:inherit;
+    text-decoration: none;
+}
+
+.btn {
+    margin-top:$s-sm; 
+    padding: $s-sm;
+}
+
+.btn:hover {
+    cursor:pointer;
+}
+
+.btn-purple {
+    background-color: $purple;
+}
+
+.btn-blue {
+    background-color: $blue;
+}
+
+.btn-pink {
+    background-color: $pink;
+}
+
+.btn-lilac {
+    background-color: $lilac;
+}
+
+.btn-turquoise {
+    background-color: $turquoise;
+}
+
+.btn-navy {
+    background-color: $navy;
+}
+
+.btn-flat {
+    text-transform: uppercase;
+    border:none;
+    color:white;
+}
+
+.btn-open {
+    border-radius: 17px;
+    padding: 4px 16px;
+    line-height: 1.4;
+    font-size:16px;
+    text-transform: none;
+    background-color: transparent;
+    border-width:2px;
+    border-style: solid;
+}
+
+.btn-open.btn-purple {
+    border-color: $purple;
+    color:$purple;
+}
+
+.btn-open.btn-blue {
+    border-color: $blue;
+    color:$blue;
+}
+
+.btn-open.btn-pink {
+    border-color: $pink;
+    color:$pink;
+}
+
+.btn-open.btn-lilac {
+    border-color: $lilac;
+    color:$lilac;
+}
+
+.btn-open.btn-turquoise {
+    border-color: $turquoise;
+    color:$turquoise;
+}
+
+.btn-open.btn-navy {
+    border-color: $navy;
+    color:$navy;
+}
+
+.btn-open:hover {
+    background-color: rgba(158,158,158,.2);
+}
+
+h1 {
+    // font-size:$f-xs;
+    display:inline-block;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+// h2 {
+//     font-size:$f-lg;
+//     margin-top: $s-sm;
+// }
+
+// h3 {
+//     font-size:$f-md;
+//     margin-top: $s-sm;
+// }
+
+// h4 {
+//     font-size:$f-sm;
+//     margin-top: $s-sm;
+// }
+
+// h5 {
+//     font-size:$f-sm;
+//     margin-top: $s-sm;
+// }
+
+// h6 {
+//     font-size:$f-sm;
+//     margin-top: $s-sm;
+// }
+
+.input-box {
+    font-family: $primary-font;
+    border: 2px solid $lilac;
+    border-radius: 17px;
+    padding: 4px 16px;
+    line-height: 1.7;
+    margin-top:$s-sm; 
+}
+
+span, p {
+    font-size: $f-xs;
+    margin: $s-xs 0;
+    text-align: justify;
+}
+
+.u-swapon-mobile {
+    display:inline-block;
+}
+
+.u-swapon-tablet {
+    display:none;
+}
+
+
+@media only screen and (min-width:$tablet-max){
+
+    @include media-md;
+    
+    .u-swapon-mobile {
+        display:none;
+    }
+    
+    .u-swapon-tablet {
+        display:inline-block;
+    }
+    
+    // h1 {
+    //     font-size:$f-xl;
+    // }
+    
+    // h2 {
+    //     font-size:$f-xl;
+    //     margin-top: $s-sm;
+    // }
+    
+    // h3 {
+    //     font-size:$f-lg;
+    //     margin-top: $s-sm;
+    // }
+    
+    // h4 {
+    //     font-size:$f-md;
+    //     margin-top: $s-sm;
+    // }
+    
+    // h5 {
+    //     font-size:$f-md;
+    //     margin-top: $s-sm;
+    // }
+    
+    // h6 {
+    //     font-size:$f-sm;
+    //     margin-top: $s-sm;
+    // }
+    
+    // p {
+    //     font-size: $f-sm;
+    //     margin: $s-xs 0;
+    //     text-align: justify;
+    // }
+    
+    
+}
+

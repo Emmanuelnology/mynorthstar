@@ -1,0 +1,33 @@
+<div id="legend">
+  <div class="date">
+    <h3>
+      DATE
+    </h3>
+  </div>
+  <div class="score">
+    <h3>
+      SCORE
+    </h3>
+  </div>
+  <div class="score"></div>
+</div>
+<div id="history-container" *ngFor="let data of pastDataProfile">
+  <div class="date">
+    <p>
+      {{ data.date.toDate() | date: "dd/MM/yy" }}
+    </p>
+  </div>
+  <div class="score">
+    <p>
+      {{ data.score | number: "1.0-2" }}
+    </p>
+  </div>
+  <div [hidden]="data.isActive === true" (click)="data.isActive = !data.isActive" (click)="findActive()" class="unchecked">
+    <i class="far fa-square"></i>
+  </div>
+  <div [hidden]="data.isActive === false" (click)="data.isActive = !data.isActive" (click)="findActive()" class="checkbox">
+    <i class="fas fa-check-square"></i>
+  </div>
+</div>
+
+<!-- {{ data.date.toDate() | date: "dd/MM/y" }} -->

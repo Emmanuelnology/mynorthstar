@@ -1,0 +1,18 @@
+<div class="progress-arc {{color}}">
+    <span class="progress-amount" [ngStyle]="{
+     'font-size':fontSize  
+    }">
+        {{score | number: '1.2-2'}}
+        <small>Score</small>
+    </span>
+    <div class="progress-component">
+    <ng2-arc-progress
+        [size]='size'
+        progress={{score*10}}
+        gap=0
+        backgroundColor='rgba(232, 236, 241, 0.3)'
+        strokeWidth='3px'
+        >
+    </ng2-arc-progress>
+</div>
+</div>

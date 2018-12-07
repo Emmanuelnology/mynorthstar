@@ -1,0 +1,56 @@
+@import '../../variables.scss';
+
+.progress-arc {
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.progress-component {
+    transform:rotate(180deg);
+}
+
+.progress-amount {
+    z-index:1;
+    position:absolute;
+    margin-top: -2px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+small {
+    font-size: 40%;
+    text-transform: uppercase;
+    display:none;
+}
+
+:host ::ng-deep .purple .progress-fill {
+    stroke:$purple;
+}
+
+:host ::ng-deep .blue .progress-fill {
+    stroke:$blue;
+}
+
+:host ::ng-deep .pink .progress-fill {
+    stroke:$pink;
+}
+
+:host ::ng-deep .lilac .progress-fill {
+    stroke:$lilac;
+}
+
+:host ::ng-deep .turquoise .progress-fill {
+    stroke:$turquoise;
+}
+
+:host ::ng-deep .navy .progress-fill {
+    stroke:$navy;
+}
+@media only screen and (min-width: 768px) {
+small {
+    display:block;
+}
+}

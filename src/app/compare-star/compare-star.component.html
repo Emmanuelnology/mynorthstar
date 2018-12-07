@@ -1,0 +1,21 @@
+<app-layout-default icon="fas fa-history" pageTitle="Compare star">
+  <div id="layout">
+    <div id="mobile-arc" class="u-swapon-mobile">
+      <app-progress-arc class="u-swapon-mobile" [score]="currentScore" color="turquoise" size="60"></app-progress-arc>
+    </div>
+    <div id="star">
+      <app-main-star [starData]="data.datasets" [starLabels]="data.labels" [animation]="animation" [showLegend]="true"></app-main-star>
+    </div>
+    <div id="tablet-arc" class="u-swapon-tablet" >
+      <div id="date"><p>{{currentDate?.toDate() | date: "dd/MM/y"}}</p></div>
+      <div id="total-score">
+        <app-progress-arc class="u-swapon-tablet" [score]="currentScore" color="turquoise" size="100"></app-progress-arc>
+      </div>
+    </div>
+    <div id="history">
+      <div id="border-container">
+        <app-history (checked)="addRemoveData($event)"></app-history>
+      </div>
+    </div>
+  </div>
+</app-layout-default>

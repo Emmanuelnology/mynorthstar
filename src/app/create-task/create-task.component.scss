@@ -1,0 +1,22 @@
+@import "../../variables.scss";
+
+.createtask {
+    padding: $s-sm;
+}
+
+.task-entry {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-box {
+    margin-right: $s-md;
+    width: 80%;
+}
+
+.add-btn {
+    // width: 40%;
+}

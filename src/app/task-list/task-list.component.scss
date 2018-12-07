@@ -1,0 +1,91 @@
+@import "../../variables.scss";
+
+.task-container {
+    padding: $s-sm;
+}
+
+.tasklist {
+    padding: 0 $s-sm;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid $pink;
+    border-radius: 5px;
+    background-color: rgba(176, 32, 98, 0.2);
+}
+
+.list-item2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid $turquoise;
+    border-radius: 5px;
+    background-color: $turquoise-tint;
+}
+
+.test {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+    
+li {
+    font-size: $f-md;
+    list-style-type: none;
+    vertical-align: top;
+    margin: $s-sm 0;
+}
+
+label {
+    position: relative;
+}
+
+.unchecked, .checked {
+    font-size: $f-md;
+}
+
+.unchecked {
+    color: $pink;
+}
+
+.checked {
+    color: $turquoise;
+}
+
+.checked:hover,
+.unchecked:hover {
+    cursor: pointer;
+}
+
+.ticked, .unticked {
+    margin: $ls-xs $ls-sm;
+}
+
+.unticked:hover {
+    background-color: rgba(176, 32, 98, 0.2);
+}
+
+.ticked:hover {
+    background-color: $turquoise-tint;
+    background: fill;
+}
+
+button {
+    font-size: $f-xs;
+	background: none;
+	color: $pink;
+    border: none;
+    margin: $ls-xs $ls-sm;
+	padding: 2px 5px;
+	cursor: pointer;
+    outline: inherit;
+}
+
+button:hover {
+    background-color: rgba(176, 32, 98, 0.2);
+}

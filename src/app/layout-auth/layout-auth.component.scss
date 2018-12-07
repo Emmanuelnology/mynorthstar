@@ -1,0 +1,52 @@
+@import '../../variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #26325c;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('../../assets/backgrounds/background2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    text-align: center;
+    box-sizing: border-box;
+}
+
+body * {
+    overflow:hidden;
+}
+
+#logo > img {
+    margin: $s-sm 0;
+    // margin-bottom: $s-sm;
+    max-width: 85px;
+    max-height: 75px;
+}
+
+h1 {
+    font-size: $f-sm;
+    letter-spacing: 9px;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 1.0em;
+    letter-spacing: 4px;
+    margin: $s-xs 0 $s-sm 0;
+    width: 100%;
+}

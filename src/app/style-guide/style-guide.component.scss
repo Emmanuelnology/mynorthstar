@@ -1,0 +1,38 @@
+
+@import '../../variables.scss';
+.f-xs {
+    font-size: $f-xs;
+}
+
+.f-sm {
+    font-size: $f-sm;
+}
+
+.f-md {
+    font-size: $f-md;
+}
+
+.f-lg {
+    font-size: $f-lg;
+}
+
+
+.f-xl {
+    font-size: $f-xl;
+}
+
+button {
+    margin-right: $s-sm;
+}
+
+@media (min-width: $phone-min) {
+    @include media-sm;
+}
+
+@media (min-width: $tablet-max) {
+    @include media-md;
+}
+
+@media (min-width: $laptop-max) {
+    @include media-lg;
+}

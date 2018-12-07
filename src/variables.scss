@@ -1,18 +1,182 @@
-$primary-color: red;
-
-$s-0: 0;
-$s-1: 10px;
-$s-2: 20px;
-$s-3: 40px;
-$s-4: 70px;
-
-@mixin bg-image($imageUrl) {
-  background-image: url($imageUrl);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+ // IF COLOURS ARE CHANGED HERE THEY MUST ALSO BE CHANGED IN COLOURS.TS IN SRC FOLDER //
+ $purple: #37234f;
+ $blue: #003864;
+ $pink: #b02062;
+ $pink-tint: rgba(176, 32, 98, 0.2);
+ $lilac: #65449b;
+ $turquoise: #6ecbd3;
+ $turquoise-tint: 	rgba(110, 203, 211,0.2);
+ $navy: #1b2949;
+ $bright-green: #00ffd2;
+ 
+ //font variables
+ $primary-font: "nunito", sans-serif;
+ 
+ //color variables
+ $primary-font-color: #ffffff;
+ $nav-color: #101f34;
+ $nav-icons-color: #0d4863;
+ $border-color: #0d4863;
+ 
+ //spacing variables
+ $s-0: 0;
+ $s-xs: 5px;
+ $s-sm: 15px;
+ $s-md: 40px;
+ $s-lg: 70px;
+ $s-xl: 70px;
+ 
+ $s-1 : $s-xs;
+ 
+ $f-xs: 1rem;
+ $f-sm: 1.2rem;
+ $f-md: 1.5rem;
+ $f-lg: 2rem;
+ $f-xl: 2.7rem;
+ 
+ $ls-xs: 7px;
+ $ls-sm: 9px;
+ $ls-md: 12px;
+ $ls-lg: 15px;
+ 
+ $animationDuration: 0.5s;
+ $navHeight: 80px;
+ $smallMenuWidth: 40px;
+ $largeMenuWidth: 70px;
+ 
+ //global media queries
+ //breakpoints
+ $phone-min: 320px;
+ $phone-max: 424px;
+ $tablet-min: 425px; 
+ $tablet-max: 767px;
+ $laptop-min: 768px;
+ $laptop-max: 1023px;
+ $desktop-min:1024px;
+ 
+ //heading size mixins
+ @mixin media-sm {
+    h1 {
+        font-size: $f-md;
+        letter-spacing: $ls-sm;
+    }
+    h2 {
+        font-size: $f-sm;
+        letter-spacing: $ls-sm;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h3 {
+        font-size: $f-xs;
+        letter-spacing: $ls-sm;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h4 {
+        font-size: $f-xs;
+        letter-spacing: $ls-xs;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h5 {
+        font-size: $f-xs;
+        letter-spacing: $ls-xs;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h6 {
+        font-size: $f-xs;
+        letter-spacing: $ls-xs;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    p {
+        font-size: $f-xs;
+        margin: $s-xs 0;
+        text-align: justify;
+    }
 }
 
-@mixin bg-mountain() {
-  @include bg-image('/assets/backgrounds/mountain.jpg'); 
+@mixin media-md {
+    h1 {
+        font-size: $f-md;
+        letter-spacing: $ls-md;
+    }
+    h2 {
+        font-size: $f-md;
+        letter-spacing: $ls-sm;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h3 {
+        font-size: $f-sm;
+        letter-spacing: $ls-sm;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h4 {
+        font-size: $f-xs;
+        letter-spacing: $ls-xs;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h5 {
+        font-size: $f-xs;
+        letter-spacing: $ls-xs;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h6 {
+        font-size: $f-xs;
+        letter-spacing: $ls-xs;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    p {
+        font-size: $f-xs;
+        margin: $s-xs 0;
+        text-align: justify;
+    }
+}
+
+@mixin media-lg {
+    h1 {
+        font-size: $f-xl;
+        letter-spacing: $ls-lg;
+    }
+    h2 {
+        font-size: $f-lg;
+        letter-spacing: $ls-md;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h3 {
+        font-size: $f-md;
+        letter-spacing: $ls-sm;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h4 {
+        font-size: $f-sm;
+        letter-spacing: $ls-sm;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h5 {
+        font-size: $f-sm;
+        letter-spacing: $ls-sm;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    h6 {
+        font-size: $f-sm;
+        letter-spacing: $ls-sm;
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+    p {
+        font-size: $f-xs;
+        margin: $s-xs 0;
+        text-align: justify;
+    }
 }

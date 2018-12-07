@@ -1,0 +1,35 @@
+@import "../../variables.scss";
+
+.header-content {
+  display: block;
+  height: 300px;
+  width: 110%;
+  background-image: url('../img/london.png');
+  background-size: cover;
+  margin-left: -15px;
+  margin-top: -27px;
+}
+
+.circle-border {
+  border-radius: 50%;
+  border: 1px solid white;
+  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
+  background-size: cover;
+  background-position: center;
+  width: 150px;
+  height: 150px;
+  vertical-align: middle;
+  float: left;
+  margin-top: $s-lg;
+  margin-left: $s-md;
+}
+
+.text-inside-header {
+  padding-top: $s-lg;
+  padding-left: 220px;
+}
+
+i,
+#welcome {
+  color:  $bright-green;
+}

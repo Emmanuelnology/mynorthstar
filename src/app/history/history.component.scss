@@ -1,0 +1,63 @@
+@import '../../variables.scss';
+
+@include media-sm;
+
+#history-container,
+#legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: $s-xs 0;
+    font-size: $f-sm;
+}
+
+#legend {
+    margin-bottom: $s-sm;
+    font-size: $f-md;
+}
+
+
+.checkbox,
+.unchecked {
+    width: 22%;
+    text-align: right;
+    color: $turquoise;
+    font-size: 1.75em;
+}
+
+.score,
+.date {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-weight: 100;
+    font-size: $f-sm;
+}
+
+.score {
+    width: 28%;
+}
+
+.date {
+    width: 50%;
+}
+
+.checkbox:hover,
+.unchecked:hover {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+
+    #history-container,
+    #legend {
+    margin: $s-xs 0;
+    // font-size: $f-md;
+    }
+
+    #legend {
+    margin-bottom: $s-sm;
+    // font-size: $f-lg;
+    }
+
+}
