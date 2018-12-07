@@ -8,109 +8,50 @@
 
 .left {
     display: flex;
-    width:70%;
+    width:100%;
     
     }
-// form {
-//     width: 70%;
-// }
-
-.instruction {
-    font-style: italic;
-    font-size: $f-xs;
-    margin-bottom: 30px;
-}
-
-.score-indicator {
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-.score-indicator p {
-     text-transform: uppercase;
-     font-size: $f-xs;
-     letter-spacing: 1px;
-}
-
-.score-indicator-agree {
-    color: $bright-green;
-}
-
-.score-indicator-disagree {
-    color: $pink;
-}
 
 form {
-    // border: 2px solid $border-color;
-    // border-radius: 17px;
     flex: 2;
 }
-
-// #output-score {
-//     color: $bright-green;
-//     background: $nav-color;
-//     width: 35px;
-//     border-radius: 50%;
-//     text-align: center;
-//     justify-content: center;
-//     position: absolute;
-//     margin-left: 87%;
-//     font-size: $f-md;
-// }
 
 div.container p {
     display: inline-block;
     font-size: $f-xs;
     margin-left: 2.5%;
 }
+.question-text {
+    width: 90%;
+}
 
 .container {
-    // margin: 0; 
-    // text-align: left;
-    // margin-bottom: 30px;
-    // padding: 10px;
-    // width: 90%; 
     display: flex;
-    // flex-wrap: wrap;
     flex-direction: row;
-
-
+    margin-bottom: 40px;
 }
 
 .text-slider {
-    flex-grow: 1;
+    // flex-grow: 1;
+    width: 80%;
+    margin-right:10px;
 }
 
-// .question-text {
-//     flex-basis: 50px;
-//     text-align: justify;
-//     width: 80%;
-// }
-
-// .slider {
-//     flex-grow: 1;
-//     width: 80%;
-//     background-color: blue;
-//     float: left;
-// }
-
 .displayed-score {
-    flex-basis: 50px;
+    // flex-basis: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .circle-div {
     border-radius: 50%;
-    background-color: black;
-    width: 3em;
-    height: 3em;
+    background-color: $nav-color;
+    width: 3.5em;
+    height: 3.5em;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .score-flex-box {
@@ -134,8 +75,6 @@ div.container p {
     position: absolute;
     flex-grow: 1;
     margin-left: 2.5%;
-    // margin-right: 2.5%;
-
     &:hover {
         cursor: pointer;
     }
@@ -144,11 +83,7 @@ div.container p {
 .fass {
     display: block;
     font-size: 0.5em;
-    // color: rgb(26, 52, 87);
     color: rgba(255,255,255, 0.3);
-    // color: black;
-    // color: #080e18
-
 }
 
 .ind-score-position {
@@ -168,8 +103,6 @@ div.container p {
     border-radius: 5px;
     -webkit-appearance: none;
     position: absolute;
-
-    
     &:hover {
         cursor: pointer;
     }
@@ -196,9 +129,8 @@ div.container p {
     -webkit-appearance: none;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 30px 1px white;
+    box-shadow: 0 0 60px 1px white;
     background: white;
-    // box-shadow: 0 0 1px 1px white;
 }
 
 div.sendButton {
@@ -206,12 +138,8 @@ div.sendButton {
     padding: 30px;
 }
 .right {
-    display: block;
+    display: none;
     width: 20%;
-    // flex-direction: column;
-    // flex-wrap: wrap;
-    // align-items: center;
-    // justify-content: center;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -219,6 +147,8 @@ div.sendButton {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: absolute;
 
 }
 
@@ -237,6 +167,9 @@ div.sendButton {
 }
 .question-brief {
     display: block;
+    position: absolute;
+    width: 200px;
+    top: 320px;
     
 }
 
@@ -259,97 +192,15 @@ div.sendButton {
 }
 
 .incomplete {
-    
     background-color: $nav-color;
+}
+@media only screen and (min-width: 894px) {
+    .left {
+        width: 70%;
+    }
+    .right {
+        display: block;
+    }
 
 }
 
-// @media only screen and (min-width: 894px) {
-//     .score-indicator {
-//         position: absolute;
-//         top: 250px; 
-//     }
-//     .score-indicator-mobile {
-//         display: none;
-//     }
-//     .score-position {
-//         display: flex;
-//     }
-//     // #output-score {
-//     //     margin-left: 90%;
-//     // }
-//     // .scoring {
-//     //     height: 100px;
-//     // }
-//     p {
-//         font-size:$f-md!important;
-//     }
-//     // form {
-//     //     flex: 2;
-//     //     margin-right: 27%;
-//     // }
-//     .progress-arc {
-//         // flex: 1;
-//         // flex-shrink: 1;
-//         // position: fixed;
-//         // top: 140px;
-//         // right: 4%;
-//         display: flex;
-//         // align-items: center;
-//         // justify-content: center;
-//     }
-//     .progress-amount {
-//         z-index: 1;
-//         position: absolute;
-//         margin-top: -2px;
-//         font-size: $f-sm;
-//         color: white;
-//         text-align: center;
-//     }
-//     .progress-component {
-//         transform:rotate(180deg);
-//     }
-//     // .container {
-//     //     margin-bottom: 0;
-//     // } 
-
-// }
-
-// @media only screen and (max-width: 483px) {
-    // #output-score {
-    // // color: $bright-green;
-    // // background: $nav-color;
-    // width: 40px;
-    // // border-radius: 50%;
-    // // text-align: center;
-    // // justify-content: center;
-    // // position: absolute;
-    // margin-left: 85%;
-    // font-size: $f-lg;
-    // top: 5px;
-    // }
-    // .container {
-    //     margin-bottom: 0;
-    // } 
-// }
-
-// @media only screen and (min-width: 528px) {
-//     // .scoring {
-//     //     margin-top: 20px;
-//     //     height: 100px;
-//     // }
-//     .scoring > input {
-//         // width: 50%;
-//         height: 8px;
-//     }
-//     // #output-score {
-//     //     margin-left: 69%;
-//     //     font-size: 60px;
-//     //     width: 85px;
-//     //     top: -20px;
-//     // }
-//     .scoring-blob::-webkit-slider-thumb { 
-//         width: 17px;
-//         height: 17px;
-//     }
-// }
