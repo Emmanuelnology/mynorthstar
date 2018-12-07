@@ -54,7 +54,7 @@
  $laptop-max: 1023px;
  $desktop-min:1024px;
  
- //headings
+ //heading size mixins
  @mixin media-sm {
     h1 {
         font-size: $f-md;

@@ -9,64 +9,70 @@
       
         <p>Email address: {{user.email}}</p>
         
-        <p> verified: {{user.emailVerified}}</p>
         <p id="welcome">Welcome To Monthly Development Review</p>
       </div>
     </div>
 
 
 
-
-
-
-
-
-    <p>Change your name below:</p>
-    <form (ngSubmit)="updateClientName()">
-        <fieldset>
-          <label for="Name">New name: </label>
-          <input [(ngModel)]="newName" type="name" name="name" id="newName" required>
-          <button class="btn btn-flat btn-navy" type="submit" id="submitNewName">Update name</button>
-      </fieldset>
-    </form>
-
-    <br>
-
-    <p>Change your email  below:</p>
-    <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
-    <p *ngIf="errorUpdateEmail" style="color:red; background-color: white">{{errorUpdateEmail}}</p>
-
-    <form (ngSubmit)="updateClientEmailAddress()">
-      <fieldset>
-          <label for="Email">New email: </label>
-          <input [(ngModel)]="newEmail" type="email" name="Email" id="newEmail" required>
-          <button class="btn btn-flat btn-navy" type="submit" id="submitNewEmail">Update email</button>
-      </fieldset>
-    </form>
-    
-    <br>
-    
-    <p *ngIf="successChangePassword" style="color:green; background-color: white">{{successChangePassword}}</p>
-    <p *ngIf="errorChangePassword" style="color:red; background-color: white">{{errorChangePassword}}</p>
-    <p>Change your password below:</p>
-    <form (ngSubmit)="updateClientPassword()">
-        <fieldset>
-          <label for="Password">New password: </label>
-          <input [(ngModel)]="newPassword" type="password" name="password" id="newPassword" required>
-          <button class="btn btn-flat btn-navy" type="submit" id="submitNewPassword">Update password</button>
-      </fieldset>
-    </form>
-    
-    <br>
-    
-    <p>Change your image below:</p>
-    <form (ngSubmit)="updateClientImage()">
-        <fieldset>
-          <label for="Image">Paste image url here: </label>
-          <input [(ngModel)]="newImage" type="imageName" name="imageName" id="newImage" required>
-          <button class="btn btn-flat btn-navy" type="submit" id="submitNewImage">Update image</button>
-      </fieldset>
-    </form>
+      <div id="profileChanges">
+        <div id="personal">
+  
+          <p>Change your name below:</p>
+          <form (ngSubmit)="updateClientName()">
+            <div class="form-container">
+              <fieldset>
+                <label for="Name">New name: </label>
+                <input [(ngModel)]="newName" type="name" name="name" id="newName" class="input-box"  required>
+              </fieldset>
+              <button class="btn btn-open btn-turquoise" type="submit" id="submitNewName">Update name</button>
+            </div>
+          </form>
+      
+          <br>
+      
+          <p>Change your email  below:</p>
+          <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
+          <p *ngIf="errorUpdateEmail" style="color:red; background-color: white">{{errorUpdateEmail}}</p>
+      
+          <form (ngSubmit)="updateClientEmailAddress()">
+            <div class="form-container">
+              <fieldset>
+                <label for="Email">New email: </label>
+                <input [(ngModel)]="newEmail" type="email" name="Email" id="newEmail" class="input-box" required>
+              </fieldset>
+              <button class="btn btn-open btn-turquoise"  type="submit" id="submitNewEmail">Update email</button>
+            </div>
+          </form>
+  
+          <p>Change your image below:</p>
+          <form (ngSubmit)="updateClientImage()">
+            <div class="form-container">
+              <fieldset>
+                <label for="Image">Paste image url here: </label>
+                <input [(ngModel)]="newImage" type="imageName" name="imageName" id="newImage" class="input-box" required>
+              </fieldset>
+              <button  class="btn btn-open btn-turquoise" type="submit" id="submitNewImage">Update image</button>
+            </div>
+          </form>
+        </div>
+  
+        <div id="password">
+            <p *ngIf="successChangePassword" style="color:green; background-color: white">{{successChangePassword}}</p>
+            <p *ngIf="errorChangePassword" style="color:red; background-color: white">{{errorChangePassword}}</p>
+            <p>Change your password below:</p>
+            <form (ngSubmit)="updateClientPassword()">
+              <div class="form-container">
+                <fieldset>
+                  <label for="Password">New password: </label>
+                  <input [(ngModel)]="newPassword" type="password" name="password" id="newPassword" class="input-box" required>
+                </fieldset>
+                <button  class="btn btn-open btn-turquoise"  type="submit" id="submitNewPassword">Update password</button>
+              </div>
+            </form> 
+        </div>
+  
+    </div>
 
   </section>
 </app-layout-default>

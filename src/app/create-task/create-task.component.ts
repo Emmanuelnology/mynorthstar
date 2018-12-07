@@ -35,6 +35,7 @@ export class CreateTaskComponent implements OnInit {
           title.value = '';
           this.addButtonDisabled = false;
       });
+    }
+
   }
-}
 }
