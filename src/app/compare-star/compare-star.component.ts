@@ -65,6 +65,10 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     }
   }
 
+  getShortYear(fullYear) {
+    return fullYear.toString().substr(-2);
+  }
+
   ngOnInit() {
 
     this.firebase.getRecent(this.user, 6).subscribe((results) => {
@@ -73,9 +77,8 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         for (const index in results) {
           if (results.hasOwnProperty(index)) {
             this.restructureData(results[index].categoryResults , index);
-            // this.intermediateData[index].label = results[index].date;
-
-            this.intermediateData[index].label = 'date';
+            const date: Date = results[index].date.toDate();
+            this.intermediateData[index].label = date.getDate() + '/' + date.getMonth() + '/' +  this.getShortYear(date.getFullYear());
           }
         }
 

@@ -11,7 +11,7 @@
     margin: $s-xs 0;
     font-size: $f-sm;
     border-radius: 5px;
-    padding-left: $ls-sm;
+    padding: 0 $ls-sm;
     margin: $s-sm 0;
 }
 
@@ -26,7 +26,7 @@
 }
 
 i {
-    margin: $ls-xs $ls-sm;
+    margin: $ls-xs 0;
 }
 
 #legend {
@@ -64,13 +64,14 @@ i {
 .date {
     display: flex;
     align-items: center;
-    text-align: left;
     font-weight: 100;
     font-size: $f-sm;
+
 }
 
 .score {
     width: 28%;
+
 }
 
 .date {
