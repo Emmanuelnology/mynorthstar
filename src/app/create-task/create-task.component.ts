@@ -13,10 +13,12 @@ import { AuthService } from '../services/auth.service';
 export class CreateTaskComponent implements OnInit {
   taskTitle = '';
   addButtonDisabled = false;
+  taskCount  = 0;
 
   constructor(private taskManagerService: TaskManagerService, private afAuth: AuthService) { }
 
   ngOnInit() {
+    this.taskCount = Number(this.checkLength());
   }
 
   onSubmit(title: HTMLFormElement) {
@@ -38,4 +40,12 @@ export class CreateTaskComponent implements OnInit {
     }
 
   }
+
+  checkLength() {
+    const tasksList = this.taskManagerService.tasks;
+    tasksList.subscribe(map => {
+      this.taskCount = map.length;
+    });
+  }
+
 }
