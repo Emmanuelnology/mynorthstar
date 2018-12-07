@@ -28,9 +28,11 @@
       </div>
       <!-- <div class= "stars"> -->
         <div class="star ">
-          <app-spinner [hidden] = "ready" text="Loading"></app-spinner>
+          <div class="spinner">
+            <app-spinner [hidden] = "ready" text="Loading"></app-spinner>
+          </div>
 
-          <app-main-star [hidden]="!ready" [starData]= "datasets" [starLabels]="labels" ></app-main-star>
+          <app-main-star [starData]= "datasets" [starLabels]="labels" ></app-main-star>
          
           </div>
         
@@ -41,7 +43,9 @@
           
             <p>Welcome to your personal star.</p><p> 
               The power of the star is in its visual representation of how you scored each area of your life. 
-              The key is not to focus on the elements with lower score but to think what would I like to improve. 
+              The key is not to focus on the elements with lower score but to think what would I like to improve.
+              Always be thinking where am I now and where would I like to be in a month year etc. Let you aims goals and desires drive the tasks you set for yourself.
+              
              
               </p> 
           </div>
