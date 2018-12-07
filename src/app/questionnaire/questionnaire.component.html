@@ -1,14 +1,14 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
- <div class="all-html-questionnaire">   
+    <app-spinner *ngIf="!ready" text="Loading"></app-spinner>
+    <div class="all-html-questionnaire">   
         <div class="whole-check-list">
             <div class="check-list">
                 <div *ngFor="let question of questions" class="each-check {{(question.score !==null) ? 'complete':'incomplete'}}">
                 </div>
             </div>
         </div>
-      
-            <app-spinner *ngIf="!ready" text=""></app-spinner>
-            <div *ngIf="ready" class="whole-questionnaire main-content">
+        
+        <div *ngIf="ready" class="whole-questionnaire main-content">
             <div class="left">
                 <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
                     <div *ngFor="let question of questions">
@@ -64,49 +64,83 @@
                             <div class="displayed-score">
                                 <div class="circle-div"
                                 [style.borderColor]="getSliderColor(question?.score)">
-                                    <p
-                                    id="output-score"
-                                    >
-                                    {{question.score}}
-                                </p>
-                            </div>
+                                <p
+                                id="output-score"
+                                >
+                                {{question.score}}
+                            </p>
                         </div>
-                    </div>            
-                </div>
-                
-                <div class="sendButton">
-                    <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
-                </div>
-            </form>
+                    </div>
+                </div>            
             </div>
             
-            <div class="right" >
-                <div class="progress-arc">
-
-                    <p class="progress-amount">
-                        {{(number)? number : 0}}/{{questions.length}}
-                    </p>
-                    
-                    <div class="progress-component">
-                        <ng2-arc-progress
-                        [size]='200'
-                        [progress]="(number)? (number / questions.length)*100:0"
-                        gap=0
-                        progressColor="#6ecbd3"
-                        backgroundColor='rgba(232, 236, 241, 0.3)'
-                        strokeWidth='10px'
-                        >
-                    </ng2-arc-progress>
-                    </div>
-                </div>
-                <div class="question-brief">
-                    <p>Try to answer the questions quickly and don’t ponder too long.
-                        The idea is that you go with you gut and how you feel.
-                        There is no right answer but honesty is the key to getting the best result
-                    </p>
-                </div>
+            <div class="sendButton">
+                <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
+            </div>
+        </form>
+<<<<<<< HEAD
         </div>
+        <!-- <div>
+            <input id="checkQuestions" type="checkbox" ng-checked="leader" aria-label="Follower input">
+        </div> -->
         
+        <div class="right" >
+            <div class="progress-arc">
+
+                <p class="progress-amount">
+                    {{(number)? number : 0}}/{{questions.length}}
+                </p>
+                
+                <div class="progress-component">
+                    <ng2-arc-progress
+                    [size]='200'
+                    [progress]="(number)? (number / questions.length)*100:0"
+                    gap=0
+                    progressColor="#6ecbd3"
+                    backgroundColor='rgba(232, 236, 241, 0.3)'
+                    strokeWidth='10px'
+                    >
+                </ng2-arc-progress>
+                </div>
+            </div>
+            <div class="question-brief score-indicator-desktop">
+                <p>Try to answer the questions quickly and don’t ponder too long.
+                    The idea is that you go with you gut and how you feel.
+                    There is no right answer but honesty is the key to getting the best result
+                </p>
+                <button *ngIf="!environment.production" class="btn btn-open btn-pink" (click)="randomiseAnswers()">Randomise Answers</button>
+            </div>
+=======
+>>>>>>> f75b0d00e3d7507acc61350d19aff7a03bb9ae3b
     </div>
+    
+    <div class="right" >
+        <div class="progress-arc">
+            
+            <p class="progress-amount">
+                {{(number)? number : 0}}/{{questions.length}}
+            </p>
+            
+            <div class="progress-component">
+                <ng2-arc-progress
+                [size]='200'
+                [progress]="(number)? (number / questions.length)*100:0"
+                gap=0
+                progressColor="#6ecbd3"
+                backgroundColor='rgba(232, 236, 241, 0.3)'
+                strokeWidth='10px'
+                >
+            </ng2-arc-progress>
+        </div>
+    </div>
+    <div class="question-brief">
+        <p>Try to answer the questions quickly and don’t ponder too long.
+            The idea is that you go with you gut and how you feel.
+            There is no right answer but honesty is the key to getting the best result
+        </p>
+    </div>
+</div>
+
+</div>
 </div>
 </app-layout-default>

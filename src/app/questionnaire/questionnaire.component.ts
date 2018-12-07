@@ -3,6 +3,7 @@ import { IQuestion, Randomise, QuestionnaireService, UploadToFirebase } from '..
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'app-questionnaire',
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 })
 
 export class QuestionnaireComponent implements OnInit {
+    environment = environment;
     downloadQuestions: IQuestion;
     questions = [];
     ready = false;
@@ -30,9 +32,14 @@ export class QuestionnaireComponent implements OnInit {
 
     }
 
-
     ngOnInit() {
         this.getQuestions();
+    }
+
+    randomiseAnswers() {
+        for (const question of this.questions) {
+            question.score = Math.floor(Math.random() * 11) + 1;
+        }
     }
 
     blobClick () {
@@ -59,7 +66,6 @@ export class QuestionnaireComponent implements OnInit {
        // this.ready = true;
 
        this.ready = true;
-
         console.log('Questions:', questions);
 
        });
