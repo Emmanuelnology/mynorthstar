@@ -13,10 +13,21 @@
 }
 
 .input-box {
-    margin-right: $s-md;
-    width: 80%;
+    width: 70%;
 }
 
-.add-btn {
+.addButton {
     // width: 20%;
+}
+
+@media only screen and (min-width:1170px) and (max-width:26850px) {
+    .input-box {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width:270px) and (max-width:320px) {
+    .input-box {
+        width: 60%;
+    }
 }
