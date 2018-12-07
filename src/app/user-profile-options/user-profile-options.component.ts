@@ -19,10 +19,9 @@ export class UserProfileOptionsComponent implements OnInit {
   successChangePassword = '';
   errorChangePassword = '';
 
+  confirmPassword = '';
+
   newImage = '';
-
-
-
 
   user;
   constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) {
@@ -30,6 +29,7 @@ export class UserProfileOptionsComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
 
   updateClientName() {

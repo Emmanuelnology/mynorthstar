@@ -15,14 +15,17 @@ export class CreateTaskComponent implements OnInit {
   addButtonDisabled = false;
   taskCount  = 0;
 
-  constructor(private taskManagerService: TaskManagerService, private afAuth: AuthService) { }
+  constructor(private taskManagerService: TaskManagerService, private afAuth: AuthService) {}
 
   ngOnInit() {
-    this.taskCount = Number(this.checkLength());
+
   }
 
   onSubmit(title: HTMLFormElement) {
-    if (title.value) {
+    this.taskManagerService.taskCollection.get().subscribe((data) => {
+      const count = data.size;
+
+    if (title.value && count < 5 ) {
       const task: Task = {
         userId: this.afAuth.user.uid,
         task: title.value.charAt(0).toUpperCase() + title.value.slice(1).toLowerCase(),
@@ -38,14 +41,8 @@ export class CreateTaskComponent implements OnInit {
           this.addButtonDisabled = false;
       });
     }
-
+  });
   }
 
-  checkLength() {
-    const tasksList = this.taskManagerService.tasks;
-    tasksList.subscribe(map => {
-      this.taskCount = map.length;
-    });
-  }
 
 }

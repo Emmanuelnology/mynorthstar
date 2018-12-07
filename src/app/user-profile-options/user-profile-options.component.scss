@@ -27,17 +27,17 @@
 
 .text-inside-header {
   padding-top: $s-lg;
-  padding-left: 100px;
+  padding-left: 115px;
+  margin-top: 30px;
 }
 
-i,
 #welcome {
   color:  $bright-green;
 }
 
 #profileChanges{
   height: 100vh;
-  background-color: rgba(0,0,0,0.2);
+  //background-color: rgba(0,0,0,0.2);
   // margin-left: -15px;
   width: 100%;
 }
@@ -63,6 +63,10 @@ button{
   margin-right: 10px;
 }
 
+div{
+  padding-top: 20px;
+}
+
 div.submitButton {
   text-align: center;
 }
@@ -81,6 +85,10 @@ div.submitButton {
 
 fieldset{
   width: 100%;
+}
+
+#errors{
+  padding-left: 20px;
 }
 
 @media only screen and (min-width: $tablet-min) {
@@ -118,6 +126,7 @@ fieldset{
 
 
 @media only screen and (min-width: $desktop-min) {
+
   #personal{
     float: left;
     width: 50%;
