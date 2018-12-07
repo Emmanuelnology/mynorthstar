@@ -1,17 +1,12 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
- <div class="big-boys">   
+ <div class="all-html-questionnaire">   
         <div class="whole-check-list">
             <div class="check-list">
                 <div *ngFor="let question of questions" class="each-check {{(question.score !==null) ? 'complete':'incomplete'}}">
                 </div>
             </div>
         </div>
-        
-        <!-- <p class="instruction"> Score yourself on the following</p>
-            <div class="score-indicator score-indicator-mobile">
-                <p class="score-indicator-agree"><i class="fas fa-square"></i>strongly agree</p>
-                <p class="score-indicator-disagree"><i class="fas fa-square"></i>strongly disagree</p>
-            </div>     -->
+      
             <app-spinner *ngIf="!ready" text=""></app-spinner>
             <div *ngIf="ready" class="whole-questionnaire main-content">
             <div class="left">

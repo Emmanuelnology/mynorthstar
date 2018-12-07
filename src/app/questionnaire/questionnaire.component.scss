@@ -1,32 +1,26 @@
 @import '../../variables.scss';
 
-.big-boys {
+.all-html-questionnaire {
     display: flex;
     flex-direction: row;
-    height:100%;
+    height: 100%;
 }
 
 .whole-check-list {
     display: flex;
-    flex-basis:10px;
-    background-color: aqua;
+    flex-basis: 10px;
     margin: 0;
-    // margin-top: -$s-sm;
-    // margin-left: -$s-sm;
-    // overflow: scroll;;
 }
 
 .check-list {
-    height:100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    // margin: 0;
-    // position: fixed;
-    // margin-top: -$s-sm;
-    // margin-left: -$s-sm;
-    // width:10px;
-    // overflow: hidden;
     flex-grow: 1;
+}
+
+form {
+    width: 100%;
 }
 
 .each-check {
@@ -45,14 +39,12 @@
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-
 }
 
 .left {
     display: flex;
-    width:100%;
+    width: 100%;
 }
-
 
 div.container p {
     display: inline-block;
@@ -72,17 +64,15 @@ div.container p {
     display: flex;
     flex-direction: row;
     margin-bottom: 40px;
-    width:100%
+    width: 100%;
 }
 
 .text-slider {
-    // flex-grow: 1;
     width: 80%;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 .displayed-score {
-    // flex-basis: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,18 +114,6 @@ div.container p {
         cursor: pointer;
     }
 }
-
-// .fass {
-//     display: block;
-//     font-size: 0.5em;
-//     color: rgba(255,255,255, 0.3);
-// }
-
-// .ind-score-position {
-//     flex-grow: 1;
-//     text-align: center;
-//     font-size: 0.9em;
-// }
 
 .scoring {
     position: relative;
