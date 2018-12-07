@@ -16,7 +16,10 @@ export class QuestionnaireComponent implements OnInit {
     ready = false;
 
     questionnaireFromFirebase: Observable<any[]>;
-    number = 0;
+    number;
+
+
+
     constructor(
         private rand: Randomise,
         private questionnaireService: QuestionnaireService,
@@ -33,21 +36,40 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     blobClick () {
-        if (this.number < 30) {
-            return this.number++;
-        }
+        const numberAnswered: number[] = [];
+        for (const index of this.questions) {
 
+            if (this.questions[index.score] != null) {
+                numberAnswered.push(1);
+            }
+        }
+        this.number = numberAnswered.length;
+        return console.log(numberAnswered.length);
     }
+
 
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
+
+            // console.log('Questions:', questions[0].score);
+            // this.onQuestionUpdate(questions);
+
+
+       // this.ready = true;
+
        this.ready = true;
+
         console.log('Questions:', questions);
+
        });
     }
 
     getSliderColor(value) {
+        if (value == null) {
+            return '#101f34';
+            // return 'white';
+        }
         if (value <= 3) {
             return 'rgb(236, 0, 129)';
         } if (value <= 7 && value > 3) {
