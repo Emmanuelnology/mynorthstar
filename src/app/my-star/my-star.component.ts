@@ -60,11 +60,12 @@ export class MyStarComponent implements OnInit {
       if (results.length > 0) {
       this.restructureData(results[0].categoryResults);
       this.mainStarViewChild.starData[0].data = this.datasets[0].data;
-      this.mainStarViewChild.redraw();
+      
       this.overallResult = results[0].overallResult;
       console.log('HI', results[0]);
       this.currentDate = results[0].date;
             this.ready = true;
+            this.mainStarViewChild.redraw();
 
     } else {
       this.router.navigate(['/questionnaire']);

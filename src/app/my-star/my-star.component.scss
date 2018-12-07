@@ -55,7 +55,7 @@ p{
     
     // }
     
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 768px) {
       @include media-sm;  
 
       .spinner{
@@ -65,8 +65,8 @@ p{
       }
     
       .star{
-        min-width: 30vw;
-        
+        width: 60vw;
+        margin: auto;
       }
       
       .welcome-text{
@@ -81,7 +81,7 @@ p{
         }
       }
       .star-heading{
-        height: 10px;
+        height: 5px;
       }
       
       .date {
@@ -97,7 +97,9 @@ p{
       
       .star{
         width: 50vw;
+        margin: 0;
       }
+
       .star-flex {
         display:flex;
         
