@@ -1,4 +1,5 @@
 @import "../../variables.scss";
+@include media-sm;
 
 .header-content {
   display: block;
@@ -16,20 +17,124 @@
   background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
   background-size: cover;
   background-position: center;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   vertical-align: middle;
   float: left;
   margin-top: $s-lg;
-  margin-left: $s-md;
+  margin-left: $s-sm;
 }
 
 .text-inside-header {
   padding-top: $s-lg;
-  padding-left: 220px;
+  padding-left: 100px;
 }
 
 i,
 #welcome {
   color:  $bright-green;
+}
+
+#profileChanges{
+  height: 100vh;
+  background-color: rgba(0,0,0,0.2);
+  // margin-left: -15px;
+  width: 100%;
+}
+
+#personal{
+  float: left;
+  width: 100%;
+}
+
+#password{
+  float: left;
+  width: 100%;
+}
+
+fieldset{
+  border: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+button{
+  display: inline;
+  margin-right: 10px;
+}
+
+div.submitButton {
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input-box{
+  width: 100%;
+}
+
+fieldset{
+  width: 100%;
+}
+
+@media only screen and (min-width: $tablet-min) {
+  .circle-border {
+    margin-top: $s-lg;
+    margin-left: $s-md;
+    width: 100px;
+    height: 100px;
+  }
+
+  .text-inside-header {
+    padding-left: 150px;
+  }
+
+  fieldset{
+    width: 60%;
+  }
+}
+
+
+@media only screen and (min-width: $tablet-max) {
+  @include media-lg;
+
+  .circle-border {
+    margin-top: $s-lg;
+    margin-left: $s-md;
+    width: 150px;
+    height: 150px;
+  }
+
+  .text-inside-header {
+    padding-left: 200px;
+  }
+}
+
+
+@media only screen and (min-width: $desktop-min) {
+  #personal{
+    float: left;
+    width: 50%;
+  }
+
+  #password{
+    float: left;
+    width: 50%;
+  }
+
+  .text-inside-header {
+    padding-left: 200px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  fieldset{
+    width:100%;
+  }
 }
