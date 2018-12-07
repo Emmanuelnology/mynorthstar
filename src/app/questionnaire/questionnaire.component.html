@@ -1,99 +1,117 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
-
+    
     <div class="check-list">
         <div *ngFor="let question of questions" class="each-check {{(question.score !==null) ? 'complete':'incomplete'}}"> 
         </div>
     </div>
-
-<!-- <p class="instruction"> Score yourself on the following</p>
-<div class="score-indicator score-indicator-mobile">
-    <p class="score-indicator-agree"><i class="fas fa-square"></i>strongly agree</p>
-    <p class="score-indicator-disagree"><i class="fas fa-square"></i>strongly disagree</p>
-</div>     -->
-<app-spinner *ngIf="!ready" text=""></app-spinner>
-<div *ngIf="ready" class="whole-questionnaire">
-    <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
-        <div *ngFor="let question of questions">
-            <div id="{{question.id}}" class="container">
-                <label for="questions">
-                    <p>{{question.question}}</p>
-                </label>
-                <div class="scoring">
-                    <div class="score-flex-box">
-                        <div class="score-flex">
-                            <input
-                            class="scoring-filler score-inputs"
-                            type="range"
-                            [(ngModel)]="question.score"
-                            name="question-{{question.number}}" 
-                            min="0" max="10"                
-                            required
-                            [style.backgroundColor]="getSliderColor(question?.score)"
-                            >
-                            <input
-                            class="scoring-blob score-inputs"
-                            type="range"
-                            [(ngModel)]="question.score"
-                            (click)="blobClick()"
-                            name="question-{{question.number}}" 
-                            min="0" max="10"
-                            required
-                            >
+    
+    <!-- <p class="instruction"> Score yourself on the following</p>
+        <div class="score-indicator score-indicator-mobile">
+            <p class="score-indicator-agree"><i class="fas fa-square"></i>strongly agree</p>
+            <p class="score-indicator-disagree"><i class="fas fa-square"></i>strongly disagree</p>
+        </div>     -->
+        <app-spinner *ngIf="!ready" text=""></app-spinner>
+        <div *ngIf="ready" class="whole-questionnaire">
+        <div class="left">
+            <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
+                <div *ngFor="let question of questions">
+                    
+                    <div id="{{question.id}}" class="container">
+                        
+                        <div class= "text-slider">
+                            <label for="questions" class="question-text">
+                                <p>{{question.question}}</p>
+                            </label>
+                            <div class="slider">
+                                <div class="scoring">
+                                    <div class="score-flex-box">
+                                        <div class="score-flex">
+                                            <input
+                                            class="scoring-filler score-inputs"
+                                            type="range"
+                                            [(ngModel)]="question.score"
+                                            name="question-{{question.number}}" 
+                                            min="0" max="10"                
+                                            required
+                                            [style.backgroundColor]="getSliderColor(question?.score)"
+                                            >
+                                            <input
+                                            class="scoring-blob score-inputs"
+                                            type="range"
+                                            [(ngModel)]="question.score"
+                                            (change)="blobClick()"
+                                            (click)="blobClick()"
+                                            name="question-{{question.number}}" 
+                                            min="0" max="10"
+                                            required
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="score-position">
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="displayed-score">
+                            <div class="circle-div">
+                                <p
+                                id="output-score"
+                                [style.color]="getSliderColor(question?.score)">
+                                {{question.score}}
+                            </p>
                         </div>
                     </div>
-                    <div class="score-position">
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                        <div class="ind-score-position"><i class="fass fas fa-circle"></i></div>
-                    </div>
-                    <p 
-                    id="output-score"
-                    [style.color]="getSliderColor(question?.score)">
-                    {{question.score}}
+                </div>            
+            </div>
+            
+            <div class="sendButton">
+                <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
+            </div>
+        </form>
+        </div>
+        <!-- <div>
+            <input id="checkQuestions" type="checkbox" ng-checked="leader" aria-label="Follower input">
+        </div> -->
+        
+        <div class="right" >
+            <div class="progress-arc">
+
+                <p class="progress-amount">
+                    {{(number)? number : 0}}/{{questions.length}}
+                </p>
+                
+                <div class="progress-component">
+                    <ng2-arc-progress
+                    [size]='200'
+                    [progress]="(number)? (number / questions.length)*100:0"
+                    gap=0
+                    progressColor="#6ecbd3"
+                    backgroundColor='rgba(232, 236, 241, 0.3)'
+                    strokeWidth='10px'
+                    >
+                </ng2-arc-progress>
+                </div>
+            </div>
+            <div class="question-brief score-indicator-desktop">
+                <p>Try to answer the questions quickly and don’t ponder too long.
+                    The idea is that you go with you gut and how you feel.
+                    There is no right answer but honesty is the key to getting the best result
                 </p>
             </div>
-        </div>            
     </div>
     
-    <div class="sendButton">
-        <button class="btn btn-open btn-turquoise" type="submit">SEND</button>
-    </div>
-</form>
-<!-- <div>
-    <input id="checkQuestions" type="checkbox" ng-checked="leader" aria-label="Follower input">
-</div> -->
-<div class="progress-arc">
-    <span class="progress-amount">
-        {{(number)? number : 0}}/{{questions.length}}
-    </span>
-    
-    <div class="progress-component">
-        <ng2-arc-progress
-        [size]='200'
-        [progress]="(number)? (number / questions.length)*100:0"
-        gap=0
-        progressColor="#6ecbd3"
-        backgroundColor='rgba(232, 236, 241, 0.3)'
-        strokeWidth='10px'
-        >
-    </ng2-arc-progress>
-</div>
- <div class="score-indicator score-indicator-desktop">
-    <p>Try to answer the questions quickly and don’t ponder too long.
-         The idea is that you go with you gut and how you feel. 
-         There is no right answer but honesty is the key to getting the best result
-    </p>
-</div>
-</div>
-
 </div>
 
 </app-layout-default>
