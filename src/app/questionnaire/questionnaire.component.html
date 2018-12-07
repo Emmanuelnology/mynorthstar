@@ -1,4 +1,6 @@
+
 <app-layout-default icon="fas fa-list-ol" pageTitle="Questionnaire">
+    <app-spinner *ngIf="!ready" text="Loading"></app-spinner>
  <div class="all-html-questionnaire">   
         <div class="whole-check-list">
             <div class="check-list">
@@ -7,7 +9,7 @@
             </div>
         </div>
       
-            <app-spinner *ngIf="!ready" text=""></app-spinner>
+            
             <div *ngIf="ready" class="whole-questionnaire main-content">
             <div class="left">
                 <form (ngSubmit)="onSubmit()" #questionnaire="ngForm">
