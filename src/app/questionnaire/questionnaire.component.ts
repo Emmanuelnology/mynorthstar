@@ -80,7 +80,6 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     onSubmit() {
-
         const results = this.questionnaireService.getResults(this.questions);
         this.uploadToFirebase.upload(results)
             .then(() => {
