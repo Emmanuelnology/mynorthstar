@@ -3,13 +3,10 @@
   <div class="star-flex">
     <div class="star-column">
       <div class="star-heading">
-        <div class="welcome-text">
-          <p>Lorem ipsum dolor sit amet, oporteat pertinax temporibus te pro, ex qui mundi sanctus denique. 
-            Ius ea duis facilis sententiae. An est quod periculis inciderint, ut essent diceret accumsan nec. 
-            </p>
-        </div>
+      
         <div class="date">
-          <p> {{currentDate?.toDate() | date: "dd/MM/y"}} </p>
+            <h2> {{currentDate?.toDate() | date: "dd/MM/y"}}</h2>
+          
         </div>
         <div class="total-score">
           <app-progress-arc class="u-swapon-mobile"
@@ -17,6 +14,7 @@
           color="turquoise" 
           size="60"
           ></app-progress-arc>
+          
           
           <app-progress-arc class="u-swapon-tablet"
           [score]="overallResult" 
@@ -30,15 +28,27 @@
       </div>
       <!-- <div class= "stars"> -->
         <div class="star ">
-            <app-spinner *ngIf = "!ready" text="Loading"></app-spinner>
+          <div class="spinner">
+            <app-spinner [hidden] = "ready" text="Loading"></app-spinner>
+          </div>
 
-          <app-main-star *ngIf="ready" [starData]= "datasets" [starLabels]="labels" ></app-main-star>
+          <app-main-star [hidden]="!ready" [starData]= "datasets" [starLabels]="labels" ></app-main-star>
          
           </div>
         
       </div>
     <!-- </div> -->
     <div class="results-score">
+        <div class="welcome-text">
+          
+            <p>Welcome to your personal star.</p><p> 
+              The power of the star is in its visual representation of how you scored each area of your life. 
+              The key is not to focus on the elements with lower score but to think what would I like to improve.
+              Always be thinking where am I now and where would I like to be in a month year etc. Let you aims goals and desires drive the tasks you set for yourself.
+              
+             
+              </p> 
+          </div>
       
       
       <div class="tasks">
