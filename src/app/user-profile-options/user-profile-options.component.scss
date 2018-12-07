@@ -1,4 +1,5 @@
 @import "../../variables.scss";
+@include media-sm;
 
 .header-content {
   display: block;
@@ -83,6 +84,7 @@ fieldset{
 }
 
 @media only screen and (min-width: $tablet-min) {
+
   .circle-border {
     margin-top: $s-lg;
     margin-left: $s-md;
@@ -101,6 +103,7 @@ fieldset{
 
 
 @media only screen and (min-width: $tablet-max) {
+  @include media-lg;
   .circle-border {
     margin-top: $s-lg;
     margin-left: $s-md;
