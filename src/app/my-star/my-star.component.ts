@@ -65,7 +65,6 @@ export class MyStarComponent implements OnInit {
       this.currentDate = results[0].date;
             this.ready = true;
             this.mainStarViewChild.redraw();
-      
     } else {
       this.router.navigate(['/questionnaire']);
     }

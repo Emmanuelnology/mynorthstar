@@ -93,7 +93,7 @@ export class QuestionnaireComponent implements OnInit {
                 console.log(results);
             })
             .catch((error) => {
-                // display error message
+                console.error(error);
             });
     }
 }
