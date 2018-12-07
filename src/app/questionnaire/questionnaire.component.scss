@@ -56,10 +56,6 @@ div.container p {
     width: 80%;
 }
 
-.question-text {
-    width: 90%;
-}
-
 .container {
     display: flex;
     flex-direction: row;
@@ -201,5 +197,8 @@ div.sendButton {
     }
     .right {
         display: block;
+    }
+    .mobile-send-button {
+        display: none;
     }
 }
