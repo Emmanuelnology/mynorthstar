@@ -4,6 +4,7 @@
       <app-progress-arc class="u-swapon-mobile" [score]="currentScore" color="turquoise" size="60"></app-progress-arc>
     </div>
     <div id="star">
+        <app-spinner [hidden] = "ready" text="Loading"></app-spinner>
       <app-main-star [starData]="data.datasets" [starLabels]="data.labels" [animation]="animation" [showLegend]="true"></app-main-star>
     </div>
     <div id="tablet-arc" class="u-swapon-tablet" >
