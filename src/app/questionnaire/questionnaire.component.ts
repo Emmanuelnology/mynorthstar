@@ -86,7 +86,6 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     onSubmit() {
-
         const results = this.questionnaireService.getResults(this.questions);
         this.uploadToFirebase.upload(results)
             .then(() => {
@@ -94,7 +93,7 @@ export class QuestionnaireComponent implements OnInit {
                 console.log(results);
             })
             .catch((error) => {
-                // display error message
+                console.error(error);
             });
     }
 }

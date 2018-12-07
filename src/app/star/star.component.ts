@@ -91,6 +91,7 @@ export class StarComponent implements AfterViewInit, OnInit {
   @Input() showLabels = true;
   @Input() data: IData;
   @Input() size = '100%';
+  @Input() breakpoint = 768;
 
   chart: IChart = {} as Chart;
   canvasID: string;
@@ -196,7 +197,7 @@ export class StarComponent implements AfterViewInit, OnInit {
       this.overrideGradient();
     }
     // No other way to change charts other than this. Maybe you can help?
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > this.breakpoint) {
       this.chart.options.layout.padding.bottom = 10;
       this.chart.options.scale.pointLabels.display = true;
     } else {

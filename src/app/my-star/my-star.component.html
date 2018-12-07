@@ -26,18 +26,18 @@
         </div>
         
       </div>
-      <!-- <div class= "stars"> -->
+      
         <div class="star ">
           <div class="spinner">
             <app-spinner [hidden] = "ready" text="Loading"></app-spinner>
           </div>
 
-          <app-main-star [starData]= "datasets" [starLabels]="labels" ></app-main-star>
+          <app-main-star [starData]= "datasets" [starLabels]="labels" [breakpoint]=900></app-main-star>
          
           </div>
         
       </div>
-    <!-- </div> -->
+   
     <div class="results-score">
         <div class="welcome-text">
           

@@ -70,7 +70,7 @@
           <p *ngIf="confirmyPasswordy.touched && passwordy.value != confirmyPasswordy.value">Passwords don't match</p>
         </div>
 
-        <button [disabled]="registerForm.invalid || passwordy.value != confirmyPasswordy.value " class="btn btn-flat btn-navy" type="submit" id="submit">Register</button>
+        <button [disabled]="registerForm.invalid || passwordy.value != confirmyPasswordy.value" class="btn btn-flat btn-navy" type="submit" id="submit">Register</button>
 
         <a routerLink="/login">Return to login</a>
       
