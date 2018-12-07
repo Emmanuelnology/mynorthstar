@@ -31,7 +31,7 @@ export class TaskManagerService {
           const id = a.payload.doc.id;
           return {id, ...data };
         });
-       }
+    }
 
     addTask(task: Task) {
         return this.taskCollection.add(task).catch(

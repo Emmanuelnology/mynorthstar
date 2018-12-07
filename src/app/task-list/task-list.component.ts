@@ -28,4 +28,5 @@ export class TaskListComponent implements OnInit {
   checked(task: Task) {
     this.taskManagerService.checked(task);
   }
+
 }
