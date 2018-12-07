@@ -1,6 +1,6 @@
 <app-layout-default icon="fas fa-list-ol" pageTitle="My Profile" class="main-content"> 
  
-  <section>
+  <section  class="main-content">
     <div class="header-content">
       <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }"></div>
       <div class="text-inside-header">
@@ -12,8 +12,6 @@
         <p id="welcome">Welcome To Monthly Development Review</p>
       </div>
     </div>
-
-
 
       <div id="profileChanges">
         <div id="personal">
@@ -28,8 +26,6 @@
               <button class="btn btn-open btn-turquoise" type="submit" id="submitNewName">Update name</button>
             </div>
           </form>
-      
-          <br>
       
           <p>Change your email  below:</p>
           <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
@@ -73,6 +69,6 @@
         </div>
   
     </div>
-
+    
   </section>
 </app-layout-default>
