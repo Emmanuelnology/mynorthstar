@@ -6,8 +6,6 @@
           <li class=" list-item">
             <div class="test">
               <label class="container"> 
-                  <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
-                  <span class="checkmark"></span> -->
                 <div [hidden]="task.isChecked === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="unchecked">
                   <i class="unticked far fa-square"></i>
                 </div>
@@ -25,8 +23,6 @@
           <li class="list-item2">
             <div class="test">
               <label class="container"> 
-                <!-- <input type="checkbox" #completed [(ngModel)]='task.isChecked' (change)="checked(task)">
-                <span class="checkmark"></span> -->
                 <div [hidden]="task.isChecked === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="unchecked">
                   <i class="unticked far fa-square"></i>
                 </div>
