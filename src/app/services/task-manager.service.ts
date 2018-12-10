@@ -71,5 +71,4 @@ export class TaskManagerService {
             throw new Error('Unable to update user');
         });
     }
-
 }

@@ -2,9 +2,8 @@
 
 @include media-sm;
 
-.unchecked-container,
-.checked-container,
-#legend {
+.inactive-container,
+.active-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -15,12 +14,12 @@
     margin: $s-sm 0;
 }
 
-.unchecked-container {
+.inactive-container {
     border: solid 1px $pink;
     background-color: rgba(176, 32, 98, 0.2);
 }
 
-.checked-container {
+.active-container {
     border: solid 1px $turquoise;
     background-color: $turquoise-tint;
 }
@@ -30,25 +29,26 @@ i {
 }
 
 #legend {
+    display: flex;
+    flex-direction: row;
     margin-bottom: $s-sm;
     font-size: $f-md;
     padding: $ls-sm;
 }
 
-
-.checkbox,
-.unchecked {
+.active,
+.inactive {
     width: 22%;
     text-align: right;
     color: $turquoise;
     font-size: $f-md;
 }
 
-.unchecked {
+.inactive {
     color: $pink;
 }
 
-.checkbox {
+.active {
     color: $turquoise;
 }
 
@@ -66,20 +66,18 @@ i {
     align-items: center;
     font-weight: 100;
     font-size: $f-sm;
-
 }
 
 .score {
     width: 28%;
-
 }
 
 .date {
     width: 50%;
 }
 
-.checkbox:hover,
-.unchecked:hover {
+.active:hover,
+.inactive:hover {
     cursor: pointer;
 }
 
@@ -88,12 +86,10 @@ i {
     #history-container,
     #legend {
     margin: $s-xs 0;
-    // font-size: $f-md;
     }
 
     #legend {
     margin-bottom: $s-sm;
-    // font-size: $f-lg;
     }
 
 }

@@ -2,10 +2,6 @@
 
 @include media-sm;
 
-h2{
-  font-size: 12px;
-}
-
 .star-heading { 
   display: flex;
   width: 100%;
@@ -32,66 +28,62 @@ h2{
     width: 60vw;
   }
 }
-    
-    @media only screen and (min-width: 768px) {
-      @include media-sm;  
 
-      .spinner{
-        position: absolute;
-        margin-left: 250px;
-        margin-top: 200px;
-      }
+@media only screen and (min-width: 768px) {
+  @include media-sm;  
+  
+  .spinner{
+    position: absolute;
+    margin-left: 250px;
+    margin-top: 200px;
+  }
+  
+  .star{
+    width: 50vw;
+    margin: auto;
+  }
+  
+  .star-heading{
+    height: 5px;
+  }
+
+}
+
+@media only screen and (min-width: 900px) {
+  p{
+    font-size: 12px;
+  }
+  
+  .star {
+    width: 55vw;
+    margin: 0;
+  }
+  
+  .star-flex {
+    display:flex;
     
-      .star{
-        width: 50vw;
-        margin: auto;
-      }
-      
-      .star-heading{
-        height: 5px;
-      }
-      
-      .date {
-        height: 90px;
-      }
+    .star-column {
+      flex:2;
     }
     
-    @media only screen and (min-width: 900px) {
-      p{
-        font-size: 12px;
-      }
-      
-      .star {
-        width: 50vw;
-        margin: 0;
-      }
-
-      .star-flex {
-        display:flex;
-        
-        .star-column {
-          flex:2;
-        }
-        
-        .results-score {
-          flex:1;
-        }
-        
-        .star-heading{
-          padding-right: 30px;
-        }
-      }
-      
-      .welcome-text{
-          margin-bottom: 20px;
-          text-align: justify;
-          padding-left: 10px;
-          padding-right: 10px;
-        display:block;
-      }
-      .tasks {
-        padding: 0;
-      }
-      
+    .results-score {
+      flex:1;
     }
     
+    .star-heading{
+      padding-right: 30px;
+    }
+  }
+  
+  .welcome-text{
+    margin-bottom: 20px;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+    display:block;
+  }
+  .tasks {
+    padding: 0;
+  }
+  
+}

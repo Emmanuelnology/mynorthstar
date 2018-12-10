@@ -24,23 +24,23 @@
                                         <div class="score-flex-box">
                                             <div class="score-flex">
                                                 <input
-                                                class="scoring-filler score-inputs"
-                                                type="range"
-                                                [(ngModel)]="question.score"
-                                                name="question-{{question.number}}" 
-                                                min="0" max="10"                
-                                                required
-                                                [style.backgroundColor]="getSliderColor(question?.score)"
+                                                    class="scoring-filler score-inputs"
+                                                    type="range"
+                                                    [(ngModel)]="question.score"
+                                                    name="question-{{question.number}}" 
+                                                    min="0" max="10"
+                                                    (mousemove)="blobClick()"       
+                                                    required
+                                                    [style.backgroundColor]="getSliderColor(question?.score)"
                                                 >
                                                 <input
-                                                class="scoring-blob score-inputs"
-                                                type="range"
-                                                [(ngModel)]="question.score"
-                                                (change)="blobClick()"
-                                                (click)="blobClick()"
-                                                name="question-{{question.number}}" 
-                                                min="0" max="10"
-                                                required
+                                                    class="scoring-blob score-inputs"
+                                                    type="range"
+                                                    [(ngModel)]="question.score"
+                                                    (mousemove)="blobClick()"
+                                                    name="question-{{question.number}}" 
+                                                    min="0" max="10"
+                                                    required
                                                 >
                                             </div>
                                         </div>
@@ -73,8 +73,8 @@
                     </div>
                 </div>            
             </div>
-            <div class="sendButton mobile-send-button">
-                <button class="btn btn-open btn-turquoise" (click)='onSubmit()' type="submit">SEND</button>
+            <div class="sendButton">
+                <button class="btn btn-open btn-turquoise" type="submit" [disabled]="disabledButton">SUBMIT</button>
             </div>
         </form>
     </div>
@@ -104,9 +104,9 @@
             There is no right answer but honesty is the key to getting the best result
         </p>
         <button (click)="randomiseAnswers()" *ngIf="!environment.production" class="btn btn-open btn-pink">Randomise Answers</button>
-        <div class="sendButton">
-            <button class="btn btn-open btn-turquoise" (click)='onSubmit()' type="submit">SEND</button>
-        </div>
+        <!-- <div class="sendButton">
+            <button class="btn btn-open btn-turquoise" (click)='onSubmit()' type="submit" [disabled]="disabledButton">SEND</button>
+        </div> -->
     </div>
 </div>
 

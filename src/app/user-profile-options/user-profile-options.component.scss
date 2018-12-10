@@ -1,28 +1,30 @@
 @import "../../variables.scss";
 @include media-sm;
 
+.main-content{
+  margin: 0;
+  padding: 0;
+}
+
 .header-content {
   display: block;
   height: 300px;
-  width: 110%;
   background-image: url('../img/london.png');
   background-size: cover;
-  margin-left: -15px;
-  margin-top: -27px;
+  background-color: black;
 }
 
 .circle-border {
   border-radius: 50%;
   border: 1px solid white;
-  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
   background-size: cover;
   background-position: center;
-  width: 100px;
-  height: 100px;
   vertical-align: middle;
   float: left;
   margin-top: $s-lg;
   margin-left: $s-sm;
+  width: 100px;
+  height: 100px;
 }
 
 .text-inside-header {
@@ -36,9 +38,8 @@
 }
 
 #profileChanges{
+  padding-left: 15px;
   height: 100vh;
-  //background-color: rgba(0,0,0,0.2);
-  // margin-left: -15px;
   width: 100%;
 }
 
@@ -54,8 +55,7 @@
 
 fieldset{
   border: none;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0 10px;
 }
 
 button{
@@ -84,11 +84,28 @@ div.submitButton {
 }
 
 fieldset{
-  width: 100%;
+  width: 60%;
+  margin: 0;
+}
+
+.button-container{
+  width: 40%;
+}
+
+button{
+  margin-left: 5px;
 }
 
 #errors{
   padding-left: 20px;
+}
+
+#newImagePreviewContainer{
+ padding: 0;
+}
+
+#displayNewImage{
+ margin: 0;
 }
 
 @media only screen and (min-width: $tablet-min) {
@@ -101,10 +118,6 @@ fieldset{
 
   .text-inside-header {
     padding-left: 150px;
-  }
-
-  fieldset{
-    width: 60%;
   }
 }
 
@@ -126,7 +139,6 @@ fieldset{
 
 
 @media only screen and (min-width: $desktop-min) {
-
   #personal{
     float: left;
     width: 50%;
@@ -145,5 +157,17 @@ fieldset{
 @media only screen and (max-width: 580px) {
   fieldset{
     width:100%;
+  }
+
+  .button-container{
+    width: 100%;
+    position: relative;
+    height: 50px;
+  }
+
+  button{
+    position: absolute;
+    top: 0;
+    margin: 5px 0 0 0;
   }
 }
