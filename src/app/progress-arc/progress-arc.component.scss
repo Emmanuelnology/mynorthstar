@@ -1,22 +1,29 @@
 @import '../../variables.scss';
 
-.progress-arc {
+.progress-arc { //couldnt make flex work in IE 11 so used top and left :( 
     position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    // display: flex;
+    // display: -ms-flexbox; 
+    // -ms-flex-direction: column;
+    // flex-direction: column;
+    // align-items:center;
+    // justify-content:center;
+    // -ms-flex-align:center;
 }
 
 .progress-component {
     transform:rotate(180deg);
+ 
 }
 
 .progress-amount {
+    top: 20px;
+    left: 15px;
     z-index:1;
     position:absolute;
     margin-top: -2px;
-    font-size: 24px;
     color: white;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -52,5 +59,9 @@ small {
 @media only screen and (min-width: 768px) {
 small {
     display:block;
+}
+.progress-amount {
+    top: 30px;
+    left: 26px;
 }
 }
