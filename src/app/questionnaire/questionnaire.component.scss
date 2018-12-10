@@ -207,6 +207,22 @@ div.sendButton {
 
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .whole-check-list {
+    display: flex;
+    flex-basis: 10px;
+    margin: 0;
+}
+
+.check-list {
+    height: 50vw;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+div.check-list a {
+    flex-grow: 1;
+}
+
 
 .score-flex > input {    
     height: 21px;
@@ -218,7 +234,8 @@ input[type=range]::-ms-track {
     background: transparent;
     
     /*leave room for the larger thumb to overflow with a transparent border */
-    border: 7px $nav-color solid;
+    border-top: 7px $nav-color solid;
+    border-bottom: 7px $nav-color solid;
 
     /*remove default tick marks*/
     color: transparent;
@@ -247,5 +264,29 @@ input[type=range]:focus::-ms-fill-upper {
     background: $nav-color
 }
 
+// .whole-questionnaire {
+//     display: inline-block;
+//     flex-direction: row;
+//     flex-grow: 1;
+// }
+
+
+.right {
+    position: fixed;
+    right: 0;
+     top: 100px;
+
+    width: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.question-brief {
+
+    position: absolute;
+    width: 200px;
+    top: 220px;
+  
+}
 
 }
