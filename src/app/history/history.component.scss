@@ -2,8 +2,8 @@
 
 @include media-sm;
 
-.unchecked-container,
-.checked-container,
+.inactive-container,
+.active-container,
 #legend {
     display: flex;
     flex-direction: row;
@@ -15,12 +15,12 @@
     margin: $s-sm 0;
 }
 
-.unchecked-container {
+.inactive-container {
     border: solid 1px $pink;
     background-color: rgba(176, 32, 98, 0.2);
 }
 
-.checked-container {
+.active-container {
     border: solid 1px $turquoise;
     background-color: $turquoise-tint;
 }
@@ -36,19 +36,19 @@ i {
 }
 
 
-.checkbox,
-.unchecked {
+.active,
+.inactive {
     width: 22%;
     text-align: right;
     color: $turquoise;
     font-size: $f-md;
 }
 
-.unchecked {
+.inactive {
     color: $pink;
 }
 
-.checkbox {
+.active {
     color: $turquoise;
 }
 
@@ -78,8 +78,8 @@ i {
     width: 50%;
 }
 
-.checkbox:hover,
-.unchecked:hover {
+.active:hover,
+.inactive:hover {
     cursor: pointer;
 }
 

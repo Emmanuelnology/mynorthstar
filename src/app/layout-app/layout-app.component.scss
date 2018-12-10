@@ -83,7 +83,9 @@ h1 {
 
 .content {
   background-image: url('../../assets/backgrounds/background2.jpg');
-  background-size: cover;
+  max-height: 100vh;
+  background-size: auto;
+  background-repeat: no-repeat;
   border: 1px solid $border-color;
   border-radius: 5px;
 //   padding: $s-sm;
