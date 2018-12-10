@@ -59,7 +59,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
           fontSize: 12
         },
         angleLines: {
-          color: 'rgba(33,64,103)'
+          color: 'rgb(33,64,103)'
         },
         ticks: {
           fontFamily: 'nunito',
@@ -69,7 +69,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
           max: 10,
         },
         gridLines: {
-          color: 'rgba(33,64,103)'
+          color: 'rgb(33,64,103)'
         }
       }
     }
