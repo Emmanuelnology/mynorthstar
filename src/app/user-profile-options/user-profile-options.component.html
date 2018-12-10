@@ -1,4 +1,4 @@
-<app-layout-default icon="fas fa-list-ol" pageTitle="My Profile"> 
+<app-layout-default icon="fas fa-user" pageTitle="My Profile"> 
   <section class="main-content">
     <div class="header-content">
       <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }"></div>
@@ -19,7 +19,16 @@
                 <label for="Name">New name: </label>
                 <input [(ngModel)]="newName" type="name" name="name" id="newName" class="input-box"  required>
               </fieldset>
-              <button class="btn btn-open btn-turquoise" type="submit" id="submitNewName">Update name</button>
+              <div class="button-container">
+                <button
+                  class="btn btn-open btn-turquoise"
+                  onclick="document.getElementById('newName').value = ''" 
+                  type="submit"
+                  id="submitNewName"
+                >
+                  Update name
+                </button>
+              </div>
             </div>
           </form>
       
@@ -32,7 +41,16 @@
                 <label for="Email">New email: </label>
                 <input [(ngModel)]="newEmail" type="email" name="Email" id="newEmail" class="input-box" required>
               </fieldset>
-              <button class="btn btn-open btn-turquoise"  type="submit" id="submitNewEmail">Update email</button>
+              <div class="button-container">
+                <button
+                  class="btn btn-open btn-turquoise"
+                  onclick="document.getElementById('newEmail').value = ''" 
+                  type="submit"
+                  id="submitNewEmail"
+                >
+                  Update email
+                </button>
+              </div>
             </div>
           </form>
   
@@ -42,7 +60,16 @@
                 <label for="Image">Paste image url here: </label>
                 <input [(ngModel)]="newImage" type="imageName" name="imageName" id="newImage" class="input-box" required>
               </fieldset>
-              <button  class="btn btn-open btn-turquoise" type="submit" id="submitNewImage">Update image</button>
+              <div class="button-container">
+                <button
+                  class="btn btn-open btn-turquoise"
+                  onclick="document.getElementById('newImage').value = ''"
+                  type="submit"
+                  id="submitNewImage"
+                  >
+                    Update image
+                  </button>
+              </div>
             </div>
           </form>
         </div>
@@ -79,8 +106,7 @@
                 </ul>
               </div>
             </form>
-            
-
+          
             <form (ngSubmit)="updateClientPassword()">
               <div class="form-container">
                 <fieldset>
@@ -97,7 +123,17 @@
                   >
                 </fieldset>
 
-                <button [disabled]="!passwordy.valid || (passwordy.value != confirmyPasswordy.value)" class="btn btn-open btn-turquoise"  type="submit" id="submitNewPassword">Update password</button>
+                <div class="button-container">
+                  <button
+                    [disabled]="!passwordy.valid || (passwordy.value != confirmyPasswordy.value)"
+                    class="btn btn-open btn-turquoise"
+                    onclick="document.getElementById('newPassword').value = '' , document.getElementById('confirmPassword').value = ''"
+                    type="submit"
+                    id="submitNewPassword"
+                  >
+                    Update password
+                  </button>
+                </div>
                 
               </div>
               <p *ngIf="passwordy.value != confirmyPasswordy.value">Passwords don't match</p>

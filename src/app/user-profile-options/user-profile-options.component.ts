@@ -15,13 +15,13 @@ export class UserProfileOptionsComponent implements OnInit {
   successUpdateEmail = '';
   errorUpdateEmail = '';
 
+  newImage = '';
+
   newPassword = '';
   successChangePassword = '';
   errorChangePassword = '';
 
   confirmPassword = '';
-
-  newImage = '';
 
   user;
   constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) {
@@ -66,7 +66,7 @@ export class UserProfileOptionsComponent implements OnInit {
   }
 
   updateClientImage() {
-    this.authService.changeImage(this.newImage  );
+    this.authService.changeImage(this.newImage);
   }
 }
 
