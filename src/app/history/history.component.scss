@@ -3,8 +3,7 @@
 @include media-sm;
 
 .inactive-container,
-.active-container,
-#legend {
+.active-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,11 +29,12 @@ i {
 }
 
 #legend {
+    display: flex;
+    flex-direction: row;
     margin-bottom: $s-sm;
     font-size: $f-md;
     padding: $ls-sm;
 }
-
 
 .active,
 .inactive {
@@ -66,12 +66,10 @@ i {
     align-items: center;
     font-weight: 100;
     font-size: $f-sm;
-
 }
 
 .score {
     width: 28%;
-
 }
 
 .date {
@@ -88,12 +86,10 @@ i {
     #history-container,
     #legend {
     margin: $s-xs 0;
-    // font-size: $f-md;
     }
 
     #legend {
     margin-bottom: $s-sm;
-    // font-size: $f-lg;
     }
 
 }
