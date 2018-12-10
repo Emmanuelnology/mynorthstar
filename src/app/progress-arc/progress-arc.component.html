@@ -1,12 +1,10 @@
 <div class="progress-arc {{color}}">
-    <div class="progress-amount-div">
         <span class="progress-amount" [ngStyle]="{
          'font-size':fontSize  
         }">
             {{score | number: '1.2-2'}}
             <small>Score</small>
         </span>
-    </div>
     <div class="progress-component">
     <ng2-arc-progress
         [size]='size'
