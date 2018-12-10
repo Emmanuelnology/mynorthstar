@@ -96,6 +96,11 @@ a{
     color:$navy;
 }
 
+.btn-open.btn-disabled {
+    border-color: $grey;
+    color: $grey;
+}
+
 .btn-open:hover {
     background-color: rgba(158,158,158,.2);
 }
