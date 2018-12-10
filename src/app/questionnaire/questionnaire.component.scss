@@ -155,6 +155,7 @@ div.container p {
 div.sendButton {
     text-align: center;
     padding: 30px;
+    margin-bottom: 100px;
 }
 
 .right {
@@ -172,6 +173,8 @@ div.sendButton {
 }
 
 .progress-amount {
+    top: 45%;
+    left: 38%; //position % for centering score in IE 11. 
     z-index:1;
     position:absolute;
     margin-top: -2px;
@@ -182,14 +185,6 @@ div.sendButton {
 
 .progress-component {
     transform:rotate(180deg);
-}
-
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .progress-amount {
-        top: 45%; 
-        left: 38%;
-    }
-
 }
 
 .question-brief {
@@ -206,13 +201,26 @@ div.sendButton {
     .right {
         display: block;
     }
-    .mobile-send-button {
-        display: none;
-    }
 }
 
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .whole-check-list {
+    display: flex;
+    flex-basis: 10px;
+    margin: 0;
+}
+
+.check-list {
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+div.check-list a {
+    flex-grow: 1;
+}
+
 
 .score-flex > input {    
     height: 21px;
@@ -224,7 +232,8 @@ input[type=range]::-ms-track {
     background: transparent;
     
     /*leave room for the larger thumb to overflow with a transparent border */
-    border: 7px $nav-color solid;
+    border-top: 7px $nav-color solid;
+    border-bottom: 7px $nav-color solid;
 
     /*remove default tick marks*/
     color: transparent;
@@ -253,5 +262,94 @@ input[type=range]:focus::-ms-fill-upper {
     background: $nav-color
 }
 
+// .whole-questionnaire {
+//     display: inline-block;
+//     flex-direction: row;
+//     flex-grow: 1;
+// }
+
+
+.right {
+    position: fixed;
+    right: 0;
+     top: 100px;
+
+    width: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.question-brief {
+
+    position: absolute;
+    width: 200px;
+    top: 220px;
+  
+}
 
 }
+
+
+@-moz-document url-prefix() {
+
+
+
+    .whole-check-list {
+        height: 100%;
+
+
+    margin: 0;
+}
+
+
+div.check-list a {
+    height: 10px;
+}
+
+
+.score-flex > input {    
+    height: 7px;
+    outline: none;
+    // border-radius: 5px;
+    -moz-appearance: none;
+    position: absolute;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.scoring-filler {
+    overflow: hidden;
+    background-color: red;
+}
+
+.scoring-blob {
+    background-color: transparent;
+
+}
+
+input::-moz-range-track {
+    background-color: transparent;
+}
+
+.scoring-filler::-moz-range-thumb { //filler
+    background-color: red;
+    box-shadow: 1000px 0 0 1000px $nav-color;
+    width: 0;
+    height: 0;
+}
+
+.scoring-blob::-moz-range-thumb { //actual blob
+    width: 20px;
+    height: 20px;
+    -moz-appearance: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 60px 5px white;
+    background: white;
+}
+
+}
+
+

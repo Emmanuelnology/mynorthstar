@@ -1,5 +1,7 @@
 @import "../../variables.scss";
 
+@include media-sm;
+
 #star {
     margin-bottom: $s-sm;
 }
@@ -10,9 +12,9 @@
 }
 
 #history {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
     max-width: 90%;
     margin: 0 auto;
 }
@@ -24,9 +26,59 @@
     padding: $s-sm;
 }
 
+#welcome-text {
+    display: none;
+}
+
 #message-container {
     text-align: center;
 }
+
+p {
+    text-align: center;
+}
+
+#welcome-message {
+    text-align: justify;
+    margin-bottom: $s-md;
+}
+
+#tag {
+    margin-bottom: $s-sm;
+}
+
+#mobile-arc {
+    display: flex;
+    width: 100%;
+    height: 0;
+    // border: solid 1px red;
+    text-align: left;
+}
+
+.date {
+    flex-grow: 1;
+    // line-height: 90px;
+
+    p {
+        text-align: left;
+        padding-right: 10px;
+    }
+}
+
+.total-score {
+    flex: 0, 0, 200px;
+}
+
+#star-arc {
+    margin: auto;
+}
+
+@media only screen and (min-width: 505px) {
+  #star-arc {
+    width: 60vw;
+  }
+}
+  
 
 @media only screen and (min-width: 768px) {
 
@@ -36,49 +88,41 @@
         margin-top: 200px;
     }
 
-    #content {
-        display: flex;
-        // border: red solid 2px;
-        min-height: 140%;
-        flex: 1;
-    }
-    
     #layout {
         // border: red solid 2px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
 
     #star {
         width: 55vw;
+    }
+
+    #star-arc {
+        width: 55vw;
+        margin: 0;
         // border: red solid 2px;
     }
 
+    // HISTORY DIV HAS TEMP FIX OF 140% HEIGHT TO ALIGN CORRECTLY WITH CENTRE OF STAR //
+
     #history {
-        width: 32.5vw;
+        width: 30vw;
         // border: red solid 2px;
+    }
+
+    #welcome-text {
+        display: block;
     }
 
     #tablet-arc {
-        // border: red solid 2px;
         display: flex;
         width: 100%;
         max-width: 55vw;
         height: 0;
-        // border: red solid 2px;
     }
 
-    #date {
-        flex-grow: 1;
-        line-height: 90px;
-
-        p {
-            text-align: right;
-            padding-right: 10px;
-        }
-    }
-
-    #total-score {
-        flex: 0, 0, 200px;
+    #mobile-arc {
+        display: none;
     }
 }
