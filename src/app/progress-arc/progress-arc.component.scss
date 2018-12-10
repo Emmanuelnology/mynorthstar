@@ -10,12 +10,9 @@
 
 .progress-component {
     transform:rotate(180deg);
- 
 }
 
 .progress-amount {
-    // top: 20%; 
-    // left: 25%; //position % for centering score in IE 11
     z-index:1;
     position:absolute;
     color: white;
