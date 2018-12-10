@@ -108,7 +108,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
         );
         this.redraw();
 
-      } 
+      }
       this.currentDate = results[0].date;
       this.currentScore = results[0].overallResult;
       // this.intermediateData[index].label = results[index].date;
