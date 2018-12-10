@@ -39,6 +39,8 @@
     #content {
         display: flex;
         // border: red solid 2px;
+        min-height: 140%;
+        flex: 1;
     }
     
     #layout {
