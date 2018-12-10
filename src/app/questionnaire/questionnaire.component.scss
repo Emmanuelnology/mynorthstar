@@ -204,3 +204,48 @@ div.sendButton {
         display: none;
     }
 }
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+.score-flex > input {    
+    height: 21px;
+}
+
+input[type=range]::-ms-track {
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border: 7px $nav-color solid;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+
+.scoring-filler[type=range]::-ms-thumb { // filler
+    box-shadow: 1000px 0 0 1000px $nav-color;
+    width: 0;
+    height: 0;
+}
+
+.scoring-blob[type=range]::-ms-thumb { // actual blob
+    width: 20px;
+    height: 20px;
+    -ms-appearance: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: white;
+    border: none;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: transparent;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: $nav-color
+}
+
+
+}
