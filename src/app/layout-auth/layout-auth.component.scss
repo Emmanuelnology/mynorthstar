@@ -50,3 +50,13 @@ h2 {
     margin: $s-xs 0 $s-sm 0;
     width: 100%;
 }
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10 & IE11 CSS styles go here */
+        
+    .container{
+        padding-top: 15vh;
+    }
+
+}
