@@ -1,14 +1,11 @@
 @import '../../variables.scss';
 
-.progress-arc { //couldnt make flex work in IE 11 so used top and left :( 
+.progress-arc { 
     position:relative;
     // display: flex;
-    // display: -ms-flexbox; 
-    // -ms-flex-direction: column;
     // flex-direction: column;
     // align-items:center;
     // justify-content:center;
-    // -ms-flex-align:center;
 }
 
 .progress-component {
@@ -17,14 +14,19 @@
 }
 
 .progress-amount {
-    top: 20px;
-    left: 15px;
+    top: 20%; 
+    left: 25%; //position % for centering score in IE 11
     z-index:1;
     position:absolute;
-    margin-top: -2px;
     color: white;
     font-size: 24px;
     text-align: center;
+
+}
+
+.progress-amount-div {
+    margin: 0 auto;
+
 }
 
 small {
@@ -59,9 +61,5 @@ small {
 @media only screen and (min-width: 768px) {
 small {
     display:block;
-}
-.progress-amount {
-    top: 30px;
-    left: 26px;
 }
 }
