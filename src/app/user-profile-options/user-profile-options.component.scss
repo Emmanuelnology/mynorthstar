@@ -37,8 +37,6 @@
 
 #profileChanges{
   height: 100vh;
-  //background-color: rgba(0,0,0,0.2);
-  // margin-left: -15px;
   width: 100%;
 }
 
@@ -85,6 +83,15 @@ div.submitButton {
 
 fieldset{
   width: 60%;
+  margin: 0;
+}
+
+.button-container{
+  width: 40%;
+}
+
+button{
+  margin-left: 5px;
 }
 
 #errors{
@@ -122,7 +129,6 @@ fieldset{
 
 
 @media only screen and (min-width: $desktop-min) {
-
   #personal{
     float: left;
     width: 50%;
@@ -141,5 +147,17 @@ fieldset{
 @media only screen and (max-width: 580px) {
   fieldset{
     width:100%;
+  }
+
+  .button-container{
+    width: 100%;
+    position: relative;
+    height: 50px;
+  }
+
+  button{
+    position: absolute;
+    top: 0;
+    margin: 5px 0 0 0;
   }
 }
