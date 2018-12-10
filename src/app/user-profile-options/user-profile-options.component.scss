@@ -14,11 +14,8 @@
 .circle-border {
   border-radius: 50%;
   border: 1px solid white;
-  background-image: url('https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png');
   background-size: cover;
   background-position: center;
-  width: 100px;
-  height: 100px;
   vertical-align: middle;
   float: left;
   margin-top: $s-lg;
@@ -52,8 +49,7 @@
 
 fieldset{
   border: none;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0 10px;
 }
 
 button{
@@ -96,6 +92,14 @@ button{
 
 #errors{
   padding-left: 20px;
+}
+
+#newImagePreviewContainer{
+ padding: 0;
+}
+
+#displayNewImage{
+ margin: 0;
 }
 
 @media only screen and (min-width: $tablet-min) {
