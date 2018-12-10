@@ -89,6 +89,7 @@ h1 {
 //   padding: $s-sm;
   overflow-y: hidden;
   overflow-x: hidden;
+  -ms-overflow-style: none;
 }
 
 @media (min-width: $tablet-min) {
