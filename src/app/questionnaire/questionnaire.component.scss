@@ -200,9 +200,6 @@ div.sendButton {
     .right {
         display: block;
     }
-    .mobile-send-button {
-        display: none;
-    }
 }
 
 
@@ -214,7 +211,7 @@ div.sendButton {
 }
 
 .check-list {
-    height: 50vw;
+    height: 40vw;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -290,3 +287,70 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 }
+
+
+@-moz-document url-prefix() {
+
+.left {
+    overflow: scroll;
+}
+
+    .whole-check-list {
+        height: 100%;
+
+
+    margin: 0;
+}
+
+
+div.check-list a {
+    height: 10px;
+}
+
+
+.score-flex > input {    
+    height: 7px;
+    outline: none;
+    // border-radius: 5px;
+    -moz-appearance: none;
+    position: absolute;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.scoring-filler {
+    overflow: hidden;
+    background-color: red;
+}
+
+.scoring-blob {
+    background-color: transparent;
+
+}
+
+input::-moz-range-track {
+    background-color: transparent;
+}
+
+.scoring-filler::-moz-range-thumb { //filler
+    background-color: red;
+    box-shadow: 1000px 0 0 1000px $nav-color;
+    width: 0;
+    height: 0;
+}
+
+.scoring-blob::-moz-range-thumb { //actual blob
+    width: 20px;
+    height: 20px;
+    -moz-appearance: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 60px 5px white;
+    background: white;
+}
+
+}
+
+
