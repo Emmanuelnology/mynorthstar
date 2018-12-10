@@ -9,138 +9,164 @@
       </div>
     </div>
 
-      <div id="profileChanges">
-        <div id="personal">
-          <h3>Update profile</h3>
-  
-          <form (ngSubmit)="updateClientName()">
-            <div class="form-container">
-              <fieldset>
-                <label for="Name">New name: </label>
-                <input [(ngModel)]="newName" type="name" name="name" id="newName" class="input-box"  required>
-              </fieldset>
-              <div class="button-container">
-                <button
-                  class="btn btn-open btn-turquoise"
-                  onclick="document.getElementById('newName').value = ''" 
-                  type="submit"
-                  id="submitNewName"
-                >
-                  Update name
-                </button>
-              </div>
-            </div>
-          </form>
-      
-          <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
-          <p *ngIf="errorUpdateEmail" style="color:red; background-color: white">{{errorUpdateEmail}}</p>
-      
-          <form (ngSubmit)="updateClientEmailAddress()">
-            <div class="form-container">
-              <fieldset>
-                <label for="Email">New email: </label>
-                <input [(ngModel)]="newEmail" type="email" name="Email" id="newEmail" class="input-box" required>
-              </fieldset>
-              <div class="button-container">
-                <button
-                  class="btn btn-open btn-turquoise"
-                  onclick="document.getElementById('newEmail').value = ''" 
-                  type="submit"
-                  id="submitNewEmail"
-                >
-                  Update email
-                </button>
-              </div>
-            </div>
-          </form>
-  
-          <form (ngSubmit)="updateClientImage()">
-            <div class="form-container">
-              <fieldset>
-                <label for="Image">Paste image url here: </label>
-                <input [(ngModel)]="newImage" type="imageName" name="imageName" id="newImage" class="input-box" required>
-              </fieldset>
-              <div class="button-container">
-                <button
-                  class="btn btn-open btn-turquoise"
-                  onclick="document.getElementById('newImage').value = ''"
-                  type="submit"
-                  id="submitNewImage"
-                  >
-                    Update image
-                  </button>
-              </div>
-            </div>
-          </form>
-        </div>
-  
-        <div id="password">
-            <h3>Update password</h3>
+    <div id="profileChanges">
+      <div id="personal">
+        <h3>Update profile</h3>
 
-            <p *ngIf="successChangePassword" style="color:green; background-color: white">{{successChangePassword}}</p>
-            <p *ngIf="errorChangePassword" style="color:red; background-color: white">{{errorChangePassword}}</p>
-            <form>
-              <div class="form-container">
-                <fieldset>
-                  <label for="Password">New password: </label>
-                  <input
-                    [(ngModel)]="newPassword"
-                    type="password"
-                    name="password"
-                    id="newPassword"
-                    class="input-box"
-                    pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-                    #passwordy="ngModel"
-                    required
-                  >
-                </fieldset>
-              </div>
-
-              <div *ngIf="passwordy.touched && passwordy.invalid" id="errors">
-                <p>Password is invalid it must be:</p>
-                <ul>
-                  <li>> 6 characters</li>
-                  <li>> One is a lowercase letter</li>
-                  <li>> One is an uppercase letter</li>
-                  <li>> One is a number</li>
-                </ul>
-              </div>
-            </form>
-          
-            <form (ngSubmit)="updateClientPassword()">
-              <div class="form-container">
-                <fieldset>
-                  <label for="Password">Confirm password: </label>
-                  <input
-                    [(ngModel)]="confirmPassword"
-                    type="password"
-                    name="password"
-                    id="confirmPassword"
-                    class="input-box"
-                    pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-                    #confirmyPasswordy="ngModel"
-                    required
-                  >
-                </fieldset>
-
-                <div class="button-container">
-                  <button
-                    [disabled]="!passwordy.valid || (passwordy.value != confirmyPasswordy.value)"
-                    class="btn btn-open btn-turquoise"
-                    onclick="document.getElementById('newPassword').value = '' , document.getElementById('confirmPassword').value = ''"
-                    type="submit"
-                    id="submitNewPassword"
-                  >
-                    Update password
-                  </button>
-                </div>
-                
-              </div>
-              <p *ngIf="passwordy.value != confirmyPasswordy.value">Passwords don't match</p>
-            </form> 
-        </div>
-  
-    </div>
+        <form (ngSubmit)="updateClientName()">
+          <div class="form-container">
+            <fieldset>
+              <label for="Name">New name: </label>
+              <input
+                [(ngModel)]="newName"
+                type="name"
+                name="name"
+                id="newName"
+                class="input-box"
+                required
+              >
+            </fieldset>
+            <div class="button-container">
+              <button
+                [disabled]="newName == ''"
+                class="btn btn-open btn-turquoise"
+                onclick="document.getElementById('newName').value = ''"
+                type="submit"
+                id="submitNewName"
+              >
+                Update name
+              </button>
+            </div>
+          </div>
+        </form>
     
+        <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
+        <p *ngIf="errorUpdateEmail" style="color:red; background-color: white">{{errorUpdateEmail}}</p>
+    
+        <form (ngSubmit)="updateClientEmailAddress()">
+          <div class="form-container">
+            <fieldset>
+              <label for="Email">New email: </label>
+              <input
+                [(ngModel)]="newEmail"
+                type="email"
+                name="Email"
+                id="newEmail"
+                class="input-box"
+                required
+              >
+            </fieldset>
+            <div class="button-container">
+              <button
+                [disabled]="newEmail == ''"
+                class="btn btn-open btn-turquoise"
+                onclick="document.getElementById('newEmail').value = ''" 
+                type="submit"
+                id="submitNewEmail"
+              >
+                Update email
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <form (ngSubmit)="updateClientImage()">
+          <div class="form-container">
+            <fieldset>
+              <label for="Image">Paste image url here: </label>
+              <input
+                [(ngModel)]="newImage"
+                type="imageName"
+                name="imageName"
+                id="newImage"
+                class="input-box"
+                required
+              >
+            </fieldset>
+            <div class="button-container">
+              <button
+                [disabled]="newImage == ''"
+                class="btn btn-open btn-turquoise"
+                onclick="document.getElementById('newImage').value = ''"
+                type="submit"
+                id="submitNewImage"
+                >
+                  Update image
+                </button>
+            </div>
+          </div>
+        </form>
+        <div *ngIf="newImage" id="newImagePreviewContainer">
+          <p>Preview:</p>
+          <div id="displayNewImage" class="circle-border" [ngStyle]="{'background-image' : 'url(' + newImage + ')'}"></div>
+        </div>
+      </div>
+
+      <div id="password">
+          <h3>Update password</h3>
+
+          <p *ngIf="successChangePassword" style="color:green; background-color: white">{{successChangePassword}}</p>
+          <p *ngIf="errorChangePassword" style="color:red; background-color: white">{{errorChangePassword}}</p>
+          <form>
+            <div class="form-container">
+              <fieldset>
+                <label for="Password">New password: </label>
+                <input
+                  [(ngModel)]="newPassword"
+                  type="password"
+                  name="password"
+                  id="newPassword"
+                  class="input-box"
+                  pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                  #passwordy="ngModel"
+                  required
+                >
+              </fieldset>
+            </div>
+
+            <div *ngIf="passwordy.touched && passwordy.invalid" id="errors">
+              <p>Password is invalid it must be:</p>
+              <ul>
+                <li>> 6 characters</li>
+                <li>> One is a lowercase letter</li>
+                <li>> One is an uppercase letter</li>
+                <li>> One is a number</li>
+              </ul>
+            </div>
+          </form>
+        
+          <form (ngSubmit)="updateClientPassword()">
+            <div class="form-container">
+              <fieldset>
+                <label for="Password">Confirm password: </label>
+                <input
+                  [(ngModel)]="confirmPassword"
+                  type="password"
+                  name="password"
+                  id="confirmPassword"
+                  class="input-box"
+                  pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                  #confirmyPasswordy="ngModel"
+                  required
+                >
+              </fieldset>
+
+              <div class="button-container">
+                <button
+                  [disabled]="!passwordy.valid || (passwordy.value != confirmyPasswordy.value)"
+                  class="btn btn-open btn-turquoise"
+                  onclick="document.getElementById('newPassword').value = '' , document.getElementById('confirmPassword').value = ''"
+                  type="submit"
+                  id="submitNewPassword"
+                >
+                  Update password
+                </button>
+              </div>
+              
+            </div>
+            <p *ngIf="passwordy.value != confirmyPasswordy.value">Passwords don't match</p>
+          </form> 
+      </div>
+    </div> 
   </section>
 </app-layout-default>
