@@ -2,6 +2,10 @@
 
 @include media-sm;
 
+.main-content{
+  height: 100%;
+}
+
 h2{
   font-size: 12px;
 }
@@ -59,7 +63,7 @@ h2{
   }
   
   .star {
-    width: 50vw;
+    width: 55vw;
     margin: 0;
   }
   
