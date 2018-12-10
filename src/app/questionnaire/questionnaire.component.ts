@@ -16,11 +16,10 @@ export class QuestionnaireComponent implements OnInit {
     downloadQuestions: IQuestion;
     questions = [];
     ready = false;
+    disabledButton = true;
 
     questionnaireFromFirebase: Observable<any[]>;
     number;
-
-
 
     constructor(
         private rand: Randomise,
@@ -38,7 +37,7 @@ export class QuestionnaireComponent implements OnInit {
 
     randomiseAnswers() {
         for (const question of this.questions) {
-            question.score = Math.floor(Math.random() * 11) + 1;
+            question.score = Math.floor(Math.random() * 11);
         }
     }
 
@@ -51,7 +50,16 @@ export class QuestionnaireComponent implements OnInit {
             }
         }
         this.number = numberAnswered.length;
+        this.enableSendButton(this.number);
+
+        console.log(this.disabledButton);
         return console.log(numberAnswered.length);
+    }
+
+    enableSendButton(answered) {
+        if (answered === this.questions.length) {
+            this.disabledButton = false;
+        }
     }
 
 
