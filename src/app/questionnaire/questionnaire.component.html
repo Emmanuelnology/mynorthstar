@@ -24,23 +24,23 @@
                                         <div class="score-flex-box">
                                             <div class="score-flex">
                                                 <input
-                                                class="scoring-filler score-inputs"
-                                                type="range"
-                                                [(ngModel)]="question.score"
-                                                name="question-{{question.number}}" 
-                                                min="0" max="10"                
-                                                required
-                                                [style.backgroundColor]="getSliderColor(question?.score)"
+                                                    class="scoring-filler score-inputs"
+                                                    type="range"
+                                                    [(ngModel)]="question.score"
+                                                    name="question-{{question.number}}" 
+                                                    min="0" max="10"
+                                                    (mousemove)="blobClick()"       
+                                                    required
+                                                    [style.backgroundColor]="getSliderColor(question?.score)"
                                                 >
                                                 <input
-                                                class="scoring-blob score-inputs"
-                                                type="range"
-                                                [(ngModel)]="question.score"
-                                                (change)="blobClick()"
-                                                (click)="blobClick()"
-                                                name="question-{{question.number}}" 
-                                                min="0" max="10"
-                                                required
+                                                    class="scoring-blob score-inputs"
+                                                    type="range"
+                                                    [(ngModel)]="question.score"
+                                                    (mousemove)="blobClick()"
+                                                    name="question-{{question.number}}" 
+                                                    min="0" max="10"
+                                                    required
                                                 >
                                             </div>
                                         </div>
