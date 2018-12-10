@@ -33,13 +33,13 @@
 
     #content {
         display: flex;
-        border: red solid 2px;
+        // border: red solid 2px;
         min-height: 140%;
         flex: 1;
     }
     
     #layout {
-        border: red solid 2px;
+        // border: red solid 2px;
         // height: 100%;
         display: flex;
         flex-direction: column;
@@ -55,11 +55,11 @@
         width: 32.5vw;
         // min-height: 100%;
         flex: 1;
-        border: red solid 2px;
+        // border: red solid 2px;
     }
 
     #tablet-arc {
-        border: red solid 2px;
+        // border: red solid 2px;
         display: flex;
         width: 100%;
         max-width: 55vw;
