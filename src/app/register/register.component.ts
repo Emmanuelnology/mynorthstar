@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       () => {
         this.afAuth.auth.currentUser.updateProfile({
         displayName: this.name,
-        photoURL: 'https://www.telegraph.co.uk/content/dam/Pets/spark/royal-canin/tabby-kitten-small.jpg?imwidth=450'
+        photoURL: 'https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_9.png'
       });
       this.router.navigate(['/']);
       }

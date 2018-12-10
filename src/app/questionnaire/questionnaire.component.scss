@@ -172,8 +172,8 @@ div.sendButton {
 }
 
 .progress-amount {
-    top: 85px;
-    left: 75px;
+    top: 45%;
+    left: 38%; //position % for centering score in IE 11. 
     z-index:1;
     position:absolute;
     margin-top: -2px;
