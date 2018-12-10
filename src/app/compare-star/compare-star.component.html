@@ -1,32 +1,48 @@
 <app-layout-default icon="fas fa-history" pageTitle="Compare star">
   <div id="layout" class="main-content">
     <div id="mobile-arc" class="u-swapon-mobile">
-      <app-progress-arc class="u-swapon-mobile" [score]="currentScore" color="turquoise" size="60"></app-progress-arc>
-    </div>
-    <div id="tablet-arc" class="u-swapon-tablet">
-      <div id="date">
-        <h3>{{currentDate?.toDate() | date: "dd/MM/y"}}</h3>
+      <div class="date">
+        <h5>{{currentDate?.toDate() | date: "dd/MM/y"}}</h5>
       </div>
-      <div id="total-score">
-        <app-progress-arc class="u-swapon-tablet" [score]="currentScore" color="turquoise" size="100"></app-progress-arc>
+      <div class="mobile-arc" class="u-swapon-mobile">
+        <app-progress-arc class="u-swapon-mobile" [score]="currentScore" color="turquoise" size="60"></app-progress-arc>
       </div>
     </div>
-    <div id="content">
+    <div id="star-arc">
+      <div id="tablet-arc" class="u-swapon-tablet">
+        <div class="date">
+          <h3>{{currentDate?.toDate() | date: "dd/MM/y"}}</h3>
+        </div>
+        <div class="total-score">
+          <app-progress-arc class="u-swapon-tablet" [score]="currentScore" color="turquoise" size="100"></app-progress-arc>
+        </div>
+      </div>
       <div id="star">
         <div class="spinner">
           <app-spinner [hidden]="ready" text="Loading"></app-spinner>
         </div>
         <app-main-star [starData]="data.datasets" [starLabels]="data.labels" [animation]="animation" [showLegend]="true"></app-main-star>
       </div>
-      <div id="history">
-        <div id="history-container" [hidden]="this.noHistory === true" >
-          <app-history (checked)="addRemoveData($event)"></app-history>
+    </div>
+    <div id="history">
+      <div id="welcome-text">
+        <!-- <h5>LEARN FROM YESTERDAY | LIVE FOR TODAY | HOPE FOR TOMORROW</h5> -->
+        <div id="tag">
+          <p>Learn from yesterday || Live for today</p>
+          <p>Hope for tomorrow</p>
         </div>
-        <div id="message-container" [hidden]="this.noHistory === false">
-          <h3>
-            History will appear here upon completion of more questionnaires
-          </h3>
-        </div>
+        <p id="welcome-message">
+          Use your star comparison to compare how you have scored yourself at different dates.
+          Maybe you want to see what’s improving or maybe you want to
+        </p>
+      </div>
+      <div id="history-container" [hidden]="this.noHistory === true">
+        <app-history (checked)="addRemoveData($event)"></app-history>
+      </div>
+      <div id="message-container" [hidden]="this.noHistory === false">
+        <h3>
+          History will appear here upon completion of more questionnaires
+        </h3>
       </div>
     </div>
   </div>
