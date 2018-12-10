@@ -26,6 +26,7 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   currentDate;
   public pastData: IDataSet[];
   ready = false;
+  noHistory = false;
 
   data = {
     datasets: [],
@@ -72,7 +73,18 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
     this.firebase.getRecent(this.user, 6).subscribe((results) => {
-      if (results.length > 0) {
+      if (results.length === 0) {
+        this.router.navigate(['/questionnaire']);
+      } else if (results.length === 1) {
+        this.ready = true;
+        this.getLabels(results);
+        this.restructureData(results[0].categoryResults, 0);
+        this.currentData.data = this.intermediateData[0].data;
+        this.data.datasets.push(this.currentData);
+        this.redraw();
+        this.noHistory = true;
+
+      } else {
         this.ready = true;
         for (const index in results) {
           if (results.hasOwnProperty(index)) {
@@ -95,10 +107,8 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
           this.currentData
         );
         this.redraw();
-      } else {
-        this.router.navigate(['/questionnaire']);
-      }
 
+      } 
       this.currentDate = results[0].date;
       this.currentScore = results[0].overallResult;
       // this.intermediateData[index].label = results[index].date;

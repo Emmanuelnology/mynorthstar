@@ -17,10 +17,15 @@
     margin: 0 auto;
 }
 
-#border-container {
+#history-container,
+#message-container {
     border: 2px solid $border-color;
     border-radius: $s-sm;
     padding: $s-sm;
+}
+
+#message-container {
+    text-align: center;
 }
 
 @media only screen and (min-width: 768px) {

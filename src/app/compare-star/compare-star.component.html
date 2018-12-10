@@ -19,8 +19,13 @@
         <app-main-star [starData]="data.datasets" [starLabels]="data.labels" [animation]="animation" [showLegend]="true"></app-main-star>
       </div>
       <div id="history">
-        <div id="border-container">
+        <div id="history-container" [hidden]="this.noHistory === true" >
           <app-history (checked)="addRemoveData($event)"></app-history>
+        </div>
+        <div id="message-container" [hidden]="this.noHistory === false">
+          <h3>
+            History will appear here upon completion of more questionnaires
+          </h3>
         </div>
       </div>
     </div>
