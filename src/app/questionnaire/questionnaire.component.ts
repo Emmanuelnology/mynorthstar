@@ -39,6 +39,7 @@ export class QuestionnaireComponent implements OnInit {
         for (const question of this.questions) {
             question.score = Math.floor(Math.random() * 11);
         }
+        this.blobClick();
     }
 
     blobClick () {
