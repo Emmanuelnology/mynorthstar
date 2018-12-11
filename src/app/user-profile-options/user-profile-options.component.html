@@ -40,9 +40,7 @@
           </div>
         </form>
     
-        <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
-        <p *ngIf="errorUpdateEmail" style="color:red; background-color: white">{{errorUpdateEmail}}</p>
-    
+   
         <form (ngSubmit)="updateClientEmailAddress()">
           <div class="form-container">
             <fieldset>
@@ -69,18 +67,8 @@
             </div>
           </div>
         </form>
-
-
-
-
-
-
-
-
-
-        
-
-
+        <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
+        <p *ngIf="errorUpdateEmail" style="color:red; background-color: white">{{errorUpdateEmail}}</p>
 
         <form (ngSubmit)="updateClientImage()">
           <div class="form-container">       
@@ -143,10 +131,10 @@
           <div *ngIf="passwordy.touched && passwordy.invalid" id="errors">
             <p>Password is invalid it must be:</p>
             <ul>
-              <li>> 6 characters</li>
-              <li>> One is a lowercase letter</li>
-              <li>> One is an uppercase letter</li>
-              <li>> One is a number</li>
+              <li>6 characters</li>
+              <li>One is a lowercase letter</li>
+              <li>One is an uppercase letter</li>
+              <li>One is a number</li>
             </ul>
           </div>
         </form>
