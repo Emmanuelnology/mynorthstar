@@ -24,23 +24,23 @@
                                         <div class="score-flex-box">
                                             <div class="score-flex">
                                                 <input
-                                                    class="scoring-filler score-inputs"
-                                                    type="range"
-                                                    [(ngModel)]="question.score"
-                                                    name="question-{{question.number}}" 
-                                                    min="0" max="10"
-                                                    (change)="blobClick()"       
-                                                    required
-                                                    [style.backgroundColor]="getSliderColor(question?.score)"
+                                                class="scoring-filler score-inputs"
+                                                type="range"
+                                                [(ngModel)]="question.score"
+                                                name="question-{{question.number}}" 
+                                                min="0" max="10"
+                                                (change)="blobClick()"       
+                                                required
+                                                [style.backgroundColor]="getSliderColor(question?.score)"
                                                 >
                                                 <input
-                                                    class="scoring-blob score-inputs"
-                                                    type="range"
-                                                    [(ngModel)]="question.score"
-                                                    (change)="blobClick()"
-                                                    name="question-{{question.number}}" 
-                                                    min="0" max="10"
-                                                    required
+                                                class="scoring-blob score-inputs"
+                                                type="range"
+                                                [(ngModel)]="question.score"
+                                                (change)="blobClick()"
+                                                name="question-{{question.number}}" 
+                                                min="0" max="10"
+                                                required
                                                 >
                                             </div>
                                         </div>
@@ -73,43 +73,47 @@
                     </div>
                 </div>            
             </div>
-            <div class="sendButton">
-                <button class="btn btn-open btn-turquoise" type="submit" [disabled]="disabledButton">SUBMIT</button>
+            <!-- <app-pagination [maxPages]="maxPages"
+                [current]="currentPage"
+                [postsPerPage]="postsPerPage"
+                [itemsPerPage]="itemsPerPage"
+                (changePage)="pageChanged($event)"></app-pagination> -->           
+                <div class="sendButton">
+                    <button class="btn btn-open btn-turquoise" type="submit" [disabled]="disabledButton">SUBMIT</button>                
+                </div>
+            </form>
+        </div>
+        
+        <div class="right" >
+            <div class="progress-arc">
+                
+                <p class="progress-amount">
+                    {{(number)? number : 0}}/{{questions.length}}
+                </p>
+                
+                <div class="progress-component">
+                    <ng2-arc-progress
+                    [size]='200'
+                    [progress]="(number)? (number / questions.length)*100:0"
+                    gap=0
+                    progressColor="#6ecbd3"
+                    backgroundColor='rgba(232, 236, 241, 0.3)'
+                    strokeWidth='10px'
+                    >
+                </ng2-arc-progress>
             </div>
-        </form>
-    </div>
-    
-    <div class="right" >
-        <div class="progress-arc">
-            
-            <p class="progress-amount">
-                {{(number)? number : 0}}/{{questions.length}}
+        </div>
+        <div class="question-brief">
+            <p>Try to answer the questions quickly and don’t ponder too long.
+                The idea is that you go with you gut and how you feel.
+                There is no right answer but honesty is the key to getting the best result
             </p>
-            
-            <div class="progress-component">
-                <ng2-arc-progress
-                [size]='200'
-                [progress]="(number)? (number / questions.length)*100:0"
-                gap=0
-                progressColor="#6ecbd3"
-                backgroundColor='rgba(232, 236, 241, 0.3)'
-                strokeWidth='10px'
-                >
-            </ng2-arc-progress>
+            <button (click)="randomiseAnswers()" *ngIf="!environment.production" class="btn btn-open btn-pink">Randomise Answers</button>
+            <!-- <div class="sendButton">
+                <button class="btn btn-open btn-turquoise" (click)='onSubmit()' type="submit" [disabled]="disabledButton">SEND</button>
+            </div> -->
         </div>
     </div>
-    <div class="question-brief">
-        <p>Try to answer the questions quickly and don’t ponder too long.
-            The idea is that you go with you gut and how you feel.
-            There is no right answer but honesty is the key to getting the best result
-        </p>
-        <button (click)="randomiseAnswers()" *ngIf="!environment.production" class="btn btn-open btn-pink">Randomise Answers</button>
-        <!-- <div class="sendButton">
-            <button class="btn btn-open btn-turquoise" (click)='onSubmit()' type="submit" [disabled]="disabledButton">SEND</button>
-        </div> -->
-    </div>
-</div>
-
 </div>
 </div>
 </app-layout-default>
