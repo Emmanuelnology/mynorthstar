@@ -224,13 +224,13 @@ div.check-list a {
 }
 
 .score-flex > input {    
-    height: 21px;
+    height: 7px;
 }
 
 input[type=range]::-ms-track {
     background: transparent;
-    border-top: 7px $nav-color solid;
-    border-bottom: 7px $nav-color solid;
+    border-top: 0px $nav-color solid;
+    border-bottom: 0px $nav-color solid;
     color: transparent;
 }
 
