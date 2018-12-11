@@ -12,7 +12,8 @@
 }
 
 #history {
-    max-width: 90%;
+    max-width: 95%;
+    margin: 0 auto;
 }
 
 #history-container,
@@ -32,12 +33,13 @@
 }
 
 p {
-    font-size: 13px;
+    font-size: 10px;
     margin: 0;
 }
 
-#current-date {
-    letter-spacing: 4px;
+.current-date {
+    font-size: 10px;
+    letter-spacing: 2px;
 }
 
 #welcome-message {
@@ -51,7 +53,7 @@ p {
 
 h6 {
     text-align: center;
-    font-size: 13px;
+    font-size: 8px;
     letter-spacing: 3px;
 }
 
@@ -111,9 +113,7 @@ h6 {
         margin: 0;
         // border: red solid 2px;
     }
-
-    // HISTORY DIV HAS TEMP FIX OF 140% HEIGHT TO ALIGN CORRECTLY WITH CENTRE OF STAR //
-
+    
     #history {
         width: 35vw;
         display: flex;
@@ -122,11 +122,6 @@ h6 {
         margin-left: $s-lg;
         // border: red solid 2px;
     }
-
-    // #history-container,
-    // #message-container {
-    //     width: 30vw;
-    // }
 
     #welcome-text {
         display: block;
@@ -141,5 +136,18 @@ h6 {
 
     #mobile-arc {
         display: none;
+    }
+
+    h6 {
+        font-size: 13px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    .current-date {
+        font-size: 13px;
+        letter-spacing: 4px;
     }
 }
