@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../task-manager/task';
+import { ITaskDownload, ITask } from '../task-manager/task';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { TaskManagerService } from '../services/task-manager.service';
 import { Observable } from 'rxjs';
@@ -17,15 +17,15 @@ export class TaskListComponent implements OnInit {
     this.tasks = this.taskManagerService.tasks;
   }
 
-  tasks: Observable<Task[]>;
+  tasks: Observable<ITask[]>;
 
   ngOnInit() {}
 
-  onDelete(task: Task) {
+  onDelete(task: ITaskDownload) {
     this.taskManagerService.deleteTask(task);
   }
 
-  checked(task: Task) {
+  checked(task: ITaskDownload) {
     this.taskManagerService.checked(task);
   }
 
