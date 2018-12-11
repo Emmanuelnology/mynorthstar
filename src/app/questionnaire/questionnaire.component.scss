@@ -203,6 +203,7 @@ div.sendButton {
     }
 }
 
+// Internet Explorer ------------------------------------------------------------------
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     .whole-check-list {
@@ -227,15 +228,9 @@ div.check-list a {
 }
 
 input[type=range]::-ms-track {
-    
-    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
     background: transparent;
-    
-    /*leave room for the larger thumb to overflow with a transparent border */
     border-top: 7px $nav-color solid;
     border-bottom: 7px $nav-color solid;
-
-    /*remove default tick marks*/
     color: transparent;
 }
 
@@ -289,6 +284,30 @@ input[type=range]:focus::-ms-fill-upper {
 
 }
 
+// Edge -------------------------------------------------------------
+
+@supports (-ms-ime-align: auto) {
+
+.scoring-filler::-webkit-slider-thumb { //filler
+    box-shadow: 1000px 0 0 1000px $nav-color;
+    width: 0;
+    height: 0;
+}
+
+.scoring-blob::-webkit-slider-thumb { //actual blob
+overflow: auto;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 white;
+    background: white;
+}
+
+}
+
+// FireFox ----------------------------------------------------------
 
 @-moz-document url-prefix() {
 
@@ -310,6 +329,7 @@ div.check-list a {
 .score-flex > input {    
     height: 7px;
     outline: none;
+    border: 0;
     // border-radius: 5px;
     -moz-appearance: none;
     position: absolute;
@@ -320,7 +340,6 @@ div.check-list a {
 
 .scoring-filler {
     overflow: hidden;
-    background-color: red;
 }
 
 .scoring-blob {
@@ -330,10 +349,10 @@ div.check-list a {
 
 input::-moz-range-track {
     background-color: transparent;
+    border: 0;
 }
 
 .scoring-filler::-moz-range-thumb { //filler
-    background-color: red;
     box-shadow: 1000px 0 0 1000px $nav-color;
     width: 0;
     height: 0;
@@ -348,7 +367,27 @@ input::-moz-range-track {
     cursor: pointer;
     box-shadow: 0 0 60px 5px white;
     background: white;
+    z-index: 10;
 }
+
+.right {
+    position: fixed;
+    right: 0;
+    top: 120px;
+    width: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.question-brief {
+    display: block;
+    position: fixed;
+    width: 200px;
+    top: 0;    
+}
+
+
+
 
 }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { UploadToFirebase } from '../services/questionnaire.service';
+import { FirebaseForQuestionnaire } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import {Router} from '@angular/router';
 
@@ -29,7 +29,7 @@ export class HistoryComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private firebase: UploadToFirebase) {
+    private firebase: FirebaseForQuestionnaire) {
     this.user = this.authService.user;
   }
 

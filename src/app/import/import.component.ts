@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadToFirebase } from '../services/questionnaire.service';
+import { FirebaseForQuestionnaire } from '../services/questionnaire.service';
 import {data} from './data';
 
 @Component({
@@ -9,7 +9,7 @@ import {data} from './data';
 })
 export class ImportComponent implements OnInit {
 
-  constructor(private service: UploadToFirebase) {
+  constructor(private service: FirebaseForQuestionnaire) {
    }
 
   ngOnInit() {
