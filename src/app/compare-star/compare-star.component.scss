@@ -12,11 +12,7 @@
 }
 
 #history {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
     max-width: 90%;
-    margin: 0 auto;
 }
 
 #history-container,
@@ -28,6 +24,7 @@
 
 #welcome-text {
     display: none;
+    padding: 0 10px;
 }
 
 #message-container {
@@ -45,6 +42,7 @@ p {
 
 #tag {
     margin-bottom: $s-sm;
+    text-align: left;
 }
 
 #mobile-arc {
@@ -95,11 +93,11 @@ p {
     }
 
     #star {
-        width: 55vw;
+        width: 45vw;
     }
 
     #star-arc {
-        width: 55vw;
+        width: 65vw;
         margin: 0;
         // border: red solid 2px;
     }
@@ -107,9 +105,18 @@ p {
     // HISTORY DIV HAS TEMP FIX OF 140% HEIGHT TO ALIGN CORRECTLY WITH CENTRE OF STAR //
 
     #history {
-        width: 30vw;
+        width: 35vw;
+        display: flex;
+        flex-direction: column;
+        justify-items: right;
+        margin-left: $s-lg;
         // border: red solid 2px;
     }
+
+    // #history-container,
+    // #message-container {
+    //     width: 30vw;
+    // }
 
     #welcome-text {
         display: block;
