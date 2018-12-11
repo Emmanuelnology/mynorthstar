@@ -24,14 +24,16 @@ export interface ICategoryResult {
   categoryAverage: number;
 }
 
+interface IUser {
+  uid: string;
+  displayName: string;
+}
+
 export interface IResult {
   categoryResults: ICategoryResult[];
-  overallResult: number; // add date & user id
+  overallResult: number;
   date: Date;
-  user: {
-    uid: string;
-    displayName: string;
-  };
+  user: IUser;
 }
 
 @Injectable({
@@ -46,26 +48,17 @@ export class QuestionnaireService {
    }
 
   getResults(questionArray: IQuestion[]): IResult {
-    // console.log(questionArray)
     const categoryAverages: ICategoryResult[] = this.getCategoryAverages(questionArray);
     const overallAverage: number = this.getOverallAverage(categoryAverages);
     const addDate = new Date();
-    const userObject = this.createUserObject();
-
-    const result: IResult = {
-      categoryResults: categoryAverages,
-      overallResult: overallAverage,
-      date: addDate,
-      user: userObject // createUser()
-    };
-    return result; // add
+    const userObject: IUser = this.createUserObject();
+    const result: IResult = this.formatResults(categoryAverages, overallAverage, addDate, userObject);
+    return result;
   }
 
-
-  createUserObject() {
+  createUserObject(): IUser {
     console.log('The user is ' + this.user.displayName);
-    // const currentUser:IUser=this.auth.user;
-    const currentUser = {
+    const currentUser: IUser = {
       uid: this.user.uid,
       displayName: this.user.displayName
     };
@@ -146,6 +139,17 @@ export class QuestionnaireService {
     const overallAverage: number = sumOfResults / categoryAverages.length;
     return overallAverage;
   }
+
+  formatResults(catAv: ICategoryResult[], overallAv: number, addDate, userObj: IUser): IResult {
+    const result: IResult = {
+      categoryResults: catAv,
+      overallResult: overallAv,
+      date: addDate,
+      user: userObj
+    };
+    return result;
+  }
+
 }
 
 @Injectable({
@@ -156,7 +160,7 @@ export class Randomise {
 
   constructor() { }
 
-  randomiseOrder(questionArray: IQuestion[]) {
+  randomiseOrder(questionArray: IQuestion[]): IQuestion[] {
     const unsortedIntegerArray: number[] = this.createUnorderedArray(questionArray);
     const unsortedQuestionArray: IQuestion[] = this.assignQuestionRandomNumbers(questionArray, unsortedIntegerArray);
     const sortedQuestionArray: IQuestion[] = unsortedQuestionArray.sort(function(question1, question2) {
@@ -192,22 +196,18 @@ export class Randomise {
   providedIn: 'root'
 })
 
-export class UploadToFirebase {
-questionnaireCollection: AngularFirestoreCollection<IResult>;
+export class FirebaseForQuestionnaire {
+  questionnaireCollection: AngularFirestoreCollection<IResult>;
   questionnaire: Observable<IResult[]>;
   questionsCollection: AngularFirestoreCollection<IQuestion>;
 
   constructor(private afs: AngularFirestore) {
     this.questionnaireCollection = this.afs.collection('questionnaires');
-    // this.questionsCollection = this.afs.collection('questionnaire');
     this.questionsCollection = this.afs.collection('questions');
 
     this.questionnaire = this.questionnaireCollection.snapshotChanges()
       .pipe(map(this.includeCollectionID));
-        // console.log("HI");
-        // this.get(this.questionsCollection)
-
-   }
+    }
 
    includeCollectionID(docChangeAction) {
     return docChangeAction.map((a) => {
@@ -227,17 +227,12 @@ questionnaireCollection: AngularFirestoreCollection<IResult>;
 
   restructureDocsInCollection(collectionSnapshot) {
       const docArray = [];
-
       collectionSnapshot.forEach((doc) => {
         docArray.push(
-          {
-            // id: doc.id,
-            ...doc.data()
-          }
+          { ...doc.data() }
         );
       });
       return docArray;
-
   }
 
   getAllQuestions() {
@@ -259,7 +254,6 @@ questionnaireCollection: AngularFirestoreCollection<IResult>;
     });
     return resultCollection.get().pipe(map(this.restructureDocsInCollection));
   }
-
 
   upload(questionnaireObject) {
     return this.questionnaireCollection.add(questionnaireObject);

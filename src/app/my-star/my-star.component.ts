@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { UploadToFirebase } from '../services/questionnaire.service';
+import { FirebaseForQuestionnaire } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 import {Router} from '@angular/router';
@@ -24,7 +24,7 @@ export class MyStarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private firebase: UploadToFirebase,
+    private firebase: FirebaseForQuestionnaire,
     private router: Router
    ) {
     this.user = this.authService.user;
