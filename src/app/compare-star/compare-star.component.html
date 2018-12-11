@@ -12,8 +12,8 @@
     <div id="star-arc">
       <div id="tablet-arc" class="u-swapon-tablet">
         <div class="date">
-          <p>Last star completed on</p>
-          <h3>{{currentDate?.toDate() | date: "dd/MM/y"}}</h3>
+          <p>Last star completed on:</p>
+          <p id="current-date">{{currentDate?.toDate() | date: "dd/MM/y"}}</p>
         </div>
         <div class="total-score">
           <app-progress-arc class="u-swapon-tablet" [score]="currentScore" color="turquoise" size="100"></app-progress-arc>
@@ -29,7 +29,9 @@
     <div id="history">
       <div id="welcome-text">
         <!-- <h5>LEARN FROM YESTERDAY | LIVE FOR TODAY | HOPE FOR TOMORROW</h5> -->
-        <p id="tag">Learn from yesterday</p>
+        <h6>LEARN FROM YESTERDAY</h6>
+        <h6>LIVE FOR TODAY</h6>
+        <h6 id="tag">HOPE FOR TOMORROW</h6>
         <p id="welcome-message">
           Use your star comparison to compare how you have scored yourself at different dates.
           Maybe you want to see what’s improving or maybe you want to find your next area of focus?
