@@ -2,8 +2,8 @@
   <div id="layout" class="main-content">
     <div id="mobile-arc" class="u-swapon-mobile">
       <div class="date">
-        <p>Last star completed on</p>
-        <h5>{{currentDate?.toDate() | date: "dd/MM/y"}}</h5>
+        <p>Last star completed on:</p>
+        <p class="current-date">{{currentDate?.toDate() | date: "dd/MM/y"}}</p>
       </div>
       <div class="mobile-arc" class="u-swapon-mobile">
         <app-progress-arc class="u-swapon-mobile" [score]="currentScore" color="turquoise" size="60"></app-progress-arc>
@@ -13,7 +13,7 @@
       <div id="tablet-arc" class="u-swapon-tablet">
         <div class="date">
           <p>Last star completed on:</p>
-          <p id="current-date">{{currentDate?.toDate() | date: "dd/MM/y"}}</p>
+          <p class="current-date">{{currentDate?.toDate() | date: "dd/MM/y"}}</p>
         </div>
         <div class="total-score">
           <app-progress-arc class="u-swapon-tablet" [score]="currentScore" color="turquoise" size="100"></app-progress-arc>
