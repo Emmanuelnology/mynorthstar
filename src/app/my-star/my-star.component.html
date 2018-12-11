@@ -1,63 +1,38 @@
-<app-layout-default pageTitle="My star" icon="fas fa-star" >
+<app-layout-default pageTitle="My star" icon="fas fa-star">
   <div class="main-content">
-  <div class="star-flex">
-    <div class="star-column">
-      <div class="star-heading">
-      
-        <div class="date">
-          <p>Last star completed on:</p>
-          <p id="current-date"> {{currentDate?.toDate() | date: "dd/MM/y"}}</p>
-          
+    <div class="main-flex">
+      <div class="star-column">
+        <div class="star-heading">
+          <div class="date">
+            <p>Last star completed on:</p>
+            <p id="piped-date"> {{currentDate?.toDate() | date: "dd/MM/y"}}</p>
+          </div>
+          <div class="total-score">
+            <app-progress-arc class="u-swapon-mobile" [score]="overallResult" color="turquoise" size="60"></app-progress-arc>
+            <app-progress-arc class="u-swapon-tablet" [score]="overallResult" color="turquoise" size="100"></app-progress-arc>
+          </div>
         </div>
-        <div class="total-score">
-          <app-progress-arc class="u-swapon-mobile"
-          [score]="overallResult" 
-          color="turquoise" 
-          size="60"
-          ></app-progress-arc>
-          
-          
-          <app-progress-arc class="u-swapon-tablet"
-          [score]="overallResult" 
-          color="turquoise" 
-          size="100"
-          ></app-progress-arc>
-          
-          
-        </div>
-        
-      </div>
-      
         <div class="star ">
           <div class="spinner">
-            <app-spinner [hidden] = "ready" text="Loading"></app-spinner>
+            <app-spinner [hidden]="ready" text="Loading"></app-spinner>
           </div>
-
-          <app-main-star [starData]= "datasets" [starLabels]="labels" [breakpoint]=900></app-main-star>
-         
-          </div>
-        
+          <app-main-star [starData]="datasets" [starLabels]="labels" [breakpoint]=900></app-main-star>
+        </div>
       </div>
-   
-    <div class="results-score">
+      <div class="task-panel">
         <div class="welcome-text">
-          
-            <h6>Welcome to your personal star</h6>
-            <p> 
-              The power of the star is in its visual representation of how you scored each area of your life. 
-              The key is not to focus on the elements with lower score but to think what would I like to improve.
-              Always be thinking where am I now and where would I like to be in a month year etc. Let you aims goals and desires drive the tasks you set for yourself.
-              
-             
-              </p> 
-          </div>
-      
-      
-      <div class="tasks">
-        <app-task-manager></app-task-manager>
+          <h6>Welcome to your personal star</h6>
+          <p>
+            The power of the star is in its visual representation of how you scored each area of your life.
+            The key is not to focus on the elements with lower score but to think what would I like to improve.
+            Always be thinking where am I now and where would I like to be in a month year etc. Let you aims goals and
+            desires drive the tasks you set for yourself.
+          </p>
+        </div>
+        <div class="tasks">
+          <app-task-manager></app-task-manager>
+        </div>
       </div>
     </div>
-    
-  </div >
   </div>
 </app-layout-default>
