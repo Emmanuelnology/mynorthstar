@@ -39,7 +39,7 @@
 }
 
 #profileChanges{
-  padding-left: 15px;
+  padding: 0 20px;
   height: 100vh;
   width: 100%;
 }
@@ -99,6 +99,7 @@ div.submitButton {
 
 button{
   margin-left: 5px;
+  width: 175px;
 }
 
 #errors{
@@ -124,6 +125,7 @@ button{
   fieldset{
     width:100%;
   }
+
   .largeWidth,
   .smallWidth{
     width: 100%;
