@@ -39,21 +39,19 @@ export class QuestionnaireComponent implements OnInit {
         for (const question of this.questions) {
             question.score = Math.floor(Math.random() * 11);
         }
+        this.blobClick();
     }
 
     blobClick () {
         const numberAnswered: number[] = [];
         for (const index of this.questions) {
-
             if (this.questions[index.score] != null) {
                 numberAnswered.push(1);
             }
         }
         this.number = numberAnswered.length;
         this.enableSendButton(this.number);
-
-        console.log(this.disabledButton);
-        return console.log(numberAnswered.length);
+        // return console.log(numberAnswered.length);
     }
 
     enableSendButton(answered) {
