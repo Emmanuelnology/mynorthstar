@@ -218,10 +218,10 @@ div.sendButton {
     flex-direction: column;
     flex-grow: 1;
 }
+
 div.check-list a {
     flex-grow: 1;
 }
-
 
 .score-flex > input {    
     height: 21px;
@@ -237,7 +237,7 @@ input[type=range]::-ms-track {
 .scoring-filler[type=range]::-ms-thumb { // filler
     box-shadow: 1000px 0 0 1000px $nav-color;
     width: 0;
-    height: 0;
+    height: 40px;
 }
 
 .scoring-blob[type=range]::-ms-thumb { // actual blob
@@ -263,25 +263,20 @@ input[type=range]:focus::-ms-fill-upper {
 //     flex-grow: 1;
 // }
 
-
 .right {
     position: fixed;
     right: 0;
-     top: 100px;
-
+    top: 100px;
     width: 20%;
     margin-left: 5%;
     margin-right: 5%;
 }
 
 .question-brief {
-
     position: absolute;
     width: 200px;
-    top: 220px;
-  
+    top: 220px;  
 }
-
 }
 
 // Edge -------------------------------------------------------------
@@ -295,7 +290,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .scoring-blob::-webkit-slider-thumb { //actual blob
-overflow: auto;
+    overflow: auto;
     width: 20px;
     height: 20px;
     -webkit-appearance: none;
@@ -304,27 +299,19 @@ overflow: auto;
     box-shadow: 0 0 0 0 white;
     background: white;
 }
-
 }
 
 // FireFox ----------------------------------------------------------
 
 @-moz-document url-prefix() {
-
-
-
     .whole-check-list {
-        height: 100%;
-
-
+    height: 100%;
     margin: 0;
 }
-
 
 div.check-list a {
     height: 10px;
 }
-
 
 .score-flex > input {    
     height: 7px;
@@ -344,7 +331,6 @@ div.check-list a {
 
 .scoring-blob {
     background-color: transparent;
-
 }
 
 input::-moz-range-track {
@@ -379,16 +365,15 @@ input::-moz-range-track {
     margin-right: 5%;
 }
 
+.progress-arc {
+    margin-top: -35px;
+}
+
 .question-brief {
     display: block;
-    position: fixed;
+    position: relative;
     width: 200px;
-    top: 0;    
+    top: 0;
+    margin-top: -100px;
 }
-
-
-
-
 }
-
-
