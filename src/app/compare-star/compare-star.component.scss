@@ -7,29 +7,48 @@
 }
 
 #mobile-arc {
-    text-align: right;
+    display: flex;
     width: 100%;
+    height: 0;
+    // border: solid 1px red;
+    text-align: left;
 }
 
 #history {
     max-width: 95%;
     margin: 0 auto;
+
+    #message-container {
+        text-align: center;
+    }
+    
+    #history-container,
+    #message-container {
+        border: 2px solid $border-color;
+        border-radius: $s-sm;
+        padding: $s-sm;
+    }
 }
 
-#history-container,
-#message-container {
-    border: 2px solid $border-color;
-    border-radius: $s-sm;
-    padding: $s-sm;
-}
 
-#welcome-text {
+#welcome {
     display: none;
     padding: 0 10px;
-}
 
-#message-container {
-    text-align: center;
+    #welcome-message {
+        text-align: justify;
+        margin-bottom: $s-sm;
+    }
+
+    #tag-line {
+        margin-bottom: $s-sm;
+    }
+    
+    h6 {
+        text-align: center;
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
 }
 
 p {
@@ -37,33 +56,6 @@ p {
     margin: 0;
 }
 
-.current-date {
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-#welcome-message {
-    text-align: justify;
-    margin-bottom: $s-sm;
-}
-
-#tag {
-    margin-bottom: $s-sm;
-}
-
-h6 {
-    text-align: center;
-    font-size: 8px;
-    letter-spacing: 3px;
-}
-
-#mobile-arc {
-    display: flex;
-    width: 100%;
-    height: 0;
-    // border: solid 1px red;
-    text-align: left;
-}
 
 .date {
     flex-grow: 1;
@@ -72,6 +64,11 @@ h6 {
     p {
         text-align: left;
         padding-right: 10px;
+    }
+
+    .piped-date {
+        font-size: 10px;
+        letter-spacing: 2px;
     }
 }
 
@@ -98,33 +95,38 @@ h6 {
         margin-top: 200px;
     }
 
+    #mobile-arc {
+        display: none;
+    }
+
     #layout {
         // border: red solid 2px;
         display: flex;
         flex-direction: row;
     }
 
-    #star {
-        width: 45vw;
-    }
-
     #star-arc {
         width: 65vw;
         margin: 0;
         // border: red solid 2px;
+
+        #star {
+            width: 45vw;
+        }
     }
     
     #history {
         width: 35vw;
-        display: flex;
-        flex-direction: column;
-        justify-items: right;
         margin-left: $s-lg;
         // border: red solid 2px;
     }
 
-    #welcome-text {
+    #welcome {
         display: block;
+
+        h6 {
+            font-size: 13px;
+        }
     }
 
     #tablet-arc {
@@ -132,14 +134,6 @@ h6 {
         width: 100%;
         max-width: 55vw;
         height: 0;
-    }
-
-    #mobile-arc {
-        display: none;
-    }
-
-    h6 {
-        font-size: 13px;
     }
 
     p {

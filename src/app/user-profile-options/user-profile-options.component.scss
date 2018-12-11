@@ -39,7 +39,7 @@
 }
 
 #profileChanges{
-  padding-left: 15px;
+  padding: 0 20px;
   height: 100vh;
   width: 100%;
 }
@@ -56,7 +56,17 @@
 
 fieldset{
   border: none;
-  margin-left: 0 10px;
+  margin: 0;
+  width: 60%;
+  float: left;
+}
+
+.largeWidth{
+  width: 60%;
+}
+
+.smallWidth{
+  width: 40%;
 }
 
 button{
@@ -76,17 +86,11 @@ div.submitButton {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   width: 100%;
 }
 
 .input-box{
   width: 100%;
-}
-
-fieldset{
-  width: 60%;
-  margin: 0;
 }
 
 .button-container{
@@ -95,6 +99,7 @@ fieldset{
 
 button{
   margin-left: 5px;
+  width: 175px;
 }
 
 #errors{
@@ -107,7 +112,38 @@ button{
 
 #displayNewImage{
  margin: 0;
+ border-radius: 50%;
+ width: 80px;
+ height: 80px;
 }
+
+.avatarPreviewContainer{
+  width: 20%;
+}
+
+@media only screen and (max-width: 580px) {
+  fieldset{
+    width:100%;
+  }
+
+  .largeWidth,
+  .smallWidth{
+    width: 100%;
+  }
+
+  .button-container{
+    width: 100%;
+    position: relative;
+    height: 50px;
+  }
+
+  button{
+    position: absolute;
+    top: 0;
+    margin: 5px 0 0 0;
+  }
+}
+
 
 @media only screen and (min-width: $tablet-min) {
   .circle-border {
@@ -121,7 +157,6 @@ button{
     padding-left: 150px;
   }
 }
-
 
 @media only screen and (min-width: $tablet-max) {
   @include media-lg;
@@ -138,6 +173,25 @@ button{
   }
 }
 
+@media only screen and (min-width: $laptop-min) {  
+  .smallWidth{
+    width: 48%;
+  }
+
+  .avatarPreviewContainer{
+    width: 12%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .smallWidth{
+    width: 44%;
+  }
+
+  .avatarPreviewContainer{
+    width: 15%;
+  }
+}
 
 @media only screen and (min-width: $desktop-min) {
   #personal{
@@ -153,22 +207,22 @@ button{
   .text-inside-header {
     padding-left: 200px;
   }
+
+  .smallWidth{
+    width: 40%;
+  }
+
+  .avatarPreviewContainer{
+    width: 20%;
+  }
 }
 
-@media only screen and (max-width: 580px) {
-  fieldset{
-    width:100%;
+@media only screen and (min-width: 1300px) {
+  .smallWidth{
+    width: 45%;
   }
 
-  .button-container{
-    width: 100%;
-    position: relative;
-    height: 50px;
-  }
-
-  button{
-    position: absolute;
-    top: 0;
-    margin: 5px 0 0 0;
+  .avatarPreviewContainer{
+    width: 15%;
   }
 }
