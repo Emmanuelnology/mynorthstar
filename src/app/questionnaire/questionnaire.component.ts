@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IQuestion, Randomise, QuestionnaireService, UploadToFirebase } from '../services/questionnaire.service';
+import { IQuestion, Randomise, QuestionnaireService, FirebaseForQuestionnaire } from '../services/questionnaire.service';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -26,7 +26,7 @@ export class QuestionnaireComponent implements OnInit {
         private questionnaireService: QuestionnaireService,
         private router: Router,
         afs: AngularFirestore,
-        private uploadToFirebase: UploadToFirebase
+        private uploadToFirebase: FirebaseForQuestionnaire
     ) {
 
     }

@@ -23,6 +23,16 @@
 .total-score {
   flex: 0, 0, 200px;
 }
+
+p{
+  font-size: 10px;
+  margin: 0;
+}
+
+#current-date {
+  letter-spacing: 2px;
+}
+
 @media only screen and (min-width: 505px) {
   .star{
     width: 60vw;
@@ -51,7 +61,12 @@
 
 @media only screen and (min-width: 900px) {
   p{
-    font-size: 12px;
+    font-size: 13px;
+    margin: 0;
+  }
+
+  #current-date {
+    letter-spacing: 4px;
   }
   
   .star {
@@ -75,13 +90,24 @@
     }
   }
   
-  .welcome-text{
-    margin-bottom: 20px;
-    text-align: justify;
+  h6 {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: $s-sm;
+  }
+
+  .welcome-text {
     padding-left: 10px;
     padding-right: 10px;
     display:block;
+    margin-bottom: $s-sm;
+
+    p {
+    text-align: justify;
+    }
   }
+
   .tasks {
     padding: 0;
   }

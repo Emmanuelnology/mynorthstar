@@ -165,7 +165,7 @@ span, p {
 .main-content {
     padding:$s-sm;
     overflow-y: scroll;
-    height:100vh;
+    height:100%;
 }
 
 @media only screen and (min-width:$tablet-max){
