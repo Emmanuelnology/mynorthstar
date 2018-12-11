@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-layout-default',
   templateUrl: './layout-app.component.html',
   styleUrls: ['./layout-app.component.scss']
-  
+
 })
 export class LayoutAppComponent implements OnInit {
   menuIsVisible = true;
@@ -21,7 +21,7 @@ export class LayoutAppComponent implements OnInit {
   }
 
   toggleProfile() {
-    this.profileIsVisible =! this.profileIsVisible; 
+    this.profileIsVisible = ! this.profileIsVisible;
   }
 
   ngOnInit() {
