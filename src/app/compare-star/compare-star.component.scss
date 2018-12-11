@@ -32,17 +32,27 @@
 }
 
 p {
-    text-align: center;
+    font-size: 13px;
+    margin: 0;
+}
+
+#current-date {
+    letter-spacing: 4px;
 }
 
 #welcome-message {
     text-align: justify;
-    margin-bottom: $s-md;
+    margin-bottom: $s-sm;
 }
 
 #tag {
     margin-bottom: $s-sm;
-    text-align: left;
+}
+
+h6 {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 3px;
 }
 
 #mobile-arc {
