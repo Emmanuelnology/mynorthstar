@@ -29,7 +29,8 @@ export class CreateTaskComponent implements OnInit {
         userId: this.afAuth.user.uid,
         task: title.value.charAt(0).toUpperCase() + title.value.slice(1).toLowerCase(),
         isChecked: false,
-        timestamp: new Date()
+        timestamp: new Date(),
+        isOverdue: false
       };
 
       this.addButtonDisabled = true;

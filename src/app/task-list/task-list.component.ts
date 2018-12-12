@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ITaskDownload, ITask } from '../task-manager/task';
+import { ITaskDownload, ITask, ITaskUpload } from '../task-manager/task';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { TaskManagerService } from '../services/task-manager.service';
 import { Observable } from 'rxjs';
@@ -12,21 +12,37 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-
+  
   constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService) {
     this.tasks = this.taskManagerService.tasks;
+    
   }
-
+  
   tasks: Observable<ITask[]>;
-
-  ngOnInit() {}
-
+  
+  ngOnInit() {
+    
+  }
+  
+  
   onDelete(task: ITaskDownload) {
     this.taskManagerService.deleteTask(task);
+    
   }
-
+  
   checked(task: ITaskDownload) {
     this.taskManagerService.checked(task);
+    
+  }
+  
+  overdueTask(task: ITaskDownload){
+    const currentTimestamp = new Date().getMonth();
+    const previousTimestamp = task.timestamp.toDate().getMonth();
+    if (currentTimestamp-previousTimestamp >= 1){
+      task.isOverdue = true;
+    this.taskManagerService.updateOverdue(task)
   }
 
+  
+}
 }

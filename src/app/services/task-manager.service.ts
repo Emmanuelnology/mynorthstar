@@ -11,21 +11,21 @@ import { AuthService } from './auth.service';
     providedIn: 'root'
 })
 export class TaskManagerService {
-
+    
     tasks: Observable<ITaskDownload[]>;
     taskCollection: AngularFirestoreCollection<ITask>;
-
+    
     constructor(private db: AngularFirestore, private auth: AuthService) {
         this.taskCollection = this.db.collection<ITask>('tasks', (reference) => {
             return reference
             .where('userId', '==', this.auth.user.uid).orderBy('timestamp', 'desc');
-
+            
         });
         this.tasks = this.taskCollection.snapshotChanges()
         .pipe(map(this.includeCollectionID));
-
+        
     }
-
+    
     includeCollectionID(docChangeAction) {
         return docChangeAction.map((a) => {
             const data = a.payload.doc.data();
@@ -33,7 +33,9 @@ export class TaskManagerService {
             return {id, ...data };
         });
     }
-
+    
+    
+    
     addTask(task: ITaskUpload) {
         return this.taskCollection.add(task).catch(
             () => {
@@ -41,7 +43,7 @@ export class TaskManagerService {
             }
             );
         }
-
+        
         getTask(taskId: string) {
             let task: AngularFirestoreDocument<ITaskDownload>;
             task = this.taskCollection.doc<ITaskDownload>(taskId);
@@ -51,21 +53,21 @@ export class TaskManagerService {
                 })
                 );
             }
-
+            
             deleteTask(task: ITaskDownload) {
-                this.taskCollection.doc(`${task.id}`).delete().then(function() {
+                this.taskCollection.doc(`${task.id}`).delete()
+                .then(function() {
                 }).catch(function(error) {
                     throw new Error('Did not delete!');
                 });
             }
-
+            
             checked(task: ITaskDownload) {
                 const payload = {
                     isChecked: task.isChecked,
                 };
                 this.taskCollection.doc(task.id).update(payload)
                 .then(() => {
-
                     console.log('updated tasks ' + task.task);
                 })
                 .catch((error) => {
@@ -73,5 +75,24 @@ export class TaskManagerService {
                     throw new Error('Unable to update user');
                 });
             }
+
+            updateOverdue(task:ITaskDownload){
+                const overduePayload= {
+                    isOverdue: task.isOverdue
+                };
+                this.taskCollection.doc(task.id).update(overduePayload)
+                .then(()=> {
+                    console.log( 'isOverdue updated')
+                })
+                .catch((error)=>
+                {
+                    console.log(error);
+                    throw new Error('unable to update isOverdue')
+                })
+            }
+
+            
         }
 
+
+                
