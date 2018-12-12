@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LayoutAppComponent implements OnInit {
   menuIsVisible = true;
-  profileIsVisible = true;
+  profileIsVisible = false;
   @Input() icon: string;
   @Input() pageTitle: string;
   @Input() starData: number[];
@@ -20,7 +20,8 @@ export class LayoutAppComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {
   }
 
-  toggleProfile() {
+  toggleProfile(event: Event) {
+    event.stopPropagation();
     this.profileIsVisible = ! this.profileIsVisible;
   }
 
