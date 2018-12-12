@@ -28,9 +28,7 @@ export class QuestionnaireComponent implements OnInit {
         private router: Router,
         afs: AngularFirestore,
         private uploadToFirebase: FirebaseForQuestionnaire,
-        ) {
-
-    }
+        ) {}
 
     ngOnInit() {
         this.getQuestions();
@@ -73,7 +71,6 @@ export class QuestionnaireComponent implements OnInit {
             // this.onQuestionUpdate(questions);
 
 
-       // this.ready = true;
 
        this.ready = true;
         console.log('Questions:', questions);
@@ -84,7 +81,6 @@ export class QuestionnaireComponent implements OnInit {
     getSliderColor(value) {
         if (value == null) {
             return '#101f34';
-            // return 'white';
         }
         if (value <= 3) {
             return 'rgb(236, 0, 129)';
