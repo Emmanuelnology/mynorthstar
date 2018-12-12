@@ -43,11 +43,17 @@ export interface IResult {
 export class QuestionnaireService {
   user;
 
+
   constructor(private authService: AuthService) {
     this.user = authService.user;
-   }
+  }
+
+  getUser() { // refresh user because doesn't always do it when swapping between accounts
+    this.user = this.authService.user;
+  }
 
   getResults(questionArray: IQuestion[]): IResult {
+    this.getUser();
     const categoryAverages: ICategoryResult[] = this.getCategoryAverages(questionArray);
     const overallAverage: number = this.getOverallAverage(categoryAverages);
     const addDate = new Date();

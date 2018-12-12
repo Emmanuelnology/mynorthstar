@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { PaginationComponent } from '../pagination/pagination.component';
 
 @Component({
     selector: 'app-questionnaire',
@@ -17,7 +18,7 @@ export class QuestionnaireComponent implements OnInit {
     questions = [];
     ready = false;
     disabledButton = true;
-
+    // paginationComponent: PaginationComponent;
     questionnaireFromFirebase: Observable<any[]>;
     number;
 
@@ -26,13 +27,15 @@ export class QuestionnaireComponent implements OnInit {
         private questionnaireService: QuestionnaireService,
         private router: Router,
         afs: AngularFirestore,
-        private uploadToFirebase: FirebaseForQuestionnaire
-    ) {
+        private uploadToFirebase: FirebaseForQuestionnaire,
+        ) {
 
     }
 
     ngOnInit() {
         this.getQuestions();
+        // // this.questions = createPages(this.questions);
+        // console.log("Hello - ",this.paginationComponent.x);
     }
 
     randomiseAnswers() {
@@ -64,6 +67,7 @@ export class QuestionnaireComponent implements OnInit {
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
+        // this.questions = createPages(this.questions);
 
             // console.log('Questions:', questions[0].score);
             // this.onQuestionUpdate(questions);

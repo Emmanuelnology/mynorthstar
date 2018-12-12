@@ -72,6 +72,7 @@ header .wrapper {
 .greeting, 
 .avatar {
   display:none;
+  font-size: 18px;
 }
 
 h1 {
@@ -94,13 +95,55 @@ h1 {
   -ms-overflow-style: none;
 }
 
-@media (min-width: $tablet-min) {
-  header .wrapper > * {
-    padding: $s-sm;
+.fa-caret-down {
+  margin-left: 7px;
+  margin-right: 10px;
+  display: inline-block;
+  cursor: pointer;
+  // border: 2px solid red;
+  font-size: 24px;
+  // width: 50px;
+  // margin-right: 50px;
+}
+
+.profile-menu {
+  background-color: $nav-icons-color;
+  z-index: 9;
+  // border-top: 1px solid $border-color;
+  border-radius: 5px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-right: 10px;
+  width: 100px;
+  
+
+  ul{
+    list-style:none;
   }
 
-  .avatar {
-    display:inline-block;
+  li {
+    padding: 5px;
+    // border-bottom: 1px solid $border-color;
+}
+  li:hover {
+    cursor: pointer;
+    background-color: $turquoise-tint;
+  }
+}
+
+.profile-dropdown {
+  // border-bottom: red 1px solid;
+  position: relative;
+  text-align: right;
+  padding: 0 !important;
+}
+
+
+@media (min-width: $tablet-min) {
+
+  header .wrapper > * {
+    padding: $s-sm;
   }
 
   .menu {
@@ -110,14 +153,32 @@ h1 {
 
 }
 
-
 @media ( min-width: 580px){
+  
   .greeting {
     display: inline-block;
   }
+
+  .fa-caret-down {
+    font-size: 15px;
+  }
+
 }
 
+
+
 @media (min-width: $tablet-max) {
+  .avatar {
+    display:inline-block;
+  }
+
+  .profile-menu {
+    height: auto;
+    // margin-top: 25px;
+    // width: 100%;
+    
+
+  }
   .greeting {
     display:inline-block;
   }
