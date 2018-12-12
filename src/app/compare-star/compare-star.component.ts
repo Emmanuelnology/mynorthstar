@@ -17,17 +17,15 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
-  currentData = {label: 'remove', data: []};
-  emptyData = {label: 'remove', data: []};
+  currentData: IDataSet = {label: 'remove', data: []};
+  emptyData: IDataSet = {label: 'remove', data: []};
   animation = 0;
-  currentScore;
-  user;
-  results;
+  currentScore: number;
+  user: firebase.User;
   currentDate;
   public pastData: IDataSet[];
   ready = false;
   noHistory = false;
-
   data = {
     datasets: [],
     labels: []

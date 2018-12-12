@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class HistoryComponent implements OnInit {
 
-  user;
+  private user: firebase.User;
 
   @Output() checked = new EventEmitter <number[]>();
 
