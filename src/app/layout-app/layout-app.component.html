@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" (click)="profileIsVisible=false">
   <header>
     <div class="wrapper">
       <div class="logo-wrapper menu">
@@ -11,13 +11,13 @@
         <i *ngIf="icon" class="{{icon}}"></i>
         {{ pageTitle }}
       </h1>
-      <div class= "profile-dropdown" (click)="toggleProfile()" >
+      <div class= "profile-dropdown" (click)="toggleProfile($event)">
         <div>
           <span class="greeting">Hi, {{user?.displayName | titlecase}}</span>
           <i class="fas fa-caret-down"></i>
         </div>
         
-          <div class="profile-menu" [hidden]="profileIsVisible" >
+          <div class="profile-menu" [hidden]="!profileIsVisible" >
             <ul>
               <li routerLink="/user-profile" routerLinkActive="active">View profile</li>
               <li (click)="logOut()">Log out</li>
