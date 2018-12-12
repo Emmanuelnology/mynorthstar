@@ -201,6 +201,7 @@ export class StarComponent implements AfterViewInit, OnInit {
       this.chart.options.layout.padding.bottom = 10;
       this.chart.options.scale.pointLabels.display = true;
     } else {
+      this.chart.options.layout.padding.bottom = 40;
       this.chart.options.scale.pointLabels.display = false;
     }
 
