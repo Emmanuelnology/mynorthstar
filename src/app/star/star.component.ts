@@ -198,10 +198,8 @@ export class StarComponent implements AfterViewInit, OnInit {
     }
     // No other way to change charts other than this. Maybe you can help?
     if (window.innerWidth > this.breakpoint) {
-      this.chart.options.layout.padding.bottom = 10;
       this.chart.options.scale.pointLabels.display = true;
     } else {
-      this.chart.options.layout.padding.bottom = 40;
       this.chart.options.scale.pointLabels.display = false;
     }
 
