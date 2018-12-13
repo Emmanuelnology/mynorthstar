@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 import { FirebaseForQuestionnaire } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import {Router} from '@angular/router';
+import { Subscription } from 'rxjs';
 
 // import { renderDetachView } from '@angular/core/src/view/view_attach';
 // import { viewAttached } from '@angular/core/src/render3/instructions';
@@ -13,21 +14,20 @@ import {Router} from '@angular/router';
   styleUrls: ['./compare-star.component.scss']
 })
 
-export class CompareStarComponent implements OnInit, AfterViewInit {
+export class CompareStarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
-  currentData = {label: 'remove', data: []};
-  emptyData = {label: 'remove', data: []};
+  currentData: IDataSet = {label: 'remove', data: []};
+  emptyData: IDataSet = {label: 'remove', data: []};
   animation = 0;
-  currentScore;
-  user;
-  results;
+  currentScore: number;
+  user: firebase.User;
   currentDate;
+  recentQuestionnaireSubscription: Subscription;
   public pastData: IDataSet[];
   ready = false;
   noHistory = false;
-
   data = {
     datasets: [],
     labels: []
@@ -70,9 +70,13 @@ export class CompareStarComponent implements OnInit, AfterViewInit {
     return fullYear.toString().substr(-2);
   }
 
+  ngOnDestroy() {
+    this.recentQuestionnaireSubscription.unsubscribe();
+}
+
   ngOnInit() {
 
-    this.firebase.getRecent(this.user, 6).subscribe((results) => {
+    this.recentQuestionnaireSubscription = this.firebase.getRecent(this.user, 6).subscribe((results) => {
       if (results.length === 0) {
         this.router.navigate(['/questionnaire']);
       } else if (results.length === 1) {
