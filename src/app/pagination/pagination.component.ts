@@ -50,6 +50,6 @@ export class PaginationComponent implements OnInit {
         this.paginatedArray.push(eachPageArray);
     }
     // questions = this.paginatedArray;
-    console.log(this.paginatedArray);
+    console.log(17);
     }
 }
