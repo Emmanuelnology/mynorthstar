@@ -17,6 +17,8 @@ export class UserProfileOptionsComponent implements OnInit {
 
   newImage = '';
 
+  newLocation = '';
+
   newPassword = '';
   successChangePassword = '';
   errorChangePassword = '';
@@ -31,7 +33,7 @@ export class UserProfileOptionsComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  
   updateClientName() {
     this.authService.changeName(this.newName);
   }
@@ -69,6 +71,14 @@ export class UserProfileOptionsComponent implements OnInit {
     this.authService.changeImage(this.newImage);
     this.newImage = '';
   }
+
+  updateClientLocation(){
+    console.log("accessed in user-profile-components.ts");
+    // this.authService.updateLocation(this.newLocation);
+    // this.newLocation = '';
+  }
+
+
 }
 
 

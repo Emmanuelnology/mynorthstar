@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 export interface IUser {
@@ -15,7 +15,7 @@ export interface IUser {
 })
 
 export class AuthService {
-
+  userCollection: AngularFirestoreCollection;
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
 
   }
@@ -66,4 +66,22 @@ export class AuthService {
       photoURL: newImage
     });
   }
+
+  updateLocation(userLocation: string){
+    console.log("accessed update location " + this.db.collection.name);
+    console.log("user id is " + this.afAuth.auth.currentUser.uid);
+    console.log("user email is " + this.afAuth.auth.currentUser.email);
+    // this.userCollection = this.db.collection('userAttributes', (reference) => {
+    //   console.log(reference
+    //   .where('uid', '==', this.afAuth.auth.currentUser.uid));
+    // }
+   // );
+    // var usercollectionabcds = this.db.collection("userAttributes").doc('test');
+    // console.log("users are " + usercollectionabcds);
+    
+  //  let bookCollection = this.db.collection('userAttributes');
+  //  console.log("users are " + bookCollection);
+
+  }
+
 }
