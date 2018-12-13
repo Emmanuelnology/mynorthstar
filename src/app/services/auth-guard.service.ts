@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-    constructor(private firebaseAuth: AngularFireAuth, private router: Router) {}
+    constructor(
+      private firebaseAuth: AngularFireAuth,
+      private router: Router) {}
 
     public canActivate(): Observable<boolean> {
       return this.firebaseAuth.authState.pipe(
