@@ -3,9 +3,9 @@
     <div class="header-content">
       <div class="circle-border" [ngStyle]="{ 'background-image':'url(' + user.photoURL + ')' }"></div>
       <div class="text-inside-header">
-        <h2>{{user.displayName}}</h2>
-        
+        <h2>{{user.displayName}}</h2> 
         <p id="welcome">{{user.email}}</p>
+        
       </div>
     </div>
 
@@ -39,7 +39,6 @@
             </div>
           </div>
         </form>
-    
    
         <form >
           <div class="form-container">
@@ -107,6 +106,35 @@
           <p>Preview:</p>
           <div id="displayNewImage" class="circle-border" [ngStyle]="{'background-image' : 'url(' + newImage + ')'}"></div>
         </div> -->
+
+
+        <form (ngSubmit)="updateClientLocation()">
+          <div class="form-container">
+            <fieldset>
+              <label for="location"> Location: </label>
+              <input
+                [(ngModel)]="newLocation"
+                type="location"
+                name="location"
+                id="newLocation"
+                class="input-box"
+                required
+              >
+            </fieldset>
+            <div class="button-container">
+              <button
+                [disabled]="newLocation == ''"
+                class="btn btn-open btn-turquoise"
+                onclick="document.getElementById('newLocation').value = ''"
+                type="submit"
+                id="submitNewLocation"
+              >
+                Update location
+              </button>
+            </div>
+          </div>
+        </form>
+        <p>Location is {{newLocation}}</p>
       </div>
 
       <div id="password">
