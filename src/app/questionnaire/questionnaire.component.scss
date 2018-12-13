@@ -213,7 +213,7 @@ div.sendButton {
 // Internet Explorer ------------------------------------------------------------------
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .whole-check-list {
+.whole-check-list {
     display: flex;
     flex-basis: 10px;
     margin: 0;
@@ -228,6 +228,28 @@ div.sendButton {
 
 div.check-list a {
     flex-grow: 1;
+}
+
+.progress-component {
+    display: none;
+}
+
+.progress-arc {
+    border: 5px solid $turquoise;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: absolute;
+    left: 8%;
+}
+
+.progress-amount {
+    position: absolute;
+    left: 42px;
 }
 
 .score-flex > input {    
@@ -264,12 +286,6 @@ input[type=range]:focus::-ms-fill-upper {
     background: $nav-color
 }
 
-// .whole-questionnaire {
-//     display: inline-block;
-//     flex-direction: row;
-//     flex-grow: 1;
-// }
-
 .right {
     position: fixed;
     right: 0;
@@ -282,7 +298,7 @@ input[type=range]:focus::-ms-fill-upper {
 .question-brief {
     position: absolute;
     width: 200px;
-    top: 220px;  
+    top: 190px;  
 }
 }
 
@@ -306,6 +322,33 @@ input[type=range]:focus::-ms-fill-upper {
     box-shadow: 0 0 0 0 white;
     background: white;
 }
+
+.progress-component {
+    display: none;
+}
+
+.progress-arc {
+    border: 5px solid $turquoise;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto auto 25px;
+}
+
+.progress-amount {
+    position: absolute;
+    left: 42px;
+}
+
+.question-brief {
+    position: absolute;
+    width: 200px;
+    top: 290px;  
+}
+
 }
 
 // FireFox ----------------------------------------------------------
