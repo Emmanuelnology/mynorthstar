@@ -30,7 +30,7 @@ export class PaginationComponent implements OnInit {
   ) {
     const questions = this.questionnaireComponent.questions;
     this.lengthOfQ(questions);
-    this.createPages(questions);
+    // this.createPages(questions);
     }
 
   lengthOfQ(questions) {
@@ -48,9 +48,8 @@ export class PaginationComponent implements OnInit {
             eachPageArray.push(questions[i]);
         }
         this.paginatedArray.push(eachPageArray);
-        console.log('This stuff = ', this.paginatedArray);
     }
-    questions = this.paginatedArray;
-    console.log(this.paginatedArray);
+    // questions = this.paginatedArray;
+    console.log(17);
     }
 }
