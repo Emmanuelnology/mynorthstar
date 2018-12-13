@@ -29,6 +29,10 @@ export class CreateTaskComponent implements OnInit, OnDestroy {
     this.taskCountSubscription.unsubscribe();
   }
 
+  test(val) {
+    console.log("Rawr");
+  }
+
   addTask(title: HTMLFormElement) {
     if (title.value && this.taskCount < 5) {
       const task: ITaskUpload = {
