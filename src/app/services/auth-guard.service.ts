@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class AuthGuard implements CanActivate {
 
     constructor(
-      private firebaseAuth: AngularFireAuth, 
+      private firebaseAuth: AngularFireAuth,
       private router: Router) {}
 
     public canActivate(): Observable<boolean> {

@@ -30,7 +30,7 @@ export class CreateTaskComponent implements OnInit, OnDestroy {
   }
 
   test(val) {
-    console.log("Rawr");
+    console.log('Rawr');
   }
 
   addTask(title: HTMLFormElement) {
