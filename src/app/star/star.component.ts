@@ -136,34 +136,16 @@ export class StarComponent implements AfterViewInit, OnInit {
 
   }
 
-  createGradient(ctx, parentElement) {
-    const width =  parentElement.offsetWidth;
-    const middle = width / 2;
-    const gradient = ctx.createRadialGradient(
-      middle,
-      middle,
-      middle * 0.1,
-      middle,
-      middle,
-      middle * 0.8 );
-      console.log(width);
-    gradient.addColorStop(0, Colors.Red);
-    gradient.addColorStop(0.3, Colors.Purple);
-    gradient.addColorStop(0.7, Colors.Blue);
-    gradient.addColorStop(1, Colors.Turquoise);
-    return gradient;
-  }
-
   // createGradient(ctx, parentElement) {
   //   const width =  parentElement.offsetWidth;
   //   const middle = width / 2;
   //   const gradient = ctx.createRadialGradient(
-  //     middle + 35,
   //     middle,
-  //     (middle - 45) * 0.1,
-  //     middle + 35,
   //     middle,
-  //     (middle - 45) * 0.8 );
+  //     30,
+  //     middle,
+  //     middle,
+  //     middle * 0.8 );
   //     console.log(width);
   //   gradient.addColorStop(0, Colors.Red);
   //   gradient.addColorStop(0.3, Colors.Purple);
@@ -171,6 +153,30 @@ export class StarComponent implements AfterViewInit, OnInit {
   //   gradient.addColorStop(1, Colors.Turquoise);
   //   return gradient;
   // }
+
+  createGradient(ctx, parentElement) {
+    const width =  parentElement.offsetWidth;
+    const Ymiddle = width / 2;
+    let Xmiddle = Ymiddle;
+    let webWidth = width;
+    if ( window.innerWidth > this.breakpoint ) {
+      Xmiddle = Xmiddle + 35;  // 35 only works for the labels in the order that they are currently in
+      webWidth = webWidth - 155; // 155 only works for the labels in the order that they are currently in
+    }
+    const gradient = ctx.createRadialGradient(
+      Xmiddle,
+      Ymiddle,
+      webWidth * 0.1,
+      Xmiddle,
+      Ymiddle,
+      webWidth * 0.5 );
+      console.log(width);
+    gradient.addColorStop(0, Colors.Red);
+    gradient.addColorStop(0.3, Colors.Purple);
+    gradient.addColorStop(0.7, Colors.Blue);
+    gradient.addColorStop(1, Colors.Turquoise);
+    return gradient;
+  }
 
   overrideGradient() {
     const parentElement = document.getElementById(this.canvasID + '-parent');
