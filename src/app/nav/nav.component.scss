@@ -1,11 +1,18 @@
 @import '../../variables.scss';
 
+.hideMenu {
+  width:0;
+  overflow:hidden;
+}
 
 nav {
   background-color: $nav-color;
   text-align: center;
   border-top: 1px solid white;
-  // overflow: hidden;
+  margin-top: $largeMenuWidth;
+  width: $smallMenuWidth;
+  position:fixed;
+  transition: 0.5s;
 }
 
 
@@ -40,6 +47,13 @@ nav .active {
 
 .tooltiptext {
   display: none;
+}
+
+@media (min-width: $tablet-min) {
+  nav {
+    width: $largeMenuWidth;
+    transition: 0.5s;
+  }
 }
 
 @media (min-width: $tablet-max) {
