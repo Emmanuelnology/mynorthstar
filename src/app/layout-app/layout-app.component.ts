@@ -28,6 +28,11 @@ export class LayoutAppComponent implements OnInit {
   ngOnInit() {
     this.user = this.authService.afAuth.auth.currentUser;
   }
+
+  disableProfileMenu($event) {
+    this.profileIsVisible = false;
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.menuIsVisible = true;
