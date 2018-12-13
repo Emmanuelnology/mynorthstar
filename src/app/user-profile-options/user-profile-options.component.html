@@ -13,7 +13,7 @@
       <div id="personal">
         <h3>Update profile</h3>
 
-        <form (ngSubmit)="updateClientName()">
+        <form>
           <div class="form-container">
             <fieldset>
               <label for="Name">New name: </label>
@@ -28,9 +28,9 @@
             </fieldset>
             <div class="button-container">
               <button
+                (click)="updateClientName()"  
                 [disabled]="newName == ''"
                 class="btn btn-open btn-turquoise"
-                onclick="document.getElementById('newName').value = ''"
                 type="submit"
                 id="submitNewName"
               >
@@ -40,12 +40,13 @@
           </div>
         </form>
    
-        <form (ngSubmit)="updateClientEmailAddress()">
+        <form >
           <div class="form-container">
             <fieldset>
               <label for="Email">New email: </label>
               <input
-                [(ngModel)]="newEmail"
+                
+              [(ngModel)]="newEmail"
                 type="email"
                 name="Email"
                 id="newEmail"
@@ -55,7 +56,8 @@
             </fieldset>
             <div class="button-container">
               <button
-                [disabled]="newEmail == ''"
+              (click)="updateClientEmailAddress()"  
+              [disabled]="newEmail == ''"
                 class="btn btn-open btn-turquoise"
                 onclick="document.getElementById('newEmail').value = ''" 
                 type="submit"
@@ -69,7 +71,7 @@
         <p *ngIf="successUpdateEmail" style="color:green; background-color: white">{{successUpdateEmail}}</p>
         <p *ngIf="errorUpdateEmail" style="color:red; background-color: white">{{errorUpdateEmail}}</p>
 
-        <form (ngSubmit)="updateClientImage()">
+        <form >
           <div class="form-container">       
             <div class="avatarPreviewContainer" *ngIf="newImage">
               <img src="{{newImage}}" id="displayNewImage" > 
@@ -88,6 +90,7 @@
             </fieldset>
             <div class="button-container">
               <button
+              (click)="updateClientImage()"
                 [disabled]="newImage == ''"
                 class="btn btn-open btn-turquoise"
                 onclick="document.getElementById('newImage').value = ''"
@@ -167,7 +170,7 @@
           </div>
         </form>
         
-        <form (ngSubmit)="updateClientPassword()">
+        <form >
           <div class="form-container">
             <fieldset>
               <label for="Password">Confirm password: </label>
@@ -185,9 +188,9 @@
 
             <div class="button-container">
               <button
-                [disabled]="!passwordy.valid || (passwordy.value != confirmyPasswordy.value)"
+              (click)="updateClientPassword()"
+              [disabled]="!passwordy.valid || (passwordy.value != confirmyPasswordy.value)"
                 class="btn btn-open btn-turquoise"
-                onclick="document.getElementById('newPassword').value = '' , document.getElementById('confirmPassword').value = ''"
                 type="submit"
                 id="submitNewPassword"
               >
