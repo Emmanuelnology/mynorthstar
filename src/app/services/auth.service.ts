@@ -67,10 +67,10 @@ export class AuthService {
     });
   }
 
-  updateLocation(userLocation: string){
-    console.log("accessed update location " + this.db.collection.name);
-    console.log("user id is " + this.afAuth.auth.currentUser.uid);
-    console.log("user email is " + this.afAuth.auth.currentUser.email);
+  updateLocation(userLocation: string) {
+    console.log('accessed update location ' + this.db.collection.name);
+    console.log('user id is ' + this.afAuth.auth.currentUser.uid);
+    console.log('user email is ' + this.afAuth.auth.currentUser.email);
     // this.userCollection = this.db.collection('userAttributes', (reference) => {
     //   console.log(reference
     //   .where('uid', '==', this.afAuth.auth.currentUser.uid));
@@ -78,7 +78,7 @@ export class AuthService {
    // );
     // var usercollectionabcds = this.db.collection("userAttributes").doc('test');
     // console.log("users are " + usercollectionabcds);
-    
+
   //  let bookCollection = this.db.collection('userAttributes');
   //  console.log("users are " + bookCollection);
 
