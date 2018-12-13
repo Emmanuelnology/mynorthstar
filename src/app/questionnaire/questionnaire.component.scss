@@ -427,3 +427,17 @@ input::-moz-range-track {
     margin-top: -100px;
 }
 }
+
+/* Safari 7.1+ */
+_::-webkit-full-page-media, _:future, :root .safari_only {
+    .all-html-questionnaire {
+        height: 140%;
+    }
+}
+
+/* Safari 10.1+ */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
+    .all-html-questionnaire {
+        height: 140%;
+    }
+}
