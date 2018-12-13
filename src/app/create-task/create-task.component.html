@@ -1,9 +1,9 @@
 <div class="createtask">
   <h3>Tasks:</h3>
   <div>
-    <form class="task-entry">
+    <form class="task-entry" (ngSubmit)="onSubmit(title)">
       <input [disabled]="addButtonDisabled" required #title name="new-task" class="input-box" id="new-task" [value]="taskTitle" placeholder="Enter Task">
-      <button [disabled]="taskCount >= 5 || addButtonDisabled" (click)="onSubmit(title)" type="submit" class="add-btn btn btn-open {{(taskCount >= 5) ? 'btn-disabled': 'btn-turquoise'}}">Add</button>
+      <button [disabled]="taskCount >= 5 || addButtonDisabled"  type="submit" class="add-btn btn btn-open {{(taskCount >= 5) ? 'btn-disabled': 'btn-turquoise'}}">Add</button>
     </form>
   </div>
 </div>
