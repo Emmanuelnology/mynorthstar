@@ -5,7 +5,7 @@
 .star-heading { 
   display: flex;
   width: 100%;
-  height: 5px;
+  height: 20px;
 
   .date {
     flex-grow:1;
@@ -54,9 +54,9 @@ p{
     margin: auto;
   }
   
-  .star-heading{
-    height: 5px;
-  }
+  // .star-heading{
+  //   height: 5px;
+  // }
   
 }
 
@@ -89,6 +89,7 @@ p{
   .star {
     width: 46vw;
     margin: 0;
+    margin-top: $s-md;
   }
   
   .welcome-text {
