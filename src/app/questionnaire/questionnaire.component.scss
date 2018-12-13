@@ -3,8 +3,6 @@
 .all-html-questionnaire {
     display: flex;
     flex-direction: row;
-    height: 100vh;
-    overflow: hidden;
 }
 
 .whole-check-list {
@@ -173,15 +171,15 @@ div.sendButton {
 }
 
 .progress-arc {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position:relative;
 }
 
 .progress-amount {
-    top: 40%;
-    left: 38%; //position % for centering score in IE 11. 
+    top: 41%;
+    left: 40%; //position % for centering score in IE 11. 
     z-index:1;
     position:absolute;
     margin-top: 0px;
@@ -194,11 +192,8 @@ div.sendButton {
     transform:rotate(180deg);
 }
 
-.question-brief {
-    display: block;
-    position: absolute;
-    width: 200px;
-    top: 320px;    
+.question-brief { 
+    margin-top:$s-sm;
 }
 
 @media only screen and (min-width: 894px) {
@@ -207,6 +202,9 @@ div.sendButton {
     }
     .right {
         display: block;
+        position:fixed;
+        top:$largeMenuWidth + $s-sm;
+        right:0;
     }
 }
 
@@ -249,7 +247,7 @@ div.check-list a {
 
 .progress-amount {
     position: absolute;
-    left: 42px;
+    left: 45px;
 }
 
 .score-flex > input {    
