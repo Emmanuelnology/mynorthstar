@@ -3,7 +3,7 @@
     <div id="mobile-arc" class="u-swapon-mobile">
       <div class="date">
         <p>Last star completed on:</p>
-        <p class="current-date">{{currentDate?.toDate() | date: "dd/MM/y"}}</p>
+        <p class="piped-date">{{currentDate?.toDate() | date: "dd/MM/y"}}</p>
       </div>
       <div class="mobile-arc" class="u-swapon-mobile">
         <app-progress-arc class="u-swapon-mobile" [score]="currentScore" color="turquoise" size="60"></app-progress-arc>
