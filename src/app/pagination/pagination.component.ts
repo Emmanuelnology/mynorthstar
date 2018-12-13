@@ -25,7 +25,6 @@ export class PaginationComponent implements OnInit {
   paginatedArray = [];
   x = 17;
 
-
   constructor(
       private questionnaireComponent: QuestionnaireComponent
   ) {
@@ -34,10 +33,9 @@ export class PaginationComponent implements OnInit {
     //   this.createPages(questions);
     }
 
-    lengthOfQ(questions) {
-        this.maxPages = questions.length / this.itemsPerPage;
-    }
-
+  lengthOfQ(questions) {
+    this.maxPages = questions.length / this.itemsPerPage;
+  }
 
   ngOnInit() {}
 
@@ -50,5 +48,6 @@ export class PaginationComponent implements OnInit {
         this.paginatedArray.push(eachPageArray);
     }
     questions = this.paginatedArray;
+    console.log(this.paginatedArray);
     }
 }

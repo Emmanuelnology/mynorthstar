@@ -28,13 +28,14 @@ export class QuestionnaireComponent implements OnInit {
         private router: Router,
         afs: AngularFirestore,
         private uploadToFirebase: FirebaseForQuestionnaire,
+        // private paginationComponent: PaginationComponent
         ) {
 
     }
 
     ngOnInit() {
         this.getQuestions();
-        // // this.questions = createPages(this.questions);
+        // this.questions = this.paginationComponent.createPages(this.questions);
         // console.log("Hello - ",this.paginationComponent.x);
     }
 
@@ -67,7 +68,7 @@ export class QuestionnaireComponent implements OnInit {
     getQuestions() {
        this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
-        // this.questions = createPages(this.questions);
+        // this.questions = this.paginationComponent.createPages(questions);
 
             // console.log('Questions:', questions[0].score);
             // this.onQuestionUpdate(questions);
