@@ -142,7 +142,7 @@ export class StarComponent implements AfterViewInit, OnInit {
     const gradient = ctx.createRadialGradient(
       middle,
       middle,
-      30,
+      middle * 0.1,
       middle,
       middle,
       middle * 0.8 );
@@ -153,6 +153,24 @@ export class StarComponent implements AfterViewInit, OnInit {
     gradient.addColorStop(1, Colors.Turquoise);
     return gradient;
   }
+
+  // createGradient(ctx, parentElement) {
+  //   const width =  parentElement.offsetWidth;
+  //   const middle = width / 2;
+  //   const gradient = ctx.createRadialGradient(
+  //     middle + 35,
+  //     middle,
+  //     (middle - 45) * 0.1,
+  //     middle + 35,
+  //     middle,
+  //     (middle - 45) * 0.8 );
+  //     console.log(width);
+  //   gradient.addColorStop(0, Colors.Red);
+  //   gradient.addColorStop(0.3, Colors.Purple);
+  //   gradient.addColorStop(0.7, Colors.Blue);
+  //   gradient.addColorStop(1, Colors.Turquoise);
+  //   return gradient;
+  // }
 
   overrideGradient() {
     const parentElement = document.getElementById(this.canvasID + '-parent');
