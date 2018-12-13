@@ -47,11 +47,13 @@ const routes: Routes = [
   // Test (TODO remove)
 
   { path: 'fbtd', component: FireBaseTestDisplayComponent},
+  { path: 'main-star', component: MainStarComponent, canActivate: [AuthGuard] },
 
   // Uunauthenticated routes
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'forgotten-password', component: ForgotPasswordComponent},
+  { path: 'error', component: ErrorsComponent },
 
   // Authenticated routes
   { path: 'questionnaire', component: QuestionnaireComponent, canActivate: [AuthGuard]  },
@@ -59,8 +61,6 @@ const routes: Routes = [
   { path: 'styles', component: StyleGuideComponent, canActivate: [AuthGuard] },
   { path: 'compare', component: CompareStarComponent, canActivate: [AuthGuard] },
   { path: '', component: MyStarComponent, canActivate: [AuthGuard]},
-  { path: 'error', component: ErrorsComponent },
-  { path: 'main-star', component: MainStarComponent },
   { path: 'user-profile', component: UserProfileOptionsComponent, canActivate: [AuthGuard] },
   { path: 'import', component: ImportComponent, canActivate: [AuthGuard] },
   { path: '**', component: ErrorsComponent, data: { error: 404 } }

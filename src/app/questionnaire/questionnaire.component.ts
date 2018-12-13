@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { IQuestion, Randomise, QuestionnaireService, FirebaseForQuestionnaire } from '../services/questionnaire.service';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { PaginationComponent } from '../pagination/pagination.component';
 
@@ -12,10 +12,11 @@ import { PaginationComponent } from '../pagination/pagination.component';
     styleUrls: ['./questionnaire.component.scss']
 })
 
-export class QuestionnaireComponent implements OnInit {
+export class QuestionnaireComponent implements OnInit, OnDestroy {
     environment = environment;
     downloadQuestions: IQuestion;
     questions = [];
+    questionSubscription: Subscription;
     ready = false;
     disabledButton = true;
     // paginationComponent: PaginationComponent;
@@ -34,6 +35,10 @@ export class QuestionnaireComponent implements OnInit {
         this.getQuestions();
         // // this.questions = createPages(this.questions);
         // console.log("Hello - ",this.paginationComponent.x);
+    }
+
+    ngOnDestroy() {
+        this.questionSubscription.unsubscribe();
     }
 
     randomiseAnswers() {
@@ -63,7 +68,7 @@ export class QuestionnaireComponent implements OnInit {
 
 
     getQuestions() {
-       this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
+       this.questionSubscription = this.uploadToFirebase.getAllQuestions().subscribe((questions) => {
         this.questions = this.rand.randomiseOrder(questions);
         // this.questions = createPages(this.questions);
 
