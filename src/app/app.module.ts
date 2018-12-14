@@ -66,7 +66,7 @@ const routes: Routes = [
   { path: '**', component: ErrorsComponent, data: { error: 404 } }
 ];
 
-import { ClickOutsideModule } from 'ng-click-outside';
+// import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -101,7 +101,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     BrowserModule,
     Ng2ArcProgressModule,
     FormsModule,
-    ClickOutsideModule,
+    // ClickOutsideModule,
     RouterModule.forRoot(
       routes,
       {
