@@ -123,9 +123,9 @@ export class StarComponent implements AfterViewInit, OnInit {
       if (data.hasOwnProperty(key)) {
         if (data[key] < 2) {
           dataSetColors[key] = Colors.Red;
-        } else if (data[key] < 6) {
+        } else if (data[key] < 5) {
           dataSetColors[key] = Colors.Purple;
-        } else if (data[key] < 9) {
+        } else if (data[key] < 8) {
           dataSetColors[key] = Colors.Blue;
         } else  {
           dataSetColors[key] = Colors.Turquoise;
@@ -169,11 +169,11 @@ export class StarComponent implements AfterViewInit, OnInit {
       webWidth * 0.05,
       Xmiddle,
       Ymiddle,
-      webWidth * 0.5 );
+      webWidth * 0.45 );
       console.log(width);
     gradient.addColorStop(0, Colors.Red);
-    gradient.addColorStop(0.3, Colors.Purple);
-    gradient.addColorStop(0.7, Colors.Blue);
+    gradient.addColorStop(0.31, Colors.Purple);
+    gradient.addColorStop(0.69, Colors.Blue);
     gradient.addColorStop(1, Colors.Turquoise);
     return gradient;
   }
