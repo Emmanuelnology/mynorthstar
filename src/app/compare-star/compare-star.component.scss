@@ -81,6 +81,10 @@ p {
     margin: auto;
 }
 
+// .main-content {
+//     min-height: 100vh;
+// }
+
 @media only screen and (min-width: 505px) {
   #star-arc {
     width: 60vw;
@@ -99,14 +103,18 @@ p {
         display: none;
     }
 
+    // min-height set on layout in order to remove additional padding at page bottom
+    // Original source of padding not yet found||fixed 
+
     #layout {
         // border: red solid 2px;
         display: flex;
         flex-direction: row;
+        min-height: 52vw;
     }
 
     #star-arc {
-        width: 65vw;
+        max-width: 58vw;
         margin: 0;
         height: 50px;
         // border: red solid 2px;
@@ -118,7 +126,8 @@ p {
     }
     
     #history {
-        margin-left: $s-lg;
+        margin-left: $s-sm;
+        max-width: 30vw;
         // border: red solid 2px;
     }
 
