@@ -18,8 +18,8 @@ export class CompareStarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
-  currentData: IDataSet = {label: 'remove', data: []};
-  emptyData: IDataSet = {label: 'remove', data: []};
+  currentData: IDataSet = {label: '', data: []};
+  emptyData: IDataSet = {label: '', data: []};
   animation = 0;
   currentScore: number;
   user: firebase.User;
@@ -147,7 +147,7 @@ export class CompareStarComponent implements OnInit, OnDestroy, AfterViewInit {
         this.data.datasets[index + 1] = this.pastData[index];
       }
     } else {
-      this.data.datasets[0].label = 'remove';
+      this.data.datasets[0].label = '';
       this.data.datasets.splice(1);
     }
     this.mainStarViewChild.starData = this.data.datasets;
