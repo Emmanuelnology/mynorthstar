@@ -175,15 +175,14 @@ div.sendButton {
 }
 
 .progress-arc {
-    display: block;
-    align-items: center;
-    justify-content: center;
     position:relative;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
 }
 
 .progress-amount {
-    top: 41%;
-    left: 40%; //position % for centering score in IE 11. 
     z-index:1;
     position:absolute;
     margin-top: 0px;
@@ -191,6 +190,16 @@ div.sendButton {
     color: white;
     text-align: center;
 }
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .progress-amount {
+        top: 41%; 
+        left: 45%;
+    }
+
+}
+
 
 .progress-component {
     transform:rotate(180deg);
@@ -225,10 +234,10 @@ div.check-list a {
 }
 
 .progress-arc {
-    border: 5px solid $turquoise;
+    border: 8px solid $turquoise;
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 180px;
+    width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -239,7 +248,7 @@ div.check-list a {
 
 .progress-amount {
     position: absolute;
-    left: 45px;
+    left: 55px;
 }
 
 .score-flex > input {    
@@ -288,7 +297,7 @@ input[type=range]:focus::-ms-fill-upper {
 .question-brief {
     position: absolute;
     width: 200px;
-    top: 190px;  
+    top: 200px;  
 }
 }
 
@@ -318,10 +327,10 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .progress-arc {
-    border: 5px solid $turquoise;
+    border: 8px solid $turquoise;
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 180px;
+    width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -330,13 +339,13 @@ input[type=range]:focus::-ms-fill-upper {
 
 .progress-amount {
     position: absolute;
-    left: 42px;
+    left: 55px;
 }
 
 .question-brief {
     position: absolute;
-    width: 200px;
-    top: 290px;  
+    width: 220px;
+    // top: 290px;  
 }
 
 }
@@ -395,6 +404,7 @@ input::-moz-range-track {
     width: 20%;
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 5%;
 }
 
 .progress-arc {
@@ -404,7 +414,7 @@ input::-moz-range-track {
 .question-brief {
     display: block;
     position: relative;
-    width: 200px;
+    width: 250px;
     top: 0;
     margin-top: -100px;
 }
