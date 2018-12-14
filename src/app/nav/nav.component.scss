@@ -1,5 +1,9 @@
 @import '../../variables.scss';
 
+.hideMenu {
+  width:0;
+  overflow:hidden;
+}
 
 nav {
   background-color: $nav-color;
@@ -8,6 +12,7 @@ nav {
   margin-top: $largeMenuWidth;
   width: $smallMenuWidth;
   position:fixed;
+  transition: 0.5s;
 }
 
 
@@ -47,6 +52,7 @@ nav .active {
 @media (min-width: $tablet-min) {
   nav {
     width: $largeMenuWidth;
+    transition: 0.5s;
   }
 }
 

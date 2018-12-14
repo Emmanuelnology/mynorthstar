@@ -32,7 +32,7 @@
     </div>
   </header>
   <div class="wrapper">
-    <app-nav class="menu {{ (menuIsVisible) ? '':'hideMenu'}}"></app-nav>
+    <app-nav [menuIsVisible]="menuIsVisible" class="menu {{ (menuIsVisible) ? '':'hideMenu'}}"></app-nav>
     <main class="f-grow content">
       <ng-content></ng-content>
     </main>

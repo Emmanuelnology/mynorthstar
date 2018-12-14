@@ -166,7 +166,7 @@ export class StarComponent implements AfterViewInit, OnInit {
     const gradient = ctx.createRadialGradient(
       Xmiddle,
       Ymiddle,
-      webWidth * 0.1,
+      webWidth * 0.05,
       Xmiddle,
       Ymiddle,
       webWidth * 0.5 );
