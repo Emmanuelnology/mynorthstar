@@ -2,40 +2,16 @@
   <div class="item-wrapper">
     <ul>
       <div *ngFor="let task of tasks | async; let i = index">
-        <div [hidden]="task.isChecked === true">
-          <li class="list-item">
-            <div class="taskitem-checkbox">
-              <label>
-                <div [hidden]="task.isChecked === true" (click)="task.isChecked = !task.isChecked" 
-                  (click)="checked(task)" class="unchecked">
+        
+        <div [hidden]="task.isChecked === true ">
+          <!-- unchecked and overdue -->
+          <div [hidden]=" task.isOverdue === false">
+            <li class="list-item1">
+              <div class="taskitem-checkbox">
+                <label>
+                  <div [hidden]="task.isChecked === true && task.isOverdue === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)"
+                  class="unchecked1">
                   <i class="unticked far fa-square"></i>
-                </div>
-                <!-- <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)"
-                  class="checked">
-                  <i class="ticked far fa-check-square"></i>
-                </div> -->
-              </label>
-                <p>{{ task.task }}</p>
-                <p [hidden]="task.isOverdue === false">Overdue</p>
-              </div>
-            <div class="delete-task">
-              <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
-            </div>
-          </li>
-
-        </div>
-
-        <div [hidden]="task.isChecked === false">
-          <li class="list-item2">
-            <div class="taskitem-checkbox">
-              <label>
-                <!-- <div [hidden]="task.isChecked === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)"
-                  class="unchecked">
-                  <i class="unticked far fa-square"></i>
-                </div> -->
-                <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)"
-                  class="checked">
-                  <i class="ticked far fa-check-square"></i>
                 </div>
               </label>
               <p>{{ task.task }}</p>
@@ -45,7 +21,46 @@
             </div>
           </li>
         </div>
+        
+        <!-- unchecked and not overdue -->
+        <div [hidden]="task.isOverdue === true ">
+          <li class="list-item3">
+            <div class="taskitem-checkbox">
+              <label>
+                <div [hidden]="task.isChecked === true && task.isOverdue === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="unchecked2">
+                  <i class="unticked far fa-square"></i>
+                </div>
+              </label>
+              <div>
+                <p>{{ task.task }}</p>
+              </div>
+            </div>
+            <div class="delete-task">
+              <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
+            </div>
+          </li>
+        </div>
       </div>
-    </ul>
-  </div>
+        
+        <!-- checked -->
+        <div [hidden]="task.isChecked === false">
+          <li class="list-item2">
+            <div class="taskitem-checkbox">
+              <label>
+                <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)"
+                class="checked">
+                <i class="ticked far fa-check-square"></i>
+              </div>
+            </label>
+            <p>{{ task.task }}</p>
+          </div>
+          <div class="delete-task">
+            <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
+          </div>
+        </li>
+      </div>
+      
+    </div>
+  </ul>
+</div>
 </div>
