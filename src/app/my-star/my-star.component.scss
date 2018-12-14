@@ -82,8 +82,12 @@ p{
     margin: 0;
   }
   
-  #current-date {
-    letter-spacing: 4px;
+  .star-heading {
+    .date {
+      #piped-date {
+      letter-spacing: 4px;
+      }
+    }
   }
   
   .star {
