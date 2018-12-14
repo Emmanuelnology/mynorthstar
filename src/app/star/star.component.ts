@@ -9,6 +9,70 @@ enum Colors {
   Turquoise = 'rgb(0,255,213)'
 }
 
+interface IGradientData {
+  canvas: CanvasRenderingContext2D;
+  width: number;
+  stopPoints: number[];
+  colors: typeof Colors;
+  labelBreakpoint: number;
+}
+
+class Gradient {
+  private width: number;
+  private y: number;
+  smallRadius: number;
+  bigRadius: number;
+  private breakpoint: number;
+
+  constructor(private data: IGradientData) {
+    this.width = data.width;
+    this.y = this.width / 2;
+    this.smallRadius = 0.05;
+    this.bigRadius = 0.45;
+    this.breakpoint = this.data.labelBreakpoint;
+  }
+
+  private hasLabels() {
+    return (window.innerWidth > this.breakpoint);
+  }
+
+  private get x() {
+    return (this.hasLabels()) ? this.y + 35 : this.y;
+  }
+
+  private modifyWidthForLabels(width) {
+    return (this.hasLabels()) ? width - 155 : width;
+  }
+
+  private get innerRadius() {
+    // 155 only works for the labels in the order that they are currently in
+    const width = this.modifyWidthForLabels(this.width);
+    return width * this.smallRadius;
+  }
+
+  private get outerRadius() {
+    const width = this.modifyWidthForLabels(this.width);
+    return width * this.bigRadius;
+  }
+
+  create() {
+    const canvasGradient = this.data.canvas.createRadialGradient(
+      this.x,
+      this.y,
+      this.innerRadius,
+      this.x,
+      this.y,
+      this.outerRadius
+      );
+    canvasGradient.addColorStop(this.data.stopPoints[0], this.data.colors.Red);
+    canvasGradient.addColorStop(this.data.stopPoints[1], this.data.colors.Purple);
+    canvasGradient.addColorStop(this.data.stopPoints[2], this.data.colors.Blue);
+    canvasGradient.addColorStop(this.data.stopPoints[3], this.data.colors.Turquoise);
+    return canvasGradient;
+  }
+
+}
+
 interface ICanvas extends HTMLElement {
   getContext(context: string);
 }
@@ -289,66 +353,4 @@ export class StarComponent implements AfterViewInit, OnInit {
 
 }
 
-interface IGradientData {
-  canvas: CanvasRenderingContext2D;
-  width: number;
-  stopPoints: number[];
-  colors: typeof Colors;
-  labelBreakpoint: number;
-}
 
-class Gradient {
-  private width: number;
-  private y: number;
-  smallRadius: number;
-  bigRadius: number;
-  private breakpoint: number;
-
-  constructor(private data: IGradientData) {
-    this.width = data.width;
-    this.y = this.width / 2;
-    this.smallRadius = 0.05;
-    this.bigRadius = 0.45;
-    this.breakpoint = this.data.labelBreakpoint;
-  }
-
-  private hasLabels() {
-    return (window.innerWidth > this.breakpoint);
-  }
-
-  private get x() {
-    return (this.hasLabels()) ? this.y + 35 : this.y;
-  }
-
-  private modifyWidthForLabels(width) {
-    return (this.hasLabels()) ? width - 155 : width;
-  }
-
-  private get innerRadius() {
-    // 155 only works for the labels in the order that they are currently in
-    const width = this.modifyWidthForLabels(this.width);
-    return width * this.smallRadius;
-  }
-
-  private get outerRadius() {
-    const width = this.modifyWidthForLabels(this.width);
-    return width * this.bigRadius;
-  }
-
-  create() {
-    const canvasGradient = this.data.canvas.createRadialGradient(
-      this.x,
-      this.y,
-      this.innerRadius,
-      this.x,
-      this.y,
-      this.outerRadius
-      );
-    canvasGradient.addColorStop(this.data.stopPoints[0], this.data.colors.Red);
-    canvasGradient.addColorStop(this.data.stopPoints[1], this.data.colors.Purple);
-    canvasGradient.addColorStop(this.data.stopPoints[2], this.data.colors.Blue);
-    canvasGradient.addColorStop(this.data.stopPoints[3], this.data.colors.Turquoise);
-    return canvasGradient;
-  }
-
-}
