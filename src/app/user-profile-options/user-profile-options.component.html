@@ -90,7 +90,7 @@
             </fieldset>
             <div class="button-container">
               <button
-              (click)="updateClientImage()"
+                (click)="updateClientImage()"
                 [disabled]="newImage == ''"
                 class="btn btn-open btn-turquoise"
                 onclick="document.getElementById('newImage').value = ''"
@@ -108,7 +108,7 @@
         </div> -->
 
 
-        <form (ngSubmit)="updateClientLocation()">
+        <form>
           <div class="form-container">
             <fieldset>
               <label for="location"> Location: </label>
@@ -123,6 +123,7 @@
             </fieldset>
             <div class="button-container">
               <button
+                (click)="updateClientLocation()"
                 [disabled]="newLocation == ''"
                 class="btn btn-open btn-turquoise"
                 onclick="document.getElementById('newLocation').value = ''"
