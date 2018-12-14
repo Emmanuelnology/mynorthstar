@@ -1,8 +1,9 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { UploadToFirebase } from '../services/questionnaire.service';
+import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { FirebaseForQuestionnaire } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import { MainStarComponent, IDataSet } from '../main-star/main-star.component';
 import {Router} from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
   templateUrl: './my-star.component.html',
   styleUrls: ['./my-star.component.scss']
 })
-export class MyStarComponent implements OnInit {
+export class MyStarComponent implements OnInit, OnDestroy {
   @ViewChild(MainStarComponent) mainStarViewChild: MainStarComponent;
 
   questions;
@@ -20,11 +21,12 @@ export class MyStarComponent implements OnInit {
   labels: string [] = [];
   user;
   currentDate;
+  starSubscription: Subscription;
   ready = false;
 
   constructor(
     private authService: AuthService,
-    private firebase: UploadToFirebase,
+    private firebase: FirebaseForQuestionnaire,
     private router: Router
    ) {
     this.user = this.authService.user;
@@ -54,9 +56,13 @@ export class MyStarComponent implements OnInit {
     this.datasets.push(data);
   }
 
+  ngOnDestroy() {
+    this.starSubscription.unsubscribe();
+  }
+
   ngOnInit() {
 
-    this.firebase.getRecent(this.user, 1).subscribe((results) => {
+    this.starSubscription = this.firebase.getRecent(this.user, 1).subscribe((results) => {
       if (results.length > 0) {
 
       this.restructureData(results[0].categoryResults);

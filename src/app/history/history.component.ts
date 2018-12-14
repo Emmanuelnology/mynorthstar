@@ -1,17 +1,18 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { UploadToFirebase } from '../services/questionnaire.service';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { FirebaseForQuestionnaire } from '../services/questionnaire.service';
 import { AuthService } from '../services/auth.service';
 import {Router} from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.scss']
 })
-export class HistoryComponent implements OnInit {
+export class HistoryComponent implements OnInit, OnDestroy {
 
   user;
-
+  recentHistory: Subscription;
   @Output() checked = new EventEmitter <number[]>();
 
   public pastDataProfile = [];
@@ -29,12 +30,16 @@ export class HistoryComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private firebase: UploadToFirebase) {
+    private firebase: FirebaseForQuestionnaire) {
     this.user = this.authService.user;
   }
 
+  ngOnDestroy() {
+    this.recentHistory.unsubscribe();
+  }
+
   ngOnInit() {
-    this.firebase.getRecent(this.user, 6).subscribe((results) => {
+    this.recentHistory = this.firebase.getRecent(this.user, 6).subscribe((results) => {
       if (results.length > 0) {
         results.shift();
         for (const index in results) {

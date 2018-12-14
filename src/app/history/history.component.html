@@ -24,8 +24,8 @@
           {{ data.score | number: "1.0-2" }}
         </p>
       </div>
-      <div (click)="data.isActive = !data.isActive" (click)="findActive()" class="{{data.isActive?'active':'inactive'}}">
-        <i class="far {{data.isActive?'fa-check-square':'fa-square'}}"></i>
+      <div class="{{data.isActive?'active':'inactive'}}">
+        <i (click)="data.isActive = !data.isActive" (click)="findActive()" class="far {{data.isActive?'fa-check-square':'fa-square'}}"></i>
       </div>
     </div>
   </div>

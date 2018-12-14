@@ -1,17 +1,13 @@
 @import "../../variables.scss";
 
-.task-container {
-    padding: $s-sm;
-}
-
 .tasklist {
     padding: 0 $s-sm;
 }
 
-.list-item {
+.list-item1 {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     border: 1px solid $pink;
     border-radius: 5px;
@@ -21,62 +17,76 @@
 .list-item2 {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     border: 1px solid $turquoise;
     border-radius: 5px;
     background-color: $turquoise-tint;
 }
 
-.test {
+.list-item3 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border: 1px solid $pink;
+    border-radius: 5px;
+    background-color: $pink-tint
+}
+
+.taskitem-checkbox {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-    
+
 li {
     font-size: $f-md;
     list-style-type: none;
     vertical-align: top;
     margin: $s-sm 0;
-    padding: 0 10px;
 }
 
 label {
     position: relative;
 }
 
-.unchecked, .checked {
+.unchecked,
+.checked {
     font-size: $f-md;
 }
 
-.unchecked {
+.unchecked1 {
     color: $pink;
+}
+
+.unchecked2 {
+    color:  $pink;
 }
 
 .checked {
     color: $turquoise;
 }
 
-.checked:hover,
-.unchecked:hover {
-    cursor: pointer;
-}
-
-.ticked, .unticked {
+.unticked,
+.ticked {
     margin: $ls-xs $ls-sm;
 }
 
+.unticked:hover,
+.ticked:hover {
+    cursor: pointer;
+}
+
 .unticked:hover {
-    background-color: rgba(176, 32, 98, 0.2);
+    background-color: $pink-tint;
 }
 
 .ticked:hover {
     background-color: $turquoise-tint;
-    background: fill;
 }
 
-button {
+#remove-task {
     font-size: $f-xs;
 	background: none;
 	color: $pink;
@@ -87,6 +97,27 @@ button {
     outline: inherit;
 }
 
-button:hover {
-    background-color: rgba(176, 32, 98, 0.2);
+#remove-task:hover {
+    background-color: $pink-tint;
+}
+
+.delete-task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#overdue {
+    float: right;
+    font-size: $f-md;
+	background: none;
+	color: $pink;
+    border: none;
+    margin: $ls-xs $ls-sm;
+	padding: 2px 5px;
+    outline: inherit;
+}
+
+.spacing {
+    width: 70px;
 }

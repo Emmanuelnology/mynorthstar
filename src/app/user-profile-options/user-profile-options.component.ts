@@ -8,6 +8,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
   templateUrl: './user-profile-options.component.html',
   styleUrls: ['./user-profile-options.component.scss']
 })
+
+
 export class UserProfileOptionsComponent implements OnInit {
   newName = '';
 
@@ -16,6 +18,8 @@ export class UserProfileOptionsComponent implements OnInit {
   errorUpdateEmail = '';
 
   newImage = '';
+
+  newLocation = '';
 
   newPassword = '';
   successChangePassword = '';
@@ -69,6 +73,9 @@ export class UserProfileOptionsComponent implements OnInit {
     this.authService.changeImage(this.newImage);
     this.newImage = '';
   }
+
 }
+
+
 
 

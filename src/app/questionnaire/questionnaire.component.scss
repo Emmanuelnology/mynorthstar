@@ -3,13 +3,16 @@
 .all-html-questionnaire {
     display: flex;
     flex-direction: row;
-    height: 100%;
 }
 
 .whole-check-list {
+    position: fixed;
     display: flex;
     flex-basis: 10px;
     margin: 0;
+    padding-bottom: $largeMenuWidth;
+    width: 10px;
+    height: 100vh;
 }
 
 .check-list {
@@ -137,7 +140,7 @@ div.container p {
 }
 
 .scoring-filler::-webkit-slider-thumb { //filler
-    box-shadow: 1000px 0 0 1000px $nav-color;
+    box-shadow: 1000px 0 0 0 $nav-color;
     width: 0;
     height: 0;
 }
@@ -150,6 +153,12 @@ div.container p {
     cursor: pointer;
     box-shadow: 0 0 60px 1px white;
     background: white;
+}
+
+.scoring-filler[type=range]::-webkit-slider-thumb {
+    box-shadow: 1000px 0 0 1000px $nav-color;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 div.sendButton {
@@ -166,32 +175,38 @@ div.sendButton {
 }
 
 .progress-arc {
+    position:relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
 }
 
 .progress-amount {
-    top: 45%;
-    left: 38%; //position % for centering score in IE 11. 
     z-index:1;
     position:absolute;
-    margin-top: -2px;
+    margin-top: 0px;
     font-size: 24px;
     color: white;
     text-align: center;
 }
 
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .progress-amount {
+        top: 41%; 
+        left: 45%;
+    }
+
+}
+
+
 .progress-component {
     transform:rotate(180deg);
 }
 
-.question-brief {
-    display: block;
-    position: absolute;
-    width: 200px;
-    top: 320px;    
+.question-brief { 
+    margin-top:$s-sm;
 }
 
 @media only screen and (min-width: 894px) {
@@ -200,49 +215,57 @@ div.sendButton {
     }
     .right {
         display: block;
+        position:fixed;
+        top:$largeMenuWidth + $s-sm;
+        right:0;
     }
 }
 
+// Internet Explorer ------------------------------------------------------------------
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .whole-check-list {
-    display: flex;
-    flex-basis: 10px;
-    margin: 0;
-}
 
-.check-list {
-    height: 40vw;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
 div.check-list a {
     flex-grow: 1;
 }
 
+.progress-component {
+    display: none;
+}
+
+.progress-arc {
+    border: 8px solid $turquoise;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: absolute;
+    left: 8%;
+}
+
+.progress-amount {
+    position: absolute;
+    left: 55px;
+}
 
 .score-flex > input {    
-    height: 21px;
+    height: 7px;
 }
 
 input[type=range]::-ms-track {
-    
-    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
     background: transparent;
-    
-    /*leave room for the larger thumb to overflow with a transparent border */
-    border-top: 7px $nav-color solid;
-    border-bottom: 7px $nav-color solid;
-
-    /*remove default tick marks*/
+    border-top: 0px $nav-color solid;
+    border-bottom: 0px $nav-color solid;
     color: transparent;
 }
 
 .scoring-filler[type=range]::-ms-thumb { // filler
     box-shadow: 1000px 0 0 1000px $nav-color;
     width: 0;
-    height: 0;
+    height: 40px;
 }
 
 .scoring-blob[type=range]::-ms-thumb { // actual blob
@@ -262,54 +285,79 @@ input[type=range]:focus::-ms-fill-upper {
     background: $nav-color
 }
 
-// .whole-questionnaire {
-//     display: inline-block;
-//     flex-direction: row;
-//     flex-grow: 1;
-// }
-
-
 .right {
     position: fixed;
     right: 0;
-     top: 100px;
-
+    top: 100px;
     width: 20%;
     margin-left: 5%;
     margin-right: 5%;
 }
 
 .question-brief {
-
     position: absolute;
     width: 200px;
-    top: 220px;
-  
+    top: 200px;  
+}
+}
+
+// Edge -------------------------------------------------------------
+
+@supports (-ms-ime-align: auto) {
+
+.scoring-filler::-webkit-slider-thumb { //filler
+    box-shadow: 1000px 0 0 1000px $nav-color;
+    width: 0;
+    height: 0;
+}
+
+.scoring-blob::-webkit-slider-thumb { //actual blob
+    overflow: auto;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 white;
+    background: white;
+}
+
+.progress-component {
+    display: none;
+}
+
+.progress-arc {
+    border: 8px solid $turquoise;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto auto 25px;
+}
+
+.progress-amount {
+    position: absolute;
+    left: 55px;
+}
+
+.question-brief {
+    position: absolute;
+    width: 220px;
+    // top: 290px;  
 }
 
 }
 
+// FireFox ----------------------------------------------------------
 
 @-moz-document url-prefix() {
-
-
-
-    .whole-check-list {
-        height: 100%;
-
-
-    margin: 0;
-}
-
-
-div.check-list a {
-    height: 10px;
-}
-
 
 .score-flex > input {    
     height: 7px;
     outline: none;
+    border: 0;
     // border-radius: 5px;
     -moz-appearance: none;
     position: absolute;
@@ -320,20 +368,18 @@ div.check-list a {
 
 .scoring-filler {
     overflow: hidden;
-    background-color: red;
 }
 
 .scoring-blob {
     background-color: transparent;
-
 }
 
 input::-moz-range-track {
     background-color: transparent;
+    border: 0;
 }
 
 .scoring-filler::-moz-range-thumb { //filler
-    background-color: red;
     box-shadow: 1000px 0 0 1000px $nav-color;
     width: 0;
     height: 0;
@@ -348,8 +394,42 @@ input::-moz-range-track {
     cursor: pointer;
     box-shadow: 0 0 60px 5px white;
     background: white;
+    z-index: 10;
 }
 
+.right {
+    position: fixed;
+    right: 0;
+    top: 120px;
+    width: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
 }
 
+.progress-arc {
+    margin-top: -35px;
+}
 
+.question-brief {
+    display: block;
+    position: relative;
+    width: 250px;
+    top: 0;
+    margin-top: -100px;
+}
+}
+
+// /* Safari 7.1+ */
+// _::-webkit-full-page-media, _:future, :root .safari_only {
+//     .all-html-questionnaire {
+//         height: 140%;
+//     }
+// }
+
+// /* Safari 10.1+ */
+// @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
+//     .all-html-questionnaire {
+//         height: 140%;
+//     }
+// }

@@ -36,9 +36,9 @@ export class MainStarComponent implements OnInit, AfterViewInit {
       },
       layout: {
         padding: {
-          left: 0,
+          left: 5,
           top: 40,
-          right: 0,
+          right: 5,
           bottom: 40,
         }
       },
@@ -47,7 +47,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
         labels : {
           fontColor: 'white',
           filter: function (item, starData) {
-            return !item.text.includes('remove');
+            return item.text.length !== 0;
           }
         }
       },

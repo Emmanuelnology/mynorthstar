@@ -4,56 +4,59 @@
 
 #star {
     margin-bottom: $s-sm;
-}
-
-#mobile-arc {
-    text-align: right;
-    width: 100%;
-}
-
-#history {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    max-width: 90%;
-    margin: 0 auto;
-}
-
-#history-container,
-#message-container {
-    border: 2px solid $border-color;
-    border-radius: $s-sm;
-    padding: $s-sm;
-}
-
-#welcome-text {
-    display: none;
-}
-
-#message-container {
-    text-align: center;
-}
-
-p {
-    text-align: center;
-}
-
-#welcome-message {
-    text-align: justify;
-    margin-bottom: $s-md;
-}
-
-#tag {
-    margin-bottom: $s-sm;
+    margin-top: 0;
 }
 
 #mobile-arc {
     display: flex;
     width: 100%;
-    height: 0;
+    height: 20px;
     // border: solid 1px red;
     text-align: left;
 }
+
+#history {
+    max-width: 95%;
+    margin: 0 auto;
+
+    #message-container {
+        text-align: center;
+    }
+    
+    #history-container,
+    #message-container {
+        border: 2px solid $border-color;
+        border-radius: $s-sm;
+        padding: $s-sm;
+    }
+}
+
+
+#welcome {
+    display: none;
+    padding: 0 10px;
+
+    #welcome-message {
+        text-align: justify;
+        margin-bottom: $s-sm;
+    }
+
+    #tag-line {
+        margin-bottom: $s-sm;
+    }
+    
+    h6 {
+        text-align: center;
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+}
+
+p {
+    font-size: 10px;
+    margin: 0;
+}
+
 
 .date {
     flex-grow: 1;
@@ -62,6 +65,11 @@ p {
     p {
         text-align: left;
         padding-right: 10px;
+    }
+
+    .piped-date {
+        font-size: 10px;
+        letter-spacing: 2px;
     }
 }
 
@@ -73,12 +81,15 @@ p {
     margin: auto;
 }
 
+// .main-content {
+//     min-height: 100vh;
+// }
+
 @media only screen and (min-width: 505px) {
   #star-arc {
     width: 60vw;
   }
 }
-  
 
 @media only screen and (min-width: 768px) {
 
@@ -88,31 +99,44 @@ p {
         margin-top: 200px;
     }
 
+    #mobile-arc {
+        display: none;
+    }
+
+    // min-height set on layout in order to remove additional padding at page bottom
+    // Original source of padding not yet found||fixed 
+
     #layout {
         // border: red solid 2px;
         display: flex;
         flex-direction: row;
-    }
-
-    #star {
-        width: 55vw;
+        min-height: 52vw;
     }
 
     #star-arc {
-        width: 55vw;
+        max-width: 58vw;
         margin: 0;
+        height: 50px;
         // border: red solid 2px;
+
+        #star {
+            width: 45vw;
+            margin-top: $s-md;
+        }
     }
-
-    // HISTORY DIV HAS TEMP FIX OF 140% HEIGHT TO ALIGN CORRECTLY WITH CENTRE OF STAR //
-
+    
     #history {
-        width: 30vw;
+        margin-left: $s-sm;
+        max-width: 30vw;
         // border: red solid 2px;
     }
 
-    #welcome-text {
+    #welcome {
         display: block;
+
+        h6 {
+            font-size: 13px;
+        }
     }
 
     #tablet-arc {
@@ -122,7 +146,12 @@ p {
         height: 0;
     }
 
-    #mobile-arc {
-        display: none;
+    p {
+        font-size: 13px;
+    }
+
+    .date .piped-date {
+        font-size: 13px;
+        letter-spacing: 4px;
     }
 }

@@ -1,74 +1,94 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../task-manager/task';
+import { ITask, ITaskDownload, ITaskUpload } from '../task-manager/task';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
-
+import { Reference } from '@angular/compiler/src/render3/r3_ast';
 
 // Snapshot changes and then pipe map and return document ID.
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class TaskManagerService {
 
-    tasks: Observable<Task[]>;
-    taskCollection: AngularFirestoreCollection<Task>;
+    tasks: Observable<ITaskDownload[]>;
+    taskCollection: AngularFirestoreCollection<ITask>;
+    overdueCollection: AngularFirestoreCollection<ITaskDownload>;
 
     constructor(private db: AngularFirestore, private auth: AuthService) {
-        this.taskCollection = this.db.collection<Task>('tasks', (reference) => {
-           return reference
-           .where('userId', '==', this.auth.user.uid).orderBy('timestamp', 'desc');
+        this.taskCollection = this.db.collection<ITask>('tasks', (reference) => {
+            return reference
+            .where('userId', '==', this.auth.user.uid).orderBy('timestamp', 'desc');
+
+        });
+        this.overdueCollection = this.db.collection<ITaskDownload>('tasks', (ref) => {
+            return ref
+            .where('userId', '==', this.auth.user.uid);
         });
         this.tasks = this.taskCollection.snapshotChanges()
         .pipe(map(this.includeCollectionID));
     }
 
-    includeCollectionID(docChangeAction) {
+        includeCollectionID(docChangeAction) {
         return docChangeAction.map((a) => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return {id, ...data };
+            const data = a.payload.doc.data() as ITaskDownload;
+            const id = a.payload.doc.id;
+            const currentTimestamp = new Date().getMonth();
+            const previousTimestamp = data.timestamp.toDate().getMonth();
+            if (currentTimestamp - previousTimestamp >= 1) {
+                data.isOverdue = true;
+            }
+
+            return { id, ...data };
         });
     }
 
-    addTask(task: Task) {
+
+
+    addTask(task: ITaskUpload) {
         return this.taskCollection.add(task).catch(
             () => {
                 throw new Error('Unable to add user');
             }
-        );
-    }
+            );
+        }
 
-    getTask(taskId: string) {
-        let task: AngularFirestoreDocument<Task>;
-        task = this.taskCollection.doc<Task>(taskId);
-        return task.get().pipe(
-            map((snapshot) => {
-                return { id: taskId, ...snapshot.data() };
-        })
-      );
-    }
+        getTask(taskId: string) {
+            let task: AngularFirestoreDocument<ITaskDownload>;
+            task = this.taskCollection.doc<ITaskDownload>(taskId);
+            return task.get().pipe(
+                map((snapshot) => {
+                    return { id: taskId, ...snapshot.data() };
+                })
+                );
+            }
 
-    deleteTask(task: Task) {
-        this.taskCollection.doc(`${task.id}`).delete().then(function() {
-        }).catch(function(error) {
-            throw new Error('Did not delete!');
-        });
-    }
+            deleteTask(task: ITaskDownload) {
+                this.taskCollection.doc(`${task.id}`).delete()
+                .then(function() {
+                }).catch(function(error) {
+                    throw new Error('Did not delete!');
+                });
+            }
 
-    checked(task: Task) {
-        const payload = {
-            isChecked: task.isChecked,
-        };
-        this.taskCollection.doc(task.id).update(payload)
-        .then(() => {
-            console.log('updated tasks ' + task.task);
-        })
-        .catch((error) => {
-            console.log(error);
-            throw new Error('Unable to update user');
-        });
-    }
-}
+            checked(task: ITaskDownload) {
+                const payload = {
+                    isChecked: task.isChecked,
+                };
+                this.taskCollection.doc(task.id).update(payload)
+                .then(() => {
+                    console.log('updated tasks ' + task.task);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    throw new Error('Unable to update user');
+                });
+            }
+
+
+        }
+
+
+

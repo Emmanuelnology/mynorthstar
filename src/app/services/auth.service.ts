@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 export interface IUser {
@@ -15,9 +15,9 @@ export interface IUser {
 })
 
 export class AuthService {
-
+  userCollection: AngularFirestoreCollection;
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
-
+    this.userCollection = this.db.collection('userAttributes');
   }
 
   get user() {

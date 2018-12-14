@@ -1,9 +1,11 @@
  // IF COLOURS ARE CHANGED HERE THEY MUST ALSO BE CHANGED IN COLOURS.TS IN SRC FOLDER //
  $purple: #37234f;
+ $purple-tint: rgba(55, 35, 79, 0.2);
  $blue: #003864;
  $pink: #b02062;
  $pink-tint: rgba(176, 32, 98, 0.2);
  $lilac: #65449b;
+ $lilac-tint: rgba(101, 68, 155, 0.2);
  $turquoise: #6ecbd3;
  $turquoise-tint: 	rgba(110, 203, 211,0.2);
  $navy: #1b2949;
@@ -59,35 +61,35 @@
  @mixin media-sm {
     h1 {
         font-size: $f-md;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
     }
     h2 {
         font-size: $f-sm;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
         text-transform: uppercase;
         font-weight: normal;
     }
     h3 {
         font-size: $f-xs;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
         text-transform: uppercase;
         font-weight: normal;
     }
     h4 {
         font-size: $f-xs;
-        letter-spacing: $ls-xs;
+        // letter-spacing: $ls-xs;
         text-transform: uppercase;
         font-weight: normal;
     }
     h5 {
         font-size: $f-xs;
-        letter-spacing: $ls-xs;
+        // letter-spacing: $ls-xs;
         text-transform: uppercase;
         font-weight: normal;
     }
     h6 {
         font-size: $f-xs;
-        letter-spacing: $ls-xs;
+        // letter-spacing: $ls-xs;
         text-transform: uppercase;
         font-weight: normal;
     }
@@ -101,35 +103,35 @@
 @mixin media-md {
     h1 {
         font-size: $f-md;
-        letter-spacing: $ls-md;
+        // letter-spacing: $ls-md;
     }
     h2 {
         font-size: $f-md;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
         text-transform: uppercase;
         font-weight: normal;
     }
     h3 {
         font-size: $f-sm;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
         text-transform: uppercase;
         font-weight: normal;
     }
     h4 {
         font-size: $f-xs;
-        letter-spacing: $ls-xs;
+        // letter-spacing: $ls-xs;
         text-transform: uppercase;
         font-weight: normal;
     }
     h5 {
         font-size: $f-xs;
-        letter-spacing: $ls-xs;
+        // letter-spacing: $ls-xs;
         text-transform: uppercase;
         font-weight: normal;
     }
     h6 {
         font-size: $f-xs;
-        letter-spacing: $ls-xs;
+        // letter-spacing: $ls-xs;
         text-transform: uppercase;
         font-weight: normal;
     }
@@ -143,35 +145,35 @@
 @mixin media-lg {
     h1 {
         font-size: $f-xl;
-        letter-spacing: $ls-lg;
+        // letter-spacing: $ls-lg;
     }
     h2 {
         font-size: $f-lg;
-        letter-spacing: $ls-md;
+        // letter-spacing: $ls-md;
         text-transform: uppercase;
         font-weight: normal;
     }
     h3 {
         font-size: $f-md;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
         text-transform: uppercase;
         font-weight: normal;
     }
     h4 {
         font-size: $f-sm;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
         text-transform: uppercase;
         font-weight: normal;
     }
     h5 {
         font-size: $f-sm;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
         text-transform: uppercase;
         font-weight: normal;
     }
     h6 {
         font-size: $f-sm;
-        letter-spacing: $ls-sm;
+        // letter-spacing: $ls-sm;
         text-transform: uppercase;
         font-weight: normal;
     }

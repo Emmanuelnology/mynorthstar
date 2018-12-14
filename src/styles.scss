@@ -110,6 +110,7 @@ h1 {
     display:inline-block;
     text-transform: uppercase;
     font-weight: normal;
+    letter-spacing: normal;
 }
 
 // h2 {
@@ -164,8 +165,6 @@ span, p {
 
 .main-content {
     padding:$s-sm;
-    overflow-y: scroll;
-    height:100vh;
 }
 
 @media only screen and (min-width:$tablet-max){
