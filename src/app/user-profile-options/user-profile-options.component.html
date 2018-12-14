@@ -102,40 +102,6 @@
             </div>
           </div>
         </form>
-        <!-- <div *ngIf="newImage" id="newImagePreviewContainer">
-          <p>Preview:</p>
-          <div id="displayNewImage" class="circle-border" [ngStyle]="{'background-image' : 'url(' + newImage + ')'}"></div>
-        </div> -->
-
-
-        <form>
-          <div class="form-container">
-            <fieldset>
-              <label for="location"> Location: </label>
-              <input
-                [(ngModel)]="newLocation"
-                type="location"
-                name="location"
-                id="newLocation"
-                class="input-box"
-                required
-              >
-            </fieldset>
-            <div class="button-container">
-              <button
-                (click)="updateClientLocation()"
-                [disabled]="newLocation == ''"
-                class="btn btn-open btn-turquoise"
-                onclick="document.getElementById('newLocation').value = ''"
-                type="submit"
-                id="submitNewLocation"
-              >
-                Update location
-              </button>
-            </div>
-          </div>
-        </form>
-        <p>Location is {{newLocation}}</p>
       </div>
 
       <div id="password">
