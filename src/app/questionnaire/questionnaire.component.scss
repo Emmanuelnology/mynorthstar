@@ -6,9 +6,13 @@
 }
 
 .whole-check-list {
+    position: fixed;
     display: flex;
     flex-basis: 10px;
     margin: 0;
+    padding-bottom: $largeMenuWidth;
+    width: 10px;
+    height: 100vh;
 }
 
 .check-list {
@@ -211,18 +215,6 @@ div.sendButton {
 // Internet Explorer ------------------------------------------------------------------
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-.whole-check-list {
-    display: flex;
-    flex-basis: 10px;
-    margin: 0;
-}
-
-.check-list {
-    height: 40vw;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
 
 div.check-list a {
     flex-grow: 1;
@@ -352,14 +344,6 @@ input[type=range]:focus::-ms-fill-upper {
 // FireFox ----------------------------------------------------------
 
 @-moz-document url-prefix() {
-    .whole-check-list {
-    height: 100%;
-    margin: 0;
-}
-
-div.check-list a {
-    height: 10px;
-}
 
 .score-flex > input {    
     height: 7px;
