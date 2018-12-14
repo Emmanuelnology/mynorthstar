@@ -1,11 +1,76 @@
 import { Component, Input, AfterViewInit, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
 import { Chart, ChartLegendLabelItem, ChartData } from 'chart.js';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 enum Colors {
   Red = 'rgb(255,0,110)',
   Purple = 'rgb(112,49,238)',
   Blue = 'rgb(18,148,194)',
   Turquoise = 'rgb(0,255,213)'
+}
+
+interface IGradientData {
+  canvas: CanvasRenderingContext2D;
+  width: number;
+  stopPoints: number[];
+  colors: typeof Colors;
+  labelBreakpoint: number;
+}
+
+class Gradient {
+  private width: number;
+  private y: number;
+  smallRadius: number;
+  bigRadius: number;
+  private breakpoint: number;
+
+  constructor(private data: IGradientData) {
+    this.width = data.width;
+    this.y = this.width / 2;
+    this.smallRadius = 0.05;
+    this.bigRadius = 0.45;
+    this.breakpoint = this.data.labelBreakpoint;
+  }
+
+  private hasLabels() {
+    return (window.innerWidth > this.breakpoint);
+  }
+
+  private get x() {
+    return (this.hasLabels()) ? this.y + 35 : this.y;
+  }
+
+  private modifyWidthForLabels(width) {
+    return (this.hasLabels()) ? width - 155 : width;
+  }
+
+  private get innerRadius() {
+    // 155 only works for the labels in the order that they are currently in
+    const width = this.modifyWidthForLabels(this.width);
+    return width * this.smallRadius;
+  }
+
+  private get outerRadius() {
+    const width = this.modifyWidthForLabels(this.width);
+    return width * this.bigRadius;
+  }
+
+  create() {
+    const canvasGradient = this.data.canvas.createRadialGradient(
+      this.x,
+      this.y,
+      this.innerRadius,
+      this.x,
+      this.y,
+      this.outerRadius
+      );
+    canvasGradient.addColorStop(this.data.stopPoints[0], this.data.colors.Red);
+    canvasGradient.addColorStop(this.data.stopPoints[1], this.data.colors.Purple);
+    canvasGradient.addColorStop(this.data.stopPoints[2], this.data.colors.Blue);
+    canvasGradient.addColorStop(this.data.stopPoints[3], this.data.colors.Turquoise);
+    return canvasGradient;
+  }
+
 }
 
 interface ICanvas extends HTMLElement {
@@ -64,7 +129,7 @@ export interface IChartDataSet {
   fill: boolean;
   backgroundColor?: string;
   lineTension: number;
-  borderColor: string;
+  borderColor: string | CanvasGradient;
   pointBorderColor: string;
   pointRadius: number;
   pointBackgroundColor: string | string[];
@@ -93,6 +158,7 @@ export class StarComponent implements AfterViewInit, OnInit {
   @Input() size = '100%';
   @Input() breakpoint = 768;
 
+  breakpoints: number[];
   chart: IChart = {} as Chart;
   canvasID: string;
   ctx;
@@ -117,24 +183,24 @@ export class StarComponent implements AfterViewInit, OnInit {
     return 'canvas' + this.guid();
   }
 
-  createRadarPointColors(data) {
-    const dataSetColors = [];
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        if (data[key] < 2) {
-          dataSetColors[key] = Colors.Red;
-        } else if (data[key] < 5) {
-          dataSetColors[key] = Colors.Purple;
-        } else if (data[key] < 8) {
-          dataSetColors[key] = Colors.Blue;
-        } else  {
-          dataSetColors[key] = Colors.Turquoise;
-        }
-      }
-    }
-    return dataSetColors;
+  // createRadarPointColors(data) {
+  //   const dataSetColors = [];
+  //   for (const key in data) {
+  //     if (data.hasOwnProperty(key)) {
+  //       if (data[key] < 2) {
+  //         dataSetColors[key] = Colors.Red;
+  //       } else if (data[key] < 5) {
+  //         dataSetColors[key] = Colors.Purple;
+  //       } else if (data[key] < 8) {
+  //         dataSetColors[key] = Colors.Blue;
+  //       } else  {
+  //         dataSetColors[key] = Colors.Turquoise;
+  //       }
+  //     }
+  //   }
+  //   return dataSetColors;
 
-  }
+  // }
 
   // createGradient(ctx, parentElement) {
   //   const width =  parentElement.offsetWidth;
@@ -154,33 +220,71 @@ export class StarComponent implements AfterViewInit, OnInit {
   //   return gradient;
   // }
 
-  createGradient(ctx, parentElement) {
-    const width =  parentElement.offsetWidth;
-    const Ymiddle = width / 2;
-    let Xmiddle = Ymiddle;
-    let webWidth = width;
-    if ( window.innerWidth > this.breakpoint ) {
-      Xmiddle = Xmiddle + 35;  // 35 only works for the labels in the order that they are currently in
-      webWidth = webWidth - 155; // 155 only works for the labels in the order that they are currently in
+  createRGB(red, green, blue) {
+    const newRed = Math.floor(red);
+    const newGreen = Math.floor(green);
+    const newBlue = Math.floor(blue);
+    return 'rgb(' + newRed + ',' + newGreen + ',' + newBlue + ')';
+  }
+
+  rgbLinearFunctions(score, lowerScoreBound, upperScoreBound, startRed, startGreen, startBlue, endRed, endGreen, endBlue) {
+    const translatedScore = upperScoreBound - score;
+    const range = upperScoreBound - lowerScoreBound;
+    const red = (startRed - endRed) / (range) * translatedScore + endRed;
+    const green = (startGreen - endGreen) / (range) * translatedScore + endGreen;
+    const blue = (startBlue - endBlue) / (range) * translatedScore + endBlue;
+    return this.createRGB(red, green, blue);
+  }
+
+  createRadarPointColors(data) {
+    const dataSetColors = [];
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        if (data[key] < this.breakpoints[0]) {
+          dataSetColors[key] = Colors.Red;
+        } else if (data[key] < this.breakpoints[1]) {
+          dataSetColors[key] = this.rgbLinearFunctions(data[key], this.breakpoints[0], this.breakpoints[1], 255, 0, 110, 112, 49, 238);
+        } else if (data[key] < this.breakpoints[2]) {
+          dataSetColors[key] = this.rgbLinearFunctions(data[key], this.breakpoints[1], this.breakpoints[2], 112, 49, 238, 18, 148, 194);
+        } else if (data[key] < this.breakpoints[3]) {
+          dataSetColors[key] = this.rgbLinearFunctions(data[key], this.breakpoints[2], this.breakpoints[3], 18, 148, 194, 0, 255, 213);
+        } else  {
+          dataSetColors[key] = Colors.Turquoise;
+        }
+      }
     }
-    const gradient = ctx.createRadialGradient(
-      Xmiddle,
-      Ymiddle,
-      webWidth * 0.05,
-      Xmiddle,
-      Ymiddle,
-      webWidth * 0.45 );
-      console.log(width);
-    gradient.addColorStop(0, Colors.Red);
-    gradient.addColorStop(0.31, Colors.Purple);
-    gradient.addColorStop(0.69, Colors.Blue);
-    gradient.addColorStop(1, Colors.Turquoise);
-    return gradient;
+    return dataSetColors;
+  }
+
+  createBreakpoints(smallRadius, bigRadius, gradientStopPoints) {
+    const breakpoints: number[] = [];
+    for (const point in gradientStopPoints) {
+      if (gradientStopPoints.hasOwnProperty(point)) {
+        breakpoints.push(
+          20 * (smallRadius + (bigRadius - smallRadius) * gradientStopPoints[point])
+        );
+      }
+    }
+    return breakpoints;
+
+  }
+
+  createGradient(gradientData: IGradientData) {
+      const gradient = new Gradient( gradientData );
+      this.breakpoints = this.createBreakpoints(gradient.smallRadius, gradient.bigRadius, gradientData.stopPoints);
+      return gradient.create();
   }
 
   overrideGradient() {
     const parentElement = document.getElementById(this.canvasID + '-parent');
-      const gradient = this.createGradient(this.ctx, parentElement);
+      const gradient = this.createGradient(
+        {
+          canvas: this.ctx,
+          width: parentElement.offsetWidth,
+          stopPoints: [0, 0.31, 0.69, 1],
+          labelBreakpoint: this.breakpoint,
+          colors: Colors
+        });
       const pointColors = this.createRadarPointColors(this.data.datasets[0].data);
       this.data.options.layout.padding.bottom = 0;
       this.data.options.layout.padding.top = 0;
@@ -248,3 +352,5 @@ export class StarComponent implements AfterViewInit, OnInit {
 
 
 }
+
+
