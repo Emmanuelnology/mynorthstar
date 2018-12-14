@@ -183,43 +183,6 @@ export class StarComponent implements AfterViewInit, OnInit {
     return 'canvas' + this.guid();
   }
 
-  // createRadarPointColors(data) {
-  //   const dataSetColors = [];
-  //   for (const key in data) {
-  //     if (data.hasOwnProperty(key)) {
-  //       if (data[key] < 2) {
-  //         dataSetColors[key] = Colors.Red;
-  //       } else if (data[key] < 5) {
-  //         dataSetColors[key] = Colors.Purple;
-  //       } else if (data[key] < 8) {
-  //         dataSetColors[key] = Colors.Blue;
-  //       } else  {
-  //         dataSetColors[key] = Colors.Turquoise;
-  //       }
-  //     }
-  //   }
-  //   return dataSetColors;
-
-  // }
-
-  // createGradient(ctx, parentElement) {
-  //   const width =  parentElement.offsetWidth;
-  //   const middle = width / 2;
-  //   const gradient = ctx.createRadialGradient(
-  //     middle,
-  //     middle,
-  //     30,
-  //     middle,
-  //     middle,
-  //     middle * 0.8 );
-  //     console.log(width);
-  //   gradient.addColorStop(0, Colors.Red);
-  //   gradient.addColorStop(0.3, Colors.Purple);
-  //   gradient.addColorStop(0.7, Colors.Blue);
-  //   gradient.addColorStop(1, Colors.Turquoise);
-  //   return gradient;
-  // }
-
   createRGB(red, green, blue) {
     const newRed = Math.floor(red);
     const newGreen = Math.floor(green);
