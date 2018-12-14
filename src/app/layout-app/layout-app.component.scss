@@ -199,20 +199,20 @@ h1 {
 /* Safari 7.1+ */
 _::-webkit-full-page-media, _:future, :root .safari_only {
   .content {
-    background-size: cover auto;
+    background-size: auto cover;
   }
 }
 
 /* Safari 10.1+ */
 @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
   .content {
-    background-size: cover auto;
+    background-size: auto cover;
   }
 }
 
 /* CSS specific to iOS devices */
 @supports (-webkit-overflow-scrolling: touch) {
   .content {
-    background-size: cover auto;
+    background-size: auto cover;
   }
  }
