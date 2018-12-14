@@ -169,7 +169,7 @@ export class StarComponent implements AfterViewInit, OnInit {
       webWidth * 0.05,
       Xmiddle,
       Ymiddle,
-      webWidth * 0.45 );
+      webWidth * 0.5 );
       console.log(width);
     gradient.addColorStop(0, Colors.Red);
     gradient.addColorStop(0.3, Colors.Purple);
