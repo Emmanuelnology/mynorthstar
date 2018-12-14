@@ -29,8 +29,9 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    border: 1px solid $grey;
+    border: 1px solid $pink;
     border-radius: 5px;
+    background-color: $pink-tint
 }
 
 .taskitem-checkbox {
@@ -60,7 +61,7 @@ label {
 }
 
 .unchecked2 {
-    color: $grey
+    color:  $pink;
 }
 
 .checked {
@@ -104,4 +105,19 @@ label {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+#overdue {
+    float: right;
+    font-size: $f-md;
+	background: none;
+	color: $pink;
+    border: none;
+    margin: $ls-xs $ls-sm;
+	padding: 2px 5px;
+    outline: inherit;
+}
+
+.spacing {
+    width: 70px;
 }

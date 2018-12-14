@@ -17,6 +17,9 @@
               <p>{{ task.task }}</p>
             </div>
             <div class="delete-task">
+              <div class="spacing">
+                <i class="fas fa-exclamation-circle" id="overdue" title="Task is overdue"></i>
+              </div>
               <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
             </div>
           </li>
@@ -36,31 +39,36 @@
               </div>
             </div>
             <div class="delete-task">
+              <!-- <div class="spacing">
+              </div> -->
               <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
             </div>
           </li>
         </div>
       </div>
-        
-        <!-- checked -->
-        <div [hidden]="task.isChecked === false">
-          <li class="list-item2">
-            <div class="taskitem-checkbox">
-              <label>
-                <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)"
-                class="checked">
-                <i class="ticked far fa-check-square"></i>
-              </div>
-            </label>
-            <p>{{ task.task }}</p>
-          </div>
-          <div class="delete-task">
-            <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
-          </div>
-        </li>
-      </div>
       
+      <!-- checked -->
+      <div [hidden]="task.isChecked === false">
+        <li class="list-item2">
+          <div class="taskitem-checkbox">
+            <label>
+              <div [hidden]="task.isChecked === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)"
+              class="checked">
+              <i class="ticked far fa-check-square"></i>
+            </div>
+          </label>
+          <p>{{ task.task }}</p>
+        </div>
+        <div class="delete-task">
+          <!-- <div class="spacing">
+            
+          </div> -->
+          <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
+        </div>
+      </li>
     </div>
-  </ul>
+    
+  </div>
+</ul>
 </div>
 </div>
