@@ -4,6 +4,7 @@
       <div *ngFor="let task of tasks | async; let i = index">
         
         <div [hidden]="task.isChecked === true ">
+          
           <!-- unchecked and overdue -->
           <div [hidden]=" task.isOverdue === false">
             <li class="list-item1">
@@ -39,8 +40,6 @@
               </div>
             </div>
             <div class="delete-task">
-              <!-- <div class="spacing">
-              </div> -->
               <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
             </div>
           </li>
@@ -60,9 +59,6 @@
           <p>{{ task.task }}</p>
         </div>
         <div class="delete-task">
-          <!-- <div class="spacing">
-            
-          </div> -->
           <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
         </div>
       </li>

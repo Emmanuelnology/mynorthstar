@@ -12,28 +12,27 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  
+
   constructor(private db: AngularFirestore, private taskManagerService: TaskManagerService) {
     this.tasks = this.taskManagerService.tasks;
-    
+
   }
-  
+
   tasks: Observable<ITask[]>;
-  
+
   ngOnInit() {
-    // this.overdueTask(task)
-    
+
   }
-  
-  
+
+
   onDelete(task: ITaskDownload) {
     this.taskManagerService.deleteTask(task);
-    
+
   }
-  
+
   checked(task: ITaskDownload) {
     this.taskManagerService.checked(task);
-    
+
   }
 
 }
