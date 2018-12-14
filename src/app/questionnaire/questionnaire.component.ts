@@ -59,7 +59,6 @@ export class QuestionnaireComponent implements OnInit, OnDestroy {
             }
         }
         this.number = numberAnswered.length;
-        console.log("hey", this.number);
         this.enableSendButton(this.number);
         // return console.log(numberAnswered.length);
     }
