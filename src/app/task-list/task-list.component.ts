@@ -21,6 +21,7 @@ export class TaskListComponent implements OnInit {
   tasks: Observable<ITask[]>;
   
   ngOnInit() {
+    // this.overdueTask(task)
     
   }
   
@@ -34,15 +35,5 @@ export class TaskListComponent implements OnInit {
     this.taskManagerService.checked(task);
     
   }
-  
-  overdueTask(task: ITaskDownload){
-    const currentTimestamp = new Date().getMonth();
-    const previousTimestamp = task.timestamp.toDate().getMonth();
-    if (currentTimestamp-previousTimestamp >= 1){
-      task.isOverdue = true;
-    this.taskManagerService.updateOverdue(task)
-  }
 
-  
-}
 }

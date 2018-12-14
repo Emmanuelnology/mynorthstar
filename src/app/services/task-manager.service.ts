@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { Reference } from '@angular/compiler/src/render3/r3_ast';
 
 // Snapshot changes and then pipe map and return document ID.
 
@@ -14,6 +15,7 @@ export class TaskManagerService {
     
     tasks: Observable<ITaskDownload[]>;
     taskCollection: AngularFirestoreCollection<ITask>;
+    overdueCollection: AngularFirestoreCollection<ITaskDownload>
     
     constructor(private db: AngularFirestore, private auth: AuthService) {
         this.taskCollection = this.db.collection<ITask>('tasks', (reference) => {
@@ -21,16 +23,25 @@ export class TaskManagerService {
             .where('userId', '==', this.auth.user.uid).orderBy('timestamp', 'desc');
             
         });
+        this.overdueCollection = this.db.collection<ITaskDownload>('tasks', (Reference) =>{
+            return Reference
+            .where('userId', '==', this.auth.user.uid)
+        });
         this.tasks = this.taskCollection.snapshotChanges()
         .pipe(map(this.includeCollectionID));
-        
     }
     
-    includeCollectionID(docChangeAction) {
+        includeCollectionID(docChangeAction) {
         return docChangeAction.map((a) => {
-            const data = a.payload.doc.data();
+            const data = a.payload.doc.data() as ITaskDownload;
             const id = a.payload.doc.id;
-            return {id, ...data };
+            const currentTimestamp = new Date().getMonth();
+            const previousTimestamp = data.timestamp.toDate().getMonth();
+            if (currentTimestamp-previousTimestamp >= 1){
+                data.isOverdue=true;
+            }
+
+            return { id, ...data };
         });
     }
     
@@ -74,21 +85,6 @@ export class TaskManagerService {
                     console.log(error);
                     throw new Error('Unable to update user');
                 });
-            }
-
-            updateOverdue(task:ITaskDownload){
-                const overduePayload= {
-                    isOverdue: task.isOverdue
-                };
-                this.taskCollection.doc(task.id).update(overduePayload)
-                .then(()=> {
-                    console.log( 'isOverdue updated')
-                })
-                .catch((error)=>
-                {
-                    console.log(error);
-                    throw new Error('unable to update isOverdue')
-                })
             }
 
             
