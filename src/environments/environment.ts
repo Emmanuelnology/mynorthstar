@@ -12,9 +12,6 @@ export const environment = {
     projectId: 'my-northstar-dev',
     storageBucket: 'my-northstar-dev.appspot.com',
     messagingSenderId: '1061711582934'
-  },
-  tracking: {
-    id: ''
   }
 };
 

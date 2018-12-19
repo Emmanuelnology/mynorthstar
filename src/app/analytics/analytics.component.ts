@@ -6,9 +6,7 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./analytics.component.scss']
 })
 export class AnalyticsComponent implements OnInit {
-  trackingID: string;
   constructor() {
-    this.trackingID = environment.tracking.id;
    }
 
   ngOnInit() {
