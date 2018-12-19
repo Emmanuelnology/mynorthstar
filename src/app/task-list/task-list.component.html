@@ -6,7 +6,7 @@
         <div [hidden]="task.isChecked === true ">
           
           <!-- unchecked and overdue -->
-          <div [hidden]=" task.isOverdue === false">
+          <div [hidden]=" task.isOverdue !== true">
             <li class="list-item1">
               <div class="taskitem-checkbox">
                 <label>
