@@ -3,14 +3,16 @@
 .all-html-questionnaire {
     display: flex;
     flex-direction: row;
-    height: 100vh;
-    overflow: hidden;
 }
 
 .whole-check-list {
+    position: fixed;
     display: flex;
     flex-basis: 10px;
     margin: 0;
+    padding-bottom: $largeMenuWidth;
+    width: 10px;
+    height: 100vh;
 }
 
 .check-list {
@@ -173,15 +175,14 @@ div.sendButton {
 }
 
 .progress-arc {
+    position:relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
 }
 
 .progress-amount {
-    top: 40%;
-    left: 38%; //position % for centering score in IE 11. 
     z-index:1;
     position:absolute;
     margin-top: 0px;
@@ -190,15 +191,22 @@ div.sendButton {
     text-align: center;
 }
 
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .progress-amount {
+        top: 41%; 
+        left: 45%;
+    }
+
+}
+
+
 .progress-component {
     transform:rotate(180deg);
 }
 
-.question-brief {
-    display: block;
-    position: absolute;
-    width: 200px;
-    top: 320px;    
+.question-brief { 
+    margin-top:$s-sm;
 }
 
 @media only screen and (min-width: 894px) {
@@ -207,24 +215,15 @@ div.sendButton {
     }
     .right {
         display: block;
+        position:fixed;
+        top:$largeMenuWidth + $s-sm;
+        right:0;
     }
 }
 
 // Internet Explorer ------------------------------------------------------------------
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-.whole-check-list {
-    display: flex;
-    flex-basis: 10px;
-    margin: 0;
-}
-
-.check-list {
-    height: 40vw;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
 
 div.check-list a {
     flex-grow: 1;
@@ -235,10 +234,10 @@ div.check-list a {
 }
 
 .progress-arc {
-    border: 5px solid $turquoise;
+    border: 8px solid $turquoise;
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 180px;
+    width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -249,7 +248,7 @@ div.check-list a {
 
 .progress-amount {
     position: absolute;
-    left: 42px;
+    left: 55px;
 }
 
 .score-flex > input {    
@@ -298,7 +297,7 @@ input[type=range]:focus::-ms-fill-upper {
 .question-brief {
     position: absolute;
     width: 200px;
-    top: 190px;  
+    top: 200px;  
 }
 }
 
@@ -328,10 +327,10 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .progress-arc {
-    border: 5px solid $turquoise;
+    border: 8px solid $turquoise;
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 180px;
+    width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,13 +339,13 @@ input[type=range]:focus::-ms-fill-upper {
 
 .progress-amount {
     position: absolute;
-    left: 42px;
+    left: 55px;
 }
 
 .question-brief {
     position: absolute;
-    width: 200px;
-    top: 290px;  
+    width: 220px;
+    // top: 290px;  
 }
 
 }
@@ -354,14 +353,6 @@ input[type=range]:focus::-ms-fill-upper {
 // FireFox ----------------------------------------------------------
 
 @-moz-document url-prefix() {
-    .whole-check-list {
-    height: 100%;
-    margin: 0;
-}
-
-div.check-list a {
-    height: 10px;
-}
 
 .score-flex > input {    
     height: 7px;
@@ -413,6 +404,7 @@ input::-moz-range-track {
     width: 20%;
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 5%;
 }
 
 .progress-arc {
@@ -422,8 +414,22 @@ input::-moz-range-track {
 .question-brief {
     display: block;
     position: relative;
-    width: 200px;
+    width: 250px;
     top: 0;
     margin-top: -100px;
 }
 }
+
+// /* Safari 7.1+ */
+// _::-webkit-full-page-media, _:future, :root .safari_only {
+//     .all-html-questionnaire {
+//         height: 140%;
+//     }
+// }
+
+// /* Safari 10.1+ */
+// @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
+//     .all-html-questionnaire {
+//         height: 140%;
+//     }
+// }

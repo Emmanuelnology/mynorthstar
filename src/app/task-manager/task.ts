@@ -3,6 +3,7 @@ export interface ITask {
     userId: string;
     task: string;
     isChecked: boolean;
+    isOverdue: boolean;
 }
 export interface ITaskUpload extends ITask {
     timestamp: Date;

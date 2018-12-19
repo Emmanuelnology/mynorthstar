@@ -47,7 +47,7 @@ export class MainStarComponent implements OnInit, AfterViewInit {
         labels : {
           fontColor: 'white',
           filter: function (item, starData) {
-            return !item.text.includes('remove');
+            return item.text.length !== 0;
           }
         }
       },

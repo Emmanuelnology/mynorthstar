@@ -1,7 +1,7 @@
 @import "../../variables.scss";
 
 .body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   color:white;
@@ -12,7 +12,15 @@
 }
 
 main {
+  margin-top: $largeMenuWidth;
   // overflow: scroll;
+}
+
+header {
+  position:fixed;
+  z-index:99;
+  width:100%;
+  background-color:$nav-color;
 }
 
 header .wrapper > * {
@@ -49,10 +57,10 @@ header .wrapper {
   display:flex;
 }
 
+
 .menu {
   min-width: $smallMenuWidth;
   max-width: $smallMenuWidth;
-  overflow: hidden;
   transition: 0.5s;
 }
 
@@ -84,16 +92,16 @@ h1 {
 
 .content {
   background-image: url('../../assets/backgrounds/background2.jpg');
-  max-height: 100vh;
+  // min-height: 100vh;
+
   background-size: auto;
   background-repeat: no-repeat;
+  
+  background-attachment: fixed;
+  background-position: fixed;
   border: 1px solid $border-color;
   border-radius: 5px;
 //   padding: $s-sm;
-  overflow-y: hidden;
-  // overflow-x: hidden;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: auto;
 }
 
 .fa-caret-down {
@@ -126,7 +134,8 @@ h1 {
   li {
     padding: 5px;
     // border-bottom: 1px solid $border-color;
-}
+  }
+  
   li:hover {
     cursor: pointer;
     background-color: $turquoise-tint;
@@ -151,7 +160,6 @@ h1 {
     min-width: $largeMenuWidth;
     max-width: $largeMenuWidth;
   }
-
 }
 
 @media ( min-width: 580px){
@@ -166,8 +174,6 @@ h1 {
 
 }
 
-
-
 @media (min-width: $tablet-max) {
   .avatar {
     display:inline-block;
@@ -177,15 +183,42 @@ h1 {
     height: auto;
     // margin-top: 25px;
     // width: 100%;
-    
-
   }
+
   .greeting {
     display:inline-block;
   }
+
   h1 {
     font-size: $f-sm;
     margin-left: $s-md;
     letter-spacing: 15px;
+  }
+}
+
+/* Safari 7.1+ */
+_::-webkit-full-page-media, _:future, :root .safari_only {
+  .content {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+/* Safari 10.1+ */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
+  .content {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+/* CSS specific to iOS devices */
+@supports (-webkit-overflow-scrolling: touch) {
+  .content {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 }

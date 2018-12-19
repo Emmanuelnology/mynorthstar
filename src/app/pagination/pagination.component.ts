@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { QuestionnaireComponent } from '../questionnaire/questionnaire.component';
+import { QuestionnaireService } from '../services/questionnaire.service';
 
 // export interface IPage {
 //   page: number;
@@ -38,10 +39,10 @@ export class PaginationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.createPages(this.questionnaireComponent.questions);
   }
 
   createPages(questions) {
-
     for (let page = 0; page <= this.maxPages - 1; page++) {
         const eachPageArray = [];
         for (let i = ( page * this.itemsPerPage ); i <= ( page * this.itemsPerPage ) + ( this.itemsPerPage - 1); i++) {
@@ -49,7 +50,7 @@ export class PaginationComponent implements OnInit {
         }
         this.paginatedArray.push(eachPageArray);
     }
-    // questions = this.paginatedArray;
-    console.log(17);
-    }
+    questions = this.paginatedArray;
+    console.log(25);
+  }
 }

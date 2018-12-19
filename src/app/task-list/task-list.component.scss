@@ -4,7 +4,7 @@
     padding: 0 $s-sm;
 }
 
-.list-item {
+.list-item1 {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -24,6 +24,16 @@
     background-color: $turquoise-tint;
 }
 
+.list-item3 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border: 1px solid $pink;
+    border-radius: 5px;
+    background-color: $pink-tint
+}
+
 .taskitem-checkbox {
     display: flex;
     flex-direction: row;
@@ -41,19 +51,25 @@ label {
     position: relative;
 }
 
-.unchecked, .checked {
+.unchecked,
+.checked {
     font-size: $f-md;
 }
 
-.unchecked {
+.unchecked1 {
     color: $pink;
+}
+
+.unchecked2 {
+    color:  $pink;
 }
 
 .checked {
     color: $turquoise;
 }
 
-.unticked, .ticked {
+.unticked,
+.ticked {
     margin: $ls-xs $ls-sm;
 }
 
@@ -89,4 +105,19 @@ label {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+#overdue {
+    float: right;
+    font-size: $f-md;
+	background: none;
+	color: $pink;
+    border: none;
+    margin: $ls-xs $ls-sm;
+	padding: 2px 5px;
+    outline: inherit;
+}
+
+.spacing {
+    width: 70px;
 }

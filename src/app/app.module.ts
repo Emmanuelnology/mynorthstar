@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthGuard } from './services/auth-guard.service';
 import { environment } from '../environments/environment';
 
+import { ClickOutsideModule } from 'ng-click-outside';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 // Components
 import { AppComponent } from './app.component';
@@ -66,8 +68,6 @@ const routes: Routes = [
   { path: '**', component: ErrorsComponent, data: { error: 404 } }
 ];
 
-import { ClickOutsideModule } from 'ng-click-outside';
-import { AnalyticsComponent } from './analytics/analytics.component';
 
 @NgModule({
   declarations: [

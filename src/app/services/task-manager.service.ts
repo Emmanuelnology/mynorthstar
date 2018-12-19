@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { Reference } from '@angular/compiler/src/render3/r3_ast';
 
 // Snapshot changes and then pipe map and return document ID.
 
@@ -14,6 +15,7 @@ export class TaskManagerService {
 
     tasks: Observable<ITaskDownload[]>;
     taskCollection: AngularFirestoreCollection<ITask>;
+    overdueCollection: AngularFirestoreCollection<ITaskDownload>;
 
     constructor(private db: AngularFirestore, private auth: AuthService) {
         this.taskCollection = this.db.collection<ITask>('tasks', (reference) => {
@@ -21,18 +23,29 @@ export class TaskManagerService {
             .where('userId', '==', this.auth.user.uid).orderBy('timestamp', 'desc');
 
         });
+        this.overdueCollection = this.db.collection<ITaskDownload>('tasks', (ref) => {
+            return ref
+            .where('userId', '==', this.auth.user.uid);
+        });
         this.tasks = this.taskCollection.snapshotChanges()
         .pipe(map(this.includeCollectionID));
-
     }
 
-    includeCollectionID(docChangeAction) {
+        includeCollectionID(docChangeAction) {
         return docChangeAction.map((a) => {
-            const data = a.payload.doc.data();
+            const data = a.payload.doc.data() as ITaskDownload;
             const id = a.payload.doc.id;
-            return {id, ...data };
+            const currentTimestamp = new Date().getMonth();
+            const previousTimestamp = data.timestamp.toDate().getMonth();
+            if (currentTimestamp - previousTimestamp >= 1) {
+                data.isOverdue = true;
+            }
+
+            return { id, ...data };
         });
     }
+
+
 
     addTask(task: ITaskUpload) {
         return this.taskCollection.add(task).catch(
@@ -53,7 +66,8 @@ export class TaskManagerService {
             }
 
             deleteTask(task: ITaskDownload) {
-                this.taskCollection.doc(`${task.id}`).delete().then(function() {
+                this.taskCollection.doc(`${task.id}`).delete()
+                .then(function() {
                 }).catch(function(error) {
                     throw new Error('Did not delete!');
                 });
@@ -65,7 +79,6 @@ export class TaskManagerService {
                 };
                 this.taskCollection.doc(task.id).update(payload)
                 .then(() => {
-
                     console.log('updated tasks ' + task.task);
                 })
                 .catch((error) => {
@@ -73,5 +86,9 @@ export class TaskManagerService {
                     throw new Error('Unable to update user');
                 });
             }
+
+
         }
+
+
 

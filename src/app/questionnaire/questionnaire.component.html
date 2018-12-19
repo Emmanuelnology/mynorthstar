@@ -3,8 +3,7 @@
     <div class="all-html-questionnaire">   
         <div class="whole-check-list">
             <div class="check-list">
-                <a href="#{{question.id}}" *ngFor="let question of questions" class="each-check {{(question.score !==null) ? 'complete':'incomplete'}}">
-                </a>
+                <a href="#{{question.id}}" *ngFor="let question of questions" class="each-check {{(question.score !==null) ? 'complete':'incomplete'}}"></a>
             </div>
         </div>
         
@@ -29,7 +28,8 @@
                                                 [(ngModel)]="question.score"
                                                 name="question-{{question.number}}" 
                                                 min="0" max="10"
-                                                (change)="blobClick()"       
+                                                (mouseup)="blobClick()"
+                                                (change)="blobClick()"   
                                                 required
                                                 [style.backgroundColor]="getSliderColor(question?.score)"
                                                 >
@@ -37,6 +37,7 @@
                                                 class="scoring-blob score-inputs"
                                                 type="range"
                                                 [(ngModel)]="question.score"
+                                                (mouseup)="blobClick()"
                                                 (change)="blobClick()"
                                                 name="question-{{question.number}}" 
                                                 min="0" max="10"
@@ -104,9 +105,9 @@
             </div>
         </div>
         <div class="question-brief">
-            <p>Try to answer the questions quickly and don’t ponder too long.
-                The idea is that you go with you gut and how you feel.
-                There is no right answer but honesty is the key to getting the best result
+            <p>Try to answer the questions quickly and don’t ponder too long on them.
+                The idea is that you go with your gut and how you feel.
+                There is no right answer- honesty is the key to getting the best results!
             </p>
             <button (click)="randomiseAnswers()" *ngIf="!environment.production" class="btn btn-open btn-pink">Randomise Answers</button>
             <!-- <div class="sendButton">
