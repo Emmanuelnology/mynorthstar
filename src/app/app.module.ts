@@ -67,6 +67,7 @@ const routes: Routes = [
 ];
 
 import { ClickOutsideModule } from 'ng-click-outside';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { ClickOutsideModule } from 'ng-click-outside';
     UserProfileOptionsComponent,
     ImportComponent,
     SpinnerComponent,
-    PaginationComponent
+    PaginationComponent,
+    AnalyticsComponent
   ],
   imports: [
     BrowserModule,
