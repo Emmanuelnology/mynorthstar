@@ -14,7 +14,6 @@ import { AuthGuard } from './services/auth-guard.service';
 import { environment } from '../environments/environment';
 
 import { ClickOutsideModule } from 'ng-click-outside';
-import { AnalyticsComponent } from './analytics/analytics.component';
 
 // Components
 import { AppComponent } from './app.component';
@@ -96,8 +95,7 @@ const routes: Routes = [
     UserProfileOptionsComponent,
     ImportComponent,
     SpinnerComponent,
-    PaginationComponent,
-    AnalyticsComponent
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
