@@ -13,6 +13,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthGuard } from './services/auth-guard.service';
 import { environment } from '../environments/environment';
 
+<<<<<<< HEAD
+=======
+import { ClickOutsideModule } from 'ng-click-outside';
+
+>>>>>>> c1fe16a4d7111552306bce10779acf47149b0cc5
 // Components
 import { AppComponent } from './app.component';
 import { LayoutAuthComponent } from './layout-auth/layout-auth.component';
@@ -65,7 +70,6 @@ const routes: Routes = [
   { path: '**', component: ErrorsComponent, data: { error: 404 } }
 ];
 
-// import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -100,7 +104,7 @@ const routes: Routes = [
     BrowserModule,
     Ng2ArcProgressModule,
     FormsModule,
-    // ClickOutsideModule,
+    ClickOutsideModule,
     RouterModule.forRoot(
       routes,
       {
