@@ -15,9 +15,13 @@ export interface IUser {
 })
 
 export class AuthService {
-  userCollection: AngularFirestoreCollection;
+  // userCollection: AngularFirestoreCollection;
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
-    this.userCollection = this.db.collection('userAttributes');
+    // this.userCollection = this.db.collection('userAttributes');
+  }
+
+  get userCollection(): AngularFirestoreCollection {
+    return this.db.collection('userAttributes');
   }
 
   get user() {

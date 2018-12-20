@@ -13,39 +13,56 @@ import { Reference } from '@angular/compiler/src/render3/r3_ast';
 })
 export class TaskManagerService {
 
-    tasks: Observable<ITaskDownload[]>;
-    taskCollection: AngularFirestoreCollection<ITask>;
-    overdueCollection: AngularFirestoreCollection<ITaskDownload>;
+    // tasks: Observable<ITaskDownload[]>;
+    // taskCollection: AngularFirestoreCollection<ITask>;
+    // overdueCollection: AngularFirestoreCollection<ITaskDownload>;
 
     constructor(private db: AngularFirestore, private auth: AuthService) {
-        this.taskCollection = this.db.collection<ITask>('tasks', (reference) => {
+        // this.taskCollection = this.db.collection<ITask>('tasks', (reference) => {
+        //     return reference
+        //     .where('userId', '==', this.auth.user.uid).orderBy('timestamp', 'desc');
+
+        // });
+        // this.overdueCollection = this.db.collection<ITaskDownload>('tasks', (ref) => {
+        //     return ref
+        //     .where('userId', '==', this.auth.user.uid);
+        // });
+        // this.tasks = this.taskCollection.snapshotChanges()
+        // .pipe(map(this.includeCollectionID));
+    }
+
+    includeCollectionID(docChangeAction) {
+    return docChangeAction.map((a) => {
+        const data = a.payload.doc.data() as ITaskDownload;
+        const id = a.payload.doc.id;
+        const currentTimestamp = new Date().getMonth();
+        const previousTimestamp = data.timestamp.toDate().getMonth();
+        if (currentTimestamp - previousTimestamp >= 1) {
+            data.isOverdue = true;
+        }
+        return { id, ...data };
+        });
+    }
+
+    get taskCollection(): AngularFirestoreCollection<ITask> {
+        return this.db.collection<ITask>('tasks', (reference) => {
             return reference
             .where('userId', '==', this.auth.user.uid).orderBy('timestamp', 'desc');
 
         });
-        this.overdueCollection = this.db.collection<ITaskDownload>('tasks', (ref) => {
+    }
+
+    get overdueCollection(): AngularFirestoreCollection<ITaskDownload> {
+        return this.db.collection<ITaskDownload>('tasks', (ref) => {
             return ref
             .where('userId', '==', this.auth.user.uid);
         });
-        this.tasks = this.taskCollection.snapshotChanges()
+    }
+
+    get tasks(): Observable<ITaskDownload[]> {
+        return  this.taskCollection.snapshotChanges()
         .pipe(map(this.includeCollectionID));
     }
-
-        includeCollectionID(docChangeAction) {
-        return docChangeAction.map((a) => {
-            const data = a.payload.doc.data() as ITaskDownload;
-            const id = a.payload.doc.id;
-            const currentTimestamp = new Date().getMonth();
-            const previousTimestamp = data.timestamp.toDate().getMonth();
-            if (currentTimestamp - previousTimestamp >= 1) {
-                data.isOverdue = true;
-            }
-
-            return { id, ...data };
-        });
-    }
-
-
 
     addTask(task: ITaskUpload) {
         return this.taskCollection.add(task).catch(
