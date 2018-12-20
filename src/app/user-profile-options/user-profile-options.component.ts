@@ -9,7 +9,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./user-profile-options.component.scss']
 })
 
-
 export class UserProfileOptionsComponent implements OnInit {
   newName = '';
   errorNewName = '';
@@ -22,8 +21,6 @@ export class UserProfileOptionsComponent implements OnInit {
   newImage = '';
   errorNewImage = '';
 
-  newLocation = '';
-
   newPassword = '';
   successChangePassword = '';
   errorChangePassword = '';
@@ -31,13 +28,12 @@ export class UserProfileOptionsComponent implements OnInit {
   confirmPassword = '';
 
   user;
+
   constructor(public afAuth: AngularFireAuth, private authService: AuthService, private router: Router) {
     this.user = authService.user;
    }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   updateClientName() {
     this.authService.changeName(this.newName).then(
@@ -103,12 +99,4 @@ export class UserProfileOptionsComponent implements OnInit {
       }
     );
   }
-
-
-
-
 }
-
-
-
-
