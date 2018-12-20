@@ -82,10 +82,11 @@ export class UserProfileOptionsComponent implements OnInit {
       .catch(
         (error) => {
           this.errorNewImage = error.message;
+          console.error("Hello " + error.message);
         }
       );
     } else {
-      this.errorNewImage = 'Cannot update image, it must be a URL (beginning with \'http://\' or \'https://\'';
+      this.errorNewImage = 'Cannot update image, it must be a URL (beginning with \'http:\' or \'https:\')';
     }
   }
 
