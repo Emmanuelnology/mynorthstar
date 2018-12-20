@@ -61,7 +61,7 @@ export class AuthService {
   }
 
   changeImage(newImage: string) {
-    this.afAuth.auth.currentUser.updateProfile({
+    return this.afAuth.auth.currentUser.updateProfile({
       displayName: this.user.displayName,
       photoURL: newImage
     });
