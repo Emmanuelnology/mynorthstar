@@ -71,18 +71,25 @@ export class UserProfileOptionsComponent implements OnInit {
   }
 
   updateClientImage() {
-    console.log(this.newImage);
-    this.authService.changeImage(this.newImage).then(
-      () => {
-        this.newImage = '';
-        this.errorNewImage = '';
-      }
-    )
-    .catch(
-      (error) => {
-        this.errorNewImage = error.message;
-      }
-    );
+    //If statement will only execute update method if it is a valid URL.
+    if(this.newImage.indexOf('http') == 0){
+      this.authService.changeImage(this.newImage).then(
+        () => {
+          this.newImage = '';
+          this.errorNewImage = '';
+        }
+      )
+      .catch(
+        (error) => {
+          if(error.message == '{"error":{"code":400,"message":"INVALID_PROFILE_ATTRIBUTE","errors":[{"message":"INVALID_PROFILE_ATTRIBUTE","domain":"global","reason":"invalid"}]}}')
+            this.errorNewImage = "Please make sure this is a valid URL, it must begin with 'http://' or 'https://' ";
+          else
+            this.errorNewImage = error.message;
+        }
+      );
+    }
+    else
+      this.errorNewImage = "Cannot update image, it must be a URL (beginning with 'http://' or 'https://'";
   }
 
   updateClientPassword() {
