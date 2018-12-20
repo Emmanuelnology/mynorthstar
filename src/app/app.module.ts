@@ -13,7 +13,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthGuard } from './services/auth-guard.service';
 import { environment } from '../environments/environment';
 
-
 // Components
 import { AppComponent } from './app.component';
 import { LayoutAuthComponent } from './layout-auth/layout-auth.component';
