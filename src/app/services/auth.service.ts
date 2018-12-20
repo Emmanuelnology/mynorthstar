@@ -42,7 +42,7 @@ export class AuthService {
   }
 
   changeName(newName: string) {
-    this.afAuth.auth.currentUser.updateProfile({
+    return this.afAuth.auth.currentUser.updateProfile({
       displayName: newName,
       photoURL: this.user.photoURL
     });
