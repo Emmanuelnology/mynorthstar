@@ -39,6 +39,8 @@
             </div>
           </div>
         </form>
+        <p *ngIf="successNewName" style="color:green; background-color: white">{{successNewName}}</p>
+        <p *ngIf="errorNewName" style="color:red; background-color: white">{{errorNewName}}</p>
    
         <form >
           <div class="form-container">
@@ -102,6 +104,7 @@
             </div>
           </div>
         </form>
+        <p *ngIf="errorNewImage" style="color:red; background-color: white">{{errorNewImage}}</p>
       </div>
 
       <div id="password">
@@ -129,7 +132,7 @@
           <div *ngIf="passwordy.touched && passwordy.invalid" id="errors">
             <p>Password is invalid it must be:</p>
             <ul>
-              <li>6 characters</li>
+              <li>At least 6 characters</li>
               <li>One is a lowercase letter</li>
               <li>One is an uppercase letter</li>
               <li>One is a number</li>

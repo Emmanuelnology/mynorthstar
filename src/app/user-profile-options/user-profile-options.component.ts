@@ -12,12 +12,15 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 export class UserProfileOptionsComponent implements OnInit {
   newName = '';
+  errorNewName = '';
+  successNewName = '';
 
   newEmail = '';
   successUpdateEmail = '';
   errorUpdateEmail = '';
 
   newImage = '';
+  errorNewImage = '';
 
   newLocation = '';
 
@@ -37,12 +40,25 @@ export class UserProfileOptionsComponent implements OnInit {
   }
 
   updateClientName() {
-    this.authService.changeName(this.newName);
+    this.authService.changeName(this.newName).then(
+      () => {
+        this.newName = '';
+        this.errorNewName = '';
+        this.successNewName = 'Name successfully updated to \'' + this.authService.user.displayName + '\'';
+      }
+    )
+    .catch(
+      (error) => {
+        this.errorNewName = error.message;
+        this.successNewName = '';
+      }
+    );
   }
+
   updateClientEmailAddress() {
     this.authService.changeEmailAddress(this.newEmail).then(
       () => {
-        this.successUpdateEmail = 'Email updated successfully, your new address is ' + this.authService.user.email;
+        this.successUpdateEmail = 'Email updated successfully, your new address is \'' + this.authService.user.email + '\'';
         this.errorUpdateEmail = '';
       }
     )
@@ -50,6 +66,21 @@ export class UserProfileOptionsComponent implements OnInit {
       (error) => {
         this.errorUpdateEmail = error.message;
         this.successUpdateEmail = '';
+      }
+    );
+  }
+
+  updateClientImage() {
+    console.log(this.newImage);
+    this.authService.changeImage(this.newImage).then(
+      () => {
+        this.newImage = '';
+        this.errorNewImage = '';
+      }
+    )
+    .catch(
+      (error) => {
+        this.errorNewImage = error.message;
       }
     );
   }
@@ -69,10 +100,8 @@ export class UserProfileOptionsComponent implements OnInit {
     );
   }
 
-  updateClientImage() {
-    this.authService.changeImage(this.newImage);
-    this.newImage = '';
-  }
+
+
 
 }
 

@@ -15,9 +15,13 @@ export interface IUser {
 })
 
 export class AuthService {
-  userCollection: AngularFirestoreCollection;
+  // userCollection: AngularFirestoreCollection;
   constructor(private db: AngularFirestore, public afAuth: AngularFireAuth) {
-    this.userCollection = this.db.collection('userAttributes');
+    // this.userCollection = this.db.collection('userAttributes');
+  }
+
+  get userCollection(): AngularFirestoreCollection {
+    return this.db.collection('userAttributes');
   }
 
   get user() {
@@ -42,7 +46,7 @@ export class AuthService {
   }
 
   changeName(newName: string) {
-    this.afAuth.auth.currentUser.updateProfile({
+    return this.afAuth.auth.currentUser.updateProfile({
       displayName: newName,
       photoURL: this.user.photoURL
     });
@@ -61,7 +65,7 @@ export class AuthService {
   }
 
   changeImage(newImage: string) {
-    this.afAuth.auth.currentUser.updateProfile({
+    return this.afAuth.auth.currentUser.updateProfile({
       displayName: this.user.displayName,
       photoURL: newImage
     });
