@@ -1,5 +1,13 @@
 @import '../../variables.scss';
 
+.randomise {
+    text-align:center;
+}
+
+.randomise button {
+    margin: $s-sm;
+}
+
 .all-html-questionnaire {
     display: flex;
     flex-direction: row;
