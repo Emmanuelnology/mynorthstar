@@ -82,7 +82,6 @@ export class UserProfileOptionsComponent implements OnInit {
       .catch(
         (error) => {
           this.errorNewImage = error.message;
-          console.error('Hello ' + error.message);
         }
       );
     } else {
