@@ -70,7 +70,12 @@ export class UserProfileOptionsComponent implements OnInit {
   }
 
   updateClientImage() {
-    this.authService.changeImage(this.newImage);
+    console.log(this.newImage);
+    this.authService.changeImage(this.newImage).catch(
+      (error) => {
+        console.error(error.message);
+      }
+    );
     this.newImage = '';
   }
 
