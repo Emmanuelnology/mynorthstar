@@ -40,8 +40,6 @@ export class MyStarComponent implements OnInit, OnDestroy {
 
    getResults() {
     this.firebase.getAllResults().subscribe((this.results));
-    console.log('Results:', this.getResults());
-
   }
 
   restructureData(results) {

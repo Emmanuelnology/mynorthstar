@@ -166,7 +166,7 @@ export class Randomise {
   randomiseOrder(questionArray: IQuestion[]): IQuestion[] {
     const unsortedIntegerArray: number[] = this.createUnorderedArray(questionArray);
     const unsortedQuestionArray: IQuestion[] = this.assignQuestionRandomNumbers(questionArray, unsortedIntegerArray);
-    const sortedQuestionArray: IQuestion[] = unsortedQuestionArray.sort(function(question1, question2) {
+    const sortedQuestionArray: IQuestion[] = [...unsortedQuestionArray].sort(function(question1, question2) {
       return question1.number - question2.number;
     });
     return sortedQuestionArray;

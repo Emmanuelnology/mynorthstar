@@ -4,8 +4,7 @@ import {data} from './data';
 
 @Component({
   selector: 'app-import',
-  templateUrl: './import.component.html',
-  styleUrls: ['./import.component.scss']
+  templateUrl: './import.component.html'
 })
 export class ImportComponent implements OnInit {
 

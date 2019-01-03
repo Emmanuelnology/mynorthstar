@@ -69,11 +69,6 @@ fieldset{
   width: 40%;
 }
 
-button{
-  display: inline;
-  margin-right: 10px;
-}
-
 div{
   padding-top: 20px;
 }
@@ -100,6 +95,8 @@ div.submitButton {
 button{
   margin-left: 5px;
   width: 175px;
+  display: inline;
+  margin-right: 10px;
 }
 
 #errors{
