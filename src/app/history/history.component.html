@@ -25,7 +25,7 @@
         </p>
       </div>
       <div class="{{data.isActive?'active':'inactive'}}">
-        <i (click)="data.isActive = !data.isActive" (click)="findActive()" class="far {{data.isActive?'fa-check-square':'fa-square'}}"></i>
+        <i aria-hidden="true" (click)="data.isActive = !data.isActive" (click)="findActive()" class="far {{data.isActive?'fa-check-square':'fa-square'}}"></i>
       </div>
     </div>
   </div>
