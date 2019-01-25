@@ -35,9 +35,9 @@ export class TaskManagerService {
     return docChangeAction.map((a) => {
         const data = a.payload.doc.data() as ITaskDownload;
         const id = a.payload.doc.id;
-        const currentTimestamp = new Date().getMonth();
-        const previousTimestamp = data.timestamp.toDate().getMonth();
-        if (currentTimestamp - previousTimestamp >= 1) {
+        const currentTimestamp = new Date().getTime();
+        const previousTimestamp = data.timestamp.toDate().getTime();
+        if (currentTimestamp - previousTimestamp >= 2419200000) {
             data.isOverdue = true;
         }
         return { id, ...data };

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable, Subscription } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { PaginationComponent } from '../pagination/pagination.component';
 
 @Component({
     selector: 'app-questionnaire',
@@ -92,9 +91,11 @@ export class QuestionnaireComponent implements OnInit, OnDestroy {
         }
         if (value <= 3) {
             return 'rgb(236, 0, 129)';
-        } if (value <= 7 && value > 3) {
+        }
+        if (value <= 7 && value > 3) {
             return 'rgb(50, 152, 228)';
-        } if (value > 7) {
+        }
+        if (value > 7) {
             return 'rgb(0, 255, 210)';
         }
     }

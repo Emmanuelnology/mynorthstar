@@ -12,16 +12,16 @@
                 <label>
                   <div [hidden]="task.isChecked === true && task.isOverdue === true" (click)="task.isChecked = !task.isChecked" (click)="checked(task)"
                   class="unchecked1">
-                  <i class="unticked far fa-square"></i>
+                  <i aria-hidden="true" class="unticked far fa-square"></i>
                 </div>
               </label>
               <p>{{ task.task }}</p>
             </div>
             <div class="delete-task">
               <div class="spacing">
-                <i class="fas fa-exclamation-circle" id="overdue" title="Task is overdue"></i>
+                <i aria-hidden="true" class="fas fa-exclamation-circle" id="overdue" title="Task is overdue"></i>
               </div>
-              <button id="remove-task" (click)="onDelete(task)"><i class="fas fa-times"></i></button>
+              <button id="remove-task" (click)="onDelete(task)"><i aria-hidden="true" class="fas fa-times"></i></button>
             </div>
           </li>
         </div>
@@ -32,7 +32,7 @@
             <div class="taskitem-checkbox">
               <label>
                 <div [hidden]="task.isChecked === true && task.isOverdue === false" (click)="task.isChecked = !task.isChecked" (click)="checked(task)" class="unchecked2">
-                  <i class="unticked far fa-square"></i>
+                  <i aria-hidden="true" class="unticked far fa-square"></i>
                 </div>
               </label>
               <div>

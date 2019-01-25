@@ -27,7 +27,6 @@ import { LayoutAppComponent } from './layout-app/layout-app.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FireBaseTestDisplayComponent } from './fire-base-test-display/fire-base-test-display.component';
 import { ProgressArcComponent } from './progress-arc/progress-arc.component';
 
 import { StyleGuideComponent } from './style-guide/style-guide.component';
@@ -42,12 +41,10 @@ import { MainStarComponent } from './main-star/main-star.component';
 import { UserProfileOptionsComponent } from './user-profile-options/user-profile-options.component';
 import { ImportComponent } from './import/import.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { PaginationComponent } from './pagination/pagination.component';
 
 const routes: Routes = [
   // Test (TODO remove)
 
-  { path: 'fbtd', component: FireBaseTestDisplayComponent},
   { path: 'main-star', component: MainStarComponent, canActivate: [AuthGuard] },
 
   // Uunauthenticated routes
@@ -81,7 +78,6 @@ const routes: Routes = [
     CreateTaskComponent,
     TaskListComponent,
     DashboardComponent,
-    FireBaseTestDisplayComponent,
     ProgressArcComponent,
     StyleGuideComponent,
     LoginComponent,
@@ -94,8 +90,7 @@ const routes: Routes = [
     MainStarComponent,
     UserProfileOptionsComponent,
     ImportComponent,
-    SpinnerComponent,
-    PaginationComponent
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
